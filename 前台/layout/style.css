@@ -3286,7 +3286,7 @@ input.general_button {margin:0px; padding:0px 15px 4px; border:0px; cursor:point
 	.block_best_materials {width:407px; margin-left:7px;}
 	.block_best_materials .slider {width:426px;}
 	
-	.block_pricing_table_1 .column {width:105px;}
+	.block_pricing_table_1 .column { width:105px;}
 	.block_pricing_table_1 .column.category {width:101px;}
 	.block_pricing_table_1 .column.special {width:107px;}
 	
