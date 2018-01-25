@@ -747,7 +747,11 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 	text-transform:uppercase;
 }
 .block_blog_1 .blog_post .category a:hover {text-decoration:none;}
-.block_blog_1 .blog_post .views {height:32px; line-height:32px; margin-left:14px; padding-left:20px; float:left; display:block; background:url(images/icon_view_1.png) no-repeat 0px 11px; font-size:11px; color:#8a8a8a;}
+.block_blog_1 .blog_post .views {height:32px; line-height:32px; margin-left:14px;
+     padding-left:20px; float:left; display:block;
+     background:url(images/icon_view_1.png) no-repeat 0px 11px; 
+     font-size:11px; color:#8a8a8a;}
+a.views:hover {color: #f24024;}
 .block_blog_1 .blog_post .comments {height:32px; line-height:32px; margin-left:10px; padding-left:19px; float:left; display:block; background:url(images/icon_comment_1.png) no-repeat 0px 11px; font-size:11px; color:#8a8a8a;}
 
 .block_blog_2 {margin-left:-24px;}
