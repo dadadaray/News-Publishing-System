@@ -13,10 +13,7 @@ var settings_block = '<div id="color_picker" class="block_color_picker">\
         <a href="javascript:void(0)" id="picker_close"><img src="settings/images/trans.gif" alt="Close" title="Close" /></a>\
     </div>';
 $(function(){$('body').append(settings_block);});
-document.write('<link rel="stylesheet" href="settings/style.css" type="text/css">');
-document.write('<script type="text/javascript" src="settings/js/jquery.cookies.min.js"></script>');
-document.write('<script type="text/javascript" src="settings/js/main.js"></script>');
-/* settings block end */
+
 
 
 
