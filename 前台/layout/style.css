@@ -1791,7 +1791,7 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 	
 	behavior:url(js/PIE.htc);
 }
-.block_subscribes_sidebar .service {margin-left:15px; padding-top:14px; float:left;}
+.block_subscribes_sidebar .service {margin-left:9px; padding-top:14px; float:left;}
 .block_subscribes_sidebar .service a {padding-left:30px; display:block; background-repeat:no-repeat; background-position:0px 2px;}
 .block_subscribes_sidebar .service a:hover {text-decoration:none;}
 .block_subscribes_sidebar .service span {display:block; cursor:pointer;}
@@ -2020,7 +2020,10 @@ footer {padding-top:4px; background:url(images/bg_footer.jpg) repeat-x #1c1c1c;}
 
 #logo_bottom {padding-top:17px; float:left;}
 
-.block_to_top {padding-top:13px; float:right;}
+.block_to_top {/*position:fixed;
+left:5px;			
+top:5px;*/
+padding-top:13px; float:right;}
 .block_to_top a {height:23px; line-height:23px; padding-left:30px; display:block; background:url(images/arrow_2.png) no-repeat; font-family:'PT Sans Narrow', Arial, Helvetica, sans-serif; font-size:12px; color:#e0e0e0; font-weight:bold; text-transform:uppercase;}
 .block_to_top a:hover {text-decoration:none;}
 
