@@ -1,4 +1,0 @@
-1.index.html页面
-2.business.html页面
-3.科技，教育，媒体，Europe，USA，middla east，Money,science and IT,Culture,Top news页面和首页一样，至于要后台自动获取左半边内容即可。
-4.about.html页面
