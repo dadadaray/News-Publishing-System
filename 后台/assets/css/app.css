@@ -25,6 +25,16 @@ a:hover {
     cursor: pointer;
     color: #23527c;
 }
+.warnred{
+    margin-top: 0.5px;
+    border-radius: 5px;
+}
+.warninfo {
+    display: none;
+}
+.warninfo2 {
+    display: none;
+}
 
 .am-breadcrumb {
     padding: 0;

@@ -1,4 +1,45 @@
 $(function() {
+        
+        //输入框校验
+        var emint=$("input[name='emint']");
+        var pas1=$("input[name='passone']");
+        var pas2=$("input[name='passtwo']");
+        var tijiaos=$(".tijiao");
+        //警告 密码不一致
+        $("#doc-ipt-pwd-1").mouseout(function(){
+            
+            if(typeof(pas1)=='undefined'&& typeof(pas2)=='undefined'){
+                 $(".warninfo").hidden();
+            }else{
+               if(pas1.val()!=pas2.val()){
+                     $(".warninfo").show();
+                }else{
+                $(".warninfo").hide();
+            }}
+        });
+        //移除鼠标 移除警告
+        $("#doc-ipt-pwd-1").mouseout(function(){
+            if(emint.val()!=''){
+               $(".warninfo2").hide(); 
+            }
+        })
+      
+        $(".tijiao").click(function(){
+           if(emint.val()==''&& pas1.val() == ''&&pas1.val() == ''){
+                 
+                 $(".warninfo2").show();
+            }else{
+                
+                $(".warninfo2").hide();
+            }
+            if(pas1.val()!=pas2.val()){
+                $("#form11").attr("target","frameFile");
+                $("#form11").submit();
+            }
+        })
+        
+        
+
 
         var $fullText = $('.admin-fullText');
         $('#admin-fullscreen').on('click', function() {
