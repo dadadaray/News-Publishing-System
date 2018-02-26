@@ -102,11 +102,7 @@
                     </ul>
                 </div>
             </header>
-
-
             <div class="tpl-page-container tpl-page-header-fixed">
-
-
                 <div class="tpl-left-nav tpl-left-nav-hover">
                     <div class="tpl-left-nav-list">
                         <ul class="tpl-left-nav-menu">
@@ -188,8 +184,18 @@
                             <div class="am-u-sm-12 am-u-md-9">
                                 <div class="am-btn-toolbar">
                                     <div class="am-btn-group am-btn-group-xs">
-                                        <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-plus"></span> 新增文章</button>
-                                        <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除文章</button><button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核文章</button>
+                                         <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除
+                                         </button>
+                                         <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-plus"></span> 分享排行
+                                         </button>
+                                         <button type="button" class="am-btn am-btn-default am-btn-warning">
+                                            <span class="am-icon-archive"></span>
+                                             浏览排行
+                                         </button>
+                                         <button type="button" class="am-btn am-btn-default am-btn-success">
+                                            <span class="am-icon-archive"></span>
+                                             留言排行
+                                         </button>
                                     </div>
                                 </div>
                             </div>
@@ -217,9 +223,12 @@
                                             </th>
                                             <th class="table-id">ID</th>
                                             <th class="table-title">文章名称</th>
-                                            <th class="table-type">类别</th>
-                                            <th class="table-author am-hide-sm-only">文章状态</th>
-                                            <th class="table-date am-hide-sm-only">发送日期</th>
+                                            <th class="table-author ">作者</th>
+                                            <th class="table-type am-hide-sm-only">类别</th>
+                                            <th class="table-type am-hide-sm-only">浏览量</th>
+                                            <th class="table-type am-hide-sm-only">转发量</th>
+                                            <th class="table-type am-hide-sm-only">留言量</th>
+                                            <th class="table-date am-hide-sm-only">发文日期</th>
                                             <th class="table-set">操作</th>
                                         </tr>
                                     </thead>
@@ -228,8 +237,15 @@
                                             <td><input type="checkbox"></td>
                                             <td>1</td>
                                             <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">正在审核</td>
+                                            
+                                            <td>
+                                                <img src="assets/img/user01.png" alt="" class="author_pics">
+                                                <a class="user-name" href="###">禁言小张</a>
+                                             </td>
+                                             <td>军事</td>
+                                            <td class="am-hide-sm-only">45689</td>
+                                            <td class="am-hide-sm-only">1256</td>
+                                            <td class="am-hide-sm-only font-blue bold"><a href="#">445</a></td>
                                             <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
@@ -249,71 +265,15 @@
                                             <td><input type="checkbox"></td>
                                             <td>1</td>
                                             <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">正在审核</td>
-                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            
                                             <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-pencil-square-o">
-                                                            </span> 编辑
-                                                        </button>
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-                                                            <span class="am-icon-trash-o"></span> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td>1</td>
-                                            <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">已发布</td>
-                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-pencil-square-o">
-                                                            </span> 编辑
-                                                        </button>
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-                                                            <span class="am-icon-trash-o"></span> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>1</td>
-                                        <td><a href="#">《战时孤儿》</a></td>
-                                        <td>军事</td>
-                                        <td class="am-hide-sm-only">已发布</td>
-                                        <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                        <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                        <span class="am-icon-pencil-square-o">
-                                                        </span> 编辑
-                                                    </button>
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-                                                        <span class="am-icon-trash-o"></span> 删除
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                        <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td>1</td>
-                                            <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">正在审核</td>
+                                                <img src="assets/img/user01.png" alt="" class="author_pics">
+                                                <a class="user-name" href="###">禁言小张</a>
+                                             </td>
+                                             <td>军事</td>
+                                            <td class="am-hide-sm-only">45689</td>
+                                            <td class="am-hide-sm-only">1256</td>
+                                            <td class="am-hide-sm-only font-blue bold"><a href="#">445</a></td>
                                             <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
@@ -333,8 +293,15 @@
                                             <td><input type="checkbox"></td>
                                             <td>1</td>
                                             <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">正在审核</td>
+                                            
+                                            <td>
+                                                <img src="assets/img/user01.png" alt="" class="author_pics">
+                                                <a class="user-name" href="###">禁言小张</a>
+                                             </td>
+                                             <td>军事</td>
+                                            <td class="am-hide-sm-only">45689</td>
+                                            <td class="am-hide-sm-only">1256</td>
+                                            <td class="am-hide-sm-only font-blue bold"><a href="#">445</a></td>
                                             <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
@@ -350,12 +317,19 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    <tr>
+                                        <tr>
                                             <td><input type="checkbox"></td>
                                             <td>1</td>
                                             <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">已发布</td>
+                                            
+                                            <td>
+                                                <img src="assets/img/user01.png" alt="" class="author_pics">
+                                                <a class="user-name" href="###">禁言小张</a>
+                                             </td>
+                                             <td>军事</td>
+                                            <td class="am-hide-sm-only">45689</td>
+                                            <td class="am-hide-sm-only">1256</td>
+                                            <td class="am-hide-sm-only font-blue bold"><a href="#">445</a></td>
                                             <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
@@ -370,32 +344,8 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>1</td>
-                                        <td><a href="#">《战时孤儿》</a></td>
-                                        <td>军事</td>
-                                        <td class="am-hide-sm-only">已发布</td>
-                                        <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                        <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                        <span class="am-icon-pencil-square-o">
-                                                        </span> 编辑
-                                                    </button>
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-                                                        <span class="am-icon-trash-o"></span> 删除
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    
-                                   
-                                 </tbody>
+                                        </tr>
+                                    </tbody>
                             </table>
                             <div class="am-cf">
 

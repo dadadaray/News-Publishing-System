@@ -35,3 +35,13 @@ body {
 .user_name p{
     margin-left: 3%;
 }
+.author_pics{
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+}
