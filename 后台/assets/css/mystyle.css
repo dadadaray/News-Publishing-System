@@ -1,0 +1,47 @@
+/* Write your styles */
+
+html,
+body {
+    background: #e9ecf3;
+    overflow: inherit;
+}
+.dashboard-stat.purple .details .add {
+    padding-top: 25px;
+    text-align: right;
+    font-size: 50px;
+    line-height: 36px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    font-weight: 300;
+    color: #fff;
+}
+.new_add{
+    font-size: 18px;
+    font-weight: 600;
+}
+.user01{
+    float: left;
+    margin: 20px 0px 18px 30px;
+    border-radius: 6px;
+}
+.user_name{
+    width: 60%;
+    margin-top: 20px;
+    float: left;
+    margin-left: 20px; 
+    font-size: 16px;
+    line-height: 26px;
+}
+.user_name p{
+    margin-left: 3%;
+}
+.author_pics{
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+}
