@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
-<title>BusinessNews - Registration</title>
+<title>新闻天下 - 注册</title>
 
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -15,13 +16,11 @@
 <![endif]-->
 
 <link rel="stylesheet" href="layout/style.css" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="layout/js/jquery.js"></script>
 
-<!-- PrettyPhoto start -->
+<!-- PrettyPhoto
+ start -->
 <link rel="stylesheet" href="layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
 <script type="text/javascript" src="layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
 <!-- PrettyPhoto end -->
@@ -60,10 +59,22 @@
 
 <script type="text/javascript" src="layout/js/main.js"></script>
 
-<script type="text/javascript">
-	jQuery(function () {
-	});
-</script>
+<!--注册表单验证 start-->
+<script type="text/javascript" src="layout/js/jquery.validate.js"></script>
+<script type="text/javascript" src="layout/js/page_regist.js?lang=zh"></script>
+<script type="text/javascript" src="layout/js/jquery.i18n.properties-1.0.9.js" ></script>
+<!--注册表单验证 end-->
+
+<!--密码md5加密 start-->
+<script type="text/javascript" src="layout/js/md5.js"></script>
+<!--密码md5加密 end-->
+
+<!--登录表单验证 start-->
+<script type="text/javascript"
+    src="layout/js/page_login.js?lang=zh" id="url"
+    data="<%= request.getHeader("REFERER")%>"></script>
+<!--登录表单验证 start-->
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
@@ -77,10 +88,8 @@
                     	<div class="fl">
                         	<div class="block_top_menu">
                             	<ul>
-                                	<li class="current"><a href="index.html">Home</a></li>
-                                    <li><a href="#">Site Map</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                	<li class="current"><a href="index.html">首页</a></li>
+                                    <li><a href="contact.html">联系我们</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -88,17 +97,17 @@
                         <div class="fr">
                         	<div class="block_top_menu">
                             	<ul>
-                                	<li class="current"><a href="#login" class="open_popup">Login</a></li>
-                                    <li><a href="registration.html">Registration</a></li>
-                                    <li><a href="#">Subscribe</a></li>
+                                	<li class="current"><a href="#login" class="open_popup">登陆</a></li>
+                                    <li><a href="registration.html">注册</a></li>
+                                    <li><a href="#">订阅</a></li>
                                 </ul>
                             </div>
                             
                             <div class="block_social_top">
                             	<ul>
-                                	<li><a href="#" class="fb">Facebook</a></li>
-                                    <li><a href="#" class="tw">Twitter</a></li>
-                                    <li><a href="#" class="rss">RSS</a></li>
+                                	<li><a href="#" class="fb">微信</a></li>
+                                    <li><a href="#" class="tw">QQ空间</a></li>
+                                    <li><a href="#" class="rss">微博</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -121,19 +130,12 @@
                         
                         <div class="fr">
                         	<div class="block_languages">
-                            	<div class="text"><p>Language:</p></div>
-                                <ul>
-                                	<li class="current"><a href="#" class="eng">English</a></li>
-                                    <li><a href="#" class="french">French</a></li>
-                                    <li><a href="#" class="ger">German</a></li>
-                                </ul>
-                                
                                 <div class="clearboth"></div>
                             </div>
                             
                             <div class="block_search_top">
                             	<form action="#" />
-                                	<div class="field"><input type="text" class="w_def_text" title="Enter Your Email Addres" /></div>
+                                	<div class="field"><input type="text" class="w_def_text" title="输入新闻关键词" /></div>
                                     <input type="submit" class="button" value="Search" />
                                     
                                     <div class="clearboth"></div>
@@ -149,200 +151,91 @@
                 	<div class="inner">
                     	<nav class="main_menu">
                         	<ul>
-								<li><a href="index.html">Home</a>
-                                	
-                                    <ul>
-                                    	<li><a href="index.html">Home Page Style 1</a></li>
-                                        <li><a href="home_style_2.html">Home Page Style 2</a></li>
+								<li><a href="index.html">首页</a>
+                                </li>
+							  	<li  data-content="business"><a href="business.html">财经</a>
+                                <ul>
+                                        <li><a href="#">金融</a></li>
+                                        <li><a href="#">证券</a></li>
+                                        <li><a href="#">理财</a></li>
+                                        <li><a href="#">基金</a></li>
+                                        <li><a href="#">保险</a></li>
                                     </ul>
                                 </li>
-								<li class="big_dropdown" data-content="business"><a href="business.html">Business</a></li>
-								<li class="big_dropdown" data-content="technology"><a href="technology.html">Technology</a></li>
-								<li class="big_dropdown" data-content="education"><a href="education.html">Education</a></li>
-								<li><a href="media.html">Media</a>
-                                	
-                                    <ul>
-                                    	<li><a href="media.html">Media</a></li>
-                                        <li><a href="media_item.html">Media Item Page</a></li>
+                                <li data-content="technology"><a href="technology.html">科技</a>
+                                <ul>
+                                        <li><a href="#">互联网</a></li>
+                                        <li><a href="#">程序</a></li>
+                                        <li><a href="#">技术</a></li>
+                                        <li><a href="#">汽车</a></li>
                                     </ul>
                                 </li>
-								<li><a href="#">Pages</a>
-                                	
+                                <li  data-content="education"><a href="education.html">教育</a>
                                     <ul>
-                                    	<li><a href="about.html">About Us</a></li>
-                                        <li><a href="about_author.html">About Author Page</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="registration.html">Registration Page</a></li>
-                                        <li><a href="main_news.html">Main News Page</a></li>
-                                        <li><a href="news_post_w_slider.html">News Post With Slider</a></li>
-                                        <li><a href="news_post_w_video.html">News Post With Video</a></li>
+                                        <li><a href="#">高校</a></li>
+                                        <li><a href="#">著名学府</a></li>
+                                        <li><a href="#">培育人才</a></li>
+                                        <li><a href="#">成人教育</a></li>
                                     </ul>
                                 </li>
-								<li><a href="blog.html">Blog</a>
-                                	
+                                <li  data-content="education"><a href="education.html">体育</a>
                                     <ul>
-                                    	<li><a href="blog.html">Our Blog Style 1</a></li>
-                                        <li><a href="blog_style_2.html">Our Blog Style 2</a></li>
-                                        <li><a href="blog_post.html">Blog Post Page</a></li>
-                                        <li><a href="blog_post_w_slider.html">Post With Slider</a></li>
-                                        <li><a href="blog_post_w_video.html">Post With Video</a></li>
+                                        <li><a href="#">中超</a></li>
+                                        <li><a href="#">英超</a></li>
+                                        <li><a href="#">NBA</a></li>
+                                        <li><a href="#">CBA</a></li>
+                                        <li><a href="#">综合</a></li>
                                     </ul>
                                 </li>
-								<li><a href="typography.html">Shortcodes</a>
-                                	
+                                <li  data-content="education"><a href="education.html">娱乐</a>
                                     <ul>
-                                    	<li><a href="accordion.html">Accordeon</a></li>
-                                        <li><a href="blockquote.html">Blockquote</a></li>
-                                        <li><a href="table.html">Table</a></li>
-                                        <li><a href="columns.html">Columns</a></li>
-                                        <li><a href="pricing_table.html">Pricing Table</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="boxes.html">Info Boxes</a></li>
-                                        <li><a href="dropcaps.html">Dropcaps</a></li>
-                                        <li><a href="tabs.html">Tabs</a></li>
-                                        <li><a href="lists.html">List Slyle</a></li>
-                                        <li><a href="buttons.html">Buttons</a></li>
-                                        <li><a href="video.html">Video</a></li>
-                                        <li><a href="typography.html">Typography</a></li>
+                                        <li><a href="#">明星</a></li>
+                                        <li><a href="#">综艺</a></li>
+                                        <li><a href="#">电影</a></li>
+                                        <li><a href="#">电视剧</a></li>
+                                        <li><a href="#">音乐</a></li>
                                     </ul>
-								</li>
+                                </li>
+                                <li  data-content="education"><a href="education.html">军事</a>
+                                    <ul>
+                                        <li><a href="#">中国军情</a></li>
+                                        <li><a href="#">周边扫描</a></li>
+                                        <li><a href="#">环球军情</a></li>
+                                        <li><a href="#">军备动态</a></li>
+                                    </ul>
+                                </li>
+                                <li  data-content="education"><a href="education.html">旅游</a>
+                                    <ul>
+                                        <li><a href="#">旅游咨询</a></li>
+                                        <li><a href="#">达人游记</a></li>
+                                        <li><a href="#">自助游</a></li>
+                                        <li><a href="#">跟团游</a></li>
+                                    </ul>
+                                </li>
+                                <li  data-content="education"><a href="education.html">政务</a>
+                                    <ul>
+                                        <li><a href="#">政策解读</a></li>
+                                        <li><a href="#">经济发展</a></li>
+                                        <li><a href="#">专题聚焦</a></li>
+                                    </ul>
+                                </li>
 						  </ul>
 						</nav>
                     </div>
                 </section>
                 
-                <section class="section_big_dropdown">
-                	<div class="inner">
-                    	<div class="block_big_dropdown" data-menu="business">
-                        	<div class="content">
-                            	<div class="image">
-                                	<a href="blog_post.html" class="pic"><img src="images/pic_big_drop_3.jpg" alt="" /></a>
-                                    <p><a href="blog_post.html">Embarrassing hidden in the middleany thing</a></p>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="image">
-                                	<a href="blog_post.html" class="pic"><img src="images/pic_big_drop_4.jpg" alt="" /></a>
-                                    <p><a href="blog_post.html">Content of a page when looking.</a></p>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="popular_posts">
-                                	<div class="title"><p>Popular Posts</p></div>
-                                    <ul>
-                                    	<li><a href="blog_post.html"><span>11 July, 2012</span>Established fact that a reader.</a></li>
-                                        <li><a href="blog_post_w_slider.html"><span>08 July, 2012</span>Editors now use as their default model text.</a></li>
-                                        <li><a href="blog_post_w_video.html"><span>05 July, 2012</span>Embarrassing hidden in the middle.</a></li>
-                                        <li><a href="blog_post.html"><span>01 July, 2012</span>Anything embarrassing hidden in the middl.</a></li>
-                                    </ul>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="more">
-                                	<div class="title"><p>More In Business</p></div>
-                                    <ul>
-                                    	<li><a href="#">Business</a></li>
-                                        <li><a href="#">Money</a></li>
-                                        <li><a href="#">Isnvestor Programs</a></li>
-                                        <li><a href="#">Banks</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="clearboth"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="block_big_dropdown" data-menu="technology">
-                        	<div class="content">
-                            	<div class="image">
-                                	<a href="blog_post.html" class="pic"><img src="images/pic_big_drop_5.jpg" alt="" /></a>
-                                    <p><a href="blog_post.html">Simply dummy text of the printing.</a></p>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="image">
-                                	<a href="blog_post.html" class="pic"><img src="images/pic_big_drop_6.jpg" alt="" /></a>
-                                    <p><a href="blog_post.html">Internet tend to repeat predefined chunks.</a></p>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="popular_posts">
-                                	<div class="title"><p>Popular Posts</p></div>
-                                    <ul>
-                                    	<li><a href="blog_post.html"><span>11 July, 2012</span>Publishing packages and web page</a></li>
-                                        <li><a href="blog_post_w_slider.html"><span>08 July, 2012</span>Generators on the Internet tend to repeat.</a></li>
-                                        <li><a href="blog_post_w_video.html"><span>05 July, 2012</span>Anything embarrassing hidden in the middle.</a></li>
-                                        <li><a href="blog_post.html"><span>01 July, 2012</span>Words which don't look even slightly.</a></li>
-                                    </ul>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="more">
-                                	<div class="title"><p>More In Tech</p></div>
-                                    <ul>
-                                    	<li><a href="#">Web Development</a></li>
-                                        <li><a href="#">Programming</a></li>
-                                        <li><a href="#">Techique</a></li>
-                                        <li><a href="#">Cars</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="clearboth"></div>
-                            </div>
-                        </div>
-                        
-                    	<div class="block_big_dropdown" data-menu="education">
-                        	<div class="content">
-                            	<div class="image">
-                                	<a href="blog_post.html" class="pic"><img src="images/pic_big_drop_1.jpg" alt="" /></a>
-                                    <p><a href="blog_post.html">Many desktop packages and web page editors.</a></p>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="image">
-                                	<a href="blog_post.html" class="pic"><img src="images/pic_big_drop_2.jpg" alt="" /></a>
-                                    <p><a href="blog_post.html">There are many variations passages</a></p>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="popular_posts">
-                                	<div class="title"><p>Popular Posts</p></div>
-                                    <ul>
-                                    	<li><a href="blog_post.html"><span>11 July, 2012</span>Many desktop publishing packages and web page</a></li>
-                                        <li><a href="blog_post_w_slider.html"><span>08 July, 2012</span>Randomised words which don't look even.</a></li>
-                                        <li><a href="blog_post_w_video.html"><span>05 July, 2012</span>Anything embarrassing hidden in the middle.</a></li>
-                                        <li><a href="blog_post.html"><span>01 July, 2012</span>Established fact that a reader.</a></li>
-                                    </ul>
-                                </div>
-                                <div class="line"></div>
-                                
-                                <div class="more">
-                                	<div class="title"><p>More In Education</p></div>
-                                    <ul>
-                                    	<li><a href="#">High school</a></li>
-                                        <li><a href="#">Univercity</a></li>
-                                        <li><a href="#">College</a></li>
-                                        <li><a href="#">Students</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="clearboth"></div>
-                            </div>
-                        </div>
-                    </div>
-              	</section>
                 
                 <section class="section_secondary_menu">
                 	<div class="inner">
                     	<nav class="secondary_menu">
                         	<ul>
-                            	<li><a href="main_news_europe.html">Europe</a></li>
-                                <li><a href="main_news_usa.html">USA</a></li>
-                                <li><a href="main_news_m_east.html">Middle East</a></li>
+                            	<li><a href="main_news_europe.html">世界军事</a></li>
+                                <li><a href="main_news_usa.html">股票</a></li>
+                                <li><a href="main_news_m_east.html">中东局势</a></li>
                                 <li><a href="main_news_money.html">Money</a></li>
-                                <li><a href="main_news_science.html">Science and IT</a></li>
-                                <li><a href="main_news_culture.html">Culture</a></li>
-                                <li><a href="main_news_top.html">Top News</a></li>
+                                <li><a href="main_news_science.html">创新科技</a></li>
+                                <li><a href="main_news_culture.html">文化教育</a></li>
+                                <li><a href="main_news_top.html">置顶新闻</a></li>
                           	</ul>
                         </nav>
                         
@@ -358,97 +251,63 @@
         <!-- CONTENT BEGIN -->
         <div id="content" class="">
         	<div class="inner">
-            	<div class="general_content">
-                	<div class="main_content">
-                    	<div class="block_breadcrumbs">
-                        	<div class="text"><p>You are here:</p></div>
+                <div class="general_content">
+                    <div class="main_content">
+                        <div class="block_breadcrumbs">
+                            <div class="text"><p>当前位置：</p></div>
                             
                             <ul>
-                            	<li><a href="index.html">Home</a></li>
-                                <li>Registration</li>
+                                <li><a href="index.html">首页</a></li>
+                                <li>注册</li>
                             </ul>
                         </div>
                         <div class="separator" style="height:28px;"></div>
                         
-                        <p class="general_title"><span>Join The Conversation</span></p>
+                        <p class="general_title"><span>用 户 注 册</span></p>
                         <div class="separator" style="height:39px;"></div>
                         
                         <div class="block_registration">
-                        	<form action="#" class="w_validation" />
-                            	<div class="col_1">
-                                	<div class="label"><p>Login<span>*</span>:</p></div>
-                                    <div class="field"><input type="text" class="req" /></div>
+                            <form action="#" class="w_validation" id="signupForm"/>
+                              <div class="login-error"></div>
+                                <div class="col_1">
+                                    <div class="label"><p>用户名：<span>*</span></p></div>
+                                    <div class="field"><input type="text" class="req" name="name" id="name"/></div>
                                     <div class="clearboth"></div>
                                     <div class="separator" style="height:14px;"></div>
                                     
-                                    <div class="label"><p>E-mail<span>*</span>:</p></div>
-                                    <div class="field"><input type="text" class="req" /></div>
+                                    <div class="label"><p>邮箱：<span>*</span></p></div>
+                                    <div class="field"><input type="text" class="req" name="email" id="email"/></div>
                                     <div class="clearboth"></div>
                                     <div class="separator" style="height:12px;"></div>
-                                    
-                                    <div class="label"><p>Password<span>*</span>:</p></div>
-                                    <div class="field"><input type="password" class="req" /></div>
-                                    <div class="clearboth"></div>
-                                    <div class="separator" style="height:12px;"></div>
-                                    
-                                    <div class="label"><p>Confirm Password<span>*</span>:</p></div>
-                                    <div class="field"><input type="password" class="req" /></div>
-                                    <div class="clearboth"></div>
+
+
                                 </div>
                                 
                                 <div class="col_2">
-                                	<div class="label"><p>Name:</p></div>
-                                    <div class="field"><input type="text" /></div>
+                                    <div class="label"><p>密码：<span>*</span></p></div>
+                                    <div class="field"><input type="password" class="req" name="password" id="password"/></div>
                                     <div class="clearboth"></div>
                                     <div class="separator" style="height:14px;"></div>
                                     
-                                    <div class="label"><p>Surname:</p></div>
-                                    <div class="field"><input type="text" /></div>
+                                    <div class="label"><p>确认密码：<span>*</span></p></div>
+                                    <div class="field"><input type="password" class="req" name="passwordAgain" id="passwordAgain"/></div>
                                     <div class="clearboth"></div>
                                     <div class="separator" style="height:12px;"></div>
-                                    
-                                    <div class="label"><p>Gender:</p></div>
-                                    <div class="checkbox"><input class="sliding_checkbox" type="checkbox" /></div>
-                                    <script type="text/javascript">
-										$(document).ready(function (){
-											$('.sliding_checkbox').iButton({
-												labelOn : 'Female',
-												labelOff : 'Male',
-												resizeHandle : false,
-												resizeContainer : false
-											});
-										});
-									</script>
-                                    <div class="clearboth"></div>
-                                    <div class="separator" style="height:12px;"></div>
-                                    
-                                    <div class="label"><p>Profession:</p></div>
-                                    <div class="select">
-                                    	<select class="custom_select">
-                                        	<option />&nbsp;
-                                            <option />Designer
-                                            <option />Frontend developer
-                                            <option />Manager
-                                        </select>
-                                    </div>
-                                    <div class="clearboth"></div>
                                 </div>
                                 
                                 <div class="clearboth"></div>
                                 <div class="separator" style="height:32px;"></div>
-                                
-                                <p class="info_text">By clicking on the button "Register" you agree to be the terms of service (<a href="#">User Agreement</a>)</p>
-                                <p class="info_text"><input type="submit" class="general_button" value="Register On Site" /></p>
-                                <p class="info_text">You can register for an account through other social networks</p>
-                                <div class="fb_button"><a href="#"><img src="images/button_fb_login.png" alt="" /></a></div>
+                                <p class="info_text"><input type="submit"  class="general_button" value="注 册" /></p>
                             </form>
+                            <p class="info_text"> 已有帐号,请<a href="#login" class="open_popup" style="color:red;">登录</a></p>
+                            
                         </div>
                         
                         <div class="line_3" style="margin:42px 0px 0px;"></div>
                         
                     </div>
                     
-                	<div class="clearboth"></div>
+                    <div class="clearboth"></div>
                 </div>
             </div>
         </div>
@@ -462,10 +321,17 @@
                     	<div id="logo_bottom"><a href="index.html"><img src="images/logo_bottom.png" alt="" /></a></div>
                         
                         <div class="block_to_top">
-                        	<a href="#">BACK TO TOP</a>
+                        	<a href="#">返回顶部</a>
                         </div>
                     </div>
                 </section>
+                <script type="text/javascript">
+                $(function(){
+                  $(".block_to_top").click(function() {
+                     $("html,body").animate({scrollTop:0}, 500); }); 
+                                                      })
+
+                </script>
                 
             	<section class="middle">
                 	<div class="inner">
@@ -473,7 +339,7 @@
                         
                         <div class="block_footer_widgets">
                         	<div class="column">
-                            	<h3>Photos on flickr</h3>
+                            	<h3>记者</h3>
                                 
                                 <div class="block_flickr_footer">
                                 	<ul>
@@ -490,7 +356,7 @@
                             </div>
                             
                             <div class="column">
-                            	<h3>Tags</h3>
+                            	<h3>标签</h3>
                                 
                                 <div class="block_tags">
                                 	<ul>
@@ -507,19 +373,13 @@
                                         <li><a href="#">Video</a></li>
                                         <li><a href="#">apple</a></li>
                                         <li><a href="#">news</a></li>
-                                        <li><a href="#">Euro</a></li>
-                                        <li><a href="#">Culture</a></li>
-                                        <li><a href="#">interior</a></li>
-                                        <li><a href="#">Midle east</a></li>
-                                        <li><a href="#">Design</a></li>
-                                        <li><a href="#">euro 2012</a></li>
                                         <li><a href="#">flowers</a></li>
                                     </ul>
                                 </div>
                             </div>
                             
                             <div class="column">
-                            	<h3>most read news</h3>
+                            	<h3>浏览最多</h3>
                                 
                                 <div class="block_most_read_news">
                                 	<div class="article">
@@ -571,21 +431,21 @@
                             </div>
                             
                             <div class="column">
-                            	<h3>contact widget</h3>
+                            	<h3>意见反馈</h3>
                                 
                                 <div class="block_contact_footer">
                                 	<form action="#" />
-                                    	<p class="text">Name:</p>
+                                    	<p class="text">姓名:</p>
                                         <div class="field"><input type="text" /></div>
                                         
-                                        <p class="text">Email:</p>
+                                        <p class="text">邮箱:</p>
                                         <div class="field"><input type="text" /></div>
                                         
-                                        <p class="text">Message:</p>
+                                        <p class="text">反馈信息:</p>
                                         <div class="textarea"><textarea cols="1" rows="1"></textarea></div>
                                         
-                                        <div class="clear_form"><input type="reset" value="Clear form" /></div>
-                                        <div class="send"><input type="submit" class="general_button" value="Submit" /></div>
+                                        <div class="clear_form"><input type="reset" value="重新填写" /></div>
+                                        <div class="send"><input type="submit" class="general_button" value="提交" /></div>
                                         
                                         <div class="clearboth"></div>
                                     </form>
@@ -627,55 +487,67 @@
         </footer>
         <!-- FOOTER END -->
     </div>
-    
+
     <!-- POPUP BEGIN -->
     <div id="overlay"></div>
-    <div id="login" class="block_popup">
-    	<div class="popup">
-        	<a href="#" class="close">Close</a>
+    <div id="login" class="block_popup" style="height:246px">
+        <div class="popup" style="height:245px">
+            <a href="#" class="close">Close</a>
             
             <div class="content">
-            	<div class="title"><p>Enter the site</p></div>
+                <div class="title"><p>登 录 网 站</p></div>
                 
                 <div class="form">
-                	<form action="#" />
-                    	<div class="column">
-                        	<p class="label">Login</p>
-                            <div class="field"><input type="text" /></div>
+                    <form action="#" id="signupForm1"/>
+                        <div class="column">
+                            <p class="label">用户名</p>
+                            <div class="field"><input type="text" name="loginName1" id="loginName1"/></div>
                         </div>
                         
                         <div class="column">
-                        	<p class="label">Password</p>
-                            <div class="field"><input type="password" /></div>
+                            <p class="label">密  码</p>
+                            <div class="field"><input type="password" name="password1" id="password1"/></div>
                         </div>
-						
-						<div class="column_2">
-                            <div class="remember">
-                            	<div class="checkbox"><input type="checkbox" /></div>
-                                <div class="remember_label"><p>Remember me</p></div>
+                        
+                        <div class="column_2" style="padding-top:10px;width:450px;height:50px;">
+                            <p class="label">验证码</p>
+                            <div class="field" style="float:left;">
+                                <input type="text" name="codeValue" id="codeValue"> 
                             </div>
+                            <img src="images/pic_most_read_3.png" width="150px" height="28px" style="float:left;padding-left:10px;" />
                         </div>
-                        
-                        <div class="column_2">
-                            <p class="forgot_pass"><a href="#">Forgot password?</a></p>
-                        </div>
-                        
+                        <div class="login-error1"></div>
                         <div class="column button">
-                            <a href="#" class="enter"><span>Login</span></a>
+                            <a href="#" class="enter" id="submit1"><span> 登  录</span></a>
                         </div>
                         
                         <div class="clearboth"></div>
                     </form>
                 </div>
                 
-                <div class="subtitle"><p>SIGN IN AS A USER</p></div>
-                
-                <div class="fb_button"><a href="#"><img src="images/button_fb_login.png" alt="" /></a></div>
-                <div class="text"><p>Use your account on the social network Facebook, to create a profile on BusinessPress</p></div>
+                <div class="subtitle" style="margin-bottom:0px;margin-top:20px;"></div>
+                <div class="text"><p>还没有账号？请 <a href="registration.html" style="color:blue;">立即注册</a></p></div>
             </div>
         </div>
     </div>
     <!-- POPUP END -->
+
+    <div class="loading">
+        <div class="mask">
+            <div class="loading-img">
+            <img src="images/loading.gif" width="31" height="31">
+            </div>
+        </div>
+    </div>
+
 </body>
+<!-- 回车登陆 -->
+<script type="text/javascript">
+    $(document).keyup(function(e) {
+        if (e.keyCode == 13) {
+            $("#submit1").click()
+        }
+    });
+</script>
 
 </html>
