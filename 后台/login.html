@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze UI Admin index Examples</title>
+  <title>新闻天下发布系统</title>
   <meta name="description" content="这是一个 index 页面">
   <meta name="keywords" content="index">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
 	<div class="myapp-login-logo-block  tpl-login-max">
 		<div class="myapp-login-logo-text">
 			<div class="myapp-login-logo-text">
-				Amaze UI<span> Login</span> <i class="am-icon-skyatlas"></i>
+				新闻天下<span> 发布系统</span> <i class="am-icon-skyatlas"></i>
 				
 			</div>
 		</div>
@@ -36,11 +36,16 @@
 			<form class="am-form">
 				<fieldset>
 					<div class="am-form-group">
-						<input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件">
+						<input type="email" class="" id="doc-ipt-email-1" name="em222" placeholder="输入电子邮件">
 					</div>
 					<div class="am-form-group">
-						<input type="password" class="" id="doc-ipt-pwd-1" placeholder="输入密码">
+						<input type="password" class="" id="doc-ipt-pwd-1" name="pass222" placeholder="输入密码">
 					</div>
+					 <div class="warninfo2"><div class="am-alert am-alert-danger warnred" data-am-alert>
+                        <button type="button" class="am-close">&times;</button>
+                        <p>请输入信息！</p>
+                    </div></div>
+                    <iframe name='frameFile' style='display:none;'></iframe>
 					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
 				</fieldset>
 			</form>
@@ -51,6 +56,11 @@
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/amazeui.min.js"></script>
   <script src="assets/js/app.js"></script>
+
 </body>
 
 </html>
+
+
+
+

@@ -33,18 +33,27 @@
 			 <a href="login.html"><span> 登 陆</span></a> or <i>注 册 </i> 
 		</div>
 		<div class="am-u-sm-10 login-am-center">
-			<form class="am-form">
+			<form class="am-form" action="" id="form11" target="">
 				<fieldset>
 					<div class="am-form-group">
-						<input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件">
+						<input type="email" class="" id="doc-ipt-email-1" name="emint" placeholder="输入电子邮件">
 					</div>
 					<div class="am-form-group">
-						<input type="password" class="" id="doc-ipt-pwd-2" placeholder="输入密码">
+						<input type="password" class="" id="doc-ipt-pwd-2" name="passone" placeholder="输入密码">
 					</div>
 					<div class="am-form-group">
-						<input type="password" class="" id="doc-ipt-pwd-1" placeholder="重复输入密码">
+						<input type="password" class="" id="doc-ipt-pwd-1" name="passtwo" placeholder="重复输入密码">
 					</div>
-					<p><button type="submit" class="am-btn am-btn-default">确 定</button></p>
+					<div class="warninfo"><div class="am-alert am-alert-danger warnred" data-am-alert>
+                        <button type="button" class="am-close">&times;</button>
+                        <p>两次输入的密码不一致。</p>
+                    </div></div>
+                    <div class="warninfo2"><div class="am-alert am-alert-danger warnred" data-am-alert>
+                        <button type="button" class="am-close">&times;</button>
+                        <p>请输入信息！</p>
+                    </div></div>
+                    <iframe name='frameFile' style='display:none;'></iframe>
+					<p><button type="submit" class="am-btn am-btn-default tijiao">确 定</button></p>
 				</fieldset>
 			</form>
 		</div>
