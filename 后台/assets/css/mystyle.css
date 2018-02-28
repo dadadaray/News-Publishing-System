@@ -45,3 +45,14 @@ body {
     -o-border-radius: 100%;
     border-radius: 100%;
 }
+/*all_comment.html页面*/
+.table-comment{
+    width: 32%;}
+.table-name{ 
+width:110px;}
+.table-sets{ 
+width: 120px;}
+/*all_users.html*/
+.user-names{
+    width:150px;
+}
