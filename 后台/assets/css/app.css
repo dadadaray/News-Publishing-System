@@ -35,6 +35,10 @@ a:hover {
 .warninfo2 {
     display: none;
 }
+.warninfo3 {
+    display: none;
+}
+
 
 .am-breadcrumb {
     padding: 0;

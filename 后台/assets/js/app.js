@@ -1,6 +1,6 @@
 $(function() {
         
-        //输入框校验
+        //注册页面输入框校验
         var emint=$("input[name='emint']");
         var pas1=$("input[name='passone']");
         var pas2=$("input[name='passtwo']");
@@ -12,6 +12,7 @@ $(function() {
                  $(".warninfo").hidden();
             }else{
                if(pas1.val()!=pas2.val()){
+                     alert("密码错误");
                      $(".warninfo").show();
                 }else{
                 $(".warninfo").hide();
@@ -25,22 +26,58 @@ $(function() {
         })
       
         $(".tijiao").click(function(){
-           if(emint.val()==''&& pas1.val() == ''&&pas1.val() == ''){
+           if(emint.val()==''&& pas1.val() == ''&&pas2.val() == ''||( pas1.val() == ''&&pas2.val() == '')){
                  //alert("都为空，显示");
                  $(".warninfo2").show();
             }else{
                 //alert("不显示警告");
                 $(".warninfo2").hide();
             }
-            if(pas1.val()!=pas2.val()||(emint.val()==''&& pas1.val() == ''&&pas1.val() == '') ){
-                //alert("不执行跳转");
+            if((pas1.val()!=pas2.val())||(emint.val()==''&& pas1.val() == ''&&pas2.val() == '')||(pas1.val() == ''&&pas2.val() == '') ){
+                alert("不执行跳转");
                 $("#form11").attr("target","frameFile");
                 $("#form11").submit();
             }else{
-                //alert("进行跳转");
+                alert("进行跳转");
                 $("#form11").submit();
             }
         })
+
+        //登录页面输入框验证
+        var em222=$("input[name='em222']");
+        var pass222=$("input[name='pass222']");
+         $(".denglu").click(function(){
+
+           if(em222.val()==''&& pass222.val()==''){
+
+                 //alert("都为空，显示");
+                 $(".warninfo2").show();
+            }else{
+                //alert("不显示警告");
+                $(".warninfo2").hide();
+            }
+            if(em222.val()==''&& pass222.val() == ''){
+                $("#formlogin").attr("target","frameFiles");
+                $("#formlogin").submit();
+            }else{
+                $("#formlogin").submit();
+            }
+        })
+
+
+         //用户个人信息邮箱验证
+         var useremailform=$("input[name='useremailform']");
+         useremailform.mouseout(function(){
+              if(!useremailform.val().match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)) {
+                 $(".warninfo3").show();
+                } else {
+                 $(".warninfo3").hide();
+         }
+         })
+
+
+
+
         
         
 
