@@ -78,6 +78,23 @@ $(function() {
 
 
 
+
+         //素材库弹窗
+    var $modal = $('#your-modal');
+
+    $modal.siblings('.am-btn').on('click', function(e) {
+      var $target = $(e.target);
+      if (($target).hasClass('js-modal-open')) {
+        $modal.modal();
+      } 
+    });
+
+
+
+
+
+
+
         
         
 
