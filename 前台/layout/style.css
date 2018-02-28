@@ -3616,3 +3616,20 @@ body.boxed .wrapper {max-width:1008px; margin:0px auto; border-left:1px solid #e
 	color: red;
 }
 /* styles for login end */
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-bottom: 12px;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  }
+
+  .img-circle{
+  	border-radius:50%;
+  }
