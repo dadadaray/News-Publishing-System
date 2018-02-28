@@ -6,6 +6,9 @@
 *  Made by Creative Punch
 *  Under MIT License
 */
+body{
+  margin:0 auto;
+}
 .bigbg{
   background: #343230;
   height:600PX; 
@@ -13,6 +16,10 @@
 .blackk{
   height: 40PX;
   background: #000;
+}
+.smalltb img{
+  width: 3%;
+  margin-left: 20px;
 }
 .font_bk{
   width: 980px;
