@@ -183,6 +183,7 @@
                             <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">音频专题</button>
                         </div>                    
                     </div>
+
                     <div class="tpl-portlet">
                         <div class="portlet-title">
                             <div class="caption font-green bold">
@@ -192,8 +193,8 @@
                                 <div class="am-g">
                                     <div class="tpl-form-body tpl-form-line">
                                         <form class="am-form tpl-form-line-form">
-                                            <div class="am-form-group">
-                                                <label for="user-name" class="am-u-sm-2 am-form-label">标题</label>
+                                            <div class="am-form-group" >
+                                                <label for="user-name" class="am-u-sm-2 am-form-label">文章标题:</label>
                                                 <div class="am-u-sm-10">
                                                     <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">
                                                     <small style="color:red;">请填写标题文字10-20字左右。</small>
@@ -201,7 +202,7 @@
                                             </div>
 
                                             <div class="am-form-group">
-                                                <label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
+                                                <label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类：</label>
                                                 <div class="am-u-sm-10">
                                                     <select data-am-selected="{searchBox: 1}">
                                                       <option value="a">财经</option>
@@ -212,7 +213,7 @@
                                             </div>
 
                                             <div class="am-form-group">
-                                                <label for="user-intro" class="am-u-sm-2 am-form-label">文章内容</label>
+                                                <label for="user-intro" class="am-u-sm-2 am-form-label">文章内容：</label>
                                             </div>
                                             <div class="am-form-group">
                                                 <div class="am-u-sm-12">
@@ -221,7 +222,7 @@
                                             </div>
 
                                             <div class="am-form-group">
-                                                <label for="user-weibo" class="am-u-sm-2 am-form-label">封面图</label>
+                                                <label for="user-weibo" class="am-u-sm-2 am-form-label">封面图：</label>
                                                 <div class="am-u-sm-10">
                                                     <div class="am-form-group am-form-file">
                                                         <div class="tpl-form-file-img">
@@ -246,6 +247,20 @@
                                 </div>
                             </div>
                     </div>
+
+                     <div class="tpl-portlet" style="margin-top:10px;overflow:hidden;">
+                        <div class="caption font-green bold" style="float:left;">
+                            <span class="am-icon-file-text-o">&nbsp&nbsp选择模板</span> 
+                        </div>
+                        <div class="am-btn-group" style="float:left;">
+                            <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:20px;">默认模板</button>
+                            <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">大图轮播</button>
+                            <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">视频专题</button>
+                            <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">音频专题</button>
+                        </div>                    
+                    </div>
+
+
                 </div>
             </div>
             <div class="am-u-md-2 am-u-sm-4 row-mb">
@@ -261,9 +276,8 @@
 
                             <!--<li><a href="#"><i class="am-icon-image am-icon-fw"></i>  图  片  </a></li>-->
                         <li style="background: #0e90d2;padding-left: 10px;">
-                            <i class="am-icon-image am-icon-fw"></i>
-                            <button type="button" class="am-btn am-btn-primary js-modal-open">图片</button>          
-
+                            <button type="button" class="am-btn am-btn-primary js-modal-open">
+                                <span class="am-icon-image" ></span>&nbsp&nbsp图片</button>          
                             <div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
                               <div class="am-modal-dialog">
                                 <div class="am-modal-hd">选择图片
@@ -282,8 +296,7 @@
                             <!--<li><a href="#"> <i class="am-icon-video-camera am-icon-fw"></i>  视  频  </a></li>
                             <li><a href="#"><i class="am-icon-music am-icon-fw"></i>  音  频  </a></li>-->
                         <li style="background: #0e90d2;padding-left: 10px;">
-                            <i class="am-icon-video-camera am-icon-fw"></i>
-                            <button type="button" class="am-btn am-btn-primary js-modal-open">视频</button>       
+                            <button type="button" class="am-btn am-btn-primary js-modal-open"><span class="am-icon-video-camera" > </span> &nbsp视频</button>       
                             <div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal2">
                               <div class="am-modal-dialog">
                                 <div class="am-modal-hd">Modal 标题
@@ -296,9 +309,7 @@
                             </div>
                        </li>
                        <li style="background: #0e90d2;padding-left: 10px;">
-                            <i class="am-icon-music am-icon-fw"></i>
-                            <button type="button" class="am-btn am-btn-primary js-modal-open">音频</button>          
-
+                            <button type="button" class="am-btn am-btn-primary js-modal-open"><span class="am-icon-music" ></span> &nbsp音频</button>     
                             <div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal3">
                               <div class="am-modal-dialog">
                                 <div class="am-modal-hd">Modal 标题

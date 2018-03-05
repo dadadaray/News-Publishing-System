@@ -1732,7 +1732,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     font-size: 16px;
     color: #888;
     font-weight: inherit;
-    text-align: right;
+    text-align: left;
 }
 
 .tpl-form-line-form .am-form-group {
