@@ -81,11 +81,27 @@ $(function() {
 
          //素材库弹窗
     var $modal = $('#your-modal');
-
     $modal.siblings('.am-btn').on('click', function(e) {
       var $target = $(e.target);
       if (($target).hasClass('js-modal-open')) {
         $modal.modal();
+      } 
+    });
+
+    var $modal2 = $('#your-modal2');
+    $modal2.siblings('.am-btn').on('click', function(e) {
+      var $target = $(e.target);
+      if (($target).hasClass('js-modal-open')) {
+        $modal2.modal();
+      } 
+    });
+
+
+    var $modal3 = $('#your-modal3');
+    $modal3.siblings('.am-btn').on('click', function(e) {
+      var $target = $(e.target);
+      if (($target).hasClass('js-modal-open')) {
+        $modal3.modal();
       } 
     });
 
