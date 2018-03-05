@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/mystyle.css">
-    <script src="assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet"  href="assets/css/fileUpload.css">
+   
+    
 </head>
 
 <body data-type="index">
@@ -262,11 +265,15 @@
 
                             <div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
                               <div class="am-modal-dialog">
-                                <div class="am-modal-hd">Modal 标题
+                                <div class="am-modal-hd">选择图片
                                   <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
                                 </div>
                                 <div class="am-modal-bd">
-                                  Modal 内容。
+                                     <div id="fileUploadContent" class="fileUploadContent"></div>
+        
+                                     <button onclick="testUpload()">提交</button>
+
+
                                 </div>
                               </div>
                             </div>
@@ -329,6 +336,7 @@
 <script src="assets/js/amazeui.min.js"></script>
 <script src="assets/js/iscroll.js"></script>
 <script src="assets/js/app.js"></script>
+<<<<<<< HEAD
 <!--富文本js start-->
 <script language="javascript" type="text/javascript" src="assets/js/tinymce/tinymce.js"></script>
 <script type="text/javascript">
@@ -354,9 +362,41 @@ tinymce.init({
         });
 </script>
 <!--富文本js end-->
+=======
+<script type="text/javascript" src="assets/js/fileUpload.js"></script>
+<script src="assets/js/echarts.min.js"></script>
+>>>>>>> 90bc3f1d4169602b52cde2c3f817b55f35cb8a57
 </body>
 
 </html>
+
+<!--图片上传-->
+<script type="text/javascript">
+    $("#fileUploadContent").initUpload({
+        "uploadUrl":"#",//上传文件信息地址
+        //"size":350,//文件大小限制，单位kb,默认不限制
+        //"maxFileNumber":3,//文件个数限制，为整数
+        "filelSavePath":"D://images",//文件上传地址，后台设置的根目录
+        "beforeUpload":beforeUploadFun,//在上传前执行的函数
+        //"onUpload":onUploadFun，//在上传后执行的函数
+        //autoCommit:true,//文件是否自动上传
+        "fileType":['png','jpg','docx','doc']//文件类型限制，默认不限制，注意写的是文件后缀
+    });
+    function beforeUploadFun(opt){
+        opt.otherData =[{"name":"name","value":"zxm"}];
+    }
+    function onUploadFun(opt,data){
+        alert(data);
+        uploadTools.uploadError(opt);//显示上传错误
+        uploadTools.uploadSuccess(opt);//显示上传成功
+    }
+    
+    
+    function testUpload(){
+        var opt = uploadTools.getOpt("fileUploadContent");
+        uploadEvent.uploadFileEvent(opt);
+    }
+</script>
 
 
 
