@@ -369,7 +369,7 @@
                             
                             <section class="subscribe">
                                 <p class="title"><span>点赞</span></p>
-                                <a > <img id="xihuan_change" src="layout/images/xihuan1.png "alt="" onclick="toggle()" width="25%"/>
+                                <a onclick="toggle()"> <img id="xihuan_change" src="layout/images/xihuan1.png "alt="" width="25%"/>
                                   表示喜欢 </a>
                             </section>
                             
@@ -977,13 +977,13 @@
     /*点赞，点击变换图片*/
     function toggle(){
         debugger;
-        var xihuan_change = $('xihuan_change'); 
+        var xihuan_change = $('#xihuan_change');
+        var val = xihuan_change.attr("src").indexOf('2');
           
-        if(xihuan_change.src.indexOf('on') >= 0){
-
-            xihuan_change.src="layout/images/xihuan2.png";
+        if(val >= 0){
+            $('#xihuan_change').attr('src', 'layout/images/xihuan1.png');  
         }else{
-           xihuan_change.src="layout/images/xihuan1.png";
+            $('#xihuan_change').attr('src', 'layout/images/xihuan2.png');  
         }
     }
 </script>
