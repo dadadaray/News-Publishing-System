@@ -1,5 +1,10 @@
-1.index.html页面
-2.business.html页面
-3.科技，教育，媒体，Europe，USA，middla east，Money,science and IT,Culture,Top news页面和首页一样，至于要后台自动获取左半边内容即可。
-4.about.html页面
-5.registration.html页面
+about，关于我们
+about_author 作者详情页面
+Bgimgshow 大图轮播
+Bgimgshow 文章全部评论
+blog_post 文章模板1
+blog_post_w_slider文章模板2
+blog_post_w_video 文章模板3
+registration 注册
+education 教育列表样式
+video 视频样式
