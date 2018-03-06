@@ -111,3 +111,97 @@ width: 120px;}
     position: relative;
     cursor: pointer;
 }
+
+/*all_news_back_checking_content.html*/
+.pic_con_sty1{ 
+    text-align: center;
+}
+.pic_con_style_tu{ 
+    margin-bottom:9px;
+    padding:1px;
+    display:inline-block;
+    position:relative;
+    
+    background-color:#ffffff;
+    border:4px solid #f2f2f2;
+    
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    
+    behavior:url(js/PIE.htc);
+    
+    line-height:0px;}
+p {font-size:16px; color:#868686; line-height:32px;}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6 {padding-bottom:20px; font-family:Arial, Helvetica, sans-serif; color:#1a1a1a; font-weight:normal; line-height:1em;}
+h1, h2, h3, h4, h5, h6 {    
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;}
+h1{ 
+text-align: center;}
+.info{
+    margin-top: 40px;
+    margin-bottom:20px;
+    height: 30px; 
+border-top:1px solid #ddd;
+border-bottom:1px solid #ddd;}
+.date{ 
+    text-align: right;
+}
+.author p {
+    float: left; 
+    font-size:11px;
+     color:#8a8a8a;
+      font-weight:bold;
+       line-height:32px;}
+.author a {
+    font-size:11px;
+     color:#5e5e5e;
+      font-weight:bold;}
+.date p {
+    float: left;
+     font-size:11px; 
+     color:#868686;
+      line-height:32px;}
+.comments {
+    height: 32px;
+    line-height: 32px;
+    margin-left: 10px;
+    padding-left: 19px;
+    float: right;
+    display: block;
+    background: url(../img/icon_comment_1.png) no-repeat 0px 11px;
+    font-size: 11px;
+    color: #8a8a8a;
+}
+.views {
+    height: 32px;
+    line-height: 32px;
+    margin-left: 7px;
+    padding-left: 20px;
+    float: right;
+    display: block;
+    background: url(../img/icon_view_1.png) no-repeat 0px 11px;
+    font-size: 11px;
+    color: #8a8a8a;
+}
+.border_hr{ 
+    border-bottom: 1px solid #eef1f5;
+float: left;
+margin-top: 20px;
+width: 100%;
+height: 1px;}
+.center_text2{ 
+    margin-left: 13%;
+}
+.cdas{ 
+background-color:white;
+margin:0px 0 20px 0; }
+.check_end{ 
+text-align: center;}
