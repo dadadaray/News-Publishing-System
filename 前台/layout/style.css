@@ -355,7 +355,8 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 }
 .general_content h3 {font-size: 18px;}
 
-.right_sidebar .general_content {background:url(images/line_content.gif) repeat-y 640px 0px;}
+.right_sidebar .general_content {
+	background:url(images/line_content.gif) repeat-y 640px 0px;}
 .right_sidebar .main_content {width:620px; float:left;}
 .right_sidebar .sidebar {width:300px; float:right;}
 
@@ -3665,4 +3666,8 @@ body.boxed .wrapper {max-width:1008px; margin:0px auto; border-left:1px solid #e
 
   .img-circle{
   	border-radius:50%;
+  }
+  /*news_post_eye.html*/
+  #con_eye{ 
+  	margin-left:20%; 
   }
