@@ -1,22 +1,24 @@
 .fileUploadContent .box{
     border: solid thin #DDDDDD;
-    min-height: 200px;
-    min-width: 200px;
+    height: 355px;
+    width: 920px;
     margin-top: 10px;
+    overflow-y: scroll;
 }
 .fileUploadContent .fileItem{
     border: solid thin #DDDDDD;
-    width: 150px;
-    height: 215px;
+    width: 170px;
+    height: 190px;
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
     text-align: center;
     border-radius: 5px;
     vertical-align:top;
+    float: left
 }
 .fileUploadContent .fileItem .imgShow{
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     margin: 5px auto;
     text-align: center;
 }
@@ -71,7 +73,6 @@
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;
     overflow: hidden;
-    clear: both;
     padding: 2px 2px;
 }
 .fileUploadContent .uploadBts {
