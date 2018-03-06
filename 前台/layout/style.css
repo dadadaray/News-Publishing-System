@@ -1116,7 +1116,8 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 .block_news_post_feature .category {height:32px; float:left;}
 .block_news_post_feature .category p {font-size:9px; color:#719eae; text-transform:uppercase; line-height:32px;}
 .block_news_post_feature .category a {font-size:9px; color:#719eae; text-transform:uppercase;}
-.block_news_post_feature .views {height:32px; line-height:32px; margin-left:7px; padding-left:20px; float:left; display:block; background:url(images/icon_view_1.png) no-repeat 0px 11px; font-size:11px; color:#8a8a8a;}
+.block_news_post_feature .views {height:32px; line-height:32px; margin-left:7px; padding-left:20px; float:left; display:block;
+ background:url(images/icon_view_1.png) no-repeat 0px 11px; font-size:11px; color:#8a8a8a;}
 
 .block_main_news {margin-left:-20px; margin-bottom:-30px; overflow:hidden;}
 .block_main_news .block_news_post {margin-left:20px; margin-bottom:30px; float:left;}

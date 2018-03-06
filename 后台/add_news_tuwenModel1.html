@@ -190,20 +190,25 @@
                                 <div class="am-g">
                                    <form action="" method="">
                                        <input class="modelone_tit" type="text" name="title" value="这是题目">
-                                        <div id="addCommodityIndex">   
+                                        <div id="addCommodityIndex" style="overflow: hidden;margin-top: 20px;">   
                                             <!--  图片上传显示-->
                                              <!--input-group start-->
-                                            <div class="input-group row" style="margin-left: 20px">
+                                            <div class="input-group row" style="margin-left: 20px;float: left;">
                                                
                                                 <div class="col-sm-9 big-photo">
                                                     <div id="preview">
-                                                        <img id="imghead" border="0" src="assets/img/photo_icon.png" width="300" height="400" onclick="$('#previewImg').click();">
+                                                        <img id="imghead" border="0" src="assets/img/photo_icon.png" width="200" height="200" onclick="$('#previewImg').click();">
                                                      </div>         
                                                     <input type="file" onchange="previewImage(this)" style="display: none;" id="previewImg">
                                                     <!--<input id="uploaderInput" class="uploader__input" style="display: none;" type="file" accept="" multiple="">-->
                                                 </div>
                                             </div>
                                             <!--input-group end-->
+
+                                            <!--文本域 --> 
+                                            <div class="am-form-group" style="float: left;">
+                                              <textarea class="" rows="7" id="doc-ta-1" style="width:500px;margin-left: 50px; border:1px solid #dcdcdc font-size:16px; line-height: 28px;"> 在这里输入内容啊啊啊啊！你是谁，从哪里来，往哪里去！</textarea>
+                                            </div>
                                
                                         </div>
 
@@ -307,6 +312,28 @@
 <script language="javascript" type="text/javascript" src="assets/js/tinymce/tinymce.js"></script>
 
 <script type="text/javascript">
+    //富文本 begin
+    tinymce.init({
+        selector: "textarea",
+        upload_image_url: './upload', //配置的上传图片的路由
+        height: 400,
+        language:'zh_CN',
+        plugins: [
+            'advlist autolink lists link  charmap print preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen',
+            'insertdatetime media nonbreaking save table contextmenu directionality',
+            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+          ],
+          toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+          toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+          image_advtab: true,
+          templates: [
+            { title: 'Test template 1', content: 'Test 1' },
+            { title: 'Test template 2', content: 'Test 2' }
+          ],
+        menubar: false
+    });
+    //富文本 end
     //图片上传 begin
     $("#fileUploadContent").initUpload({
         "uploadUrl":"#",//上传文件信息地址
@@ -352,8 +379,8 @@
       //图片上传预览    IE是用了滤镜。
         function previewImage(file)
         {
-          var MAXWIDTH  = 300; 
-          var MAXHEIGHT = 400;
+          var MAXWIDTH  = 200; 
+          var MAXHEIGHT = 200;
           var div = document.getElementById('preview');
           if (file.files && file.files[0])
           {
