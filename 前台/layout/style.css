@@ -342,8 +342,15 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 
 
 #content {padding:18px 0px 64px;}
-.general_content {}
-.general_content p {color:#666666; line-height:18px;}
+.general_content .text_p .text_a{font-size: 16px;}
+.general_content p {
+	color:#666666;
+	line-height:20px;}
+.general_content .text_p{
+	line-height:35px;
+    font-size: 16px;
+}
+.general_content h3 {font-size: 18px;}
 
 .right_sidebar .general_content {background:url(images/line_content.gif) repeat-y 640px 0px;}
 .right_sidebar .main_content {width:620px; float:left;}
@@ -710,6 +717,10 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 	
 	line-height:0px;
 }
+.block_blog_1 .blog_post .pic_con_sty1{ 
+	margin-left: 20px;
+	border:1px solid #ddd;
+}
 .block_blog_1 .blog_post .title {padding-bottom:20px;}
 .block_blog_1 .blog_post .title a:hover {color:#f24024; text-decoration:none;}
 
@@ -883,7 +894,16 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 .block_post_social section.rating li span {padding-bottom:3px; display:block; font-size:18px; color:#3d3d3d; font-weight:bold;}
 
 .block_post_social section.subscribe {width:138px; float:right;}
-.block_post_social section.subscribe a {margin-left:18px; margin-top:22px; padding-left:33px; display:block; background:url(images/icon_subscribe.png) no-repeat 0px 0px; font-size:11px; color:#636363; font-weight:bold; text-decoration:underline; line-height:12px;}
+.block_post_social section.subscribe a {
+	cursor:pointer;
+	margin-left:20px; 
+	margin-top:22px; 
+	padding-left:28px;
+	display:block;
+	font-size:11px;
+    color:#636363;
+    font-weight:bold; 
+   line-height:12px;}
 .block_post_social section.subscribe a:hover {color:#f24024; text-decoration:none;}
 
 .block_post_social section.recommend {width:298px; margin-left:20px; text-align:center;}
