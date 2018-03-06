@@ -5,7 +5,6 @@ body {
     background: #e9ecf3;
     overflow: inherit;
 }
-
 ul,
 li {
     margin: 0;
@@ -1976,6 +1975,19 @@ border-radius:0px 0px 6px 6px;
     margin-bottom: 40px;
 }
 
+/* 图文模板一样式start */
+.modelone_tit{
+    width: 830px;
+    font-size:30px;
+    padding:10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+/* 图文模板一样式end */
 @media screen and (max-width: 1000px) {
     .tpl-left-nav-hover {
         display: none;
