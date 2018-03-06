@@ -184,42 +184,27 @@
                         <div>
                             <div class="pagelet-figure-gallery-item">
                                 <div class="am-u-md-2 am-u-sm-4 gallery-img">
-                                    <img alt="图集" src="assets/img/a1.png" >
+                                   <!--  图片上传显示-->
+                                             <!--input-group start-->
+                                            <div class="input-group row" style="float: left; margin-left:0px;margin-right: 0px;">
+                                               
+                                                <div class="col-sm-9 big-photo">
+                                                    <div id="preview">
+                                                        <img id="imghead" border="0" src="assets/img/photo_icon.png" width="135" height="80" onclick="$('#previewImg').click();">
+                                                     </div>         
+                                                    <input type="file" onchange="previewImage(this)" style="display: none;" id="previewImg">
+                                                </div>
+                                            </div>
+                                            <!--input-group end-->
                                 </div>
                                 <div class="am-u-md-9 am-u-sm-14 gallery-txt">
                                     <textarea rows="3" id="user-intro" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea>
                                 </div>
                                 <div class="am-u-md-1 am-u-sm-2 gallery-action">
-                                    <i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onlick="removeImg()"></i>
+                                    <i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="pagelet-figure-gallery-item">
-                                <div class="am-u-md-2 am-u-sm-4 gallery-img">
-                                    <img alt="图集" src="assets/img/user03.png" >
-                                </div>
-                                <div class="am-u-md-9 am-u-sm-14 gallery-txt">
-                                    <textarea rows="3" id="user-intro" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea>
-                                </div>
-                                <div class="am-u-md-1 am-u-sm-2 gallery-action">
-                                    <i class="am-icon-trash am-icon-fw gallery-icon" type="delete"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="pagelet-figure-gallery-item">
-                                <div class="am-u-md-2 am-u-sm-4 gallery-img">
-                                    <img alt="图集" src="assets/img/user03.png" >
-                                </div>
-                                <div class="am-u-md-9 am-u-sm-14 gallery-txt">
-                                    <textarea rows="3" id="user-intro" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea>
-                                </div>
-                                <div class="am-u-md-1 am-u-sm-2 gallery-action">
-                                    <i class="am-icon-trash am-icon-fw gallery-icon" type="delete"></i>
-                                </div>
-                            </div>
-                        </div>                       
+                        </div>                      
                     </div>
                     <div class="tpl-portlet">
                         <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success " onclick="addImg()">添加图片</button>
@@ -300,12 +285,73 @@
 <script type="text/javascript">
     var i = 0;
     function addImg(){
-        $("#father").append('<div id="gallery'+ i++ +'"><div class="pagelet-figure-gallery-item"><div class="am-u-md-2 am-u-sm-4 gallery-img"><img alt="图集" src="assets/img/a1.png" ></div><div class="am-u-md-9 am-u-sm-14 gallery-txt"><textarea rows="3" id="user-intro" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea></div><div class="am-u-md-1 am-u-sm-2 gallery-action"><i class="am-icon-trash am-icon-fw gallery-icon" type="delete"></i></div></div></div>');
+        $("#father").append('<div id="gallery'+ i++ +'"><div class="pagelet-figure-gallery-item"><div class="am-u-md-2 am-u-sm-4 gallery-img"><img alt="图集" src="assets/img/a1.png" ></div><div class="am-u-md-9 am-u-sm-14 gallery-txt"><textarea rows="3" id="user-intro" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea></div><div class="am-u-md-1 am-u-sm-2 gallery-action"><i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i></div></div></div>');
     }
-    function removeImg(){
-        debugger;
-        var a = $(this).parent().parent();
+    function removeImg(e){        
+         $(e).parent().parent().remove();
     }
+
+    //end
+
+     // 模板一图片显示在页面上start
+      //图片上传预览    IE是用了滤镜。
+        function previewImage(file)
+        {
+          var MAXWIDTH  = 135; 
+          var MAXHEIGHT = 80;
+          var div = document.getElementById('preview');
+          if (file.files && file.files[0])
+          {
+              div.innerHTML ='<img id=imghead onclick=$("#previewImg").click()>';
+              var img = document.getElementById('imghead');
+              img.onload = function(){
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                img.width  =  rect.width;
+                img.height =  rect.height;
+//                 img.style.marginLeft = rect.left+'px';
+                img.style.marginTop = rect.top+'px';
+              }
+              var reader = new FileReader();
+              reader.onload = function(evt){img.src = evt.target.result;}
+              reader.readAsDataURL(file.files[0]);
+          }
+          else //兼容IE
+          {
+            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead>';
+            var img = document.getElementById('imghead');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+            div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+          }
+        }
+        function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+            var param = {top:0, left:0, width:width, height:height};
+            if( width>maxWidth || height>maxHeight ){
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+                
+                if( rateWidth > rateHeight ){
+                    param.width =  maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }else{
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    
+
+    //模板一图片显示在页面上end
+
+
+
 
 </script>
 </body>
