@@ -168,37 +168,41 @@
         </div>
         <div class="tpl-content-wrapper">
             <div class="row">
-                <div class="am-u-md-10 am-u-sm-12 row-mb">
+                <div class="am-u-md-10 am-u-sm-14 row-mb">
                     <div class="tpl-portlet" style="margin-bottom:10px;overflow:hidden;">
                         <div class="caption font-green bold" style="float:left;">
                             <span class="am-icon-file-text-o">&nbsp&nbsp选择模板</span> 
-                        </div>
+                        </div> 
                         <div class="am-btn-group" style="float:left;">
-                            <a href="add_news.html" class="am-btn am-btn-primary am-radius" style="margin-left:20px;">图文自由排版</a>
+                            <a href="add_news.html" class="am-btn am-btn-secondary am-radius" style="margin-left:20px;">图文自由排版</a>
                             <a href="add_news_img.html"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">大图轮播</a>
                             <a href="add_news_vedio.html" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">视频专题</a>
                             <a href="add_news_audio.html"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">音频专题</a>
-                            <a  href="add_news_tuwenModel.html" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">图文模板</a>
-                        </div>                    
+                            <a  href="add_news_tuwenModel.html" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">图文模板</a>
+                        </div>                  
                     </div>
                     <div class="tpl-portlet">
                         <div class="portlet-title">
                             <div class="caption font-green bold">
                                 <span class="am-icon-pencil">&nbsp&nbsp编辑新闻</span> 
+                                <a href="add_news_tuwenModel.html"><span class="model_return">返&nbsp&nbsp回</span></a> 
                             </div>
                             <div class="tpl-block">
                                 <div class="am-g">
                                     <div class="tpl-form-body tpl-form-line">
                                         <form class="am-form tpl-form-line-form">
-                                            <div class="am-form-group">
-                                                <label for="user-name" class="am-u-sm-2 am-form-label">标题</label>
-                                                <div class="am-u-sm-10">
-                                                    <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">
-                                                    <small style="color:red;">请填写标题文字10-20字左右。</small>
+                                            <input style="font-size:30px;padding:10px;font-weight: bold;text-align: center;border:1px solid #c2cad8;" type="text" name="title" value="这是题目">
+                                            
+                                            <div>  
+                                                <div style="padding:10px;text-align:center;">
+                                                    <img src="assets/img/photo_icon.png" width="610px" height="260px" onclick="">
+                                                </div>
+                                                <div style="padding:10px;align:center;">
+                                                    <textarea rows="8" style="width:80%;font-size:16px; line-height: 28px;border:1px solid #c2cad8;margin:0 auto;" maxlength="200" placeholder="请输入不超过200字内容"></textarea>
                                                 </div>
                                             </div>
 
-                                            <div class="am-form-group">
+                                            <div class="am-form-group" style="margin-top:20px;">
                                                 <label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
                                                 <div class="am-u-sm-10">
                                                     <select data-am-selected="{searchBox: 1}">
@@ -206,15 +210,6 @@
                                                       <option value="b">政务</option>
                                                       <option value="o">娱乐</option>
                                                     </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="am-form-group">
-                                                <label for="user-intro" class="am-u-sm-2 am-form-label">文章内容</label>
-                                            </div>
-                                            <div class="am-form-group">
-                                                <div class="am-u-sm-12">
-                                                    <textarea class="" rows="10" id="user-intro" placeholder="请输入文章内容" type="hidden"></textarea>
                                                 </div>
                                             </div>
 
@@ -230,14 +225,11 @@
                                                         <input id="doc-form-file" type="file" multiple>
                                                     </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="am-form-group">
-                                                <div class="am-u-sm-9 am-u-sm-push-3">
-                                                    <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">存草稿</button>
-                                                    <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">预  览</button>
-                                                    <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">发  布</button>
-                                                </div>
+                                            </div> 
+                                            <div class="am-u-sm-8 am-u-sm-push-2 add_button">
+                                                <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</button>
+                                                <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</button>
+                                                <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</button>
                                             </div>
                                         </form>
                                     </div>
@@ -340,29 +332,6 @@
 <script language="javascript" type="text/javascript" src="assets/js/tinymce/tinymce.js"></script>
 
 <script type="text/javascript">
-    //富文本 begin
-    tinymce.init({
-        selector: "textarea",
-        upload_image_url: './upload', //配置的上传图片的路由
-        height: 400,
-        language:'zh_CN',
-        plugins: [
-            'advlist autolink lists link  charmap print preview hr anchor pagebreak',
-            'searchreplace wordcount visualblocks visualchars code fullscreen',
-            'insertdatetime media nonbreaking save table contextmenu directionality',
-            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
-          ],
-          toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-          toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
-          image_advtab: true,
-          templates: [
-            { title: 'Test template 1', content: 'Test 1' },
-            { title: 'Test template 2', content: 'Test 2' }
-          ],
-        menubar: false
-    });
-    //富文本 end
-
     //图片上传 begin
     $("#fileUploadContent").initUpload({
         "uploadUrl":"#",//上传文件信息地址
@@ -401,6 +370,65 @@
         //autoCommit:true,//文件是否自动上传
         "fileType":['avi','wmv','mp4','mpeg','flv','rm','rmvb','vob']//文件类型限制，默认不限制，注意写的是文件后缀
     });
+    //end
+
+
+    // 模板一图片显示在页面上start
+      //图片上传预览    IE是用了滤镜。
+        function previewImage(file)
+        {
+          var MAXWIDTH  = 200; 
+          var MAXHEIGHT = 200;
+          var div = document.getElementById('preview');
+          if (file.files && file.files[0])
+          {
+              div.innerHTML ='<img id=imghead onclick=$("#previewImg").click()>';
+              var img = document.getElementById('imghead');
+              img.onload = function(){
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                img.width  =  rect.width;
+                img.height =  rect.height;
+//                 img.style.marginLeft = rect.left+'px';
+                img.style.marginTop = rect.top+'px';
+              }
+              var reader = new FileReader();
+              reader.onload = function(evt){img.src = evt.target.result;}
+              reader.readAsDataURL(file.files[0]);
+          }
+          else //兼容IE
+          {
+            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead>';
+            var img = document.getElementById('imghead');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+            div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+          }
+        }
+        function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+            var param = {top:0, left:0, width:width, height:height};
+            if( width>maxWidth || height>maxHeight ){
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+                
+                if( rateWidth > rateHeight ){
+                    param.width =  maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }else{
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    
+
+    //模板一图片显示在页面上end
 </script>
 </body>
 

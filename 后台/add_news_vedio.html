@@ -174,11 +174,12 @@
                             <span class="am-icon-file-text-o">&nbsp&nbsp选择模板</span> 
                         </div>
                         <div class="am-btn-group" style="float:left;">
-                            <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:20px;">默认模板</button>
-                            <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">大图轮播</button>
-                            <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">视频专题</button>
-                            <button type="button" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">音频专题</button>
-                        </div>                    
+                            <a href="add_news.html" class="am-btn am-btn-secondary am-radius" style="margin-left:20px;">图文自由排版</a>
+                            <a href="add_news_img.html"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">大图轮播</a>
+                            <a href="add_news_vedio.html" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">视频专题</a>
+                            <a href="add_news_audio.html"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">音频专题</a>
+                            <a  href="add_news_tuwenModel.html" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">图文模板</a>
+                        </div>                   
                     </div>
                     <div class="tpl-portlet">
                         <div class="portlet-title">
@@ -189,21 +190,15 @@
                                 <div class="am-g">
                                     <div class="tpl-form-body tpl-form-line">
                                         <form class="am-form tpl-form-line-form">
-
-                                            <!--视频上传 -->
-                                          <div class="am-form-group am-form-file" style="margin-left: 25px;">
-                                              <button type="button" class="am-btn am-btn-danger am-btn-sm">
-                                                <i class="am-icon-cloud-upload"></i> 选择要上传的视频</button>
-                                              <input id="doc-form-file" type="file" multiple>
-                                          </div>
+                                        <!--视频上传 -->
+                                        <div class="am-form-group am-form-file" style="margin-left: 25px;">
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                            <i class="am-icon-cloud-upload"></i> 选择要上传的视频</button>
+                                            <input id="doc-form-file" type="file" multiple>
+                                        </div>
                                         <div id="file-list"></div>
                                         <!-- 视频上传结束 -->
                                         <hr/>
-                                        
-
-
-
-
                                             <div class="am-form-group">
                                                 <label for="user-name" class="am-u-sm-2 am-form-label">视频标题：</label>
                                                 <div class="am-u-sm-10">
@@ -221,9 +216,6 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-                        
-
                                             <div class="am-form-group">
                                                 <label for="user-intro" class="am-u-sm-2 am-form-label">视频介绍：</label>
                                             </div>
