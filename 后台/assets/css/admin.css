@@ -88,7 +88,16 @@ ul {
 .admin-sidebar-panel {
   margin: 10px;
 }
-
+.text_overflow_1{
+        display: block;
+        float: left;
+        width:500px;
+        height: 25px;
+        overflow:hidden; /*超出宽度部分的隐藏*/
+        white-space:nowrap; /*文字不换行*/
+        text-overflow:ellipsis; /*超出则...代替*/
+        -o-text-overflow:ellipsis;  /*opera*/
+}
 .admin-content {
   display: -webkit-box;
   display: -webkit-flex;
