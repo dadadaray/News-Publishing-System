@@ -11,7 +11,9 @@ body{
 }
 .bigbg{
   background: #343230;
-  height:600PX; 
+  margin:auto;
+  height: 640px;
+  overflow: hidden;
 }
 .blackk{
   height: 40PX;
