@@ -177,7 +177,7 @@
                         <div class="portlet-input input-small input-inline">
                             <div class="input-icon right">
                                 <i class="am-icon-search"></i>
-                                <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
+                                <input type="text" class="form-control form-control-solid" placeholder="请输入标题关键字"> </div>
                             </div>
                         </div>
 
@@ -188,7 +188,7 @@
                             <div class="am-u-sm-12 am-u-md-9">
                                 <div class="am-btn-toolbar">
                                     <div class="am-btn-group am-btn-group-xs">
-                                        <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-plus"></span> 新增文章</button>
+                                        <a href="add_news.html" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-plus"></span> 新增文章</a>
                                         <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除</button>
                                     </div>
                                 </div>
@@ -232,7 +232,7 @@
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
                                                             <span class="am-icon-pencil-square-o">
                                                             </span> 编辑
                                                         </button>
@@ -252,7 +252,7 @@
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
                                                             <span class="am-icon-pencil-square-o">
                                                             </span> 编辑
                                                         </button>
@@ -362,6 +362,10 @@
             } 
             return false; 
         } 
+
+        function edit(){
+            window.open("add_news.html");
+        }
 </script>
 </body>
 

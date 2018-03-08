@@ -215,4 +215,10 @@ border-bottom:1px solid #ddd;}
     float:right;
     margin-right: 20px;
 }
-
+/*userinfo.html*/
+.am-panel-bd h3{
+    margin: 10px auto 10px 50px;
+}
+.am-panel-bd p{
+    padding:0px 50px;
+}
