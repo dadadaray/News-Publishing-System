@@ -202,7 +202,7 @@
                         </div>
                     </div>
                 <ul class="tpl-task-list tpl-task-remind">
-                  <li onclick="tanchuang1()">
+                  <li>
                    <div class="cosB">
                      <span>2小时前 </span>  &nbsp &nbsp 
                      <button type="button" class="am-btn am-btn-xs am-btn-danger  am-round">
@@ -224,7 +224,7 @@
                    <span style="display: block;float: left;" class="bold"> 
                     《文章名》
                   </span>
-                  <span class="text_overflow_1" id="firinfo"> 
+                  <span class="text_overflow_1" onclick="tanchuang1(this)"> 
                       已经成功发布了。已经成功发布了。已经成功发布了。已经成功发布了。已经成功发布了。已经成功发布了。已经成功发布了。已经成功发布了。已经成功发布了。已经成功发布了。已经成功发布了。
                   </span>
                   <div style="clear:both;"></div>
@@ -232,7 +232,7 @@
                   </a>  
                </div>
              </li>
-             <li onclick="tanchuang2()">
+             <li>
               <div class="cosB">
                <span>2小时前 </span>  &nbsp &nbsp 
                <button type="button" class="am-btn am-btn-xs am-btn-danger  am-round">
@@ -255,14 +255,14 @@
             <span > 
              需注意：
            </span>  
-           <span class="text_overflow_1" id="secinfo"> 
+           <span class="text_overflow_1" onclick="tanchuang1(this)"> 
              角度应该侧重民生问题，应该贴近百兴生活。需要修改。
            </span>
              </font>
             </a>
          </div>
        </li>
-        <li onclick="tanchuang3()">
+        <li>
                    <div class="cosB">
                      <span>2小时前 </span>  &nbsp &nbsp 
                      <button type="button" class="am-btn am-btn-xs am-btn-danger  am-round">
@@ -283,7 +283,7 @@
                    <span style="display: block;float: left;" class="bold"> 
                     《文章名》
                    </span>
-                   <span class="text_overflow_1" id="thinfo">被设为推荐文章</span>
+                   <span class="text_overflow_1"  onclick="tanchuang1(this)">被设为推荐文章</span>
                    </div>
                    </font>
                    </a>
@@ -307,18 +307,10 @@
 <script>
   // 弹窗
    function tanchuang1(e){
-          var txt=$("#firinfo").text();
-          window.wxc.xcConfirm(txt);
-   }
-   function tanchuang2(e){
-          var txt=$("#secinfo").text();
-          window.wxc.xcConfirm(txt);
-   }
-   function tanchuang3(e){
-          var txt=$("#thinfo").text();
-          window.wxc.xcConfirm(txt);
-   }
-
+          console.log(e);
+          var txt=e.innerText;
+          window.wxc.xcConfirm(txt); 
+    }
 
 </script>
 

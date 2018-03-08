@@ -2690,7 +2690,6 @@ if (typeof jQuery != 'undefined') {
 			'</div>')
 				.appendTo(controls);
 				controls.find('.mejs-time-buffering').hide();
-
 			var 
 				t = this,
 				total = controls.find('.mejs-time-total'),

@@ -12,7 +12,7 @@ $(function() {
                  $(".warninfo").hidden();
             }else{
                if(pas1.val()!=pas2.val()){
-                     alert("密码错误");
+                    // alert("密码错误");
                      $(".warninfo").show();
                 }else{
                 $(".warninfo").hide();
@@ -34,11 +34,11 @@ $(function() {
                 $(".warninfo2").hide();
             }
             if((pas1.val()!=pas2.val())||(emint.val()==''&& pas1.val() == ''&&pas2.val() == '')||(pas1.val() == ''&&pas2.val() == '') ){
-                alert("不执行跳转");
+                //alert("不执行跳转");
                 $("#form11").attr("target","frameFile");
                 $("#form11").submit();
             }else{
-                alert("进行跳转");
+                //alert("进行跳转");
                 $("#form11").submit();
             }
         })
@@ -48,7 +48,7 @@ $(function() {
         var pass222=$("input[name='pass222']");
          $(".denglu").click(function(){
 
-           if(em222.val()==''&& pass222.val()==''){
+           if((em222.val()==''&& pass222.val()=='')||(em222.val()==''|| pass222.val()=='')){
 
                  //alert("都为空，显示");
                  $(".warninfo2").show();
@@ -58,8 +58,6 @@ $(function() {
             }
             if(em222.val()==''&& pass222.val() == ''){
                 $("#formlogin").attr("target","frameFiles");
-                $("#formlogin").submit();
-            }else{
                 $("#formlogin").submit();
             }
         })
