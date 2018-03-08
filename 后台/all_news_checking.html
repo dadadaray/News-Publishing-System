@@ -73,7 +73,7 @@
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                    <a href="userinfo.html">
                         <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
                     </a>
                 </li>
@@ -232,12 +232,9 @@
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-pencil-square-o">
-                                                            </span> 编辑
-                                                        </button>
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-                                                            <span class="am-icon-trash-o"></span> 删除
+                                                        <button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                                            <span class="am-icon-eye">
+                                                            </span> 查看
                                                         </button>
                                                     </div>
                                                 </div>
@@ -252,20 +249,14 @@
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-pencil-square-o">
-                                                            </span> 编辑
-                                                        </button>
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-                                                            <span class="am-icon-trash-o"></span> 删除
+                                                        <button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                                            <span class="am-icon-eye">
+                                                            </span> 查看
                                                         </button>
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
-                                        
-                                    
-                                   
                                  </tbody>
                             </table>
                             <div class="am-cf">
@@ -362,9 +353,10 @@
             } 
             return false; 
         } 
-
-        function edit(){
-            window.open("add_news.html");
+        
+        //查看
+        function preview(){
+            window.open("all_news_back_checking_content.html");
         }
 </script>
 </body>
