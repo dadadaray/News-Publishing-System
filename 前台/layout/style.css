@@ -197,7 +197,7 @@ header {}
 .block_today_date .num p {padding-left:6px; padding-bottom:0px; font-family:'PT Sans', Arial, Helvetica, sans-serif; font-size:16px; color:#1f1f1f; font-weight:bold; text-align:center; line-height:30px;}
 .block_today_date .other {margin-left:9px; padding-top:2px; float:left;}
 .block_today_date .month_year {padding-bottom:4px; color:#373737; font-weight:bold;}
-.block_today_date .day {padding-bottom:0px; font-size:10px; color:#adadad; font-style:italic;}
+.block_today_date .day {padding-bottom:0px; font-size:14px; color:#adadad; font-style:italic;}
 
 .block_languages {padding:46px 0px 14px;}
 .block_languages .text {margin-right:15px; float:left;}
@@ -221,7 +221,7 @@ header {}
 
 nav.main_menu {padding-right:2px; float:left; background:url(images/line_main_menu.jpg) no-repeat right 12px;}
 nav.main_menu > ul > li {height:43px; padding-left:2px; display:block; float:left; position:relative; background:url(images/line_main_menu.jpg) no-repeat 0px 12px; z-index:1;}
-nav.main_menu > ul > li > a {height:43px; line-height:43px; padding:0px 23px; display:block; font-family:'PT Sans', Arial, Helvetica, sans-serif; font-size:13px; color:#ffffff; font-weight:bold; text-shadow:0px -1px rgba(0, 0, 0, 0.14); text-transform:uppercase;}
+nav.main_menu > ul > li > a {height:43px; line-height:43px; padding:0px 23px; display:block; font-family:'PT Sans', Arial, Helvetica, sans-serif; font-size:14px; color:#ffffff; font-weight:bold; text-shadow:0px -1px rgba(0, 0, 0, 0.14); text-transform:uppercase;}
 nav.main_menu > ul > li > a:hover {text-decoration:none;}
 nav.main_menu > ul > li:hover,
 nav.main_menu > ul > li.hover {z-index:99;}
@@ -261,7 +261,7 @@ nav.main_menu > ul > li:hover > ul {display:block;}
 
 nav.secondary_menu {float:left;}
 nav.secondary_menu > ul > li {height:39px; padding-left:2px; display:block; float:left; background:url(images/line_secondary_menu.jpg) no-repeat 0px 13px;}
-nav.secondary_menu > ul > li > a {height:39px; line-height:39px; padding:0px 14px; display:block; font-size:11px; color:#383838; font-weight:bold;}
+nav.secondary_menu > ul > li > a {height:39px; line-height:39px; padding:0px 14px; display:block; font-size:12px; color:#383838; font-weight:bold;}
 nav.secondary_menu > ul > li > a:hover {color:#f24024; text-decoration:none;}
 nav.secondary_menu > ul > li:first-child {padding-left:0px; background:none;}
 nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
@@ -277,7 +277,7 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 .responsive_secondary_menu .r_menu > ul > li:first-child {padding-left:0px; background:none;}
 
 .block_clock {padding-left:16px; padding-top:13px; float:right; background:url(images/icon_clock.png) no-repeat 0px 13px;}
-.block_clock p {padding-bottom:0px; font-size:11px; color:#767676; font-weight:bold; line-height:13px;}
+.block_clock p {padding-bottom:0px; font-size:12px; color:#767676; font-weight:bold; line-height:13px;}
 .block_clock p span {color:#000000;}
 
 /* big dropdown */
@@ -391,10 +391,10 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 	
 	behavior:url(js/PIE.htc);
 }
-.block_special_topic .type p {font-size:11px; color:#ffffff; font-weight:bold; text-transform:uppercase; line-height:24px;}
+.block_special_topic .type p {font-size:16px; color:#ffffff; font-weight:bold; text-transform:uppercase; line-height:24px;}
 .block_special_topic .title {height:24px; padding-left:17px; overflow:hidden; background:url(images/arrow_13.png) no-repeat #f4f4f4;}
 .block_special_topic .title p {font-size:11px; color:#383838; font-weight:bold; text-transform:uppercase; line-height:24px; white-space:nowrap;}
-.block_special_topic .title a {font-size:11px; color:#383838; font-weight:bold; text-transform:uppercase;}
+.block_special_topic .title a {font-size:18px; color:#383838; font-weight:bold; text-transform:uppercase;}
 
 .block_accordeon_type_1 {
 	padding:5px 15px;
@@ -3410,7 +3410,7 @@ input.general_button {margin:0px; padding:0px 15px 4px; border:0px; cursor:point
 	#logo_top img {width:188px; height:auto;}
 	
 	.block_today_date .other {padding-top:3px;}
-	.block_today_date .month_year {padding-bottom:4px; font-size:11px;}
+	.block_today_date .month_year {padding-bottom:4px; font-size:14px;}
 	
 	#header .bottom .fr {padding-left:0px;}
 	
