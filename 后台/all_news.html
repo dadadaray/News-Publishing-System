@@ -73,7 +73,7 @@
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                    <a href="userinfo.html">
                         <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
                     </a>
                 </li>
@@ -346,67 +346,68 @@
 <script src="assets/js/app.js"></script>
 </body>
 <script type="text/javascript">
-        //全选/全不选功能
-        function checkallcheckbox() { 
-            var ischecked = document.getElementById("checkall").checked; 
-            if(ischecked) { 
-                checkallbox(); 
-            }else { 
-                discheckallbox(); 
-            } 
+    //全选/全不选功能
+    function checkallcheckbox() { 
+        var ischecked = document.getElementById("checkall").checked; 
+        if(ischecked) { 
+            checkallbox(); 
+        }else { 
+            discheckallbox(); 
         } 
-        //选中全部复选框
-        function checkallbox() { 
-            var boxarray = document.getElementsByName("box"); 
-            for(var i = 0; i < boxarray.length; i++) { 
-            if(boxarray[i].disabled != true)
-                boxarray[i].checked = true; 
-            } 
+    } 
+    //选中全部复选框
+    function checkallbox() { 
+        var boxarray = document.getElementsByName("box"); 
+        for(var i = 0; i < boxarray.length; i++) { 
+        if(boxarray[i].disabled != true)
+            boxarray[i].checked = true; 
         } 
-        
-        //取消选中全部复选框
-        function discheckallbox() { 
-            var boxarray = document.getElementsByName("box"); 
-            for(var i = 0; i < boxarray.length; i++) {
-                boxarray[i].checked = false; 
-            } 
+    } 
+    
+    //取消选中全部复选框
+    function discheckallbox() { 
+        var boxarray = document.getElementsByName("box"); 
+        for(var i = 0; i < boxarray.length; i++) {
+            boxarray[i].checked = false; 
+        } 
+    }
+    
+    //点击每个checkbox时判断是否所有的checkbox全部选中  
+    function checkonebox() { 
+        if(isallchecked()) { 
+            document.getElementById("checkall").checked = true; 
         }
-        
-        //点击每个checkbox时判断是否所有的checkbox全部选中  
-        function checkonebox() { 
-            if(isallchecked()) { 
-                document.getElementById("checkall").checked = true; 
-            }
-            if(isalldischecked()) { 
-                document.getElementById("checkall").checked = false; 
+        if(isalldischecked()) { 
+            document.getElementById("checkall").checked = false; 
+        } 
+    } 
+    
+    //是否全部选中
+    function isallchecked() { 
+        var boxarray = document.getElementsByName("box"); 
+        for(var i = 0; i < boxarray.length; i++) { 
+            if(!boxarray[i].checked) { 
+                return false; 
             } 
         } 
-        
-        //是否全部选中
-        function isallchecked() { 
-            var boxarray = document.getElementsByName("box"); 
-            for(var i = 0; i < boxarray.length; i++) { 
-                if(!boxarray[i].checked) { 
-                    return false; 
-                } 
+        return true; 
+    } 
+    
+    //是否没有全部选中
+    function isalldischecked() { 
+        var boxarray = document.getElementsByName("box"); 
+        for(var i = 0; i < boxarray.length; i++) { 
+            if(!boxarray[i].checked) { 
+                return true; 
             } 
-            return true; 
         } 
-        
-        //是否没有全部选中
-        function isalldischecked() { 
-            var boxarray = document.getElementsByName("box"); 
-            for(var i = 0; i < boxarray.length; i++) { 
-                if(!boxarray[i].checked) { 
-                    return true; 
-                } 
-            } 
-            return false; 
-        } 
+        return false; 
+    } 
 
-        function edit(){
-            window.open("add_news.html");
-        }
+    //查看
+    function edit(){
+        window.open("add_news.html");
+    }
 </script>
 
 </html>
