@@ -12,11 +12,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-/**
- * 
- * @author Ray
- *
- */
 @Entity
 @Table(name = "userinfo")
 public class UserInfo {
@@ -40,7 +35,7 @@ public class UserInfo {
 	public void setUserInfoId(Integer userInfoId) {
 		this.userInfoId = userInfoId;
 	}
-	
+
 	@OneToOne
 	@PrimaryKeyJoinColumn
 	public User getUser() {
