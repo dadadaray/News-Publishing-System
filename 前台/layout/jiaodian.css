@@ -165,8 +165,56 @@ div.center h1#author a:hover {
   text-decoration: none;
   color: #68E;
 }
+
 /*lists.html*/
 .news_list{
+  margin-top: 10px;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+}
+.list_top_p{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color:#ddd !importent;
+}
+.list_con_p{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+} /*  color: #5c5c5c;*/
+.news_list a p:hover{
+  color: red;
+}
+.list_top_p:hover{
+  color: red;
+}
+.list_time{ 
+  float: left;
+  margin-left: 5px;
+  float: 10px; 
+ }
+.list_share{
+  float: right;
+  margin-right: 10px;
+  width: 20px；}
+.list_share a:hover{
+  color:red;
+  cursor:pointer;
+  text-decoration: none;
+}
+.list_line{
+  width: 100%;
+  float: left;
+  margin-top:10px; 
+  border-bottom:1px dashed #ddd;
+}
+.news_list a{
+  text-decoration: none;
+}
+
+
+/*.news_list{
   border-bottom: 1px dashed #ddd;
   margin-bottom: 10px;
   padding-bottom: 10px;
@@ -189,4 +237,4 @@ div.center h1#author a:hover {
   background:url(images/marker_sss.png) no-repeat 0px 10px;}
 .my_list li a {
   color:#5c5c5c;}
-.my_list li a:hover {color:red;text-decoration: none;}
+.my_list li a:hover {color:red;text-decoration: none;}*/
