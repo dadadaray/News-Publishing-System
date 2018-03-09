@@ -1,10 +1,13 @@
 package com.aps.entity;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -16,14 +19,15 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "userinfo")
 public class UserInfo {
 
-	public Integer userInfoId; // id
-	public String phone; // 电话号码
-	public String creed; // 信条
-	public String info; // 个人简介
-	public Integer sendpassNum; // 发送文章数量
-	public String headUrl; // 头像
-	public Date userRegistTime; // 用户注册时间
-	public User user;
+	private Integer userInfoId; // id
+	private String phone; // 电话号码
+	private String creed; // 信条
+	private String info; // 个人简介
+	private Integer sendpassNum; // 发送文章数量
+	private String headUrl; // 头像
+	private Date userRegistTime; // 用户注册时间
+	private User user;     // 用户
+	private Set<News>  news=new HashSet<News>(0);  //用户写的新闻
 
 	@Id
 	@GenericGenerator(name = "foreignkey", strategy = "foreign", parameters = @Parameter(value = "user", name = "property"))
@@ -93,5 +97,15 @@ public class UserInfo {
 	public void setUserRegistTime(Date userRegistTime) {
 		this.userRegistTime = userRegistTime;
 	}
+
+	@OneToMany(mappedBy = "userInfo")
+	public Set<News> getNews() {
+		return news;
+	}
+
+	public void setNews(Set<News> news) {
+		this.news = news;
+	}
+	
 
 }

@@ -1,9 +1,13 @@
 package com.aps.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +17,7 @@ public class User {
 	private String userName; // 用户名
 	private String password; // 密码
 	private String email; // 邮箱
+	private UserInfo userinfo;    // 用户详情
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,5 +51,15 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@PrimaryKeyJoinColumn
+	public UserInfo getUserinfo() {
+		return userinfo;
+	}
+
+	public void setUserinfo(UserInfo userinfo) {
+		this.userinfo = userinfo;
 	}
 }
