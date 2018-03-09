@@ -165,3 +165,28 @@ div.center h1#author a:hover {
   text-decoration: none;
   color: #68E;
 }
+/*lists.html*/
+.news_list{
+  border-bottom: 1px dashed #ddd;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.my_list {}
+.my_list li {
+  padding-left:14px; 
+  padding-top:11px;
+  display:block; 
+    background:url(images/marker_3s.png) no-repeat 0px 20px; 
+    font-family:Arial, Helvetica, sans-serif; 
+    color:#5c5c5c; 
+    line-height:normal;}
+.list_top a{
+  font-size: 18px;
+  font-weight: 600;
+}
+.my_list li:first-child {
+  padding-top:0px; 
+  background:url(images/marker_sss.png) no-repeat 0px 10px;}
+.my_list li a {
+  color:#5c5c5c;}
+.my_list li a:hover {color:red;text-decoration: none;}
