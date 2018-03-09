@@ -26,8 +26,8 @@ public class UserInfo {
 	private Integer sendpassNum; // 发送文章数量
 	private String headUrl; // 头像
 	private Date userRegistTime; // 用户注册时间
-	private User user;     // 用户
-	private Set<News>  news=new HashSet<News>(0);  //用户写的新闻
+	private User user; // 用户
+	private Set<News> news = new HashSet<News>(0); // 用户写的新闻
 
 	@Id
 	@GenericGenerator(name = "foreignkey", strategy = "foreign", parameters = @Parameter(value = "user", name = "property"))
@@ -106,6 +106,5 @@ public class UserInfo {
 	public void setNews(Set<News> news) {
 		this.news = news;
 	}
-	
 
 }

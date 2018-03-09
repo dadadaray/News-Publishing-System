@@ -10,7 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.sun.org.apache.xpath.internal.operations.Mod;
 
 @Entity
 @Table(name = "news")
@@ -29,6 +33,11 @@ public class News {
 	private Integer commentNum; // 文章评论数量
 	private UserInfo userInfo; // 文章的作者
 	private NewsType newsType; // 文章类型
+	private ModFree modFree; // 自由模板
+	private ModBigImg modBigImg; // 大图模板
+	private ModVedio modVedio; // 视频模板
+	private ModAudio ModAudio; // 音频模板
+	private ModMixCenter modMixCenter; // 图文居中
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -127,6 +136,7 @@ public class News {
 	public void setCommentNum(Integer commentNum) {
 		this.commentNum = commentNum;
 	}
+
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "newTypeId")
 	public NewsType getNewsType() {
@@ -145,6 +155,56 @@ public class News {
 
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public ModFree getModFree() {
+		return modFree;
+	}
+
+	public void setModFree(ModFree modFree) {
+		this.modFree = modFree;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public ModBigImg getModBigImg() {
+		return modBigImg;
+	}
+
+	public void setModBigImg(ModBigImg modBigImg) {
+		this.modBigImg = modBigImg;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public ModVedio getModVedio() {
+		return modVedio;
+	}
+
+	public void setModVedio(ModVedio modVedio) {
+		this.modVedio = modVedio;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public ModAudio getModAudio() {
+		return ModAudio;
+	}
+
+	public void setModAudio(ModAudio modAudio) {
+		ModAudio = modAudio;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public ModMixCenter getModMixCenter() {
+		return modMixCenter;
+	}
+
+	public void setModMixCenter(ModMixCenter modMixCenter) {
+		this.modMixCenter = modMixCenter;
 	}
 
 }
