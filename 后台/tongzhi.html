@@ -188,7 +188,8 @@
             <div class="am-u-sm-12 am-u-md-6">
               <div class="am-btn-toolbar">
                 <div class="am-btn-group am-btn-group-xs">
-                  <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除</button>
+                  <!-- <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除</button> -->
+                  <input type="checkbox" class="tpl-table-fz-check" id="checkall" onclick="checkallcheckbox();" style="margin-left: -7px;">
                 </div>
               </div>
             </div>
@@ -217,7 +218,7 @@
 
              <div class="task-checkbox">
                <input type="hidden" value="1" name="test">
-               <input type="checkbox" class="liChild" value="2" name="test">
+               <input type="checkbox" name="box" onclick="checkonebox()" value="1">
              </div>
              <a href="#">
                <span class="label label-sm label-danger" style="display: block;float: left;">审核通过
@@ -247,7 +248,7 @@
 
          <div class="task-checkbox">
           <input type="hidden" value="1" name="test">
-          <input type="checkbox" class="liChild" value="2" name="test">
+          <input type="checkbox" name="box" onclick="checkonebox()" value="2">
         </div>
         <a href="#">
           <span class="label label-sm label-success " style="display: block;float: left;">审核意见</span>
@@ -276,7 +277,7 @@
 
    <div class="task-checkbox">
     <input type="hidden" value="1" name="test">
-    <input type="checkbox" class="liChild" value="2" name="test">
+    <input type="checkbox" name="box" onclick="checkonebox()" value="3">
   </div>
   <a href="#">
     <span class="label label-sm label-warning " style="display: block;float: left;">文章推荐</span>
@@ -347,6 +348,65 @@
           }
         });
     });
+
+     //全选/全不选功能
+    function checkallcheckbox() { 
+        var ischecked = document.getElementById("checkall").checked; 
+        if(ischecked) { 
+            checkallbox(); 
+        }else { 
+            discheckallbox(); 
+        } 
+    } 
+    //选中全部复选框
+    function checkallbox() { 
+        var boxarray = document.getElementsByName("box"); 
+        for(var i = 0; i < boxarray.length; i++) { 
+        if(boxarray[i].disabled != true)
+            boxarray[i].checked = true; 
+        } 
+    } 
+    
+    //取消选中全部复选框
+    function discheckallbox() { 
+        var boxarray = document.getElementsByName("box"); 
+        for(var i = 0; i < boxarray.length; i++) {
+            boxarray[i].checked = false; 
+        } 
+    }
+    
+    //点击每个checkbox时判断是否所有的checkbox全部选中  
+    function checkonebox() { 
+        if(isallchecked()) { 
+            document.getElementById("checkall").checked = true; 
+        }
+        if(isalldischecked()) { 
+            document.getElementById("checkall").checked = false; 
+        } 
+    } 
+    
+    //是否全部选中
+    function isallchecked() { 
+        var boxarray = document.getElementsByName("box"); 
+        for(var i = 0; i < boxarray.length; i++) { 
+            if(!boxarray[i].checked) { 
+                return false; 
+            } 
+        } 
+        return true; 
+    } 
+    
+    //是否没有全部选中
+    function isalldischecked() { 
+        var boxarray = document.getElementsByName("box"); 
+        for(var i = 0; i < boxarray.length; i++) { 
+            if(!boxarray[i].checked) { 
+                return true; 
+            } 
+        } 
+        return false; 
+    } 
+
   </script>
 
   </html>

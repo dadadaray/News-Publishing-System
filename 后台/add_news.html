@@ -177,8 +177,7 @@
                                             <div class="am-form-group">
                                                 <label for="user-name" class="am-u-sm-2 am-form-label">标题</label>
                                                 <div class="am-u-sm-10">
-                                                    <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">
-                                                    <small style="color:red;">请填写标题文字10-20字左右。</small>
+                                                    <input type="text" class="doc-vld-name-1" id="user-name" placeholder="输入用户名（至少 10 个字符）" maxlength="20" minlength="10" required/>
                                                 </div>
                                             </div>
 
@@ -214,7 +213,7 @@
                                             <div class="am-u-sm-8 am-u-sm-push-2 add_button">
                                                 <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
                                                 <a href="../前台/news_post_eye.html" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
-                                                <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
+                                                <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
                                             </div>
                                         </form>
                                     </div>
