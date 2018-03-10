@@ -35,14 +35,14 @@ $(function() {
                 //alert("不显示警告");
                 $(".warninfo2").hide();
             }
-            if((pas1.val()!=pas2.val())||(emint.val()==''&& pas1.val() == ''&&pas2.val() == ''&&username.val()=='')||(pas1.val() == ''&&pas2.val() == '') ){
-                //alert("不执行跳转");
-                $("#form11").attr("target","frameFile");
-                $("#form11").submit();
-            }else{
-                //alert("进行跳转");
-                $("#form11").submit();
-            }
+            // if((pas1.val()!=pas2.val())||(emint.val()==''&& pas1.val() == ''&&pas2.val() == ''&&username.val()=='')||(pas1.val() == ''&&pas2.val() == '') ){
+            //     //alert("不执行跳转");
+            //     $("#form11").attr("target","frameFile");
+            //     $("#form11").submit();
+            // }else{
+            //     //alert("进行跳转");
+            //     $("#form11").submit();
+            // }
         })
 
         //登录页面输入框验证
