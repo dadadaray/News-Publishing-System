@@ -184,7 +184,7 @@
                     </div>
                   </div>
                 </div>
- <div class="am-g">
+                    <div class="am-g">
                         <div class="am-u-sm-12 am-u-md-6">
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
@@ -330,7 +330,8 @@
 
     //头部通知消息弹窗
     function sendsuc(e){
-        window.wxc.xcConfirm("通过并发表成功了哦！");
+        var txt=e.innerText;
+        window.wxc.xcConfirm(txt);
     }
 
     //删除

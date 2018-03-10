@@ -177,7 +177,7 @@
                                             <th class="table-set">操作</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="doc-modal-list">
                                         <tr>
                                             <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
                                             <td>1</td>
@@ -195,7 +195,8 @@
                                                             <span class="am-icon-eye">
                                                             </span> 查看
                                                         </button>
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger ">
+                                                        <input type="hidden" data-id="1"/>
+                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger ">
                                                             <span class="am-icon-trash-o"></span> 删除
                                                         </button>
                                                     </div>
@@ -219,7 +220,8 @@
                                                             <span class="am-icon-eye">
                                                             </span> 查看
                                                         </button>
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger ">
+                                                        <input type="hidden" data-id="2"/>
+                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger ">
                                                             <span class="am-icon-trash-o"></span> 删除
                                                         </button>
                                                     </div>
@@ -260,11 +262,39 @@
 
 </div>
 </div>
+    <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+      <div class="am-modal-dialog">
+        <div class="am-modal-bd" style="padding:40px 10px">
+          你，确定要删除这条记录吗？
+        </div>
+        <div class="am-modal-footer">
+          <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+          <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+      </div>
+    </div>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
 <script src="assets/js/iscroll.js"></script>
 <script src="assets/js/app.js"></script>
 <script type="text/javascript">
+
+    //删除
+    $('#doc-modal-list').find('.btn-close').on('click', function() {
+        $('#my-confirm').modal({
+          relatedTarget: this,
+          onConfirm: function(options) {
+            var $link = $(this.relatedTarget).prev('input');
+            var msg =  '你要删除的链接 ID 为 ' + $link.data('id');
+            alert(msg);
+          },
+          // closeOnConfirm: false,
+          onCancel: function() {
+            alert('算求，不弄了');
+          }
+        });
+    });
+
     //全选/全不选功能
     function checkallcheckbox() { 
         var ischecked = document.getElementById("checkall").checked; 

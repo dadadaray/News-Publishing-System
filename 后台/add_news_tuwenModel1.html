@@ -398,7 +398,8 @@
 
     //弹窗
     function sendsuc(e){
-        window.wxc.xcConfirm("通过并发表成功了哦！");
+        var txt=e.innerText;
+        window.wxc.xcConfirm(txt);
     }
 </script>
 </body>
