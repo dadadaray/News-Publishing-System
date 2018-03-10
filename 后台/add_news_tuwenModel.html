@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Amaze UI Admin index Examples</title>
+    <title>新闻天下发布系统</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/mystyle.css">
     <link rel="stylesheet" href="assets/css/iconfont.css">
     <link rel="stylesheet" href="assets/css/fileUpload.css"> 
+    <link rel="stylesheet" href="assets/css/xcConfirm.css">
 </head>
 
 <body data-type="index">
@@ -46,7 +47,7 @@
                               <span class="tpl-color-success">3</span> 条消息</h3>
                               <a href="tongzhi.html" class="font-green">全部</a>
                             </li>
-                            <li class="tpl-dropdown-list-bdbc">
+                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
 
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> 
@@ -54,16 +55,18 @@
                               </a>
                                 <span class="tpl-dropdown-list-fr">3小时前</span>
                             </li>
-                            <li class="tpl-dropdown-list-bdbc">
+                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
                                  <span>《从大城市的》<span>审核通过
                             </a>
                                 <span class="tpl-dropdown-list-fr">15分钟前</span>
                             </li>
-                            <li class="tpl-dropdown-list-bdbc"><a href="#" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
-                                 <span>《从大城市的》<span>成为推荐文章 
-                            </a>
+                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
+                                <a href="#" class="tpl-dropdown-list-fl">
+                                    <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
+                                    <span>《从大城市的》<span>成为推荐文章 
+                                </a>
                                 <span class="tpl-dropdown-list-fr">2天前</span>
                             </li>
                         </ul>
@@ -170,15 +173,15 @@
                                     <a href="add_news_tuwenModel2.html" class="tpl-table-images-content-i">
                                         <div class="tpl-table-images-content-i-info">
                                         </div>
-                                        <span class="tpl-table-images-content-i-shadow"></span>
                                         <img src="assets/img/model1.png" alt="">
                                     </a>
+                                    <div class="tpl-table-images-content-block" style="height: 10px;">
+                                        <hr>
+                                    </div>
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板一</h3>
                                         <a href="../前台/news_post_style1_eye.html" style="float: right;">预览</a>
-                            
-                                       
                                     </div>
                                 </div>
 
@@ -189,29 +192,30 @@
                                         <div class="tpl-table-images-content-i-info">
 
                                         </div>
-                                        <span class="tpl-table-images-content-i-shadow"></span>
+                                        <span class=""></span>
                                         <img src="assets/img/model2.png" alt="">
                                     </a>
+                                    <div class="tpl-table-images-content-block" style="height: 10px;">
+                                        <hr>
+                                    </div>
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板二</h3>
-                                        <a href="../前台/news_post_style2_eye.html" style="float: right;">预览</a>
-                            
-                                       
+                                        <a href="../前台/news_post_style2_eye.html" style="float: right;">预览</a>   
                                     </div>
                                 </div>
-
-                           </div>
+                            </div>
                             <div class="am-u-sm-12 am-u-md-6 am-u-lg-4" style="float: left">
                                 <div class="tpl-table-images-content" style="margin-bottom: 1px; padding: 10px;">
                                     <a href="add_news_tuwenModel3.html" class="tpl-table-images-content-i">
                                         <div class="tpl-table-images-content-i-info">
-                                            
-
                                         </div>
-                                        <span class="tpl-table-images-content-i-shadow"></span>
+                                        <span class=""></span>
                                         <img src="assets/img/model3.png" alt="">
                                     </a>
+                                    <div class="tpl-table-images-content-block" style="height: 10px;">
+                                        <hr>
+                                    </div>
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板三</h3>
@@ -230,6 +234,7 @@
     </div>      
 
 <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/xcConfirm.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
 <script src="assets/js/iscroll.js"></script>
 <script src="assets/js/app.js"></script>
@@ -237,6 +242,12 @@
 <script src="assets/js/echarts.min.js"></script>
 <!--富文本js-->
 <script language="javascript" type="text/javascript" src="assets/js/tinymce/tinymce.js"></script>
+<script type="text/javascript">
+    //弹窗
+    function sendsuc(e){
+        window.wxc.xcConfirm("通过并发表成功了哦！");
+    }
+</script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 $(function() {
         
         //注册页面输入框校验
+        var username=$("input[name='username']");
         var emint=$("input[name='emint']");
         var pas1=$("input[name='passone']");
         var pas2=$("input[name='passtwo']");
@@ -20,20 +21,21 @@ $(function() {
         });
         //移除鼠标 移除警告
         $("#doc-ipt-pwd-1").mouseout(function(){
-            if(emint.val()!=''){
+            if(emint.val()!='' && username.val()!=''){
                $(".warninfo2").hide(); 
             }
-        })
+        });
+
       
         $(".tijiao").click(function(){
-           if(emint.val()==''&& pas1.val() == ''&&pas2.val() == ''||( pas1.val() == ''&&pas2.val() == '')){
+           if(emint.val()==''&& pas1.val() == ''&&pas2.val() == ''&&username.val()==''||( pas1.val() == ''&&pas2.val() == '')){
                  //alert("都为空，显示");
                  $(".warninfo2").show();
             }else{
                 //alert("不显示警告");
                 $(".warninfo2").hide();
             }
-            if((pas1.val()!=pas2.val())||(emint.val()==''&& pas1.val() == ''&&pas2.val() == '')||(pas1.val() == ''&&pas2.val() == '') ){
+            if((pas1.val()!=pas2.val())||(emint.val()==''&& pas1.val() == ''&&pas2.val() == ''&&username.val()=='')||(pas1.val() == ''&&pas2.val() == '') ){
                 //alert("不执行跳转");
                 $("#form11").attr("target","frameFile");
                 $("#form11").submit();
@@ -71,7 +73,7 @@ $(function() {
                 } else {
                  $(".warninfo3").hide();
          }
-         })
+         });
 
 
 
