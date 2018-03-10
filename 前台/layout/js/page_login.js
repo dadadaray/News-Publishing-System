@@ -32,7 +32,7 @@ $(document).ready(
 
 					};
 					/* 下面是调用方法 */
-					$.focusblur("#loginName1");
+					$.focusblur("#email1");
 					$.focusblur("#password1");
 					$.focusblur("#codeValue");
 
@@ -47,9 +47,10 @@ $(document).ready(
 							codeValue : {
 								required : true
 							},
-							loginName1 : {
-								required : true,
-							}
+							email1: {
+								required: true,
+								email: true
+							},
 
 						},
 						messages : {
@@ -70,9 +71,9 @@ $(document).ready(
 									
 								}
 							},
-							loginName1 : {
-								required : $.i18n
-										.prop("请输入用户名"),
+							email1: {
+								required: $.i18n.prop("请输入email"),
+								email: $.i18n.prop("请输入正确的email")
 							},
 						},
 						errorPlacement: function(error, element) {   
@@ -81,9 +82,9 @@ $(document).ready(
 					});
 
 					// 输入框激活焦点、溢出焦点的渐变特效
-					if ($("#loginName1").val()) {
-						$("#loginName1").prev().fadeOut();
-					}
+					if($("#email1").val()){
+						$("#email1").prev().fadeOut();
+					};
 					if ($("#codeValue").val()) {
 						$("#codeValue").prev().fadeOut();
 					}
@@ -99,13 +100,13 @@ $(document).ready(
 							$(this).prev().fadeIn();
 						}
 					});
-					$("#loginName1").focus(function() {
+					$("#email1").focus(function(){
 						$(this).prev().fadeOut();
 					});
-					$("#loginName1").blur(function() {
-						if (!$("#loginName1").val()) {
+					$("#email1").blur(function(){
+						if(!$("#email1").val()){
 							$(this).prev().fadeIn();
-						}
+						};		
 					});
 					$("#password1").focus(function() {
 						$(this).prev().fadeOut();
@@ -125,7 +126,7 @@ $(document).ready(
 				});
 
 function login(validate, remeberUser) {
-	// 校验email, password1,loginName1,code，校验如果失败的话不提交
+	// 校验email, password1,email1,code，校验如果失败的话不提交
 
 	if (validate.form()) {
 		remeberUser.SetPwdAndChk();
@@ -138,7 +139,7 @@ function login(validate, remeberUser) {
 			url : "/nullpointer/loginUser/login",
 			data : {
 				password1 : f,
-				loginName1 : $("#loginName1").val(),
+				email1 : $("#email1").val(),
 				codeValue : $("#codeValue").val()
 			},
 			beforeSend : function() {
@@ -174,11 +175,11 @@ function login(validate, remeberUser) {
 					// 参数传g递失败
 					$(".login-error1").show();
 					$(".login-error1").html($.i18n.prop("请刷新重写"));
-				} else if (data == "14") {
+				} else if (data == "5") {
 					// 用户名
 					$(".login-error1").show();
 					$(".login-error1").html(
-							$.i18n.prop("不存在该用户"));
+							$.i18n.prop("邮箱不符合格式！"));
 				} else if (data =="16") {
 					// 邮箱未激活
 					$(".login-error1").show();
@@ -235,7 +236,7 @@ RemeberUser.prototype.GetLastUser = function() {
 // 点击登录时触发客户端事件
 RemeberUser.prototype.SetPwdAndChk = function() {
 	// 取用户名
-	var usr = $("#email").val();
+	var usr = $("#email1").val();
 	// 将最后一个用户信息写入到Cookie
 	this.SetLastUser(usr);
 };
@@ -252,7 +253,7 @@ RemeberUser.prototype.SetLastUser = function(usr) {
 
 // 用户名失去焦点时调用该方法
 RemeberUser.prototype.GetPwdAndChk = function() {
-	var usr = $("#email").val();
+	var usr = $("#email1").val();
 	var pwd = this.GetCookie("currenttoken");
 	if (pwd != null) {
 		// $("#password1").val(pwd);

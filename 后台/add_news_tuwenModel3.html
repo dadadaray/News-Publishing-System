@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/mystyle.css">
     <link rel="stylesheet" href="assets/css/iconfont.css">
     <link rel="stylesheet" href="assets/css/fileUpload.css"> 
+    <link rel="stylesheet" href="assets/css/xcConfirm.css">
 </head>
 
 <body data-type="index">
@@ -46,7 +47,7 @@
                               <span class="tpl-color-success">3</span> 条消息</h3>
                               <a href="tongzhi.html" class="font-green">全部</a>
                             </li>
-                            <li class="tpl-dropdown-list-bdbc">
+                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
 
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> 
@@ -54,16 +55,18 @@
                               </a>
                                 <span class="tpl-dropdown-list-fr">3小时前</span>
                             </li>
-                            <li class="tpl-dropdown-list-bdbc">
+                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
                                  <span>《从大城市的》<span>审核通过
                             </a>
                                 <span class="tpl-dropdown-list-fr">15分钟前</span>
                             </li>
-                            <li class="tpl-dropdown-list-bdbc"><a href="#" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
-                                 <span>《从大城市的》<span>成为推荐文章 
-                            </a>
+                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
+                                <a href="#" class="tpl-dropdown-list-fl">
+                                    <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
+                                     <span>《从大城市的》<span>成为推荐文章 
+                                </a>
                                 <span class="tpl-dropdown-list-fr">2天前</span>
                             </li>
                         </ul>
@@ -303,6 +306,7 @@
         </div>
 
 <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/xcConfirm.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
 <script src="assets/js/iscroll.js"></script>
 <script src="assets/js/app.js"></script>
@@ -362,6 +366,11 @@
         img.setAttribute('src',imgUrl);
     }
     // 页面上图片上传并显示end
+
+    //弹窗
+    function sendsuc(e){
+        window.wxc.xcConfirm("通过并发表成功了哦！");
+    }
 </script>
 </body>
 

@@ -3672,3 +3672,17 @@ body.boxed .wrapper {max-width:1008px; margin:0px auto; border-left:1px solid #e
   #con_eye{ 
   	margin-left:20%; 
   }
+  /*news_post_style3.html*/
+  .reply{
+    float: right;
+    text-align: end;
+    margin: 20px 8px 0px 0px;
+    position: absolute;
+    right: 0;
+  }
+  .reply a{
+  	color:#f24024;
+  }
+  .block_comments_type_2 .comment .comment{
+  	padding-left:49px;
+  }
