@@ -15,6 +15,13 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Analyzer;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 
 @Entity
 @Table(name = "news")
@@ -49,7 +56,9 @@ public class News {
 	public void setNewsId(Integer newsId) {
 		this.newsId = newsId;
 	}
-
+	
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	@Analyzer(impl=StandardAnalyzer.class)
 	public String getNewsTitle() {
 		return newsTitle;
 	}
