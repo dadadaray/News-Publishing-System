@@ -14,12 +14,12 @@ import javax.persistence.Table;
 @Table(name = "mod_mix_center")
 public class ModMixCenter {
 	private Integer mMixCenterId;
-	private Integer mMixCenterImgOne;
-	private Integer mMixCenterContentOne;
-	private Integer mMixCenterImgTwo;
-	private Integer mMixCenterContentTwo;
-	private Integer mMixCenterImgThree;
-	private Integer mMixCenterContentThree;
+	private String mMixCenterImgOne;
+	private String mMixCenterContentOne;
+	private String mMixCenterImgTwo;
+	private String  mMixCenterContentTwo;
+	private String mMixCenterImgThree;
+	private String mMixCenterContentThree;
 	private News news;
 
 	@Id
@@ -32,51 +32,51 @@ public class ModMixCenter {
 		this.mMixCenterId = mMixCenterId;
 	}
 
-	public Integer getmMixCenterImgOne() {
+	public String getmMixCenterImgOne() {
 		return mMixCenterImgOne;
 	}
 
-	public void setmMixCenterImgOne(Integer mMixCenterImgOne) {
+	public void setmMixCenterImgOne(String mMixCenterImgOne) {
 		this.mMixCenterImgOne = mMixCenterImgOne;
 	}
 
-	public Integer getmMixCenterContentOne() {
+	public String getmMixCenterContentOne() {
 		return mMixCenterContentOne;
 	}
 
-	public void setmMixCenterContentOne(Integer mMixCenterContentOne) {
+	public void setmMixCenterContentOne(String mMixCenterContentOne) {
 		this.mMixCenterContentOne = mMixCenterContentOne;
 	}
 
-	public Integer getmMixCenterImgTwo() {
+	public String getmMixCenterImgTwo() {
 		return mMixCenterImgTwo;
 	}
 
-	public void setmMixCenterImgTwo(Integer mMixCenterImgTwo) {
+	public void setmMixCenterImgTwo(String mMixCenterImgTwo) {
 		this.mMixCenterImgTwo = mMixCenterImgTwo;
 	}
 
-	public Integer getmMixCenterContentTwo() {
+	public String getmMixCenterContentTwo() {
 		return mMixCenterContentTwo;
 	}
 
-	public void setmMixCenterContentTwo(Integer mMixCenterContentTwo) {
+	public void setmMixCenterContentTwo(String mMixCenterContentTwo) {
 		this.mMixCenterContentTwo = mMixCenterContentTwo;
 	}
 
-	public Integer getmMixCenterImgThree() {
+	public String getmMixCenterImgThree() {
 		return mMixCenterImgThree;
 	}
 
-	public void setmMixCenterImgThree(Integer mMixCenterImgThree) {
+	public void setmMixCenterImgThree(String mMixCenterImgThree) {
 		this.mMixCenterImgThree = mMixCenterImgThree;
 	}
 
-	public Integer getmMixCenterContentThree() {
+	public String getmMixCenterContentThree() {
 		return mMixCenterContentThree;
 	}
 
-	public void setmMixCenterContentThree(Integer mMixCenterContentThree) {
+	public void setmMixCenterContentThree(String mMixCenterContentThree) {
 		this.mMixCenterContentThree = mMixCenterContentThree;
 	}
 

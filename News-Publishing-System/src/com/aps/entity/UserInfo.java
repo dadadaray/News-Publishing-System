@@ -28,6 +28,7 @@ public class UserInfo {
 	private Date userRegistTime; // 用户注册时间
 	private User user; // 用户
 	private Set<News> news = new HashSet<News>(0); // 用户写的新闻
+	private Set<Notice> notices=new HashSet<Notice>(0); //用户的评论
 
 	@Id
 	@GenericGenerator(name = "foreignkey", strategy = "foreign", parameters = @Parameter(value = "user", name = "property"))
@@ -105,6 +106,15 @@ public class UserInfo {
 
 	public void setNews(Set<News> news) {
 		this.news = news;
+	}
+
+	@OneToMany(mappedBy = "userInfo")
+	public Set<Notice> getNotices() {
+		return notices;
+	}
+
+	public void setNotices(Set<Notice> notices) {
+		this.notices = notices;
 	}
 
 }

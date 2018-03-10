@@ -38,6 +38,7 @@ public class News {
 	private ModVedio modVedio; // 视频模板
 	private ModAudio ModAudio; // 音频模板
 	private ModMixCenter modMixCenter; // 图文居中
+	private ModMixLR modMixLR;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -205,6 +206,16 @@ public class News {
 
 	public void setModMixCenter(ModMixCenter modMixCenter) {
 		this.modMixCenter = modMixCenter;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public ModMixLR getModMixLR() {
+		return modMixLR;
+	}
+
+	public void setModMixLR(ModMixLR modMixLR) {
+		this.modMixLR = modMixLR;
 	}
 
 }

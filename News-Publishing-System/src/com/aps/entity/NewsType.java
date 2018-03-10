@@ -1,6 +1,5 @@
 package com.aps.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +31,8 @@ public class NewsType {
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
 	}
-   @OneToMany(mappedBy = "newsType")
+
+	@OneToMany(mappedBy = "newsType")
 	public News getNews() {
 		return news;
 	}
