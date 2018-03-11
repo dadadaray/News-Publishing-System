@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -28,7 +29,7 @@ public class UserInfo {
 	private Date userRegistTime; // 用户注册时间
 	private User user; // 用户
 	private Set<News> news = new HashSet<News>(0); // 用户写的新闻
-	private Set<Notice> notices=new HashSet<Notice>(0); //用户的评论
+	private Set<Notice> notices = new HashSet<Notice>(0); // 用户的评论
 
 	@Id
 	@GenericGenerator(name = "foreignkey", strategy = "foreign", parameters = @Parameter(value = "user", name = "property"))
@@ -41,8 +42,7 @@ public class UserInfo {
 		this.userInfoId = userInfoId;
 	}
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy = "userInfo", fetch = FetchType.EAGER)
 	public User getUser() {
 		return user;
 	}

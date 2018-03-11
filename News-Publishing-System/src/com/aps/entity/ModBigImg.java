@@ -44,8 +44,7 @@ public class ModBigImg {
 		this.modBigImgContent = modBigImgContent;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy = "modBigImg", fetch = FetchType.EAGER)
 	public News getNews() {
 		return news;
 	}

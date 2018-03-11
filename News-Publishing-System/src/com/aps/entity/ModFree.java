@@ -35,8 +35,7 @@ public class ModFree {
 		this.modFreeContent = modFreeContent;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy = "modFree", fetch = FetchType.EAGER)
 	public News getNews() {
 		return news;
 	}

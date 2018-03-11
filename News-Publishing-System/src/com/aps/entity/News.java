@@ -1,6 +1,8 @@
 package com.aps.entity;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,18 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Analyzer;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.Store;
 
 @Entity
 @Table(name = "news")
@@ -29,23 +23,25 @@ public class News {
 	private Integer newsId;
 	private String newsTitle; // 新闻标题
 	private String coverImgUrl; // 封面图片
-	private String editor; // 文章作者
 	private Date publishTime; // 发表时间
 	private Date createTime; // 创作时间
-	private Integer status; // 文章状态 0：草稿 1：待审核 2：审核通过 3：未通过 4：发布
+	private Integer statues; // 文章状态 0：草稿 1：待审核 2：审核通过 3：未通过 4：发布
 	private Integer topShow; // 推荐文章 0：不推 1：推荐
-	private Integer view; // 文章浏览量
-	private Integer like; // 文章点赞数
+	private Integer views; // 文章浏览量
+	private Integer likes; // 文章点赞数
 	private Integer share; // 文章分享数量
 	private Integer commentNum; // 文章评论数量
+
 	private UserInfo userInfo; // 文章的作者
 	private NewsType newsType; // 文章类型
 	private ModFree modFree; // 自由模板
 	private ModBigImg modBigImg; // 大图模板
 	private ModVedio modVedio; // 视频模板
-	private ModAudio ModAudio; // 音频模板
+	private ModAudio modAudio; // 音频模板
 	private ModMixCenter modMixCenter; // 图文居中
-	private ModMixLR modMixLR;
+	private ModMixLR modMixLR; // 图文左右
+	private ModMixSingle modMixSingle; // 图文一个图
+	private Set<Comment> comments = new HashSet<Comment>(0); // 新闻的平林
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,9 +52,7 @@ public class News {
 	public void setNewsId(Integer newsId) {
 		this.newsId = newsId;
 	}
-	
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	@Analyzer(impl=StandardAnalyzer.class)
+
 	public String getNewsTitle() {
 		return newsTitle;
 	}
@@ -73,14 +67,6 @@ public class News {
 
 	public void setCoverImgUrl(String coverImgUrl) {
 		this.coverImgUrl = coverImgUrl;
-	}
-
-	public String getEditor() {
-		return editor;
-	}
-
-	public void setEditor(String editor) {
-		this.editor = editor;
 	}
 
 	public Date getPublishTime() {
@@ -99,36 +85,12 @@ public class News {
 		this.createTime = createTime;
 	}
 
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
 	public Integer getTopShow() {
 		return topShow;
 	}
 
 	public void setTopShow(Integer topShow) {
 		this.topShow = topShow;
-	}
-
-	public Integer getView() {
-		return view;
-	}
-
-	public void setView(Integer view) {
-		this.view = view;
-	}
-
-	public Integer getLike() {
-		return like;
-	}
-
-	public void setLike(Integer like) {
-		this.like = like;
 	}
 
 	public Integer getShare() {
@@ -200,11 +162,11 @@ public class News {
 	@OneToOne
 	@PrimaryKeyJoinColumn
 	public ModAudio getModAudio() {
-		return ModAudio;
+		return modAudio;
 	}
 
 	public void setModAudio(ModAudio modAudio) {
-		ModAudio = modAudio;
+		this.modAudio = modAudio;
 	}
 
 	@OneToOne
@@ -225,6 +187,49 @@ public class News {
 
 	public void setModMixLR(ModMixLR modMixLR) {
 		this.modMixLR = modMixLR;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public ModMixSingle getModMixSingle() {
+		return modMixSingle;
+	}
+
+	public void setModMixSingle(ModMixSingle modMixSingle) {
+		this.modMixSingle = modMixSingle;
+	}
+
+	@OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
+	public Set<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Integer getStatues() {
+		return statues;
+	}
+
+	public void setStatues(Integer statues) {
+		this.statues = statues;
+	}
+
+	public Integer getLikes() {
+		return likes;
+	}
+
+	public void setLikes(Integer likes) {
+		this.likes = likes;
+	}
+
+	public Integer getViews() {
+		return views;
+	}
+
+	public void setViews(Integer views) {
+		this.views = views;
 	}
 
 }

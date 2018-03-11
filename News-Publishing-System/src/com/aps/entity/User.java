@@ -17,7 +17,7 @@ public class User {
 	private String userName; // 用户名
 	private String password; // 密码
 	private String email; // 邮箱
-	private UserInfo userinfo;    // 用户详情
+	private UserInfo userInfo; // 用户详情
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,11 +55,11 @@ public class User {
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@PrimaryKeyJoinColumn
-	public UserInfo getUserinfo() {
-		return userinfo;
+	public UserInfo getUserInfo() {
+		return userInfo;
 	}
 
-	public void setUserinfo(UserInfo userinfo) {
-		this.userinfo = userinfo;
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 }

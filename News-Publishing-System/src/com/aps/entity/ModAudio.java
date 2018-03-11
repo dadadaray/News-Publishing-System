@@ -1,13 +1,11 @@
 package com.aps.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -44,8 +42,7 @@ public class ModAudio {
 		this.modAudioContent = modAudioContent;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy = "modAudio", fetch = FetchType.EAGER)
 	public News getNews() {
 		return news;
 	}

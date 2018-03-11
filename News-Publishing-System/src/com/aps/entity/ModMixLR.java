@@ -80,8 +80,7 @@ public class ModMixLR {
 		this.mMixLRContentThree = mMixLRContentThree;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy = "modMixLR", fetch = FetchType.EAGER)
 	public News getNews() {
 		return news;
 	}

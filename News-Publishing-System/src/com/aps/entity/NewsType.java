@@ -1,5 +1,8 @@
 package com.aps.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +15,7 @@ import javax.persistence.Table;
 public class NewsType {
 	private Integer newsTypeId;
 	private String typeName;
-	private News news;
+	private Set<News> comments = new HashSet<News>(0);
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +36,11 @@ public class NewsType {
 	}
 
 	@OneToMany(mappedBy = "newsType")
-	public News getNews() {
-		return news;
+	public Set<News> getComments() {
+		return comments;
 	}
 
-	public void setNews(News news) {
-		this.news = news;
+	public void setComments(Set<News> comments) {
+		this.comments = comments;
 	}
 }

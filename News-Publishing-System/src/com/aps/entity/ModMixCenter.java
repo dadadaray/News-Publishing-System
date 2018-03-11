@@ -1,13 +1,11 @@
 package com.aps.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +15,7 @@ public class ModMixCenter {
 	private String mMixCenterImgOne;
 	private String mMixCenterContentOne;
 	private String mMixCenterImgTwo;
-	private String  mMixCenterContentTwo;
+	private String mMixCenterContentTwo;
 	private String mMixCenterImgThree;
 	private String mMixCenterContentThree;
 	private News news;
@@ -80,12 +78,11 @@ public class ModMixCenter {
 		this.mMixCenterContentThree = mMixCenterContentThree;
 	}
 
+	@OneToOne(mappedBy = "modMixCenter", fetch = FetchType.EAGER)
 	public News getNews() {
 		return news;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@PrimaryKeyJoinColumn
 	public void setNews(News news) {
 		this.news = news;
 	}

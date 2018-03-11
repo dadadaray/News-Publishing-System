@@ -65,7 +65,7 @@ public class Comment {
 		this.userInfo = userInfo;
 	}
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade =CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name = "newsId")
 	public News getNews() {
 		return news;
