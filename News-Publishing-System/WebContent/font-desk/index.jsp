@@ -1,0 +1,504 @@
+<%@ page language="java" contentType="text/html;	charset=UTF-8"
+	pageEncoding="UTF-8" import="java.util.Date"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>新闻天下</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/png" href="layout/images/favicon.png">
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="layout/plugins/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="layout/style.css" type="text/css" />
+
+<script type="text/javascript" src="layout/js/jquery.js"></script>
+
+<!-- PrettyPhoto start -->
+<link rel="stylesheet" href="layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
+<!-- PrettyPhoto end -->
+
+<!-- jQuery tools start -->
+<script type="text/javascript" src="layout/plugins/tools/jquery.tools.min.js"></script>
+<!-- jQuery tools end -->
+
+<!-- Calendar start -->
+<link rel="stylesheet" href="layout/plugins/calendar/calendar.css" type="text/css" />
+<script type="text/javascript" src="layout/plugins/calendar/calendar.js"></script>
+<!-- Calendar end -->
+
+<!-- ScrollTo start -->
+<script type="text/javascript" src="layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
+<!-- ScrollTo end -->
+
+<!-- MediaElements start -->
+<link rel="stylesheet" href="layout/plugins/video-audio/mediaelementplayer.css" />
+<script src="layout/plugins/video-audio/mediaelement-and-player.js"></script>
+<!-- MediaElements end -->
+
+<!-- FlexSlider start -->
+<link rel="stylesheet" href="layout/plugins/flexslider/flexslider.css" type="text/css" />
+<script type="text/javascript" src="layout/plugins/flexslider/jquery.flexslider-min.js"></script>
+<!-- FlexSlider end -->
+
+<!-- iButtons start -->
+<link rel="stylesheet" href="layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
+<script type="text/javascript" src="layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
+<!-- iButtons end -->
+
+<!-- jQuery Form Plugin start -->
+<script type="text/javascript" src="layout/plugins/ajaxform/jquery.form.js"></script>
+<!-- jQuery Form Plugin end -->
+
+<script type="text/javascript" src="layout/js/main.js"></script>
+
+<!--注册表单验证 start-->
+<script type="text/javascript" src="layout/js/jquery.validate.js"></script>
+<script type="text/javascript" src="layout/js/page_regist.js?lang=zh"></script>
+<script type="text/javascript" src="layout/js/jquery.i18n.properties-1.0.9.js" ></script>
+<!--注册表单验证 end-->
+
+<!--密码md5加密 start-->
+<script type="text/javascript" src="layout/js/md5.js"></script>
+<!--密码md5加密 end-->
+
+<!--登录表单验证 start-->
+<script type="text/javascript"
+    src="layout/js/page_login.js?lang=zh" id="url"
+    data="<%= request.getHeader("REFERER")%>"></script>
+<!--登录表单验证 start-->
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+<body>
+	<div class="wrapper sticky_footer">
+		<!-- head -->
+		<%@ include file="head.jsp"%>
+        
+        <!-- CONTENT BEGIN -->
+        <div id="content" class="right_sidebar">
+        	<div class="inner">
+            	<div class="general_content">
+                	<div class="main_content">
+                    	<div class="block_special_topic">
+                        	<div class="type"><p>最新热点新闻</p></div>
+                            <div class="title"><p><a href="#">中国冬奥会拉开帷幕，迅速准备中。</a></p></div>
+                        </div>
+                        <div class="separator" style="height:17px;"></div>
+                        
+                        <div class="block_home_slider">
+                        	<div id="home_slider" class="flexslider">
+                            	<ul class="slides">
+                                	<li>
+                                    	<div class="slide">
+                                            <img src="images/pic_home_slider_1.jpg" alt="" />
+                                            <div class="caption">
+                                                <p class="title">更多希望工程正在开发当中。</p>
+                                                <p>每一次的成就都是不断积累的付出而换类来的，唯有不断积累才能换来成就。</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                    	<div class="slide">
+                                            <img src="images/pic_home_slider_2.jpg" alt="" />
+                                            <div class="caption">
+                                                <p class="title">Many desktop publishing packages.</p>
+                                                <p>There are many variations of passages of available, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                    	<div class="slide">
+                                            <img src="images/pic_home_slider_3.jpg" alt="" />
+                                            <div class="caption">
+                                                <p class="title">Many desktop publishing packages and web page.</p>
+                                                <p>There are many variations of passages of available, but the majority.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                    	<div class="slide">
+                                            <img src="images/pic_home_slider_4.jpg" alt="" />
+                                            <div class="caption">
+                                                <p class="title">Many desktop publishing packages and web page.</p>
+                                                <p>There are many variations of passages of available, but the majority have suffered alteration in some form, by injected humour, or randomised, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <script type="text/javascript">
+								$(function () {
+									$('#home_slider').flexslider({
+										animation : 'slide',
+										controlNav : true,
+										directionNav : true,
+										animationLoop : true,
+										slideshow : false,
+										useCSS : false
+									});
+									
+								});
+							</script>
+                        </div>
+                        
+                        <div class="line_2" style="margin:34px 0px 28px;"></div>
+                        
+                        <div class="block_home_col_1">
+                        	<div class="block_home_post">
+								<div class="pic">
+									<a href="news_post.html" class="w_hover">
+										<img src="images/pic_home_news_1.jpg" alt="" />
+										<span></span>
+									</a>
+								</div>
+                                        
+								<div class="text">
+									<p class="title"><a href="news_post.html">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<div class="date"><p>2014年6月30日</p></div>
+                                    <div class="icons">
+                                    	<ul>
+                                        	<li><a href="#" class="views">56</a></li>
+                                        </ul>
+                                    </div>
+								</div>
+							</div>
+                            <div class="line_3" style="margin:14px 0px 17px;"></div>
+                            
+                            <div class="block_home_post">
+								<div class="pic">
+									<a href="news_post_style2.html" class="w_hover">
+										<img src="images/pic_home_news_2.jpg" alt="" />
+										<span></span>
+									</a>
+								</div>
+                                        
+								<div class="text">
+									<p class="title"><a href="news_post_listen.html">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<div class="date"><p>11 July, 2012</p></div>
+                                    <div class="icons">
+                                    	<ul>
+                                        	<li><a href="#" class="views">74</a></li>
+                                        </ul>
+                                    </div>
+								</div>
+							</div>
+                            <div class="line_3" style="margin:14px 0px 17px;"></div>
+                            
+                            <div class="block_home_post">
+								<div class="pic">
+									<a href="news_post.html" class="w_hover">
+										<img src="images/pic_home_news_3.jpg" alt="" />
+										<span></span>
+									</a>
+								</div>
+                                        
+								<div class="text">
+									<p class="title"><a href="news_post_video.html">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<div class="date"><p>11 July, 2012</p></div>
+                                    <div class="icons">
+                                    	<ul>
+                                        	<li><a href="#" class="views">88</a></li>
+                                        </ul>
+                                    </div>
+								</div>
+							</div>
+                            
+                        </div>
+                        
+                        <div class="block_home_col_2">
+                        	<div class="line_3 first" style="margin:14px 0px 17px;"></div>
+                            <div class="block_home_post">
+								<div class="pic">
+									<a href="news_post_style1.html" class="w_hover">
+										<img src="images/pic_home_news_4.jpg" alt="" />
+										<span></span>
+									</a>
+								</div>
+                                        
+								<div class="text">
+									<p class="title"><a href="news_post_style1.html">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<div class="date"><p>11 July, 2012</p></div>
+                                    <div class="icons">
+                                    	<ul>
+                                        	<li><a href="#" class="views">56</a></li>
+                                        </ul>
+                                    </div>
+								</div>
+							</div>
+                            <div class="line_3" style="margin:14px 0px 17px;"></div>
+                            
+                            <div class="block_home_post">
+								<div class="pic">
+									<a href="news_post_style3.html" class="w_hover">
+										<img src="images/pic_home_news_5.jpg" alt="" />
+										<span></span>
+									</a>
+								</div>
+                                        
+								<div class="text">
+									<p class="title"><a href="news_post_style2.html">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<div class="date"><p>11 July, 2012</p></div>
+                                    <div class="icons">
+                                    	<ul>
+                                        	<li><a href="#" class="views">74</a></li>
+                                        </ul>
+                                    </div>
+								</div>
+							</div>
+                            <div class="line_3" style="margin:14px 0px 17px;"></div>
+                            
+                            <div class="block_home_post">
+								<div class="pic">
+									<a href="news_post.html" class="w_hover">
+										<img src="images/pic_home_news_6.jpg" alt="" />
+										<span></span>
+									</a>
+								</div>
+                                        
+								<div class="text">
+									<p class="title"><a href="news_post_style3.html">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<div class="date"><p>11 July, 2012</p></div>
+                                    <div class="icons">
+                                    	<ul>
+                                        	<li><a href="#" class="views">88</a></li>
+                                        </ul>
+                                    </div>
+								</div>
+							</div>
+                            
+                        </div>
+                        <div class="clearboth"></div>
+                        
+                        <div class="line_3" style="margin:14px 0px 13px;"></div>
+                        <a href="main_news.html" class="lnk_all_news fl">全部新闻</a>
+                        <div class="clearboth"></div>
+                        <div class="line_3" style="margin:13px 0px 35px;"></div>
+                        
+                        <h3 style="font-size:16px;">今日新闻</h3>
+                        <div class="line_4" style="margin:-4px 0px 18px;"></div>
+                        
+                        <div class="block_topic_news">
+                        	<article class="block_topic_post">
+                            	<p class="title"><a href="Bgimgshow.html">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”。</a></p>
+                                <div class="f_pic"><a href="Bgimgshow.html" class="general_pic_hover scale"><img src="images/pic_home_main_news_1.jpg" alt="" /></a></div>
+                                <p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
+                                <div class="info">
+                                	<div class="date"><p>11 July, 2012</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">Business</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="Bgimgshow.html">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
+                                <div class="f_pic"><a href="Bgimgshow.html" class="general_pic_hover scale"><img src="images/pic_home_main_news_2.jpg" alt="" /></a></div>
+                                <p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
+                                <div class="info">
+                                	<div class="date"><p>11 July, 2012</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">Business</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="Bgimgshow.html">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
+                                <div class="f_pic"><a href="Bgimgshow.html" class="general_pic_hover scale"><img src="images/pic_home_main_news_3.jpg" alt="" /></a></div>
+                                <p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
+                                <div class="info">
+                                	<div class="date"><p>11 July, 2012</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">Business</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="block_topic_post">
+                            	<p class="title"><a href="Bgimgshow.html">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
+                                <div class="f_pic"><a href="Bgimgshow.html" class="general_pic_hover scale"><img src="images/pic_home_main_news_4.jpg" alt="" /></a></div>
+                                <p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
+                                <div class="info">
+                                	<div class="date"><p>11 July, 2012</p></div>
+                                    
+                                    <div class="r_part">
+                                    	<div class="category"><p><a href="#">Business</a></p></div>
+                                        <a href="#" class="views">183</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                        </div>
+                        
+                        <div class="line_3" style="margin:20px 0px 24px;"></div>
+                        
+                        <div class="block_pager">
+                        	<a href="#" class="prev">Previous</a>
+                            <a href="#" class="next">Next</a>
+                            
+                            <div class="pages">
+                            	<ul>
+                                	<li class="current"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                        </div>
+                        
+                        <div class="line_2" style="margin:24px 0px 35px;"></div>
+                        
+                        <h3 style="font-size:16px;">温馨提示</h3>
+                        <div class="line_4" style="margin:-4px 0px 18px;"></div>
+                        
+                        <div class="block_best_materials">
+                        	<div class="slider">
+                                <div id="best_materials_slider" class="flexslider">
+                                    <ul class="slides">
+                                        <li>
+                                            <div class="block_best_material_post">
+                                                <div class="f_pic"><a href="news_post.html" class="w_hover"><img src="images/pic_home_best_materials_1.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="news_post.html">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="info">
+                                                    <div class="date"><p>08 July, 2012</p></div>
+                                                    <div class="category"><p><a href="#">Business</a></p></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="block_best_material_post">
+                                                <div class="f_pic"><a href="news_post.html" class="w_hover"><img src="images/pic_home_best_materials_2.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="news_post.html">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="info">
+                                                    <div class="date"><p>08 July, 2012</p></div>
+                                                    <div class="category"><p><a href="#">People</a></p></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="block_best_material_post">
+                                                <div class="f_pic"><a href="news_post.html" class="w_hover"><img src="images/pic_home_best_materials_3.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="news_post.html">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="info">
+                                                    <div class="date"><p>08 July, 2012</p></div>
+                                                    <div class="category"><p><a href="#">Technology</a></p></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="block_best_material_post">
+                                                <div class="f_pic"><a href="news_post.html" class="w_hover"><img src="images/pic_home_best_materials_4.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="news_post.html">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="info">
+                                                    <div class="date"><p>08 July, 2012</p></div>
+                                                    <div class="category"><p><a href="#">Business</a></p></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="block_best_material_post">
+                                                <div class="f_pic"><a href="news_post.html" class="w_hover"><img src="images/pic_home_best_materials_5.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="news_post.html">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="info">
+                                                    <div class="date"><p>08 July, 2012</p></div>
+                                                    <div class="category"><p><a href="#">People</a></p></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="block_best_material_post">
+                                                <div class="f_pic"><a href="news_post.html" class="w_hover"><img src="images/pic_home_best_materials_6.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="news_post.html">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="info">
+                                                    <div class="date"><p>08 July, 2012</p></div>
+                                                    <div class="category"><p><a href="#">Technology</a></p></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <script type="text/javascript">
+								$(function() {
+									$('#best_materials_slider').flexslider({
+										animation : 'slide',
+										controlNav : false,
+										directionNav : true,
+										animationLoop : false,
+										slideshow : false,
+										itemWidth: 213,
+										itemMargin: 0,
+										minItems: 1,
+										maxItems: 3,
+										move: 1,
+										useCSS : false
+									});
+								});
+							</script>
+                        </div>
+                        
+                        <div class="line_2" style="margin:20px 0px 0px;"></div>
+                        
+                    </div>
+                    
+                    <!-- sidebar -->
+		            <%@ include file="sidebar.jsp"%>
+                   
+                	<div class="clearboth"></div>
+                </div>
+            </div>
+        </div>
+    	<!-- CONTENT END -->
+
+		<!-- footer -->
+		<%@ include file="footer.jsp"%>        
+
+    </div>
+    
+	<!-- login -->
+	<%@ include file="login.jsp"%>  
+
+</body>
+<!-- 回车登陆 -->
+<script type="text/javascript">
+    $(document).keyup(function(e) {
+        if (e.keyCode == 13) {
+            $("#submit1").click()
+        }
+    });
+</script>
+</html>
