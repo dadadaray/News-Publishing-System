@@ -3,11 +3,9 @@ package com.aps.entity;
 import javax.persistence.Table;
 
 import com.aps.entity.Comment;
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,14 +19,17 @@ import javax.persistence.OneToMany;
 @Entity
 @Table(name = "comment")
 public class Comment {
+	// 属性
 	private Integer commentId;
 	private String commentContent;// 评论内容
 	private Date commentPublishTime;// 评论发表时间
-	private UserInfo userInfo; // 评论的作者
-	private News news; // 评论的新闻
-	private Comment parentComment; // 父评论
+
+	private News news;// 评论对应的bug
+	private UserInfo userInfo;// 评论对应的用户
+	private Comment parentComment;// 父评论
 	private Set<Comment> comments = new HashSet<Comment>(0);
 
+	// set/get方法
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getCommentId() {
@@ -55,17 +56,7 @@ public class Comment {
 		this.commentPublishTime = commentPublishTime;
 	}
 
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "commentAuthorId")
-	public UserInfo getUserInfo() {
-		return userInfo;
-	}
-
-	public void setUserInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
-	}
-
-	@ManyToOne(cascade =CascadeType.ALL,fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "newsId")
 	public News getNews() {
 		return news;
@@ -73,6 +64,16 @@ public class Comment {
 
 	public void setNews(News news) {
 		this.news = news;
+	}
+
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.EAGER)
+	@JoinColumn(name = "commentAuthorID")
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
