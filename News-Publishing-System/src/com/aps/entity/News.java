@@ -199,7 +199,7 @@ public class News {
 		this.modMixSingle = modMixSingle;
 	}
 
-	@OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "news")
 	public Set<Comment> getComments() {
 		return comments;
 	}
