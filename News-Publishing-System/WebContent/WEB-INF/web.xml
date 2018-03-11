@@ -5,8 +5,7 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>News_Publishing_System</display-name>
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>font_desk/index.jsp</welcome-file>
 	</welcome-file-list>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
