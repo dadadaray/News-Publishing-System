@@ -14,9 +14,15 @@
 	<description>Spring公共配置 </description>
 
 	<!-- 配置Spring上下文的注解 -->
+<<<<<<< HEAD
 	<context:annotation-config/>
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
 	<context:component-scan base-package="com.aps">
+=======
+	<context:annotation-config />
+	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.exp">
+>>>>>>> 0c670e82e5b6371a31764f68c5113bb9eb8ea04e
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -29,7 +35,27 @@
 		</property>
 		<!-- 查看SimpleMailMessage源码还可以注入标题,内容等 -->
 	</bean>
+<<<<<<< HEAD
 	
+=======
+	<!-- 申明JavaMailSenderImpl对象 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="host" value="${mail.host}" />
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="javaMailProperties">
+			<props>
+				<!-- 设置认证开关 -->
+				<prop key="mail.smtp.auth">${mail.auth}</prop>
+				<!-- 启动调试开关 -->
+				<prop key="mail.debug">${mail.debug}</prop>
+				<!-- 设置发送延时 -->
+				<prop key="mail.smtp.timeout">${mail.timeout}</prop>
+			</props>
+		</property>
+	</bean>
+>>>>>>> 0c670e82e5b6371a31764f68c5113bb9eb8ea04e
 
 	<!-- 文件上传 -->
 	<bean id="multipartResolver"
@@ -54,7 +80,11 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+<<<<<<< HEAD
 		<property name="packagesToScan" value="com.aps.entity" />
+=======
+		<property name="packagesToScan" value="com.exp.entity" />
+>>>>>>> 0c670e82e5b6371a31764f68c5113bb9eb8ea04e
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
@@ -68,7 +98,10 @@
 					org.hibernate.search.store.impl.FSDirectoryProvider
 				</prop>
 				<prop key="hibernate.search.default.indexBase">C:/index</prop>
+<<<<<<< HEAD
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
+=======
+>>>>>>> 0c670e82e5b6371a31764f68c5113bb9eb8ea04e
 			</props>
 		</property>
 	</bean>
