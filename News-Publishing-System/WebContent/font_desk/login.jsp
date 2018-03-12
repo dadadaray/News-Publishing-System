@@ -30,7 +30,7 @@
                             <div class="field" style="float:left;">
                                 <input type="text" name="codeValue" id="codeValue"> 
                             </div>
-                            <img src="images/pic_most_read_3.png" width="150px" height="28px" style="float:left;padding-left:10px;" />
+                            <img src="${ctx}/font_desk/images/pic_most_read_3.png" width="150px" height="28px" style="float:left;padding-left:10px;" />
                         </div>
                         <div class="login-error1"></div>
                         <div class="column button">
@@ -42,7 +42,7 @@
                 </div>
                 
                 <div class="subtitle" style="margin-bottom:0px;margin-top:20px;"></div>
-                <div class="text"><p>还没有账号？请 <a href="registration.html" style="color:blue;">立即注册</a></p></div>
+                <div class="text"><p>还没有账号？请 <a href="registration.jsp" style="color:blue;">立即注册</a></p></div>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
     <div class="loading">
         <div class="mask">
             <div class="loading-img">
-            <img src="images/loading.gif" width="31" height="31">
+            <img src="${ctx}/font_desk/images/loading.gif" width="31" height="31">
             </div>
         </div>
     </div>

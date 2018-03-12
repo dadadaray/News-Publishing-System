@@ -12,7 +12,7 @@
                     	<div class="fl">
                         	<div class="block_top_menu">
                             	<ul>
-                                	<li class="current"><a href="index.html">首页</a></li>
+                                	<li class="current"><a href="index.jsp">首页</a></li>
                                     <li><a href="about.html">联系我们</a></li>
                                 </ul>
                             </div>
@@ -22,7 +22,7 @@
                         	<div class="block_top_menu">
                             	<ul>
                                 	<li class="current"><a href="#login" class="open_popup">登录</a></li>
-                                    <li><a href="registration.html">注册</a></li>
+                                    <li><a href="registration.jsp">注册</a></li>
                                     <li><a href="#">退出</a></li>
                                 </ul>
                             </div>
@@ -30,8 +30,8 @@
                                 <ul>
                                     <li>
                                         <div>
-                                            <a href="self.html"> 
-                                                <img src="images/default.jpg" width="20px" height="20px" class="img-circle" />
+                                            <a href="self.jsp"> 
+                                                <img src="${ctx}/font_desk/images/default.jpg" width="20px" height="20px" class="img-circle" />
                                                 <b class="caret"></b>
                                             </a>
                                         </div>
@@ -54,7 +54,7 @@
                 
             	<section class="bottom">
                 	<div class="inner">
-                    	<div id="logo_top"><a href="index.html"><img src="images/logo_top.png" alt="BusinessNews" title="BusinessNews" /></a></div>
+                    	<div id="logo_top"><a href="index.jsp"><img src="${ctx}/font_desk/images/logo_top.png" alt="BusinessNews" title="BusinessNews" /></a></div>
                         
                         <div class="block_today_date">
                         	<div class="num"><p id="num_top" /></div>
@@ -87,9 +87,9 @@
                 	<div class="inner">
                     	<nav class="main_menu">
                         	<ul>
-								<li class="current_page_item"><a href="index.html">首页</a>
+								<li class="current_page_item"><a href="index.jsp">首页</a>
                                 </li>
-							  	<li  data-content="business"><a href="business.html">财经</a>
+							  	<li  data-content="business"><a href="business.jsp">财经</a>
                                 <ul>
                                         <li><a href="#">金融</a></li>
                                         <li><a href="#">证券</a></li>
@@ -98,7 +98,7 @@
                                         <li><a href="#">保险</a></li>
                                     </ul>
                                 </li>
-                                <li data-content="technology"><a href="technology.html">科技</a>
+                                <li data-content="technology"><a href="technology.jsp">科技</a>
                                 <ul>
                                         <li><a href="#">互联网</a></li>
                                         <li><a href="#">程序</a></li>
@@ -106,7 +106,7 @@
                                         <li><a href="#">汽车</a></li>
                                     </ul>
                                 </li>
-                                <li  data-content="education"><a href="education.html">教育</a>
+                                <li  data-content="education"><a href="education.jsp">教育</a>
                                     <ul>
                                         <li><a href="#">高校</a></li>
                                         <li><a href="#">著名学府</a></li>
@@ -114,7 +114,7 @@
                                         <li><a href="#">成人教育</a></li>
                                     </ul>
                                 </li>
-                                <li  data-content="education"><a href="education.html">体育</a>
+                                <li  data-content="education"><a href="education.jsp">体育</a>
                                     <ul>
                                         <li><a href="#">中超</a></li>
                                         <li><a href="#">英超</a></li>
@@ -123,7 +123,7 @@
                                         <li><a href="#">综合</a></li>
                                     </ul>
                                 </li>
-                                <li  data-content="education"><a href="education.html">娱乐</a>
+                                <li  data-content="education"><a href="education.jsp">娱乐</a>
                                     <ul>
                                         <li><a href="#">明星</a></li>
                                         <li><a href="#">综艺</a></li>
@@ -132,7 +132,7 @@
                                         <li><a href="#">音乐</a></li>
                                     </ul>
                                 </li>
-                                <li  data-content="education"><a href="education.html">军事</a>
+                                <li  data-content="education"><a href="education.jsp">军事</a>
                                     <ul>
                                         <li><a href="#">中国军情</a></li>
                                         <li><a href="#">周边扫描</a></li>
@@ -140,7 +140,7 @@
                                         <li><a href="#">军备动态</a></li>
                                     </ul>
                                 </li>
-                                <li  data-content="education"><a href="education.html">旅游</a>
+                                <li  data-content="education"><a href="education.jsp">旅游</a>
                                     <ul>
                                         <li><a href="#">旅游咨询</a></li>
                                         <li><a href="#">达人游记</a></li>
@@ -155,51 +155,51 @@
                                         <li><a href="#">专题聚焦</a></li>
                                     </ul>
                                 </li> -->
-							  	<li><a href="media.html">媒体</a>
+							  	<li><a href="media.jsp">媒体</a>
                                 	
                                     <ul>
-                                    	<li><a href="media.html">娱乐</a></li>
-                                        <li><a href="media_item.html">周报</a></li>
+                                    	<li><a href="media.jsp">娱乐</a></li>
+                                        <li><a href="media_item.jsp">周报</a></li>
                                     </ul>
                                 </li>
 							  	<li><a href="#">企业相关</a>
                                 	
                                     <ul>
-                                    	<li><a href="about.html">关于我们</a></li>
-                                        <li><a href="about_author.html">记者们</a></li>
-                                        <li><a href="contact.html">联系我们</a></li>
-                                        <li><a href="registration.html">注册</a></li>
-                                        <li><a href="main_news.html">主要新闻</a></li>
-                                        <li><a href="news_post_w_slider.html">带滑动条的新闻稿</a></li>
-                                        <li><a href="news_post_w_video.html">视频新闻发布</a></li>
+                                    	<li><a href="about.jsp">关于我们</a></li>
+                                        <li><a href="about_author.jsp">记者们</a></li>
+                                        <li><a href="contact.jsp">联系我们</a></li>
+                                        <li><a href="registration.jsp">注册</a></li>
+                                        <li><a href="main_news.jsp">主要新闻</a></li>
+                                        <li><a href="news_post_w_slider.jsp">带滑动条的新闻稿</a></li>
+                                        <li><a href="news_post_w_video.jsp">视频新闻发布</a></li>
                                     </ul>
                                 </li>
-							  	<li><a href="blog.html">博客</a>
+							  	<li><a href="blog.jsp">博客</a>
                                 	
                                     <ul>
-                                    	<li><a href="blog.html">Our Blog Style 1</a></li>
-                                        <li><a href="blog_style_2.html">Our Blog Style 2</a></li>
-                                        <li><a href="blog_post.html">博客页面</a></li>
-                                        <li><a href="blog_post_w_slider.html">后与滑块</a></li>
-                                        <li><a href="blog_post_w_video.html">后与视频</a></li>
+                                    	<li><a href="blog.jsp">Our Blog Style 1</a></li>
+                                        <li><a href="blog_style_2.jsp">Our Blog Style 2</a></li>
+                                        <li><a href="blog_post.jsp">博客页面</a></li>
+                                        <li><a href="blog_post_w_slider.jsp">后与滑块</a></li>
+                                        <li><a href="blog_post_w_video.jsp">后与视频</a></li>
                                     </ul>
                                 </li>
-		  		  		  		<li><a href="typography.html">短代码</a>
+		  		  		  		<li><a href="typography.jsp">短代码</a>
                                 	
                                     <ul>
-                                    	<li><a href="accordion.html">Accordeon</a></li>
-                                        <li><a href="blockquote.html">Blockquote</a></li>
-                                        <li><a href="table.html">Table</a></li>
-                                        <li><a href="columns.html">Columns</a></li>
-                                        <li><a href="pricing_table.html">Pricing Table</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="boxes.html">Info Boxes</a></li>
-                                        <li><a href="dropcaps.html">Dropcaps</a></li>
-                                        <li><a href="tabs.html">Tabs</a></li>
-                                        <li><a href="lists.html">List Slyle</a></li>
-                                        <li><a href="buttons.html">Buttons</a></li>
-                                        <li><a href="video.html">Video</a></li>
-                                        <li><a href="typography.html">Typography</a></li>
+                                    	<li><a href="accordion.jsp">Accordeon</a></li>
+                                        <li><a href="blockquote.jsp">Blockquote</a></li>
+                                        <li><a href="table.jsp">Table</a></li>
+                                        <li><a href="columns.jsp">Columns</a></li>
+                                        <li><a href="pricing_table.jsp">Pricing Table</a></li>
+                                        <li><a href="testimonials.jsp">Testimonials</a></li>
+                                        <li><a href="boxes.jsp">Info Boxes</a></li>
+                                        <li><a href="dropcaps.jsp">Dropcaps</a></li>
+                                        <li><a href="tabs.jsp">Tabs</a></li>
+                                        <li><a href="lists.jsp">List Slyle</a></li>
+                                        <li><a href="buttons.jsp">Buttons</a></li>
+                                        <li><a href="video.jsp">Video</a></li>
+                                        <li><a href="typography.jsp">Typography</a></li>
                                     </ul>
 								</li>
 						  </ul>
@@ -212,13 +212,13 @@
                 	<div class="inner">
                     	<nav class="secondary_menu">
                         	<ul>
-                            	<li><a href="main_news_europe.html">世界军事</a></li>
-                                <li><a href="main_news_usa.html">股票</a></li>
-                                <li><a href="main_news_m_east.html">中东局势</a></li>
-                                <li><a href="main_news_money.html">金融</a></li>
-                                <li><a href="main_news_science.html">创新科技</a></li>
-                                <li><a href="main_news_culture.html">文化教育</a></li>
-                                <li><a href="main_news_top.html">置顶新闻</a></li>
+                            	<li><a href="main_news_europe.jsp">世界军事</a></li>
+                                <li><a href="main_news_usa.jsp">股票</a></li>
+                                <li><a href="main_news_m_east.jsp">中东局势</a></li>
+                                <li><a href="main_news_money.jsp">金融</a></li>
+                                <li><a href="main_news_science.jsp">创新科技</a></li>
+                                <li><a href="main_news_culture.jsp">文化教育</a></li>
+                                <li><a href="main_news_top.jsp">置顶新闻</a></li>
                           	</ul>
                         </nav>
                         

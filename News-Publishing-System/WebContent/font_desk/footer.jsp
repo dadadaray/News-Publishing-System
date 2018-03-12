@@ -9,7 +9,7 @@
             <div id="footer">
             	<section class="top">
                 	<div class="inner">
-                    	<div id="logo_bottom"><a href="index.html"><img src="images/logo_bottom.png" alt="" /></a></div>
+                    	<div id="logo_bottom"><a href="index.jsp"><img src="${ctx}/font_desk/images/logo_bottom.png" alt="" /></a></div>
                         
                         <div class="block_to_top">
                         	<a href="#">返回顶部</a>
@@ -34,14 +34,14 @@
                                 
                                 <div class="block_flickr_footer">
                                 	<ul>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="images/pic_flickr_1.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="images/pic_flickr_2.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="images/pic_flickr_3.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="images/pic_flickr_4.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="images/pic_flickr_5.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="images/pic_flickr_6.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="images/pic_flickr_7.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="images/pic_flickr_8.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_1.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_2.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_3.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_4.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_5.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_6.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_7.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_8.png" alt="" /></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -75,14 +75,14 @@
                                 <div class="block_most_read_news">
                                 	<div class="article">
                                     	<div class="pic">
-                                        	<a href="news_post.html" class="w_hover">
-                                            	<img src="images/pic_most_read_1.png" alt="" />
+                                        	<a href="news_post.jsp" class="w_hover">
+                                            	<img src="${ctx}/font_desk/images/pic_most_read_1.png" alt="" />
                                                 <span></span>
                                             </a>
                                         </div>
                                         
                                         <div class="text">
-                                        	<p class="title"><a href="news_post.html">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
+                                        	<p class="title"><a href="news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
                                             <p class="date">08 July, 2012</p>
                                         </div>
                                     </div>
@@ -90,14 +90,14 @@
                                     
                                     <div class="article">
                                     	<div class="pic">
-                                        	<a href="news_post.html" class="w_hover">
-                                            	<img src="images/pic_most_read_2.png" alt="" />
+                                        	<a href="news_post.jsp" class="w_hover">
+                                            	<img src="${ctx}/font_desk/images/pic_most_read_2.png" alt="" />
                                                 <span></span>
                                             </a>
                                         </div>
                                         
                                         <div class="text">
-                                        	<p class="title"><a href="news_post.html">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
+                                        	<p class="title"><a href="news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
                                             <p class="date">08 July, 2012</p>
                                         </div>
                                     </div>
@@ -105,14 +105,14 @@
                                     
                                     <div class="article">
                                     	<div class="pic">
-                                        	<a href="news_post.html" class="w_hover">
-                                            	<img src="images/pic_most_read_3.png" alt="" />
+                                        	<a href="news_post.jsp" class="w_hover">
+                                            	<img src="${ctx}/font_desk/images/pic_most_read_3.png" alt="" />
                                                 <span></span>
                                             </a>
                                         </div>
                                         
                                         <div class="text">
-                                        	<p class="title"><a href="news_post.html">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
+                                        	<p class="title"><a href="news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
                                             <p class="date">08 July, 2012</p>
                                         </div>
                                     </div>
@@ -155,10 +155,10 @@
                         <div class="fr">
                         	<div class="block_menu_footer">
                             	<ul>
-                                	<li><a href="business.html">Business</a></li>
-                                    <li><a href="technology.html">Technology</a></li>
-                                    <li><a href="education.html">Education</a></li>
-                                    <li><a href="media.html">Media</a></li>
+                                	<li><a href="business.jsp">Business</a></li>
+                                    <li><a href="technology.jsp">Technology</a></li>
+                                    <li><a href="education.jsp">Education</a></li>
+                                    <li><a href="media.jsp">Media</a></li>
                                 </ul>
                             </div>
                             
