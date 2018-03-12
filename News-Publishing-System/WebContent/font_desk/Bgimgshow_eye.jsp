@@ -18,7 +18,7 @@
 <!--[if lt IE 9]>
 <script type="text/javascript" src="layout/plugins/html5.js"></script>
 <![endif]-->
-<link rel="stylesheet" href="layout/jiaodian.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="${ctx}/font_desk/layout/jiaodian.css" media="screen" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body>
@@ -34,7 +34,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="images/1.png">
+			      <img src="${ctx}/font_desk/images/1.png">
 			      <figcaption>
 			        <h1>Hover me!</h1>
 			        <p>
@@ -48,7 +48,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="images/2.jpg">
+			      <img src="${ctx}/font_desk/images/2.jpg">
 			      <figcaption>
 			        <h1>Dolor Sit Amet</h1>
 			        <p>
@@ -62,7 +62,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="images/3.jpg">
+			      <img src="${ctx}/font_desk/images/3.jpg">
 			      <figcaption>
 			        <h1>This is an example image</h1>
 			        <p>
@@ -76,7 +76,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="images/4.jpg">
+			      <img src="${ctx}/font_desk/images/4.jpg">
 			      <figcaption>
 			        <h1>This one has no description</h1>
 
@@ -88,7 +88,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="images/5.jpg">
+			      <img src="${ctx}/font_desk/images/5.jpg">
 			      <figcaption>
 			        <h1>This is awesome!</h1>
 			        <p>
@@ -102,7 +102,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="images/6.jpg">
+			      <img src="${ctx}/font_desk/images/6.jpg">
 			      <figcaption>
 			        <h1>This is awesome!</h1>
 			        <p>
@@ -134,16 +134,16 @@
 			<div style="text-align:center;clear:both;margin-top:20px">
 			</div> 
 			<div class="smalltb">
-				<p style="text-align: center;"><a href="bigcoment.html"><img src="layout/images/liuyan.png"></a>
-				<a href=""><img src="layout/images/fenxiang.png"></a>
-				<a href=""><img src="layout/images/xihuan.png"></a></p>
+				<p style="text-align: center;"><a href="bigcoment.jsp"><img src="${ctx}/font_desk/layout/images/liuyan.png"></a>
+				<a href=""><img src="${ctx}/font_desk/layout/images/fenxiang.png"></a>
+				<a href=""><img src="${ctx}/font_desk/layout/images/xihuan.png"></a></p>
 			</div>
 	</div>
 </body>
-  <script src="layout/js/jquery.js"></script>
-  <script src='layout/js/rgbaster.min.js'></script>
-  <script src='layout/js/jquery.adaptiveslider.min.js'></script>
-  <script src="layout/js/jiaodian.js"></script>
+  <script src="${ctx}/font_desk/layout/js/jquery.js"></script>
+  <script src='${ctx}/font_desk/layout/js/rgbaster.min.js'></script>
+  <script src='${ctx}/font_desk/layout/js/jquery.adaptiveslider.min.js'></script>
+  <script src="${ctx}/font_desk/layout/js/jiaodian.js"></script>
 
 
 </html>

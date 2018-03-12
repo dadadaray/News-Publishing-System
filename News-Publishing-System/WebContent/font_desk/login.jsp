@@ -42,7 +42,7 @@
                 </div>
                 
                 <div class="subtitle" style="margin-bottom:0px;margin-top:20px;"></div>
-                <div class="text"><p>还没有账号？请 <a href="registration.jsp" style="color:blue;">立即注册</a></p></div>
+                <div class="text"><p>还没有账号？请 <a href="${ctx}/font_desk/registration.jsp" style="color:blue;">立即注册</a></p></div>
             </div>
         </div>
     </div>

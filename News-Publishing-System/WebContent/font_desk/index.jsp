@@ -164,14 +164,14 @@
                         <div class="block_home_col_1">
                         	<div class="block_home_post">
 								<div class="pic">
-									<a href="news_post.jsp" class="w_hover">
+									<a href="${ctx}/font_desk/news_post.jsp" class="w_hover">
 										<img src="${ctx}/font_desk/images/pic_home_news_1.jpg" alt="" />
 										<span></span>
 									</a>
 								</div>
                                         
 								<div class="text">
-									<p class="title"><a href="news_post.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<p class="title"><a href="${ctx}/font_desk/news_post.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
 									<div class="date"><p>2014年6月30日</p></div>
                                     <div class="icons">
                                     	<ul>
@@ -184,14 +184,14 @@
                             
                             <div class="block_home_post">
 								<div class="pic">
-									<a href="news_post_style2.jsp" class="w_hover">
+									<a href="${ctx}/font_desk/news_post_style2.jsp" class="w_hover">
 										<img src="${ctx}/font_desk/images/pic_home_news_2.jpg" alt="" />
 										<span></span>
 									</a>
 								</div>
                                         
 								<div class="text">
-									<p class="title"><a href="news_post_listen.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<p class="title"><a href="${ctx}/font_desk/news_post_listen.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
 									<div class="date"><p>11 July, 2012</p></div>
                                     <div class="icons">
                                     	<ul>
@@ -204,14 +204,14 @@
                             
                             <div class="block_home_post">
 								<div class="pic">
-									<a href="news_post.jsp" class="w_hover">
+									<a href="${ctx}/font_desk/news_post.jsp" class="w_hover">
 										<img src="${ctx}/font_desk/images/pic_home_news_3.jpg" alt="" />
 										<span></span>
 									</a>
 								</div>
                                         
 								<div class="text">
-									<p class="title"><a href="news_post_video.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<p class="title"><a href="${ctx}/font_desk/news_post_video.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
 									<div class="date"><p>11 July, 2012</p></div>
                                     <div class="icons">
                                     	<ul>
@@ -227,14 +227,14 @@
                         	<div class="line_3 first" style="margin:14px 0px 17px;"></div>
                             <div class="block_home_post">
 								<div class="pic">
-									<a href="news_post_style1.jsp" class="w_hover">
+									<a href="${ctx}/font_desk/news_post_style1.jsp" class="w_hover">
 										<img src="${ctx}/font_desk/images/pic_home_news_4.jpg" alt="" />
 										<span></span>
 									</a>
 								</div>
                                         
 								<div class="text">
-									<p class="title"><a href="news_post_style1.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<p class="title"><a href="${ctx}/font_desk/news_post_style1.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
 									<div class="date"><p>11 July, 2012</p></div>
                                     <div class="icons">
                                     	<ul>
@@ -247,14 +247,14 @@
                             
                             <div class="block_home_post">
 								<div class="pic">
-									<a href="news_post_style3.jsp" class="w_hover">
+									<a href="${ctx}/font_desk/news_post_style3.jsp" class="w_hover">
 										<img src="${ctx}/font_desk/images/pic_home_news_5.jpg" alt="" />
 										<span></span>
 									</a>
 								</div>
                                         
 								<div class="text">
-									<p class="title"><a href="news_post_style2.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<p class="title"><a href="${ctx}/font_desk/news_post_style2.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
 									<div class="date"><p>11 July, 2012</p></div>
                                     <div class="icons">
                                     	<ul>
@@ -267,14 +267,14 @@
                             
                             <div class="block_home_post">
 								<div class="pic">
-									<a href="news_post.jsp" class="w_hover">
+									<a href="${ctx}/font_desk/news_post.jsp" class="w_hover">
 										<img src="${ctx}/font_desk/images/pic_home_news_6.jpg" alt="" />
 										<span></span>
 									</a>
 								</div>
                                         
 								<div class="text">
-									<p class="title"><a href="news_post_style3.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
+									<p class="title"><a href="${ctx}/font_desk/news_post_style3.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
 									<div class="date"><p>11 July, 2012</p></div>
                                     <div class="icons">
                                     	<ul>
@@ -288,7 +288,7 @@
                         <div class="clearboth"></div>
                         
                         <div class="line_3" style="margin:14px 0px 13px;"></div>
-                        <a href="main_news.jsp" class="lnk_all_news fl">全部新闻</a>
+                        <a href="${ctx}/font_desk/main_news.jsp" class="lnk_all_news fl">全部新闻</a>
                         <div class="clearboth"></div>
                         <div class="line_3" style="margin:13px 0px 35px;"></div>
                         
@@ -297,8 +297,8 @@
                         
                         <div class="block_topic_news">
                         	<article class="block_topic_post">
-                            	<p class="title"><a href="Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”。</a></p>
-                                <div class="f_pic"><a href="Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_home_main_news_1.jpg" alt="" /></a></div>
+                            	<p class="title"><a href="${ctx}/font_desk/Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”。</a></p>
+                                <div class="f_pic"><a href="${ctx}/font_desk/Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_home_main_news_1.jpg" alt="" /></a></div>
                                 <p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
                                 <div class="info">
                                 	<div class="date"><p>11 July, 2012</p></div>
@@ -311,8 +311,8 @@
                             </article>
                             
                             <article class="block_topic_post">
-                            	<p class="title"><a href="Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
-                                <div class="f_pic"><a href="Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_home_main_news_2.jpg" alt="" /></a></div>
+                            	<p class="title"><a href="${ctx}/font_desk/Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
+                                <div class="f_pic"><a href="${ctx}/font_desk/Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_home_main_news_2.jpg" alt="" /></a></div>
                                 <p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
                                 <div class="info">
                                 	<div class="date"><p>11 July, 2012</p></div>
@@ -325,8 +325,8 @@
                             </article>
                             
                             <article class="block_topic_post">
-                            	<p class="title"><a href="Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
-                                <div class="f_pic"><a href="Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_home_main_news_3.jpg" alt="" /></a></div>
+                            	<p class="title"><a href="${ctx}/font_desk/Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
+                                <div class="f_pic"><a href="${ctx}/font_desk/Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_home_main_news_3.jpg" alt="" /></a></div>
                                 <p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
                                 <div class="info">
                                 	<div class="date"><p>11 July, 2012</p></div>
@@ -339,8 +339,8 @@
                             </article>
                             
                             <article class="block_topic_post">
-                            	<p class="title"><a href="Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
-                                <div class="f_pic"><a href="Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_home_main_news_4.jpg" alt="" /></a></div>
+                            	<p class="title"><a href="${ctx}/font_desk/Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a></p>
+                                <div class="f_pic"><a href="${ctx}/font_desk/Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_home_main_news_4.jpg" alt="" /></a></div>
                                 <p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
                                 <div class="info">
                                 	<div class="date"><p>11 July, 2012</p></div>
@@ -385,8 +385,8 @@
                                     <ul class="slides">
                                         <li>
                                             <div class="block_best_material_post">
-                                                <div class="f_pic"><a href="news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_1.jpg" alt="" /><span></span></a></div>
-                                                <p class="title"><a href="news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="f_pic"><a href="${ctx}/font_desk/news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_1.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="${ctx}/font_desk/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
                                                 <div class="info">
                                                     <div class="date"><p>08 July, 2012</p></div>
                                                     <div class="category"><p><a href="#">Business</a></p></div>
@@ -396,8 +396,8 @@
                                         
                                         <li>
                                             <div class="block_best_material_post">
-                                                <div class="f_pic"><a href="news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_2.jpg" alt="" /><span></span></a></div>
-                                                <p class="title"><a href="news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="f_pic"><a href="${ctx}/font_desk/news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_2.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="${ctx}/font_desk/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
                                                 <div class="info">
                                                     <div class="date"><p>08 July, 2012</p></div>
                                                     <div class="category"><p><a href="#">People</a></p></div>
@@ -407,8 +407,8 @@
                                         
                                         <li>
                                             <div class="block_best_material_post">
-                                                <div class="f_pic"><a href="news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_3.jpg" alt="" /><span></span></a></div>
-                                                <p class="title"><a href="news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="f_pic"><a href="${ctx}/font_desk/news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_3.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="${ctx}/font_desk/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
                                                 <div class="info">
                                                     <div class="date"><p>08 July, 2012</p></div>
                                                     <div class="category"><p><a href="#">Technology</a></p></div>
@@ -418,8 +418,8 @@
                                         
                                         <li>
                                             <div class="block_best_material_post">
-                                                <div class="f_pic"><a href="news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_4.jpg" alt="" /><span></span></a></div>
-                                                <p class="title"><a href="news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="f_pic"><a href="${ctx}/font_desk/news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_4.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="${ctx}/font_desk/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
                                                 <div class="info">
                                                     <div class="date"><p>08 July, 2012</p></div>
                                                     <div class="category"><p><a href="#">Business</a></p></div>
@@ -429,8 +429,8 @@
                                         
                                         <li>
                                             <div class="block_best_material_post">
-                                                <div class="f_pic"><a href="news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_5.jpg" alt="" /><span></span></a></div>
-                                                <p class="title"><a href="news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="f_pic"><a href="${ctx}/font_desk/news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_5.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="${ctx}/font_desk/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
                                                 <div class="info">
                                                     <div class="date"><p>08 July, 2012</p></div>
                                                     <div class="category"><p><a href="#">People</a></p></div>
@@ -440,8 +440,8 @@
                                         
                                         <li>
                                             <div class="block_best_material_post">
-                                                <div class="f_pic"><a href="news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_6.jpg" alt="" /><span></span></a></div>
-                                                <p class="title"><a href="news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
+                                                <div class="f_pic"><a href="${ctx}/font_desk/news_post.jsp" class="w_hover"><img src="${ctx}/font_desk/images/pic_home_best_materials_6.jpg" alt="" /><span></span></a></div>
+                                                <p class="title"><a href="${ctx}/font_desk/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a></p>
                                                 <div class="info">
                                                     <div class="date"><p>08 July, 2012</p></div>
                                                     <div class="category"><p><a href="#">Technology</a></p></div>
