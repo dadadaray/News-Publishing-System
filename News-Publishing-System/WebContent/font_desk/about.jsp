@@ -82,7 +82,7 @@
                             <div class="text"><p>当前位置:</p></div>
                             
                             <ul>
-                                <li><a href="index.html">首页</a></li>
+                                <li><a href="index.jsp">首页</a></li>
                                 <li>关于我们</li>
                             </ul>
                         </div>
@@ -105,20 +105,20 @@
                             
                             <div class="one_third">
                                 <div class="person">
-                                    <div class="photo"><a href="about_author.html"><img src="images/ava_default_1.jpg" alt="" /></a></div>
+                                    <div class="photo"><a href="about_author.jsp"><img src="images/ava_default_1.jpg" alt="" /></a></div>
                                     <div class="text">
                                         <p class="position">Editor in chief:</p>
-                                        <p class="name"><a href="about_author.html">罗马.斯皮尔伯格</a></p>
+                                        <p class="name"><a href="about_author.jsp">罗马.斯皮尔伯格</a></p>
                                     </div>
                                     
                                     <div class="clearboth"></div>
                                 </div>
                                 
                                 <div class="person">
-                                    <div class="photo"><a href="about_author.html"><img src="images/ava_default_1.jpg" alt="" /></a></div>
+                                    <div class="photo"><a href="about_author.jsp"><img src="images/ava_default_1.jpg" alt="" /></a></div>
                                     <div class="text">
                                         <p class="position">Art Director:</p>
-                                        <p class="name"><a href="about_author.html">Jason Kimber</a></p>
+                                        <p class="name"><a href="about_author.jsp">Jason Kimber</a></p>
                                     </div>
                                     
                                     <div class="clearboth"></div>
@@ -127,20 +127,20 @@
                             
                             <div class="one_third">
                                 <div class="person">
-                                    <div class="photo"><a href="about_author.html"><img src="images/ava_default_1.jpg" alt="" /></a></div>
+                                    <div class="photo"><a href="about_author.jsp"><img src="images/ava_default_1.jpg" alt="" /></a></div>
                                     <div class="text">
                                         <p class="position">Editor:</p>
-                                        <p class="name"><a href="about_author.html">Sara Patrick</a></p>
+                                        <p class="name"><a href="about_author.jsp">Sara Patrick</a></p>
                                     </div>
                                     
                                     <div class="clearboth"></div>
                                 </div>
                                 
                                 <div class="person">
-                                    <div class="photo"><a href="about_author.html"><img src="images/ava_default_1.jpg" alt="" /></a></div>
+                                    <div class="photo"><a href="about_author.jsp"><img src="images/ava_default_1.jpg" alt="" /></a></div>
                                     <div class="text">
                                         <p class="position">Editor:</p>
-                                        <p class="name"><a href="about_author.html">Karl Doe</a></p>
+                                        <p class="name"><a href="about_author.jsp">Karl Doe</a></p>
                                     </div>
                                     
                                     <div class="clearboth"></div>
@@ -149,20 +149,20 @@
                             
                             <div class="one_third last">
                                 <div class="person">
-                                    <div class="photo"><a href="about_author.html"><img src="images/ava_default_1.jpg" alt="" /></a></div>
+                                    <div class="photo"><a href="about_author.jsp"><img src="images/ava_default_1.jpg" alt="" /></a></div>
                                     <div class="text">
                                         <p class="position">Newsmaker:</p>
-                                        <p class="name"><a href="about_author.html">Mark Hugo</a></p>
+                                        <p class="name"><a href="about_author.jsp">Mark Hugo</a></p>
                                     </div>
                                     
                                     <div class="clearboth"></div>
                                 </div>
                                 
                                 <div class="person">
-                                    <div class="photo"><a href="about_author.html"><img src="images/ava_default_1.jpg" alt="" /></a></div>
+                                    <div class="photo"><a href="about_author.jsp"><img src="images/ava_default_1.jpg" alt="" /></a></div>
                                     <div class="text">
                                         <p class="position">Designer:</p>
-                                        <p class="name"><a href="about_author.html">Jessica Baja</a></p>
+                                        <p class="name"><a href="about_author.jsp">Jessica Baja</a></p>
                                     </div>
                                     
                                     <div class="clearboth"></div>

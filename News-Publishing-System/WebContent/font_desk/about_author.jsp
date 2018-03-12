@@ -20,48 +20,48 @@
 <script type="text/javascript" src="layout/plugins/html5.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="layout/style.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/font_desk/layout/style.css" type="text/css" />
 
-<script type="text/javascript" src="layout/js/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/font_desk/layout/js/jquery.js"></script>
 
 <!-- PrettyPhoto start -->
-<link rel="stylesheet" href="layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
+<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
 <!-- PrettyPhoto end -->
 
 <!-- jQuery tools start -->
-<script type="text/javascript" src="layout/plugins/tools/jquery.tools.min.js"></script>
+<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/tools/jquery.tools.min.js"></script>
 <!-- jQuery tools end -->
 
 <!-- Calendar start -->
-<link rel="stylesheet" href="layout/plugins/calendar/calendar.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/calendar/calendar.js"></script>
+<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/calendar/calendar.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/calendar/calendar.js"></script>
 <!-- Calendar end -->
 
 <!-- ScrollTo start -->
-<script type="text/javascript" src="layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
+<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
 <!-- ScrollTo end -->
 
 <!-- MediaElements start -->
-<link rel="stylesheet" href="layout/plugins/video-audio/mediaelementplayer.css" />
-<script src="layout/plugins/video-audio/mediaelement-and-player.js"></script>
+<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/video-audio/mediaelementplayer.css" />
+<script src="${ctx}/font_desk/layout/plugins/video-audio/mediaelement-and-player.js"></script>
 <!-- MediaElements end -->
 
 <!-- FlexSlider start -->
-<link rel="stylesheet" href="layout/plugins/flexslider/flexslider.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/flexslider/jquery.flexslider-min.js"></script>
+<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/flexslider/flexslider.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/flexslider/jquery.flexslider-min.js"></script>
 <!-- FlexSlider end -->
 
 <!-- iButtons start -->
-<link rel="stylesheet" href="layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
+<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
 <!-- iButtons end -->
 
 <!-- jQuery Form Plugin start -->
-<script type="text/javascript" src="layout/plugins/ajaxform/jquery.form.js"></script>
+<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/ajaxform/jquery.form.js"></script>
 <!-- jQuery Form Plugin end -->
 
-<script type="text/javascript" src="layout/js/main.js"></script>
+<script type="text/javascript" src="${ctx}/font_desk/layout/js/main.js"></script>
 
 
 
@@ -81,7 +81,7 @@
                             <div class="text"><p>You are here:</p></div>
                             
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.jsp">Home</a></li>
                                 <li>Author Page</li>
                             </ul>
                         </div>
@@ -94,7 +94,7 @@
                         <div class="line_3" style="margin:-6px 0px 17px;"></div>
                         
                         <div class="block_author">
-                            <div class="photo"><a href="#"><img src="images/ava_default_2.jpg" alt="" /></a></div>
+                            <div class="photo"><a href="#"><img src="${ctx}/font_desk/images/ava_default_2.jpg" alt="" /></a></div>
                             <div class="bio">
                                 <p>There are many variations of passages of available, but the majority have suffered alteration in some form, by injected humour, or <b>randomised words which</b> don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
                                 
@@ -125,7 +125,7 @@
                             <div class="posts">
                                 <article class="block_author_post">
                                     <div class="f_pic">
-                                        <a href="news_post.html" class="general_pic_hover scale"><img src="images/pic_author_1.jpg" alt="" /></a>
+                                        <a href="news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_author_1.jpg" alt="" /></a>
                                         <span class="date">09:52  11 July 2012</span>
                                     </div>
                                     
@@ -138,12 +138,12 @@
                                         </div>
                                     </div>
                                     
-                                    <p class="title"><a href="news_post.html">Publishing packages and web page editors now use.</a></p>
+                                    <p class="title"><a href="news_post.jsp">Publishing packages and web page editors now use.</a></p>
                                 </article>
                                 
                                 <article class="block_author_post">
                                     <div class="f_pic">
-                                        <a href="news_post.html" class="general_pic_hover scale"><img src="images/pic_author_2.jpg" alt="" /></a>
+                                        <a href="news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_author_2.jpg" alt="" /></a>
                                         <span class="date">09:52  11 July 2012</span>
                                     </div>
                                     
@@ -156,12 +156,12 @@
                                         </div>
                                     </div>
                                     
-                                    <p class="title"><a href="news_post.html">Publishing packages and web page editors now use.</a></p>
+                                    <p class="title"><a href="news_post.jsp">Publishing packages and web page editors now use.</a></p>
                                 </article>
                                 
                                 <article class="block_author_post">
                                     <div class="f_pic">
-                                        <a href="news_post.html" class="general_pic_hover scale"><img src="images/pic_author_3.jpg" alt="" /></a>
+                                        <a href="news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_author_3.jpg" alt="" /></a>
                                         <span class="date">09:52  11 July 2012</span>
                                     </div>
                                     
@@ -174,7 +174,7 @@
                                         </div>
                                     </div>
                                     
-                                    <p class="title"><a href="news_post.html">Publishing packages and web page editors now use.</a></p>
+                                    <p class="title"><a href="news_post.jsp">Publishing packages and web page editors now use.</a></p>
                                 </article>
                             </div>
                         </div>
