@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk"></c:set>
     <!-- CONTENT RIGHT BEGIN -->
     <div class="sidebar">
     	<div class="block_subscribes_sidebar">
@@ -37,7 +37,7 @@
         	<div class="article">
 				<div class="pic">
 					<a href="#" class="w_hover">
-						<img src="${ctx}/font_desk/images/pic_popular_post_1.jpg" alt="" />
+						<img src="${ctx}/images/pic_popular_post_1.jpg" alt="" />
 						<span></span>
 					</a>
 				</div>
@@ -59,7 +59,7 @@
             <div class="article">
 				<div class="pic">
 					<a href="#" class="w_hover">
-						<img src="${ctx}/font_desk/images/pic_popular_post_2.jpg" alt="" />
+						<img src="${ctx}/images/pic_popular_post_2.jpg" alt="" />
 						<span></span>
 					</a>
 				</div>
@@ -81,7 +81,7 @@
             <div class="article">
 				<div class="pic">
 					<a href="#" class="w_hover">
-						<img src="${ctx}/font_desk/images/pic_popular_post_3.jpg" alt="" />
+						<img src="${ctx}/images/pic_popular_post_3.jpg" alt="" />
 						<span></span>
 					</a>
 				</div>
@@ -109,21 +109,21 @@
             <div class="content">
             	<a href="#" class="view_all">全部视频</a>
             	<div class="media">
-                 <!--<a href="http://www.youtube.com/watch?v=ySIvism2af8" class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="images/pic_pop_video.jpg" alt="85-" /></a>-->
-                 <video width="240" height="138" poster="${ctx}/font_desk/images/pic_pop_video.jpg" controls="controls">
-                 <source src="${ctx}/font_desk/vedio/vtest.mp4" type="video/ogg">
-                 <source src="${ctx}/font_desk/vedio/vtest.mp4" type="video/mp4">
-                 <source src="${ctx}/font_desk/vedio/vtest.mp4" type="video/webm">
-                 <object data="${ctx}/font_desk/vedio/vtest.mp4" width="240" height="138">
+                 <!--<a href="http://www.youtube.com/watch?v=ySIvism2af8" class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="${ctx}/images/pic_pop_video.jpg" alt="85-" /></a>-->
+                 <video width="240" height="138" poster="${ctx}/images/pic_pop_video.jpg" controls="controls">
+                 <source src="${ctx}/vedio/vtest.mp4" type="video/ogg">
+                 <source src="${ctx}/vedio/vtest.mp4" type="video/mp4">
+                 <source src="${ctx}/vedio/vtest.mp4" type="video/webm">
+                 <object data="${ctx}/vedio/vtest.mp4" width="240" height="138">
                  </object>
             </video> 
 
-                <!--<video width="250" height="200" class="general_pic_hover play no_fx" src="${ctx}/font_desk/vedio/vtest.mp4" poster="${ctx}/font_desk/images/pic_pop_video.jpg" autoplay="autoplay"></video>-->    
+                <!--<video width="250" height="200" class="general_pic_hover play no_fx" src="vedio/vtest.mp4" poster="images/pic_pop_video.jpg" autoplay="autoplay"></video>-->    
                  
 
                 </div>
-                <p><a href="video.jsp">
-					中国工厂太魔幻：未来每2分钟下线一辆汽车</a> <img src="${ctx}/font_desk/images/icon_video.gif" alt="" /></p>
+                <p><a href="${ctx}/video.jsp">
+					中国工厂太魔幻：未来每2分钟下线一辆汽车</a> <img src="${ctx}/images/icon_video.gif" alt="" /></p>
                 <p class="date">11 July, 2012</p>
             </div>
             
@@ -194,9 +194,9 @@
             
             <div class="content">
             	<a href="#" class="view_all">全部图片</a>
-            	<div class="media"><a href="images/pic_pop_photo_big.jpg" class="general_pic_hover zoom no_fx" data-rel="prettyPhoto" title="Popular Photo"><img src="${ctx}/font_desk/images/pic_pop_photo.jpg" alt="" /></a></div>
-                <p><a href="blog_post_w_slider.jsp">
-					中国工厂太魔幻：未来每2分钟下线一辆汽车。</a> <img src="${ctx}/font_desk/images/icon_photo.gif" alt="" /></p>
+            	<div class="media"><a href="images/pic_pop_photo_big.jpg" class="general_pic_hover zoom no_fx" data-rel="prettyPhoto" title="Popular Photo"><img src="${ctx}/images/pic_pop_photo.jpg" alt="" /></a></div>
+                <p><a href="${ctx}/blog_post_w_slider.jsp">
+					中国工厂太魔幻：未来每2分钟下线一辆汽车。</a> <img src="${ctx}/images/icon_photo.gif" alt="" /></p>
                 <p class="date">11 July, 2012</p>
             </div>
             

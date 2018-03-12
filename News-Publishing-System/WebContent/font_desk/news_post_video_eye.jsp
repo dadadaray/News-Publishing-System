@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk"></c:set>
 <!DOCTYPE html>
 <html>
 
@@ -15,67 +15,68 @@
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/png" href="${ctx}/layout/images/favicon.png">
 
 <!--[if lt IE 9]>
 <script type="text/javascript" src="layout/plugins/html5.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="layout/style.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/layout/style.css" type="text/css" />
 
-<script type="text/javascript" src="layout/js/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.js"></script>
 
 <!-- PrettyPhoto start -->
-<link rel="stylesheet" href="layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
 <!-- PrettyPhoto end -->
 
 <!-- jQuery tools start -->
-<script type="text/javascript" src="layout/plugins/tools/jquery.tools.min.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/tools/jquery.tools.min.js"></script>
 <!-- jQuery tools end -->
 
 <!-- Calendar start -->
-<link rel="stylesheet" href="layout/plugins/calendar/calendar.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/calendar/calendar.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/calendar/calendar.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/calendar/calendar.js"></script>
 <!-- Calendar end -->
 
 <!-- ScrollTo start -->
-<script type="text/javascript" src="layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
 <!-- ScrollTo end -->
 
 <!-- MediaElements start -->
-<link rel="stylesheet" href="layout/plugins/video-audio/mediaelementplayer.css" />
-<script src="layout/plugins/video-audio/mediaelement-and-player.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/video-audio/mediaelementplayer.css" />
+<script src="${ctx}/layout/plugins/video-audio/mediaelement-and-player.js"></script>
 <!-- MediaElements end -->
 
 <!-- FlexSlider start -->
-<link rel="stylesheet" href="layout/plugins/flexslider/flexslider.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/flexslider/jquery.flexslider-min.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/flexslider/flexslider.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/flexslider/jquery.flexslider-min.js"></script>
 <!-- FlexSlider end -->
 
 <!-- iButtons start -->
-<link rel="stylesheet" href="layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
 <!-- iButtons end -->
 
 <!-- jQuery Form Plugin start -->
-<script type="text/javascript" src="layout/plugins/ajaxform/jquery.form.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/ajaxform/jquery.form.js"></script>
 <!-- jQuery Form Plugin end -->
 
-<script type="text/javascript" src="layout/js/main.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/main.js"></script>
 
 <!--注册表单验证 start-->
-<script type="text/javascript" src="layout/js/jquery.validate.js"></script>
-<script type="text/javascript" src="layout/js/page_regist.js?lang=zh"></script>
-<script type="text/javascript" src="layout/js/jquery.i18n.properties-1.0.9.js" ></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.validate.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/page_regist.js?lang=zh"></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.i18n.properties-1.0.9.js" ></script>
 <!--注册表单验证 end-->
 
 <!--密码md5加密 start-->
-<script type="text/javascript" src="layout/js/md5.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/md5.js"></script>
 <!--密码md5加密 end-->
 
 <!--登录表单验证 start-->
 <script type="text/javascript"
-    src="layout/js/page_login.js?lang=zh" id="url"
+    src="${ctx}/layout/js/page_login.js?lang=zh" id="url"
     data="<%= request.getHeader("REFERER")%>"></script>
 <!--登录表单验证 start-->
 
@@ -93,7 +94,7 @@
             	<div class="general_content">
                     <div class="main_content" id="con_eye">
                         <div class="separator" style="height:30px;">
-                            <a href="../后台/add_news_vedio.html"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
+                            <a href="../后台/add_news_vedio.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
                         </div>
 
                         <article class="block_single_news">

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk"></c:set>
 <!DOCTYPE html>
 <html>
 
@@ -15,53 +15,54 @@
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/png" href="${ctx}/layout/images/favicon.png">
 
 <!--[if lt IE 9]>
 <script type="text/javascript" src="layout/plugins/html5.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="${ctx}/font_desk/layout/style.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/layout/style.css" type="text/css" />
 
-<script type="text/javascript" src="${ctx}/font_desk/layout/js/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.js"></script>
 
 <!-- PrettyPhoto start -->
-<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
-<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
 <!-- PrettyPhoto end -->
 
 <!-- jQuery tools start -->
-<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/tools/jquery.tools.min.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/tools/jquery.tools.min.js"></script>
 <!-- jQuery tools end -->
 
 <!-- Calendar start -->
-<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/calendar/calendar.css" type="text/css" />
-<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/calendar/calendar.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/calendar/calendar.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/calendar/calendar.js"></script>
 <!-- Calendar end -->
 
 <!-- ScrollTo start -->
-<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
 <!-- ScrollTo end -->
 
 <!-- MediaElements start -->
-<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/video-audio/mediaelementplayer.css" />
-<script src="${ctx}/font_desk/layout/plugins/video-audio/mediaelement-and-player.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/video-audio/mediaelementplayer.css" />
+<script src="${ctx}/layout/plugins/video-audio/mediaelement-and-player.js"></script>
 <!-- MediaElements end -->
 
 <!-- FlexSlider start -->
-<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/flexslider/flexslider.css" type="text/css" />
-<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/flexslider/jquery.flexslider-min.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/flexslider/flexslider.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/flexslider/jquery.flexslider-min.js"></script>
 <!-- FlexSlider end -->
 
 <!-- iButtons start -->
-<link rel="stylesheet" href="${ctx}/font_desk/layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
-<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
 <!-- iButtons end -->
 
 <!-- jQuery Form Plugin start -->
-<script type="text/javascript" src="${ctx}/font_desk/layout/plugins/ajaxform/jquery.form.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/ajaxform/jquery.form.js"></script>
 <!-- jQuery Form Plugin end -->
 
-<script type="text/javascript" src="${ctx}/font_desk/layout/js/main.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/main.js"></script>
 
 
 
@@ -94,7 +95,7 @@
                         <div class="line_3" style="margin:-6px 0px 17px;"></div>
                         
                         <div class="block_author">
-                            <div class="photo"><a href="#"><img src="${ctx}/font_desk/images/ava_default_2.jpg" alt="" /></a></div>
+                            <div class="photo"><a href="#"><img src="${ctx}/images/ava_default_2.jpg" alt="" /></a></div>
                             <div class="bio">
                                 <p>There are many variations of passages of available, but the majority have suffered alteration in some form, by injected humour, or <b>randomised words which</b> don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
                                 
@@ -125,7 +126,7 @@
                             <div class="posts">
                                 <article class="block_author_post">
                                     <div class="f_pic">
-                                        <a href="news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_author_1.jpg" alt="" /></a>
+                                        <a href="${ctx}/news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/images/pic_author_1.jpg" alt="" /></a>
                                         <span class="date">09:52  11 July 2012</span>
                                     </div>
                                     
@@ -138,12 +139,12 @@
                                         </div>
                                     </div>
                                     
-                                    <p class="title"><a href="news_post.jsp">Publishing packages and web page editors now use.</a></p>
+                                    <p class="title"><a href="${ctx}/news_post.jsp">Publishing packages and web page editors now use.</a></p>
                                 </article>
                                 
                                 <article class="block_author_post">
                                     <div class="f_pic">
-                                        <a href="news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_author_2.jpg" alt="" /></a>
+                                        <a href="${ctx}/news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/images/pic_author_2.jpg" alt="" /></a>
                                         <span class="date">09:52  11 July 2012</span>
                                     </div>
                                     
@@ -156,12 +157,12 @@
                                         </div>
                                     </div>
                                     
-                                    <p class="title"><a href="news_post.jsp">Publishing packages and web page editors now use.</a></p>
+                                    <p class="title"><a href="${ctx}/news_post.jsp">Publishing packages and web page editors now use.</a></p>
                                 </article>
                                 
                                 <article class="block_author_post">
                                     <div class="f_pic">
-                                        <a href="news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/font_desk/images/pic_author_3.jpg" alt="" /></a>
+                                        <a href="${ctx}/news_post.jsp" class="general_pic_hover scale"><img src="${ctx}/images/pic_author_3.jpg" alt="" /></a>
                                         <span class="date">09:52  11 July 2012</span>
                                     </div>
                                     
@@ -174,7 +175,7 @@
                                         </div>
                                     </div>
                                     
-                                    <p class="title"><a href="news_post.jsp">Publishing packages and web page editors now use.</a></p>
+                                    <p class="title"><a href="${ctx}/news_post.jsp">Publishing packages and web page editors now use.</a></p>
                                 </article>
                             </div>
                         </div>

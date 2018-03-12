@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk"></c:set>
 <!DOCTYPE html>
 <html>
 
@@ -15,17 +15,19 @@
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/png" href="${ctx}/layout/images/favicon.png">
+
 <!--[if lt IE 9]>
-<script type="text/javascript" src="layout/plugins/html5.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/html5.js"></script>
 <![endif]-->
-<link rel="stylesheet" href="${ctx}/font_desk/layout/jiaodian.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="${ctx}/layout/jiaodian.css" media="screen" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body>
 	<div class="bigbg">
 		<div class="blackk">
 			<div class="font_bk">
-				<a href="index.jsp">首页</a>
+				<a href="${ctx}/index.jsp">首页</a>
 
 			</div>
 		</div>
@@ -34,7 +36,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="${ctx}/font_desk/images/1.png">
+			      <img src="${ctx}/images/1.png">
 			      <figcaption>
 			        <h1>Hover me!</h1>
 			        <p>
@@ -48,7 +50,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="${ctx}/font_desk/images/2.jpg">
+			      <img src="${ctx}/images/2.jpg">
 			      <figcaption>
 			        <h1>Dolor Sit Amet</h1>
 			        <p>
@@ -62,7 +64,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="${ctx}/font_desk/images/3.jpg">
+			      <img src="${ctx}/images/3.jpg">
 			      <figcaption>
 			        <h1>This is an example image</h1>
 			        <p>
@@ -76,7 +78,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="${ctx}/font_desk/images/4.jpg">
+			      <img src="${ctx}/images/4.jpg">
 			      <figcaption>
 			        <h1>This one has no description</h1>
 
@@ -88,7 +90,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="${ctx}/font_desk/images/5.jpg">
+			      <img src="${ctx}/images/5.jpg">
 			      <figcaption>
 			        <h1>This is awesome!</h1>
 			        <p>
@@ -102,7 +104,7 @@
 			  <!-- Slider Item -->
 			  <li>
 			    <figure>
-			      <img src="${ctx}/font_desk/images/6.jpg">
+			      <img src="${ctx}/images/6.jpg">
 			      <figcaption>
 			        <h1>This is awesome!</h1>
 			        <p>
@@ -134,16 +136,16 @@
 			<div style="text-align:center;clear:both;margin-top:20px">
 			</div> 
 			<div class="smalltb">
-				<p style="text-align: center;"><a href="bigcoment.jsp"><img src="${ctx}/font_desk/layout/images/liuyan.png"></a>
-				<a href=""><img src="${ctx}/font_desk/layout/images/fenxiang.png"></a>
-				<a href=""><img src="${ctx}/font_desk/layout/images/xihuan.png"></a></p>
+				<p style="text-align: center;"><a href="${ctx}/bigcoment.jsp"><img src="layout/images/liuyan.png"></a>
+				<a href=""><img src="${ctx}/layout/images/fenxiang.png"></a>
+				<a href=""><img src="${ctx}/layout/images/xihuan.png"></a></p>
 			</div>
 	</div>
 </body>
-  <script src="${ctx}/font_desk/layout/js/jquery.js"></script>
-  <script src='${ctx}/font_desk/layout/js/rgbaster.min.js'></script>
-  <script src='${ctx}/font_desk/layout/js/jquery.adaptiveslider.min.js'></script>
-  <script src="${ctx}/font_desk/layout/js/jiaodian.js"></script>
+  <script src="${ctx}/layout/js/jquery.js"></script>
+  <script src='${ctx}/layout/js/rgbaster.min.js'></script>
+  <script src='${ctx}/layout/js/jquery.adaptiveslider.min.js'></script>
+  <script src="${ctx}/layout/js/jiaodian.js"></script>
 
 
 </html>
