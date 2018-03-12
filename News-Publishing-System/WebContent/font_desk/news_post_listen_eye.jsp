@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk"></c:set>
 <!DOCTYPE html>
 <html>
 
@@ -15,67 +15,68 @@
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/png" href="${ctx}/layout/images/favicon.png">
 
 <!--[if lt IE 9]>
-<script type="text/javascript" src="layout/plugins/html5.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/html5.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="layout/style.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/layout/style.css" type="text/css" />
 
-<script type="text/javascript" src="layout/js/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.js"></script>
 
 <!-- PrettyPhoto start -->
-<link rel="stylesheet" href="layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
 <!-- PrettyPhoto end -->
 
 <!-- jQuery tools start -->
-<script type="text/javascript" src="layout/plugins/tools/jquery.tools.min.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/tools/jquery.tools.min.js"></script>
 <!-- jQuery tools end -->
 
 <!-- Calendar start -->
-<link rel="stylesheet" href="layout/plugins/calendar/calendar.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/calendar/calendar.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/calendar/calendar.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/calendar/calendar.js"></script>
 <!-- Calendar end -->
 
 <!-- ScrollTo start -->
-<script type="text/javascript" src="layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
 <!-- ScrollTo end -->
 
 <!-- MediaElements start -->
-<link rel="stylesheet" href="layout/plugins/video-audio/mediaelementplayer.css" />
-<script src="layout/plugins/video-audio/mediaelement-and-player.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/video-audio/mediaelementplayer.css" />
+<script src="${ctx}/layout/plugins/video-audio/mediaelement-and-player.js"></script>
 <!-- MediaElements end -->
 
 <!-- FlexSlider start -->
-<link rel="stylesheet" href="layout/plugins/flexslider/flexslider.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/flexslider/jquery.flexslider-min.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/flexslider/flexslider.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/flexslider/jquery.flexslider-min.js"></script>
 <!-- FlexSlider end -->
 
 <!-- iButtons start -->
-<link rel="stylesheet" href="layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
 <!-- iButtons end -->
 
 <!-- jQuery Form Plugin start -->
-<script type="text/javascript" src="layout/plugins/ajaxform/jquery.form.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/ajaxform/jquery.form.js"></script>
 <!-- jQuery Form Plugin end -->
 
-<script type="text/javascript" src="layout/js/main.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/main.js"></script>
 
 <!--注册表单验证 start-->
-<script type="text/javascript" src="layout/js/jquery.validate.js"></script>
-<script type="text/javascript" src="layout/js/page_regist.js?lang=zh"></script>
-<script type="text/javascript" src="layout/js/jquery.i18n.properties-1.0.9.js" ></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.validate.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/page_regist.js?lang=zh"></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.i18n.properties-1.0.9.js" ></script>
 <!--注册表单验证 end-->
 
 <!--密码md5加密 start-->
-<script type="text/javascript" src="layout/js/md5.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/md5.js"></script>
 <!--密码md5加密 end-->
 
 <!--登录表单验证 start-->
 <script type="text/javascript"
-    src="layout/js/page_login.js?lang=zh" id="url"
+    src="${ctx}/layout/js/page_login.js?lang=zh" id="url"
     data="<%= request.getHeader("REFERER")%>"></script>
 <!--登录表单验证 start-->
 
@@ -97,11 +98,11 @@
             	<div class="general_content">
                     <div class="main_content" id="con_eye">
                         <div class="separator" style="height:30px;">
-                            <a href="../后台/add_news_audio.html"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
+                            <a href="../后台/add_news_audio.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
                         </div>
 
                         <article class="block_single_news">
-                            <div class="f_pic"><a href="#"><img src="images/pic_news_post_1.jpg" alt="" /></a></div>
+                            <div class="f_pic"><a href="#"><img src="${ctx}/images/pic_news_post_1.jpg" alt="" /></a></div>
                             <p class="title">
                                 <h1>中国工厂太魔幻：未来每2分钟下线一辆汽车</h1>
                             </p>
@@ -129,7 +130,7 @@
                                 <h3>重器：智能制造核心-数字化仿真智能工厂</h3>
                                 <p class="text_p"><b>最牛实力：</b>这间数字化仿真工厂，冲压环节的零件加工合格率达到100%，焊装环节的焊点定位合格率达到99.8%，总装环节的装配合格率更是达到100%。工程师们通过在仿真系统中的模拟演练，可以减少人为失误风险，大幅节约制造成本，缩短研发周期。.</p> 
                                 <div class="pic_con_sty1"> 
-                                    <img class="pic_con_style_tu" src="images/pic_technology_big.jpg" alt="" />
+                                    <img class="pic_con_style_tu" src="${ctx}/images/pic_technology_big.jpg" alt="" />
                                 </div>
 
                                 <p class="text_p"><b>重器地位:</b>这是中国第一套全流程汽车仿真生产系统。如今，仿真工厂验收成功，智能工厂投入生产！未来这里每两分钟将有一辆高端家用汽车下线，更多的中国消费者将在价格不变的情况下，享受到性能比肩国外高端品牌的国产汽车。</p> 

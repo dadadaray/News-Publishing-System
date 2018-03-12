@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk"></c:set>
     <!-- POPUP BEGIN -->
     <div id="overlay"></div>
     <div id="login" class="block_popup" style="height:246px">
@@ -30,7 +30,7 @@
                             <div class="field" style="float:left;">
                                 <input type="text" name="codeValue" id="codeValue"> 
                             </div>
-                            <img src="${ctx}/font_desk/images/pic_most_read_3.png" width="150px" height="28px" style="float:left;padding-left:10px;" />
+                            <img src="${ctx}/images/pic_most_read_3.png" width="150px" height="28px" style="float:left;padding-left:10px;" />
                         </div>
                         <div class="login-error1"></div>
                         <div class="column button">
@@ -42,7 +42,7 @@
                 </div>
                 
                 <div class="subtitle" style="margin-bottom:0px;margin-top:20px;"></div>
-                <div class="text"><p>还没有账号？请 <a href="${ctx}/font_desk/registration.jsp" style="color:blue;">立即注册</a></p></div>
+                <div class="text"><p>还没有账号？请 <a href="${ctx}/registration.jsp" style="color:blue;">立即注册</a></p></div>
             </div>
         </div>
     </div>

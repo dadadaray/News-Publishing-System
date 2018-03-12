@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk"></c:set>
 <!DOCTYPE html>
 <html>
 
@@ -15,56 +15,57 @@
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/png" href="${ctx}/layout/images/favicon.png">
 
 <!--[if lt IE 9]>
 <script type="text/javascript" src="layout/plugins/html5.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="layout/style.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/layout/style.css" type="text/css" />
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css" />
 <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet" type="text/css" />
 <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="layout/js/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.js"></script>
 
 <!-- PrettyPhoto start -->
-<link rel="stylesheet" href="layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
 <!-- PrettyPhoto end -->
 
 <!-- jQuery tools start -->
-<script type="text/javascript" src="layout/plugins/tools/jquery.tools.min.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/tools/jquery.tools.min.js"></script>
 <!-- jQuery tools end -->
 
 <!-- Calendar start -->
-<link rel="stylesheet" href="layout/plugins/calendar/calendar.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/calendar/calendar.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/calendar/calendar.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/calendar/calendar.js"></script>
 <!-- Calendar end -->
 
 <!-- ScrollTo start -->
-<script type="text/javascript" src="layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
 <!-- ScrollTo end -->
 
 <!-- MediaElements start -->
-<link rel="stylesheet" href="layout/plugins/video-audio/mediaelementplayer.css" />
-<script src="layout/plugins/video-audio/mediaelement-and-player.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/video-audio/mediaelementplayer.css" />
+<script src="${ctx}/layout/plugins/video-audio/mediaelement-and-player.js"></script>
 <!-- MediaElements end -->
 
 <!-- FlexSlider start -->
-<link rel="stylesheet" href="layout/plugins/flexslider/flexslider.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/flexslider/jquery.flexslider-min.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/flexslider/flexslider.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/flexslider/jquery.flexslider-min.js"></script>
 <!-- FlexSlider end -->
 
 <!-- iButtons start -->
-<link rel="stylesheet" href="layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
-<script type="text/javascript" src="layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
+<link rel="stylesheet" href="${ctx}/layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
 <!-- iButtons end -->
 
 <!-- jQuery Form Plugin start -->
-<script type="text/javascript" src="layout/plugins/ajaxform/jquery.form.js"></script>
+<script type="text/javascript" src="${ctx}/layout/plugins/ajaxform/jquery.form.js"></script>
 <!-- jQuery Form Plugin end -->
 
-<script type="text/javascript" src="layout/js/main.js"></script>
+<script type="text/javascript" src="${ctx}/layout/js/main.js"></script>
 
 <script type="text/javascript">
 	jQuery(function () {
@@ -87,7 +88,7 @@
                         	<div class="text"><p>You are here:</p></div>
                             
                             <ul>
-                            	<li><a href="index.html">Home</a></li>
+                            	<li><a href="${ctx}/index.jsp">Home</a></li>
                                 <li>Media</li>
                             </ul>
                         </div>
@@ -98,7 +99,7 @@
                         <div class="line_4" style="margin:0px 0px 22px;"></div>
                         
                         <div class="block_media_f_pic">
-                        	<img src="images/pic_media_big.jpg" alt="" />
+                        	<img src="${ctx}/images/pic_media_big.jpg" alt="" />
                             <div class="caption">
                             	<p class="title"><a href="#">Many desktop publishing packages and web page.</a></p>
                                 <div class="l_part"><p class="date">11 July, 2012</p></div>
@@ -113,31 +114,31 @@
                         <div class="block_media_posts">
                         	<article class="block_media_post">
                                 <div class="f_pic">
-                                    <a href="media_item.html"><img src="images/pic_media_1.jpg" alt="" /><span class="hover"></span></a>
+                                    <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_1.jpg" alt="" /><span class="hover"></span></a>
                                     <span class="type">3 photos</span>
                                 </div>
                                     
-                              	<p class="title"><a href="media_item.html">Many desktop publishing and web page.</a></p>
+                              	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publishing and web page.</a></p>
                                 <p class="date">11 July, 2012</p>
                             </article>
                             
                             <article class="block_media_post">
                                 <div class="f_pic">
-                                    <a href="media_item.html"><img src="images/pic_media_2.jpg" alt="" /><span class="hover"></span></a>
+                                    <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_2.jpg" alt="" /><span class="hover"></span></a>
                                     <span class="type">5 photos</span>
                                 </div>
                                     
-                              	<p class="title"><a href="media_item.html">Many desktop publishing and web page.</a></p>
+                              	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publishing and web page.</a></p>
                                 <p class="date">11 July, 2012</p>
                             </article>
                             
                             <article class="block_media_post">
                                 <div class="f_pic">
-                                    <a href="media_item.html"><img src="images/pic_media_3.jpg" alt="" /><span class="hover"></span></a>
+                                    <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_3.jpg" alt="" /><span class="hover"></span></a>
                                     <span class="type">Video</span>
                                 </div>
                                     
-                              	<p class="title"><a href="media_item.html">Many desktop publishing and web page.</a></p>
+                              	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publishing and web page.</a></p>
                                 <p class="date">11 July, 2012</p>
                             </article>
                         </div>
@@ -157,66 +158,66 @@
                                 <div class="block_media_posts_all">
                                 	<article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_1.jpg" alt="" /><span class="hover"></span></a>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_1.jpg" alt="" /><span class="hover"></span></a>
                                         </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_2.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_2.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_3.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_3.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_4.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_4.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_5.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_5.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_6.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_6.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_7.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_7.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_8.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_8.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                 </div>
@@ -247,67 +248,67 @@
                                 <div class="block_media_posts_all">
                                 	<article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_8.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_8.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_7.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_7.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_6.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_6.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_5.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_5.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_4.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_4.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_3.jpg" alt="" /><span class="hover"></span></a>                                        </div>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_3.jpg" alt="" /><span class="hover"></span></a>                                        </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_2.jpg" alt="" /><span class="hover"></span></a>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_2.jpg" alt="" /><span class="hover"></span></a>
                                         </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                     
                                     <article class="block_media_post_all">
                                     	<div class="f_pic">
-                                            <a href="media_item.html"><img src="images/pic_media_tabs_1.jpg" alt="" /><span class="hover"></span></a>
+                                            <a href="${ctx}/media_item.jsp"><img src="${ctx}/images/pic_media_tabs_1.jpg" alt="" /><span class="hover"></span></a>
                                         </div>
                                         
-                                      	<p class="title"><a href="media_item.html">Many desktop publish packages.</a></p>
+                                      	<p class="title"><a href="${ctx}/media_item.jsp">Many desktop publish packages.</a></p>
                                         <p class="date">11 July, 2012</p>
                                     </article>
                                 </div>

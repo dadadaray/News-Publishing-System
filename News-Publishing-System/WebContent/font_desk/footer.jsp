@@ -3,13 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk"></c:set>
         <!-- FOOTER BEGIN -->
         <footer>
             <div id="footer">
             	<section class="top">
                 	<div class="inner">
-                    	<div id="logo_bottom"><a href="${ctx}/font_desk/index.jsp"><img src="${ctx}/font_desk/images/logo_bottom.png" alt="" /></a></div>
+                    	<div id="logo_bottom"><a href="${ctx}/index.jsp"><img src="${ctx}/images/logo_bottom.png" alt="" /></a></div>
                         
                         <div class="block_to_top">
                         	<a href="#">返回顶部</a>
@@ -34,14 +34,14 @@
                                 
                                 <div class="block_flickr_footer">
                                 	<ul>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_1.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_2.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_3.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_4.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_5.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_6.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_7.png" alt="" /></a></li>
-                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/font_desk/images/pic_flickr_8.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/images/pic_flickr_1.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/images/pic_flickr_2.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/images/pic_flickr_3.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/images/pic_flickr_4.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/images/pic_flickr_5.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/images/pic_flickr_6.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/images/pic_flickr_7.png" alt="" /></a></li>
+                                        <li><a href="http://www.flickr.com/" target="_blank"><img src="${ctx}/images/pic_flickr_8.png" alt="" /></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -75,14 +75,14 @@
                                 <div class="block_most_read_news">
                                 	<div class="article">
                                     	<div class="pic">
-                                        	<a href="${ctx}/font_desk/news_post.jsp" class="w_hover">
-                                            	<img src="${ctx}/font_desk/images/pic_most_read_1.png" alt="" />
+                                        	<a href="${ctx}/news_post.jsp" class="w_hover">
+                                            	<img src="${ctx}/images/pic_most_read_1.png" alt="" />
                                                 <span></span>
                                             </a>
                                         </div>
                                         
                                         <div class="text">
-                                        	<p class="title"><a href="${ctx}/font_desk/news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
+                                        	<p class="title"><a href="${ctx}/news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
                                             <p class="date">08 July, 2012</p>
                                         </div>
                                     </div>
@@ -90,14 +90,14 @@
                                     
                                     <div class="article">
                                     	<div class="pic">
-                                        	<a href="${ctx}/font_desk/news_post.jsp" class="w_hover">
-                                            	<img src="${ctx}/font_desk/images/pic_most_read_2.png" alt="" />
+                                        	<a href="${ctx}/news_post.jsp" class="w_hover">
+                                            	<img src="${ctx}/images/pic_most_read_2.png" alt="" />
                                                 <span></span>
                                             </a>
                                         </div>
                                         
                                         <div class="text">
-                                        	<p class="title"><a href="${ctx}/font_desk/news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
+                                        	<p class="title"><a href="${ctx}/news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
                                             <p class="date">08 July, 2012</p>
                                         </div>
                                     </div>
@@ -105,14 +105,14 @@
                                     
                                     <div class="article">
                                     	<div class="pic">
-                                        	<a href="${ctx}/font_desk/news_post.jsp" class="w_hover">
-                                            	<img src="${ctx}/font_desk/images/pic_most_read_3.png" alt="" />
+                                        	<a href="${ctx}/news_post.jsp" class="w_hover">
+                                            	<img src="${ctx}/images/pic_most_read_3.png" alt="" />
                                                 <span></span>
                                             </a>
                                         </div>
                                         
                                         <div class="text">
-                                        	<p class="title"><a href="${ctx}/font_desk/news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
+                                        	<p class="title"><a href="${ctx}/news_post.jsp">9枚导弹飞向美国！普京的宣传片里卖的什么药？</a></p>
                                             <p class="date">08 July, 2012</p>
                                         </div>
                                     </div>
@@ -155,10 +155,10 @@
                         <div class="fr">
                         	<div class="block_menu_footer">
                             	<ul>
-                                	<li><a href="${ctx}/font_desk/business.jsp">Business</a></li>
-                                    <li><a href="${ctx}/font_desk/technology.jsp">Technology</a></li>
-                                    <li><a href="${ctx}/font_desk/education.jsp">Education</a></li>
-                                    <li><a href="${ctx}/font_desk/media.jsp">Media</a></li>
+                                	<li><a href="${ctx}/business.jsp">Business</a></li>
+                                    <li><a href="${ctx}/technology.jsp">Technology</a></li>
+                                    <li><a href="${ctx}/education.jsp">Education</a></li>
+                                    <li><a href="${ctx}/media.jsp">Media</a></li>
                                 </ul>
                             </div>
                             
