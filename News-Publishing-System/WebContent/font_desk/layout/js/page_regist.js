@@ -131,6 +131,7 @@ $(document).ready(function(){
 
 	//ajax提交注册信息
 	$("#submit").bind("click", function(){
+		console.log("提交了");
 		regist(validate);
 	});
 	//注册的回车校验	
@@ -150,7 +151,7 @@ function regist(validate){
 	if(validate.form()){
 			var md5 = new MD5();
 			$.post({
-				url : "loginUser/register",
+				url : "user/register",
 				data: {
 					loginName: $("#name").val(),
 					password: md5.MD5($("#password").val()),
