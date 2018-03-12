@@ -64,7 +64,6 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 
 	/**
 	 * 保存新闻
-	 * 
 	 * @author Ray
 	 * @param n
 	 */
