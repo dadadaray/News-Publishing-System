@@ -36,7 +36,7 @@ public class UserServiceImpl {
 			// 发送邮件
 			EmailVo emailVo = new EmailVo();
 			emailVo.setReceivers(new String[] { loginUser.getLoginEmail() });
-			emailVo.setSender("m15315715815@163.com");
+			emailVo.setSender("news_website@163.com");
 			emailVo.setSubject("欢迎注册nullpointer");
 			// 邮件内容!
 			String activeURL = "http://localhost:8080"+"/News-Publishing-System/loginUser/activeLoginUser?loginName="

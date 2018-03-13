@@ -48,12 +48,12 @@ $(document).ready(function(){
 			password: {
 				required: true,
 				minlength: 4,
-				maxlength: 16
+				maxlength: 100
 			},
 			passwordAgain: {
 				required: true,
 				minlength: 4,
-				maxlength: 16,
+				maxlength: 100,
 				equalTo: "#password"
 			}
 		},
@@ -150,6 +150,7 @@ function regist(validate){
 	//校验name,realName,phone,Email, password，校验如果失败的话不提交
 	if(validate.form()){
 			var md5 = new MD5();
+			console.log();
 			$.post({
 				url : "loginUser/register",
 				data: {
@@ -161,7 +162,7 @@ function regist(validate){
 					$('.loading').show();
 				},
 				success: function(data,status){
-//					console.log("data");
+					console.log("data");
 					$('.loading').hide();
 					if(data){
 						if(data == "0"){

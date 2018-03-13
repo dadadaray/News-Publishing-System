@@ -40,9 +40,10 @@ public class UserControllerImpl {
 	 */
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	@ResponseBody
-	public String register(@RequestParam(name = "loginName") String name, @RequestParam(name = "email") String email,
+	public String register(@RequestParam(name = "name") String name, @RequestParam(name = "email") String email,
 			@RequestParam(name = "password") String password, HttpSession session,HttpServletRequest request) {
 		// code转换
+		System.out.print("进入controller");
 		// 判断email是否符合格式,使用java正则表达式
 		if (EncodingTool.isEmail(email)) {
 			LoginUser loginUser = new LoginUser();
