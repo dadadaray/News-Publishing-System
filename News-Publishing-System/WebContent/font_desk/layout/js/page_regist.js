@@ -130,7 +130,7 @@ $(document).ready(function(){
 	});
 
 	//ajax提交注册信息
-	$("#submit").bind("click", function(){
+	$("#submitLogin").bind("click", function(){
 		console.log("提交了");
 		regist(validate);
 	});
@@ -151,7 +151,7 @@ function regist(validate){
 	if(validate.form()){
 			var md5 = new MD5();
 			$.post({
-				url : "user/register",
+				url : "loginUser/register",
 				data: {
 					loginName: $("#name").val(),
 					password: md5.MD5($("#password").val()),
