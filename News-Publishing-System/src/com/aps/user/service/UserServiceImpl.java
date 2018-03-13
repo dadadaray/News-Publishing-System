@@ -6,37 +6,43 @@ import javax.mail.MessagingException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aps.entity.User;
-import com.aps.user.dao.UserDaoImpl;
+import com.aps.entity.LoginUser;
+import com.aps.user.dao.LoginUserDaoImpl;
 import com.framework.EmailVo;
 
 @Service
 @Transactional(readOnly = true)
 public class UserServiceImpl {
 	@Resource
-	private UserDaoImpl userDaoImpl;
+	private LoginUserDaoImpl loginUserDaoImpl;
 
 	@Transactional(readOnly = false)
-	public String register(User user, String serverNameAndPort) {
+	public String register(LoginUser loginUser,String serverNameAndPort) {
 		// 处理业务逻辑
 		// 1.判断是否存在这个email
-		if (this.userDaoImpl.findByEmail(user.getEmail()) != null) {
+		if (this.loginUserDaoImpl.findByEmil(loginUser.getLoginEmail()) != null) {
 			// 存在这样的数据
 			return "4"; // 邮箱已经存在
 		}
 		// 2.判断是否存在这个用户名
+		if (this.loginUserDaoImpl.findByLoginName(loginUser.getLoginName()) != null) {
+			// 存在这样的数据
+			return "3"; // 用户名已经存在
+		}
 		// 3.若是数据库中不存在这样的数据，那么开始注册！
-		String result = this.userDaoImpl.register(user);
+		// 1.增加荣誉值为10
+		String result = this.loginUserDaoImpl.register(loginUser);
 		if (result == "0") {
 			// 发送邮件
 			EmailVo emailVo = new EmailVo();
-			emailVo.setReceivers(new String[] { user.getEmail() });
-			emailVo.setSender("news_website@163.com");
-			emailVo.setSubject("欢迎注册新闻天下");
+			emailVo.setReceivers(new String[] { loginUser.getLoginEmail() });
+			emailVo.setSender("m15315715815@163.com");
+			emailVo.setSubject("欢迎注册nullpointer");
 			// 邮件内容!
-			String activeURL = "http://" + serverNameAndPort + "/News-Publishing-System/user/activeLoginUser?loginName="
-					+ user.getUserName();
-			String emailContent = "<html><head><title>欢迎注册新闻天下</title></head><body>"
+			String activeURL = "http://localhost:8080"+"/News-Publishing-System/loginUser/activeLoginUser?loginName="
+					+ loginUser.getLoginName();
+			System.out.print(activeURL);
+			String emailContent = "<html><head><title>欢迎注册nullpointer</title></head><body>"
 					+ "<table border='0' cellpadding='0' cellspacing='0' width='100%'>" + "<tr>"
 					+ "<td style='padding: 10px 0 30px 0;'>"
 					+ "<table align='center' border='0' cellpadding='0' cellspacing='0' width='600' style='border: 1px solid #cccccc; border-collapse: collapse;'>"
@@ -54,6 +60,7 @@ public class UserServiceImpl {
 					+ "<td bgcolor='#ee4c50' style='padding: 30px 30px 30px 30px;'>"
 					+ "<table border='0' cellpadding='0' cellspacing='0' width='100%'>" + "<tr>"
 					+ "<td style='color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;' width='75%'>"
+					+ "&reg; nullpointer MadeBy EXP 项目开发小组<br/>"
 					+ "<a href='#' style='color: #ffffff;'><font color='#ffffff'>hei boy!</font></a>&nbsp;Welcome you again!"
 					+ "</td></tr></table></td></tr></table></td></tr></table>" + "</body></html>";
 			emailVo.setEmailContent(emailContent);
@@ -81,14 +88,14 @@ public class UserServiceImpl {
 	 */
 	public String loginVerify(String loginName, String password) {
 		// 判断登录名称是否为email
-		User t1 = this.userDaoImpl.findByEmail(loginName);
+		LoginUser t1 = this.loginUserDaoImpl.findByEmil(loginName);
 
 		if (t1 == null) {
 			return "14"; // 用户名不存在返回14
 		}
 
 		//// 判断密码是否正确
-		if (!t1.getPassword().equals(password)) {
+		if (!t1.getLoginPassword().equals(password)) {
 			return "15";
 		}
 		// 判断是否激活
@@ -107,10 +114,20 @@ public class UserServiceImpl {
 	 * @return LoginUser 实体
 	 * @author Ray
 	 */
-	public User findByEmail(String email) {
-		return this.userDaoImpl.findUserByEmil(email);
+	public LoginUser findByEmail(String email) {
+		return this.loginUserDaoImpl.findByEmil(email);
 	}
 
+	/**
+	 * 功能： 通过name得到loginUser
+	 * 
+	 * @param loginName
+	 * @return LoginUser 实体
+	 * @author Ray
+	 */
+	public LoginUser findByName(String loginName) {
+		return this.loginUserDaoImpl.findByLoginName(loginName);
+	}
 	/**
 	 * 更新用户
 	 * 
@@ -118,8 +135,8 @@ public class UserServiceImpl {
 	 * @param loginUser
 	 */
 	@Transactional(readOnly = false)
-	public void updateUser(User loginUser) {
-		this.userDaoImpl.updateUser(loginUser);
+	public void updateLoginUser(LoginUser loginUser) {
+		this.loginUserDaoImpl.updateLoginUser(loginUser);
 	}
 
 }

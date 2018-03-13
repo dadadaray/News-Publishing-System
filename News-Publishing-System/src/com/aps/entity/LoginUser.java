@@ -13,48 +13,48 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
-public class User {
-	private Integer userId;
-	private String userName; // 用户名
-	private String password; // 密码
-	private String email; // 邮箱
+@Table(name = "loginuser")
+public class LoginUser {
+	private Integer loginUserId;
+	private String loginName; // 用户名
+	private String loginPassword; // 密码
+	private String loginEmail; // 邮箱
 	private UserInfo userInfo; // 用户详情
 	private boolean loginActive; // 邮箱是否激活
 	private Role role;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getUserId() {
-		return userId;
+	public Integer getLoginUserId() {
+		return loginUserId;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setLoginUserId(Integer loginUserId) {
+		this.loginUserId = loginUserId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getLoginName() {
+		return loginName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getLoginPassword() {
+		return loginPassword;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setLoginPassword(String loginPassword) {
+		this.loginPassword = loginPassword;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getLoginEmail() {
+		return loginEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setLoginEmail(String loginEmail) {
+		this.loginEmail = loginEmail;
 	}
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

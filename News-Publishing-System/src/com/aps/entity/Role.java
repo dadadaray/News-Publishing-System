@@ -18,7 +18,7 @@ public class Role {
 	//属性 
 		private Integer roleId; //id //主键
 		private String  roleName; //角色名
-		private Set<User> users = new HashSet<User>(0); // 角色所拥有用户
+		private Set<LoginUser> loginUsers = new HashSet<LoginUser>(0); // 角色所拥有用户
 		//set/get方法	
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,10 +35,10 @@ public class Role {
 			this.roleName = roleName;
 		}
 		@OneToMany(mappedBy = "role")
-		public Set<User> getUsers() {
-			return users;
+		public Set<LoginUser> getUsers() {
+			return loginUsers;
 		}
-		public void setUsers(Set<User> users) {
-			this.users = users;
+		public void setUsers(Set<LoginUser> loginUsers) {
+			this.loginUsers = loginUsers;
 		}
 }
