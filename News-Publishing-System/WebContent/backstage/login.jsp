@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!doctype html>
 <html>
 
@@ -16,12 +16,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <link rel="icon" type="image/png" href="${ctx}/assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="${ctx}/assets/i/app-icon72x72@2x.png">
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-  <link rel="stylesheet" href="assets/css/admin.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/amazeui.min.css" />
+  <link rel="stylesheet" href="${ctx}/assets/css/admin.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/app.css">
 </head>
 
 <body data-type="login">
@@ -31,12 +31,12 @@
 		<div class="myapp-login-logo-text">
 			<div class="myapp-login-logo-text">
 				新闻天下<span> 发布系统</span> 
-				<img src="assets/img/logo_sx.png" width="20%">
+				<img src="${ctx}/assets/img/logo_sx.png" width="20%">
 			</div>
 		</div>
 
 		<div class="login-font">
-			<i>登 陆 </i> or <a href="sign_up.html"><span> 注 册</span></a>
+			<i>登 陆 </i> or <a href="${ctx}/sign_up.jsp"><span> 注 册</span></a>
 		</div>
 		<div class="am-u-sm-10 login-am-center">
 			<form class="am-form" id="formlogin" target="">
@@ -59,9 +59,9 @@
 	</div>
 </div>
 
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/amazeui.min.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="${ctx}/assets/js/jquery.min.js"></script>
+  <script src="${ctx}/assets/js/amazeui.min.js"></script>
+  <script src="${ctx}/assets/js/app.js"></script>
 
 </body>
 

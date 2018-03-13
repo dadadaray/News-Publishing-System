@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!doctype html>
 <html>
 
@@ -16,23 +16,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="${ctx}/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="${ctx}/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="assets/css/mystyle.css">
-    <link rel="stylesheet" href="assets/css/iconfont.css">
-    <link rel="stylesheet" href="assets/css/fileUpload.css"> 
-    <link rel="stylesheet" href="assets/css/xcConfirm.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="${ctx}/assets/css/admin.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/app.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/mystyle.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/iconfont.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/fileUpload.css"> 
+    <link rel="stylesheet" href="${ctx}/assets/css/xcConfirm.css">
 </head>
 
 <body data-type="index">
     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
             <a href="javascript:;" class="tpl-logo">
-                <img src="assets/img/logo.png" alt="">
+                <img src="${ctx}/assets/img/logo.png" alt="">
             </a>
         </div>
         <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -51,7 +51,7 @@
                         <li class="tpl-dropdown-content-external">
                             <h3>你有 
                               <span class="tpl-color-success">3</span> 条消息</h3>
-                              <a href="tongzhi.html" class="font-green">全部</a>
+                              <a href="${ctx}/tongzhi.jsp" class="font-green">全部</a>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
 
@@ -80,12 +80,12 @@
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a href="userinfo.html">
-                        <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                    <a href="${ctx}/userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
                     </a>
                 </li>
                 <li>
-                  <a href="login.html" class="tpl-header-list-link">
+                  <a href="${ctx}/login.jsp" class="tpl-header-list-link">
                     <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
                   </a>
                 </li>
@@ -100,31 +100,31 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="index.html" class="nav-link">
+                        <a href="${ctx}/index.jsp" class="nav-link">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="add_news.html" class="nav-link  tpl-left-nav-link-list active">
+                        <a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list active">
                             <i class="am-icon-edit"></i>
                             <span>添加新文章</span>
                         </a>
                     </li>
                      <li class="tpl-left-nav-item">
-                        <a href="tongzhi.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-bell-o"></i>
                             <span>通知管理</span>
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="draft.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-inbox"></i>
                             <span>草稿箱</span>
                         </a>
                     </li>
                    <li class="tpl-left-nav-item">
-                        <a href="all_news.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/all_news.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
                             <span>文章管理</span>
                         </a>
@@ -137,16 +137,16 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="userinfo.html">
+                                <a href="${ctx}/userinfo.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>个人资料</span>
                                 </a>
-                                <a href="re_userinfo.html">
+                                <a href="${ctx}/re_userinfo.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>完善信息</span>
                                  </a>
 
-                                <a href="form-line.html">
+                                <a href="${ctx}/form-line.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>退出登录</span>
                                 </a>
@@ -164,11 +164,11 @@
                             <span class="am-icon-file-text-o">&nbsp&nbsp选择模板</span> 
                         </div>
                         <div class="am-btn-group" style="float:left;">
-                            <a href="add_news.html" class="am-btn am-btn-secondary am-radius" style="margin-left:20px;">图文自由排版</a>
-                            <a href="add_news_img.html"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">大图轮播</a>
-                            <a href="add_news_vedio.html" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">视频专题</a>
-                            <a href="add_news_audio.html"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">音频专题</a>
-                            <a  href="add_news_tuwenModel.html" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">图文模板</a>
+                            <a href="${ctx}/add_news.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left:20px;">图文自由排版</a>
+                            <a href="${ctx}/add_news_img.jsp"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">大图轮播</a>
+                            <a href="${ctx}/add_news_vedio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">视频专题</a>
+                            <a href="${ctx}/add_news_audio.jsp"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">音频专题</a>
+                            <a  href="${ctx}/add_news_tuwenModel.jsp" class="am-btn am-btn-primary am-radius" style="margin-left:10px;">图文模板</a>
                         </div>                    
                     </div>
                     
@@ -176,10 +176,10 @@
                         <div class="tpl-table-images" style="overflow: hidden;">
                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-4" style="float: left">
                                 <div class="tpl-table-images-content" style="margin-bottom: 1px; padding: 10px;">
-                                    <a href="add_news_tuwenModel2.html" class="tpl-table-images-content-i">
+                                    <a href="${ctx}/add_news_tuwenModel2.jsp" class="tpl-table-images-content-i">
                                         <div class="tpl-table-images-content-i-info">
                                         </div>
-                                        <img src="assets/img/model1.png" alt="">
+                                        <img src="${ctx}/assets/img/model1.png" alt="">
                                     </a>
                                     <div class="tpl-table-images-content-block" style="height: 10px;">
                                         <hr>
@@ -187,19 +187,19 @@
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板一</h3>
-                                        <a href="../前台/news_post_style1_eye.html" style="float: right;">预览</a>
+                                        <a href="../前台/news_post_style1_eye.jsp" style="float: right;">预览</a>
                                     </div>
                                 </div>
 
                            </div>
                             <div class="am-u-sm-12 am-u-md-6 am-u-lg-4" style="float: left">
                                 <div class="tpl-table-images-content" style="margin-bottom: 1px; padding: 10px;">
-                                    <a href="add_news_tuwenModel1.html" class="tpl-table-images-content-i">
+                                    <a href="${ctx}/add_news_tuwenModel1.jsp" class="tpl-table-images-content-i">
                                         <div class="tpl-table-images-content-i-info">
 
                                         </div>
                                         <span class=""></span>
-                                        <img src="assets/img/model2.png" alt="">
+                                        <img src="${ctx}/assets/img/model2.png" alt="">
                                     </a>
                                     <div class="tpl-table-images-content-block" style="height: 10px;">
                                         <hr>
@@ -207,17 +207,17 @@
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板二</h3>
-                                        <a href="../前台/news_post_style2_eye.html" style="float: right;">预览</a>   
+                                        <a href="../前台/news_post_style2_eye.jsp" style="float: right;">预览</a>   
                                     </div>
                                 </div>
                             </div>
                             <div class="am-u-sm-12 am-u-md-6 am-u-lg-4" style="float: left">
                                 <div class="tpl-table-images-content" style="margin-bottom: 1px; padding: 10px;">
-                                    <a href="add_news_tuwenModel3.html" class="tpl-table-images-content-i">
+                                    <a href="${ctx}/add_news_tuwenModel3.jsp" class="tpl-table-images-content-i">
                                         <div class="tpl-table-images-content-i-info">
                                         </div>
                                         <span class=""></span>
-                                        <img src="assets/img/model3.png" alt="">
+                                        <img src="${ctx}/assets/img/model3.png" alt="">
                                     </a>
                                     <div class="tpl-table-images-content-block" style="height: 10px;">
                                         <hr>
@@ -225,7 +225,7 @@
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板三</h3>
-                                        <a href="../前台/news_post_style3_eye.html" style="float: right;">预览</a>
+                                        <a href="../前台/news_post_style3_eye.jsp" style="float: right;">预览</a>
                             
                                        
                                     </div>
@@ -239,15 +239,15 @@
         </div>
     </div>      
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/xcConfirm.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/iscroll.js"></script>
-<script src="assets/js/app.js"></script>
-<script type="text/javascript" src="assets/js/fileUpload.js"></script>
-<script src="assets/js/echarts.min.js"></script>
+<script src="${ctx}/assets/js/jquery.min.js"></script>
+<script src="${ctx}/assets/js/xcConfirm.js"></script>
+<script src="${ctx}/assets/js/amazeui.min.js"></script>
+<script src="${ctx}/assets/js/iscroll.js"></script>
+<script src="${ctx}/assets/js/app.js"></script>
+<script type="text/javascript" src="${ctx}/assets/js/fileUpload.js"></script>
+<script src="${ctx}/assets/js/echarts.min.js"></script>
 <!--富文本js-->
-<script language="javascript" type="text/javascript" src="assets/js/tinymce/tinymce.js"></script>
+<script language="javascript" type="text/javascript" src="${ctx}/assets/js/tinymce/tinymce.js"></script>
 <script type="text/javascript">
     //弹窗
     function sendsuc(e){

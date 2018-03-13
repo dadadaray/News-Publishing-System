@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!doctype html>
 <html>
 
@@ -16,15 +16,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="${ctx}/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="${ctx}/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="assets/css/mystyle.css">
-    <link rel="stylesheet" href="assets/css/xcConfirm.css">
-    <script src="assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="${ctx}/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="${ctx}/assets/css/admin.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/app.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/mystyle.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/xcConfirm.css">
+    <script src="${ctx}/assets/js/echarts.min.js"></script>
 </head>
 
 <body data-type="index">
@@ -33,7 +33,7 @@
     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
             <a href="javascript:;" class="tpl-logo">
-                <img src="assets/img/logo.png" alt="">
+                <img src="${ctx}/assets/img/logo.png" alt="">
             </a>
         </div>
         <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -53,7 +53,7 @@
                         <li class="tpl-dropdown-content-external">
                             <h3>你有 
                               <span class="tpl-color-success">3</span> 条消息</h3>
-                              <a href="tongzhi.html" class="font-green">全部</a>
+                              <a href="${ctx}/tongzhi.jsp" class="font-green">全部</a>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
 
@@ -82,12 +82,12 @@
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a href="userinfo.html">
-                        <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                    <a href="${ctx}/userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
                     </a>
                 </li>
                 <li>
-                  <a href="login.html" class="tpl-header-list-link">
+                  <a href="${ctx}/login.jsp" class="tpl-header-list-link">
                     <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
                   </a>
                 </li>
@@ -99,19 +99,19 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="index.html" class="nav-link">
+                        <a href="${ctx}/index.jsp" class="nav-link">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="add_news.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-pencil-square"></i>
                             <span>添加新文章</span>
                         </a>
                     </li>
                      <li class="tpl-left-nav-item">
-                        <a href="tongzhi.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-bell"></i>
                             <span>通知管理</span>
                             <i class="tpl-left-nav-content tpl-badge-danger">
@@ -120,7 +120,7 @@
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="draft.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-inbox"></i>
                             <span>草稿箱</span>
                         </a>
@@ -133,16 +133,16 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="all_news.html">
+                                <a href="${ctx}/all_news.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>发表文章</span>
                                 </a>
-                                <a href="all_news_checking.html">
+                                <a href="${ctx}/all_news_checking.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>审核中列表</span>
                                  </a>
 
-                                <a href="all_news_checked.html">
+                                <a href="${ctx}/all_news_checked.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>未通过类表</span>
                                 </a>
@@ -157,16 +157,16 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display:block;">
                             <li>
-                                <a href="userinfo.html">
+                                <a href="${ctx}/userinfo.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>个人资料</span>
                                 </a>
-                                <a href="re_userinfo.html" class="active">
+                                <a href="${ctx}/re_userinfo.jsp" class="active">
                                    <i class="am-icon-angle-right"></i>
                                     <span>完善信息</span>
                                  </a>
 
-                                <a href="login.html">
+                                <a href="${ctx}/login.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>退出登录</span>
                                 </a>
@@ -204,7 +204,7 @@
                                     <div class="am-u-sm-9">
                                         <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img " id="tpl-form-file-img-tou">
-                                                <img src="assets/img/user01.png" width="200" height="200">
+                                                <img src="${ctx}/assets/img/user01.png" width="200" height="200">
                                                  </div>
                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
                                                 <i class="am-icon-cloud-upload"></i> 上传头像</button>
@@ -271,11 +271,11 @@
 
     </div>
 </div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/xcConfirm.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/iscroll.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="${ctx}/assets/js/jquery.min.js"></script>
+<script src="${ctx}/assets/js/xcConfirm.js"></script>
+<script src="${ctx}/assets/js/amazeui.min.js"></script>
+<script src="${ctx}/assets/js/iscroll.js"></script>
+<script src="${ctx}/assets/js/app.js"></script>
 <script type="text/javascript">
     //弹窗
     function sendsuc(e){

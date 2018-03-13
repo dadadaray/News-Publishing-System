@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!doctype html>
 <html>
 
@@ -53,7 +53,7 @@
                         <li class="tpl-dropdown-content-external">
                             <h3>你有 
                               <span class="tpl-color-success">3</span> 条消息</h3>
-                              <a href="tongzhi.html" class="font-green">全部</a>
+                              <a href="tongzhi.jsp" class="font-green">全部</a>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
 
@@ -80,12 +80,12 @@
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a href="userinfo.html">
+                    <a href="userinfo.jsp">
                         <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
                     </a>
                 </li>
                 <li>
-                  <a href="login.html" class="tpl-header-list-link">
+                  <a href="login.jsp" class="tpl-header-list-link">
                     <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
                   </a>
                 </li>
@@ -97,19 +97,19 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="index.html" class="nav-link active">
+                        <a href="index.jsp" class="nav-link active">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="add_news.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="add_news.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-pencil-square"></i>
                             <span>添加新文章</span>
                         </a>
                     </li>
                      <li class="tpl-left-nav-item">
-                        <a href="tongzhi.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="tongzhi.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-bell"></i>
                             <span>通知管理</span>
                             <i class="tpl-left-nav-content tpl-badge-danger">
@@ -118,7 +118,7 @@
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="draft.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="draft.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-inbox"></i>
                             <span>草稿箱</span>
                         </a>
@@ -131,16 +131,16 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="all_news.html">
+                                <a href="all_news.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>发表文章</span>
                                 </a>
-                                <a href="all_news_checking.html">
+                                <a href="all_news_checking.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>审核中列表</span>
                                  </a>
 
-                                <a href="all_news_checked.html">
+                                <a href="all_news_checked.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>未通过类表</span>
                                 </a>
@@ -155,16 +155,16 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="userinfo.html">
+                                <a href="userinfo.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>个人资料</span>
                                 </a>
-                                <a href="re_userinfo.html">
+                                <a href="re_userinfo.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>完善信息</span>
                                  </a>
 
-                                <a href="login.html">
+                                <a href="login.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>退出登录</span>
                                 </a>
@@ -186,7 +186,7 @@
                             <div class="number"> 1349 </div>
                             <div class="desc"> 已发布文章 </div>
                         </div>
-                        <a class="more" href="all_news.html"> 详情查看
+                        <a class="more" href="all_news.jsp"> 详情查看
                             <i class="m-icon-swapright m-icon-white"></i>
                         </a>
                     </div>
@@ -200,7 +200,7 @@
                             <div class="number"> 56 </div>
                             <div class="desc"> 审核中文章 </div>
                         </div>
-                        <a class="more" href="all_news_checking.html"> 详情查看
+                        <a class="more" href="all_news_checking.jsp"> 详情查看
                             <i class="m-icon-swapright m-icon-white"></i>
                         </a>
                     </div>
@@ -214,7 +214,7 @@
                             <div class="number"> 3 </div>
                             <div class="desc"> 草稿箱文章 </div>
                         </div>
-                        <a class="more" href="draft.html"> 查看更多
+                        <a class="more" href="draft.jsp"> 查看更多
                             <i class="m-icon-swapright m-icon-white"></i>
                         </a>
                     </div>
@@ -228,7 +228,7 @@
                             <div class="add"> + </div>
                             <div class="desc"> 添加新文章 </div>
                         </div>
-                        <a class="more" href="add_news.html"> 查看更多
+                        <a class="more" href="add_news.jsp"> 查看更多
                             <i class="m-icon-swapright m-icon-white"></i>
                         </a>
                     </div>
