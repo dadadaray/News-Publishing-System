@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!doctype html>
       <html>
 
@@ -16,15 +16,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="renderer" content="webkit">
       <meta http-equiv="Cache-Control" content="no-siteapp" />
-      <link rel="icon" type="image/png" href="assets/i/favicon.png">
-      <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+      <link rel="icon" type="image/png" href="${ctx}/assets/i/favicon.png">
+      <link rel="apple-touch-icon-precomposed" href="${ctx}/assets/i/app-icon72x72@2x.png">
       <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-      <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-      <link rel="stylesheet" href="assets/css/admin.css">
-      <link rel="stylesheet" href="assets/css/app.css">
-      <link rel="stylesheet" href="assets/css/mystyle.css">
-      <link rel="stylesheet" href="assets/css/xcConfirm.css">
-      <script src="assets/js/echarts.min.js"></script>
+      <link rel="stylesheet" href="${ctx}/assets/css/amazeui.min.css" />
+      <link rel="stylesheet" href="${ctx}/assets/css/admin.css">
+      <link rel="stylesheet" href="${ctx}/assets/css/app.css">
+      <link rel="stylesheet" href="${ctx}/assets/css/mystyle.css">
+      <link rel="stylesheet" href="${ctx}/assets/css/xcConfirm.css">
+      <script src="${ctx}/assets/js/echarts.min.js"></script>
       </head>
 
       <body data-type="index">
@@ -33,7 +33,7 @@
       <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
           <a href="javascript:;" class="tpl-logo">
-            <img src="assets/img/logo.png" alt="">
+            <img src="${ctx}/assets/img/logo.png" alt="">
           </a>
         </div>
         <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -51,11 +51,11 @@
               </a>
               <ul class="am-dropdown-content tpl-dropdown-content">
                 <li class="tpl-dropdown-content-external">
-                  <h3>你有 <span class="tpl-color-danger">2</span> 条提醒</h3><a href="all_news_back_checking.html">全部</a></li>
-                  <li class="tpl-dropdown-list-bdbc"><a href="all_news_back_checking_content.html" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 发来新文章<span>《传达室》</span></a>
+                  <h3>你有 <span class="tpl-color-danger">2</span> 条提醒</h3><a href="${ctx}/all_news_back_checking.jsp">全部</a></li>
+                  <li class="tpl-dropdown-list-bdbc"><a href="${ctx}/all_news_back_checking_content.jsp" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 发来新文章<span>《传达室》</span></a>
                     <span class="tpl-dropdown-list-fr">3小时前</span>
                   </li>
-                  <li class="tpl-dropdown-list-bdbc"><a href="all_news_back_checking_content.html" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 发来新文章<span>《传达室》</span></a>
+                  <li class="tpl-dropdown-list-bdbc"><a href="${ctx}/all_news_back_checking_content.jsp" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 发来新文章<span>《传达室》</span></a>
                     <span class="tpl-dropdown-list-fr">3小时前</span>
                   </li>
               </ul>
@@ -64,11 +64,11 @@
               </li>
 
                     <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                      <a href="userinfo.html">
-                        <span class="tpl-header-list-user-nick">管理员身份</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                      <a href="${ctx}/userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">管理员身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
                       </a>
                     </li>
-                    <li><a href="login.html" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+                    <li><a href="${ctx}/login.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
                   </ul>
                 </div>
      </header>
@@ -79,7 +79,7 @@
         <div class="tpl-left-nav-list">
           <ul class="tpl-left-nav-menu">
             <li class="tpl-left-nav-item">
-              <a href="index_back.html" class="nav-link">
+              <a href="${ctx}/index_back.jsp" class="nav-link">
                 <i class="am-icon-home"></i>
                 <span>首页</span>
               </a>
@@ -92,15 +92,15 @@
             </a>
             <ul class="tpl-left-nav-sub-menu" style="display:block;">
               <li>
-                  <a href="all_news_back_checking.html" class="active">
+                  <a href="${ctx}/all_news_back_checking.jsp" class="active">
                     <i class="am-icon-angle-right"></i>
                     <span>待审新文章</span>
                   </a>
-                  <a href="all_news_back.html">
+                  <a href="${ctx}/all_news_back.jsp">
                     <i class="am-icon-angle-right"></i>
                     <span>已发布文章</span>
                   </a>
-                  <a href="all_news_back_checked.html">
+                  <a href="${ctx}/all_news_back_checked.jsp">
                     <i class="am-icon-angle-right"></i>
                     <span>未通过文章</span>
                   </a>
@@ -115,18 +115,18 @@
         </a>
         <ul class="tpl-left-nav-sub-menu">
           <li>
-            <a href="all_repoter.html">
+            <a href="${ctx}/all_repoter.jsp">
               <i class="am-icon-angle-right"></i>
               <span>记者用户</span>
             </a>
-            <a href="all_users.html">
+            <a href="${ctx}/all_users.jsp">
               <i class="am-icon-angle-right"></i>
               <span>网站用户</span>
             </li>
           </ul>
         </li> 
         <li class="tpl-left-nav-item">
-          <a href="login.html" class="nav-link tpl-left-nav-link-list">
+          <a href="${ctx}/login.jsp" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-sign-out"></i>
             <span>退出登陆</span>
           </a>
@@ -155,7 +155,7 @@
                         
                         <article class="block_single_news">
                             <div class="pic_con_sty1">
-                             <img class="pic_con_style_tu" src="assets/img/pic_news_post_1.jpg" alt="" />
+                             <img class="pic_con_style_tu" src="${ctx}/assets/img/pic_news_post_1.jpg" alt="" />
                             </div>
                             <p class="title">
                                 <h1>中国工厂太魔幻：未来每2分钟下线一辆汽车</h1>
@@ -176,7 +176,7 @@
                                 <h3>重器：智能制造核心-数字化仿真智能工厂</h3>
                                 <p class="text_p"><b>最牛实力：</b>这间数字化仿真工厂，冲压环节的零件加工合格率达到100%，焊装环节的焊点定位合格率达到99.8%，总装环节的装配合格率更是达到100%。工程师们通过在仿真系统中的模拟演练，可以减少人为失误风险，大幅节约制造成本，缩短研发周期。.</p> 
                                 <div class="pic_con_sty1"> 
-                                    <img class="pic_con_style_tu" src="assets/img/pic_technology_big.jpg" alt="" />
+                                    <img class="pic_con_style_tu" src="${ctx}/assets/img/pic_technology_big.jpg" alt="" />
                                 </div>
                                        
                                 <p class="text_p"><b>重器地位:</b>这是中国第一套全流程汽车仿真生产系统。如今，仿真工厂验收成功，智能工厂投入生产！未来这里每两分钟将有一辆高端家用汽车下线，更多的中国消费者将在价格不变的情况下，享受到性能比肩国外高端品牌的国产汽车。</p> 
@@ -233,11 +233,11 @@
 
 </div>
 </div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/xcConfirm.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/iscroll.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="${ctx}/assets/js/jquery.min.js"></script>
+<script src="${ctx}/assets/js/xcConfirm.js"></script>
+<script src="${ctx}/assets/js/amazeui.min.js"></script>
+<script src="${ctx}/assets/js/iscroll.js"></script>
+<script src="${ctx}/assets/js/app.js"></script>
 </body>
 
 <script type="text/javascript">

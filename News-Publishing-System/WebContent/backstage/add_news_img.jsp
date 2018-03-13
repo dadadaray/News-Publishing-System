@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!doctype html>
 <html>
 
@@ -16,23 +16,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="${ctx}/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="${ctx}/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="assets/css/mystyle.css">
-    <link rel="stylesheet" href="assets/css/iconfont.css">
-    <link rel="stylesheet" href="assets/css/fileUpload.css">
-    <link rel="stylesheet" href="assets/css/xcConfirm.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="${ctx}/assets/css/admin.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/app.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/mystyle.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/iconfont.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/fileUpload.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/xcConfirm.css">
 </head>
 
 <body data-type="index">
     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
             <a href="javascript:;" class="tpl-logo">
-                <img src="assets/img/logo.png" alt="">
+                <img src="${ctx}/assets/img/logo.png" alt="">
             </a>
         </div>
         <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -51,7 +51,7 @@
                         <li class="tpl-dropdown-content-external">
                             <h3>你有 
                               <span class="tpl-color-success">3</span> 条消息</h3>
-                              <a href="tongzhi.html" class="font-green">全部</a>
+                              <a href="${ctx}/tongzhi.jsp" class="font-green">全部</a>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
 
@@ -80,12 +80,12 @@
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a href="userinfo.html">
-                        <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                    <a href="${ctx}/userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
                     </a>
                 </li>
                 <li>
-                  <a href="login.html" class="tpl-header-list-link">
+                  <a href="${ctx}/login.jsp" class="tpl-header-list-link">
                     <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
                   </a>
                 </li>
@@ -99,31 +99,31 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="index.html" class="nav-link">
+                        <a href="${ctx}/index.jsp" class="nav-link">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="add_news.html" class="nav-link  tpl-left-nav-link-list active">
+                        <a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list active">
                             <i class="am-icon-edit"></i>
                             <span>添加新文章</span>
                         </a>
                     </li>
                      <li class="tpl-left-nav-item">
-                        <a href="tongzhi.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-bell-o"></i>
                             <span>通知管理</span>
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="draft.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-inbox"></i>
                             <span>草稿箱</span>
                         </a>
                     </li>
                    <li class="tpl-left-nav-item">
-                        <a href="all_news.html" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/all_news.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
                             <span>文章管理</span>
                         </a>
@@ -136,16 +136,16 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="userinfo.html">
+                                <a href="${ctx}/userinfo.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>个人资料</span>
                                 </a>
-                                <a href="re_userinfo.html">
+                                <a href="${ctx}/re_userinfo.jsp">
                                    <i class="am-icon-angle-right"></i>
                                     <span>完善信息</span>
                                  </a>
 
-                                <a href="form-line.html">
+                                <a href="${ctx}/form-line.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>退出登录</span>
                                 </a>
@@ -163,11 +163,11 @@
                             <span class="am-icon-file-text-o">&nbsp&nbsp选择模板</span> 
                         </div>
                         <div class="am-btn-group" style="float:left;">
-                            <a href="add_news.html" class="am-btn am-btn-secondary am-radius" style="margin-left:20px;">图文自由排版</a>
-                            <a href="add_news_img.html"class="am-btn am-btn-primary am-radius" style="margin-left:10px;">大图轮播</a>
-                            <a href="add_news_vedio.html" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">视频专题</a>
-                            <a href="add_news_audio.html"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">音频专题</a>
-                            <a  href="add_news_tuwenModel.html" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">图文模板</a>
+                            <a href="${ctx}/add_news.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left:20px;">图文自由排版</a>
+                            <a href="${ctx}/add_news_img.jsp"class="am-btn am-btn-primary am-radius" style="margin-left:10px;">大图轮播</a>
+                            <a href="${ctx}/add_news_vedio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">视频专题</a>
+                            <a href="${ctx}/add_news_audio.jsp"class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">音频专题</a>
+                            <a  href="${ctx}/add_news_tuwenModel.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left:10px;">图文模板</a>
                         </div>                    
                     </div>
                     <div class="tpl-portlet" id="father">
@@ -176,7 +176,7 @@
                                 <div class="am-u-md-2 am-u-sm-4 gallery-img">
                                    <!--  图片上传显示-->
                                              <!--input-group start-->
-                                             <div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="assets/img/photo_icon.png" width="260" height="180"/></div></div>                                          
+                                             <div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180"/></div></div>                                          
                                             <!--input-group end-->
                                 </div>
                                 <div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;">
@@ -219,14 +219,14 @@
                                                 <div class="am-u-sm-10">
                                                     <!--  图片上传显示-->
                                              <!--input-group start-->
-                                             <div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width:260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="assets/img/add.png" width="320" height="136"/></div></div>                                          
+                                             <div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width:260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136"/></div></div>                                          
                                             <!--input-group end-->
 
                                                 </div>
                                             </div> 
                                             <div class="am-u-sm-8 am-u-sm-push-2 add_button">
                                                 <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
-                                                <a href="../前台/Bgimgshow_eye.html" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
+                                                <a href="../前台/Bgimgshow_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
                                                 <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
                                             </div>
                                         </form>
@@ -251,17 +251,17 @@
             </div>
           </div>
         </div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/xcConfirm.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/iscroll.js"></script>
-<script src="assets/js/app.js"></script>
-<script type="text/javascript" src="assets/js/fileUpload.js"></script>
-<script src="assets/js/echarts.min.js"></script>
+<script src="${ctx}/assets/js/jquery.min.js"></script>
+<script src="${ctx}/assets/js/xcConfirm.js"></script>
+<script src="${ctx}/assets/js/amazeui.min.js"></script>
+<script src="${ctx}/assets/js/iscroll.js"></script>
+<script src="${ctx}/assets/js/app.js"></script>
+<script type="text/javascript" src="${ctx}/assets/js/fileUpload.js"></script>
+<script src="${ctx}/assets/js/echarts.min.js"></script>
 <script type="text/javascript">
     var i = 0;
     function addImg(){
-        $("#father").append('<div><div class="pagelet-figure-gallery-item"><div class="am-u-md-2 am-u-sm-4 gallery-img"><div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="assets/img/photo_icon.png" width="260" height="180"/></div></div></div><div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;"><textarea rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea></div><div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;"><i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i></div></div></div>');
+        $("#father").append('<div><div class="pagelet-figure-gallery-item"><div class="am-u-md-2 am-u-sm-4 gallery-img"><div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180"/></div></div></div><div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;"><textarea rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea></div><div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;"><i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i></div></div></div>');
     }
     function removeImg(e){        
          $(e).parent().parent().remove();

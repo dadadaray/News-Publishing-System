@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!doctype html>
       <html>
 
@@ -16,14 +16,14 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="renderer" content="webkit">
       <meta http-equiv="Cache-Control" content="no-siteapp" />
-      <link rel="icon" type="image/png" href="assets/i/favicon.png">
-      <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+      <link rel="icon" type="image/png" href="${ctx}/assets/i/favicon.png">
+      <link rel="apple-touch-icon-precomposed" href="${ctx}/assets/i/app-icon72x72@2x.png">
       <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-      <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-      <link rel="stylesheet" href="assets/css/admin.css">
-      <link rel="stylesheet" href="assets/css/app.css">
-      <link rel="stylesheet" href="assets/css/mystyle.css">
-      <script src="assets/js/echarts.min.js"></script>
+      <link rel="stylesheet" href="${ctx}/assets/css/amazeui.min.css" />
+      <link rel="stylesheet" href="${ctx}/assets/css/admin.css">
+      <link rel="stylesheet" href="${ctx}/assets/css/app.css">
+      <link rel="stylesheet" href="${ctx}/assets/css/mystyle.css">
+      <script src="${ctx}/assets/js/echarts.min.js"></script>
       </head>
 
       <body data-type="index">
@@ -32,7 +32,7 @@
       <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
           <a href="javascript:;" class="tpl-logo">
-            <img src="assets/img/logo.png" alt="">
+            <img src="${ctx}/assets/img/logo.png" alt="">
           </a>
         </div>
         <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -50,11 +50,11 @@
               </a>
               <ul class="am-dropdown-content tpl-dropdown-content">
                 <li class="tpl-dropdown-content-external">
-                  <h3>你有 <span class="tpl-color-danger">2</span> 条提醒</h3><a href="all_news_back_checking.html">全部</a></li>
-                  <li class="tpl-dropdown-list-bdbc"><a href="all_news_back_checking_content.html" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 发来新文章<span>《传达室》</span></a>
+                  <h3>你有 <span class="tpl-color-danger">2</span> 条提醒</h3><a href="${ctx}/all_news_back_checking.jsp">全部</a></li>
+                  <li class="tpl-dropdown-list-bdbc"><a href="${ctx}/all_news_back_checking_content.jsp" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 发来新文章<span>《传达室》</span></a>
                     <span class="tpl-dropdown-list-fr">3小时前</span>
                   </li>
-                  <li class="tpl-dropdown-list-bdbc"><a href="all_news_back_checking_content.html" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 发来新文章<span>《传达室》</span></a>
+                  <li class="tpl-dropdown-list-bdbc"><a href="${ctx}/all_news_back_checking_content.jsp" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 发来新文章<span>《传达室》</span></a>
                     <span class="tpl-dropdown-list-fr">3小时前</span>
                   </li>
               </ul>
@@ -63,11 +63,11 @@
               </li>
 
                     <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                      <a href="userinfo.html">
-                        <span class="tpl-header-list-user-nick">管理员身份</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                      <a href="${ctx}/userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">管理员身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
                       </a>
                     </li>
-                    <li><a href="login.html" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+                    <li><a href="${ctx}/login.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
                   </ul>
                 </div>
      </header>
@@ -78,7 +78,7 @@
         <div class="tpl-left-nav-list">
           <ul class="tpl-left-nav-menu">
             <li class="tpl-left-nav-item">
-              <a href="index_back.html" class="nav-link">
+              <a href="${ctx}/index_back.jsp" class="nav-link">
                 <i class="am-icon-home"></i>
                 <span>首页</span>
               </a>
@@ -91,15 +91,15 @@
             </a>
             <ul class="tpl-left-nav-sub-menu" style="display:block;">
               <li>
-                  <a href="all_news_back_checking.html" class="active">
+                  <a href="${ctx}/all_news_back_checking.jsp" class="active">
                     <i class="am-icon-angle-right"></i>
                     <span>待审新文章</span>
                   </a>
-                  <a href="all_news_back.html">
+                  <a href="${ctx}/all_news_back.jsp">
                     <i class="am-icon-angle-right"></i>
                     <span>已发布文章</span>
                   </a>
-                  <a href="all_news_back_checked.html">
+                  <a href="${ctx}/all_news_back_checked.jsp">
                     <i class="am-icon-angle-right"></i>
                     <span>未通过文章</span>
                   </a>
@@ -114,18 +114,18 @@
         </a>
         <ul class="tpl-left-nav-sub-menu">
           <li>
-            <a href="all_repoter.html">
+            <a href="${ctx}/all_repoter.jsp">
               <i class="am-icon-angle-right"></i>
               <span>记者用户</span>
             </a>
-            <a href="all_users.html">
+            <a href="${ctx}/all_users.jsp">
               <i class="am-icon-angle-right"></i>
               <span>网站用户</span>
             </li>
           </ul>
         </li> 
         <li class="tpl-left-nav-item">
-          <a href="login.html" class="nav-link tpl-left-nav-link-list">
+          <a href="${ctx}/login.jsp" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-sign-out"></i>
             <span>退出登陆</span>
           </a>
@@ -196,7 +196,7 @@
                                             <td><a href="#">《战时孤儿》</a></td>
                                             
                                             <td>
-                                                <img src="assets/img/user01.png" alt="" class="author_pics">
+                                                <img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
                                                 <a class="user-name" href="###">禁言小张</a>
                                              </td>
                                              <td>军事</td>
@@ -222,7 +222,7 @@
                                             <td><a href="#">《战时孤儿》</a></td>
                                             
                                             <td>
-                                                <img src="assets/img/user01.png" alt="" class="author_pics">
+                                                <img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
                                                 <a class="user-name" href="###">禁言小张</a>
                                              </td>
                                              <td>军事</td>
@@ -287,10 +287,10 @@
         </div>
       </div>
     </div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/iscroll.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="${ctx}/assets/js/jquery.min.js"></script>
+<script src="${ctx}/assets/js/amazeui.min.js"></script>
+<script src="${ctx}/assets/js/iscroll.js"></script>
+<script src="${ctx}/assets/js/app.js"></script>
 <script type="text/javascript">
 
       //删除
@@ -369,7 +369,7 @@
     
     //编辑
     function preview(){
-      window.open("all_news_back_checking_content.html");
+      window.open("${ctx}/all_news_back_checking_content.jsp");
     }
 </script>
 </body>
