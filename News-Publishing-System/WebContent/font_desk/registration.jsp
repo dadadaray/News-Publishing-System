@@ -138,7 +138,7 @@
                                 
                                 <div class="clearboth"></div>
                                 <div class="separator" style="height:32px;"></div>
-                                <p class="info_text"><input type="submit"  class="general_button" value="注 册" /></p>
+                                <p class="info_text"><input type="submit"  class="general_button" value="注 册"  id="submit"/></p>
                             </form>
                             <p class="info_text"> 已有帐号,请<a href="#login" class="open_popup" style="color:red;">登录</a></p>
                             
@@ -147,7 +147,6 @@
                         <div class="line_3" style="margin:42px 0px 0px;"></div>
                         
                     </div>
-                    
                     <div class="clearboth"></div>
                 </div>
             </div>
@@ -167,7 +166,7 @@
 <script type="text/javascript">
     $(document).keyup(function(e) {
         if (e.keyCode == 13) {
-            $("#submit1").click()
+            $("#submit").click()
         }
     });
 </script>

@@ -1,6 +1,7 @@
 package com.aps.entity;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -27,12 +27,12 @@ public class UserInfo {
 	private Integer sendpassNum; // 发送文章数量
 	private String headUrl; // 头像
 	private Date userRegistTime; // 用户注册时间
-	private User user; // 用户
+	private LoginUser loginUser; // 用户
 	private Set<News> news = new HashSet<News>(0); // 用户写的新闻
 	private Set<Notice> notices = new HashSet<Notice>(0); // 用户的评论
 
 	@Id
-	@GenericGenerator(name = "foreignkey", strategy = "foreign", parameters = @Parameter(value = "user", name = "property"))
+	@GenericGenerator(name = "foreignkey", strategy = "foreign", parameters = @Parameter(value = "loginUser", name = "property"))
 	@GeneratedValue(generator = "foreignkey")
 	public Integer getUserInfoId() {
 		return userInfoId;
@@ -43,12 +43,12 @@ public class UserInfo {
 	}
 
 	@OneToOne(mappedBy = "userInfo", fetch = FetchType.EAGER)
-	public User getUser() {
-		return user;
+	public LoginUser getLoginUser() {
+		return loginUser;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setLoginUser(LoginUser loginUser) {
+		this.loginUser = loginUser;
 	}
 
 	public String getPhone() {
