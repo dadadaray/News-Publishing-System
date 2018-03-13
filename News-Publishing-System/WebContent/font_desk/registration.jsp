@@ -108,7 +108,7 @@
                         <div class="separator" style="height:39px;"></div>
                         
                         <div class="block_registration">
-                            <form action="#" class="w_validation" id="signupForm"/>
+                            <form  class="w_validation" id="signupForm">
                               <div class="login-error"></div>
                                 <div class="col_1">
                                     <div class="label"><p>用户名：<span>*</span></p></div>
@@ -138,7 +138,7 @@
                                 
                                 <div class="clearboth"></div>
                                 <div class="separator" style="height:32px;"></div>
-                                <p class="info_text"><input type="submit"  class="general_button" value="注 册"  id="submit"/></p>
+                                <p class="info_text"><a  id="submitLogin" style="background:#f54a2f;padding:5px 15px; color:#fff;font-size:16px; border-radius:5px;  text-decoration:none;cursor: pointer;" >注册</a>
                             </form>
                             <p class="info_text"> 已有帐号,请<a href="#login" class="open_popup" style="color:red;">登录</a></p>
                             
