@@ -33,14 +33,15 @@ public class UserServiceImpl {
 		// 3.若是数据库中不存在这样的数据，那么开始注册！
 		// 1.增加荣誉值为10
 		String result = this.loginUserDaoImpl.register(loginUser);
+		//System.out.print("这是result："+result);
 		if (result == "0") {
-			// 发送邮件
-			System.out.print("result的值为0，成功发送邮件"+result);
+//			// 发送邮件
+//			System.out.print("result的值为0，成功发送邮件"+result);
 			EmailVo emailVo = new EmailVo();
-			emailVo.setReceivers(new String[] { loginUser.getLoginEmail() });
+			emailVo.setReceivers(new String[] {loginUser.getLoginEmail() });
 			emailVo.setSender("news_website@163.com");
 			emailVo.setSubject("欢迎注册新闻天下");
-			// 邮件内容!
+//			// 邮件内容!
 			String activeURL = "http://localhost:8080"+"/News-Publishing-System/loginUser/activeLoginUser?loginName="
 					+ loginUser.getLoginName();
 			System.out.print("activeURL:"+activeURL);
@@ -66,6 +67,7 @@ public class UserServiceImpl {
 					+ "<a href='#' style='color: #ffffff;'><font color='#ffffff'>hei boy!</font></a>&nbsp;Welcome you again!"
 					+ "</td></tr></table></td></tr></table></td></tr></table>" + "</body></html>";
 			emailVo.setEmailContent(emailContent);
+			//System.out.print(emailContent);
 			try {
 				emailVo.sendOneEmail(emailVo);
 			} catch (MessagingException e) {
@@ -73,7 +75,7 @@ public class UserServiceImpl {
 				e.printStackTrace();
 				return "1";
 			}
-			// System.out.println("email is success to ");
+			 System.out.println("email is success to ");
 		}
 		return result;
 	}

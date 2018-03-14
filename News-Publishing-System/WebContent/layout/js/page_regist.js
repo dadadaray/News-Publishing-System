@@ -129,11 +129,11 @@ $(document).ready(function(){
 		};		
 	});
 
-	//ajax提交注册信息
-	$("#submitLogin").bind("click", function(){
-		console.log("提交了");
-		regist(validate);
-	});
+//	//ajax提交注册信息
+//	$("#submitLogin").bind("click", function(){
+//		console.log("提交了");
+//		regist(validate);
+//	});
 	//注册的回车校验	
 	/*$("body").each(function(){
 		$(this).keydown(function(){
