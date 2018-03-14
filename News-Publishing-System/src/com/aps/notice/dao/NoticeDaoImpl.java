@@ -76,4 +76,5 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 			return "0";
 		}
 	}
+	
 }
