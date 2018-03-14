@@ -48,12 +48,12 @@ $(document).ready(function(){
 			password: {
 				required: true,
 				minlength: 4,
-				maxlength: 16
+				maxlength: 100
 			},
 			passwordAgain: {
 				required: true,
 				minlength: 4,
-				maxlength: 16,
+				maxlength: 100,
 				equalTo: "#password"
 			}
 		},
@@ -130,7 +130,7 @@ $(document).ready(function(){
 	});
 
 	//ajax提交注册信息
-	$("#submit").bind("click", function(){
+	$("#submitLogin").bind("click", function(){
 		console.log("提交了");
 		regist(validate);
 	});
@@ -150,8 +150,9 @@ function regist(validate){
 	//校验name,realName,phone,Email, password，校验如果失败的话不提交
 	if(validate.form()){
 			var md5 = new MD5();
+			console.log();
 			$.post({
-				url : "user/register",
+				url : "loginUser/register",
 				data: {
 					loginName: $("#name").val(),
 					password: md5.MD5($("#password").val()),
@@ -161,7 +162,7 @@ function regist(validate){
 					$('.loading').show();
 				},
 				success: function(data,status){
-//					console.log("data");
+					console.log("data");
 					$('.loading').hide();
 					if(data){
 						if(data == "0"){

@@ -1,4 +1,4 @@
-package com.aps.user.dao;
+package com.aps.loginUser.dao;
 
 import javax.annotation.Resource;
 
@@ -23,6 +23,7 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 	public String register(LoginUser loginUser) {
 		try {
 			super.save(loginUser);
+			System.out.print("数据库保存成功！");
 			return "0";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +60,7 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 	public LoginUser findByEmil(String email) {
 		try {
 			Query query = this.sessionFactory.getCurrentSession()
-					.createQuery("from LoginUser where email='" + email + "'");
+					.createQuery("from LoginUser where loginEmail='" + email + "'");
 			return (LoginUser) query.uniqueResult();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

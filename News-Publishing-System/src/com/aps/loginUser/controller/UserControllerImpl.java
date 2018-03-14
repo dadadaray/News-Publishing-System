@@ -1,4 +1,4 @@
-package com.aps.user.controller;
+package com.aps.loginUser.controller;
 
 import java.util.Date;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.aps.entity.Role;
 import com.aps.entity.LoginUser;
 import com.aps.entity.UserInfo;
+import com.aps.loginUser.service.UserServiceImpl;
 import com.aps.role.service.RoleServiceImpl;
-import com.aps.user.service.UserServiceImpl;
 import com.framework.EncodingTool;
 
 @Controller
@@ -40,36 +40,37 @@ public class UserControllerImpl {
 	 */
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	@ResponseBody
-	public String register(@RequestParam(name = "loginName") String name, @RequestParam(name = "email") String email,
+	public String register(@RequestParam(name = "name") String name, @RequestParam(name = "email") String email,
 			@RequestParam(name = "password") String password, HttpSession session,HttpServletRequest request) {
 		// code转换
-		// 判断email是否符合格式,使用java正则表达式
-		if (EncodingTool.isEmail(email)) {
-			LoginUser loginUser = new LoginUser();
-			loginUser.setLoginEmail(email);
-			loginUser.setLoginName(name);
-			loginUser.setLoginPassword(password);
-			UserInfo userInfo = new UserInfo();
-			// 获取用户注册时间
-			Date time = new Date();// new Date()为获取当前系统时间
-			// 给新注册的用户分配角色
-			Role role = this.roleServiceImpl.getRole(2);
-			loginUser.setRole(role);
-			userInfo.setUserRegistTime(time);
-			userInfo.setLoginUser(loginUser);
-			loginUser.setUserInfo(userInfo);
-			String result = this.userServiceImpl.register(loginUser,request.getServerName()+":"+request.getServerPort());
-			if (result == "0") {
-				// 这里是迫不得已才改成的自动跳转，本来想的是自动关闭页面，但是由于google浏览器的限制，没有实现该功能！
-				String welcome = "您的注册邮箱为：" + email + ",注册奖励&nbsp;<b>10</b>&nbsp;荣誉值，已经存入您的账户，快去邮箱激活账户吧！";
-				session.setAttribute("regiserWelcome", welcome);
-				session.setAttribute("registerTitle", "注册成功");
-				session.setAttribute("registerEmail", email);
-				return result;
-			}
-			return result;
-		}
-		return "5";
+		System.out.print("进入controller");
+//		// 判断email是否符合格式,使用java正则表达式
+//		if (EncodingTool.isEmail(email)) {
+//			LoginUser loginUser = new LoginUser();
+//			loginUser.setLoginEmail(email);
+//			loginUser.setLoginName(name);
+//			loginUser.setLoginPassword(password);
+//			UserInfo userInfo = new UserInfo();
+//			// 获取用户注册时间
+//			Date time = new Date();// new Date()为获取当前系统时间
+//			// 给新注册的用户分配角色
+//			Role role = this.roleServiceImpl.getRole(1);
+//			loginUser.setRole(role);
+//			userInfo.setUserRegistTime(time);
+//			userInfo.setLoginUser(loginUser);
+//			loginUser.setUserInfo(userInfo);
+//			String result = this.userServiceImpl.register(loginUser,request.getServerName()+":"+request.getServerPort());
+//			if (result == "0") {
+//				// 这里是迫不得已才改成的自动跳转，本来想的是自动关闭页面，但是由于google浏览器的限制，没有实现该功能！
+//				String welcome = "您的注册邮箱为：" + email + ",注册奖励&nbsp;<b>10</b>&nbsp;荣誉值，已经存入您的账户，快去邮箱激活账户吧！";
+//				session.setAttribute("regiserWelcome", welcome);
+//				session.setAttribute("registerTitle", "注册成功");
+//				session.setAttribute("registerEmail", email);
+//				return result;
+//			}
+//			return result;
+//		}
+		return "index";
 	}
 
 
@@ -84,7 +85,7 @@ public class UserControllerImpl {
 	 * 
 	 */
 	@RequestMapping(value = "activeLoginUser", method = RequestMethod.GET)
-	public String activeLoginUser(@RequestParam(name = "loginName") String loginName, HttpSession session,HttpServletRequest request) {
+	public String activeLoginUser(@RequestParam(name = "name") String loginName, HttpSession session,HttpServletRequest request) {
 		loginName = EncodingTool.encodeStr(loginName);
 		LoginUser loginUser = this.userServiceImpl.findByName(loginName);
 		if (loginUser == null) {
@@ -100,5 +101,7 @@ public class UserControllerImpl {
 		session.setAttribute("registerContent", content);
 		return "registerSure";
 	}
+	
+	
 
 }

@@ -111,6 +111,7 @@ public class EmailVo {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		JavaMailSenderImpl sender = (JavaMailSenderImpl) ctx.getBean("mailSender");
 		MimeMessage mailMessage = sender.createMimeMessage();
+		System.out.print("mailMessage"+mailMessage);
 		MimeMessageHelper messageHelper = null;
 		messageHelper = new MimeMessageHelper(mailMessage, true);
 		messageHelper.setFrom(emailVo.getSender());
@@ -119,7 +120,7 @@ public class EmailVo {
 
 		// true 表示启动HTML格式的邮件
 		messageHelper.setText(emailVo.getEmailContent(), true);
-
+      
 		sender.send(mailMessage);
 		System.out.println("邮件发送成功...");
 	}

@@ -1,4 +1,4 @@
-package com.aps.user.service;
+package com.aps.loginUser.service;
 
 import javax.annotation.Resource;
 import javax.mail.MessagingException;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aps.entity.LoginUser;
-import com.aps.user.dao.LoginUserDaoImpl;
+import com.aps.loginUser.dao.LoginUserDaoImpl;
 import com.framework.EmailVo;
 
 @Service
@@ -20,6 +20,7 @@ public class UserServiceImpl {
 	public String register(LoginUser loginUser,String serverNameAndPort) {
 		// 处理业务逻辑
 		// 1.判断是否存在这个email
+		System.out.print("进入UserService");
 		if (this.loginUserDaoImpl.findByEmil(loginUser.getLoginEmail()) != null) {
 			// 存在这样的数据
 			return "4"; // 邮箱已经存在
@@ -34,15 +35,16 @@ public class UserServiceImpl {
 		String result = this.loginUserDaoImpl.register(loginUser);
 		if (result == "0") {
 			// 发送邮件
+			System.out.print("result的值为0，成功发送邮件"+result);
 			EmailVo emailVo = new EmailVo();
 			emailVo.setReceivers(new String[] { loginUser.getLoginEmail() });
-			emailVo.setSender("m15315715815@163.com");
-			emailVo.setSubject("欢迎注册nullpointer");
+			emailVo.setSender("news_website@163.com");
+			emailVo.setSubject("欢迎注册新闻天下");
 			// 邮件内容!
 			String activeURL = "http://localhost:8080"+"/News-Publishing-System/loginUser/activeLoginUser?loginName="
 					+ loginUser.getLoginName();
-			System.out.print(activeURL);
-			String emailContent = "<html><head><title>欢迎注册nullpointer</title></head><body>"
+			System.out.print("activeURL:"+activeURL);
+			String emailContent = "<html><head><title>欢迎注册新闻天下</title></head><body>"
 					+ "<table border='0' cellpadding='0' cellspacing='0' width='100%'>" + "<tr>"
 					+ "<td style='padding: 10px 0 30px 0;'>"
 					+ "<table align='center' border='0' cellpadding='0' cellspacing='0' width='600' style='border: 1px solid #cccccc; border-collapse: collapse;'>"
@@ -55,7 +57,7 @@ public class UserServiceImpl {
 					+ "<b>Welcome to nullpointer!</b>" + "</td>" + "</tr>" + "<tr>"
 					+ "<td style='padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'>"
 					+ "请点击以下链接完成注册：<b><br/><a href='" + activeURL
-					+ "'>http://localhost:8080/nullpointer/loginUser/activeLoginUser?loginActive=true（右键在新标签页中打开）</a></b>"
+					+ "'>http://localhost:8080/News-Publishing-System/loginUser/activeLoginUser?loginActive=true（右键在新标签页中打开）</a></b>"
 					+ "</td></tr></table></td></tr><tr>"
 					+ "<td bgcolor='#ee4c50' style='padding: 30px 30px 30px 30px;'>"
 					+ "<table border='0' cellpadding='0' cellspacing='0' width='100%'>" + "<tr>"
