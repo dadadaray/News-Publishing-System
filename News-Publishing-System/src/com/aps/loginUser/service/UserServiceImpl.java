@@ -20,6 +20,7 @@ public class UserServiceImpl {
 	public String register(LoginUser loginUser,String serverNameAndPort) {
 		// 处理业务逻辑
 		// 1.判断是否存在这个email
+		System.out.print("进入UserService");
 		if (this.loginUserDaoImpl.findByEmil(loginUser.getLoginEmail()) != null) {
 			// 存在这样的数据
 			return "4"; // 邮箱已经存在
@@ -34,6 +35,7 @@ public class UserServiceImpl {
 		String result = this.loginUserDaoImpl.register(loginUser);
 		if (result == "0") {
 			// 发送邮件
+			System.out.print("result的值为0，成功发送邮件"+result);
 			EmailVo emailVo = new EmailVo();
 			emailVo.setReceivers(new String[] { loginUser.getLoginEmail() });
 			emailVo.setSender("news_website@163.com");

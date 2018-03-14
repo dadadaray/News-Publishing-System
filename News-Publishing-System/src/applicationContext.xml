@@ -47,7 +47,6 @@
 		</property>
 	</bean>
 
-
 	<!-- 文件上传 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
@@ -85,8 +84,6 @@
 					org.hibernate.search.store.impl.FSDirectoryProvider
 				</prop>
 				<prop key="hibernate.search.default.indexBase">C:/index</prop>
-				<!--  <prop key="hibernate.hbm2ddl.auto">update</prop>-->
-				
 			</props>
 		</property>
 	</bean>

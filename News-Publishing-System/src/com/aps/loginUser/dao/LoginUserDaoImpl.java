@@ -23,6 +23,7 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 	public String register(LoginUser loginUser) {
 		try {
 			super.save(loginUser);
+			System.out.print("数据库保存成功！");
 			return "0";
 		} catch (Exception e) {
 			e.printStackTrace();
