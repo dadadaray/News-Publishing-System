@@ -22,7 +22,6 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 	 */
 	public String register(LoginUser loginUser) {
 		try {			
-			//System.out.print(loginUser.isLoginActive()+loginUser.getLoginEmail()+loginUser.getLoginName()+loginUser.getLoginPassword()+loginUser.getRole().getRoleId());
 			super.save(loginUser);
 			//System.out.print("数据库保存成功！");
 			return "0";

@@ -6,7 +6,7 @@ $(document).ready(function(){
 	
 	
 	//隐藏Loading/注册失败 DIV
-	$(".loading").hide();
+	$(".loading").show();
 	$(".login-error").hide();
 	registError = $("<label class='error repeated'></label>");
 	
@@ -145,68 +145,68 @@ $(document).ready(function(){
 	
 });
 
-function regist(validate){
-	console.log("this is regist");
-	//校验name,realName,phone,Email, password，校验如果失败的话不提交
-	if(validate.form()){
-			var md5 = new MD5();
-			console.log();
-			$.post({
-				url : "loginUser/register",
-				data: {
-					loginName: $("#name").val(),
-					password: md5.MD5($("#password").val()),
-					email: $("#email").val(),
-				},
-				beforeSend: function(){
-					$('.loading').show();
-				},
-				success: function(data,status){
-					console.log("data");
-					$('.loading').hide();
-					if(data){
-						if(data == "0"){
-							//注册成功
-							window.location.href="registerSure.jsp"
-						}else if(data == "1"){
-							//数据库链接失败
-							$(".login-error").html($.i18n.prop("服务器有问题，请刷新注册"));
-						}else if(data == "2"){
-							//参数传递失败
-							$(".login-error").show();
-							$(".login-error").html($.i18n.prop("您的网络有问题"));
-						}else if(data == "3"){
-							//名字已经被注册
-							$("#name").addClass("error");
-							$("#name").after(registError);
-							$("#name").next("label.repeated").text($.i18n.prop("您的用户名已经存在"));
-							registError.show();
-						}else if(data == "4"){
-							//邮箱已经被注册
-							$("#email").addClass("error");
-							$("#email").after(registError);
-							$("#email").next("label.repeated").text($.i18n.prop("邮箱已经存在"));
-							registError.show();
-						}else if(data == "5"){
-							//邮箱不符合格式
-							$("#email").addClass("error");
-							$("#email").after(registError);
-							$("#email").next("label.repeated").text($.i18n.prop("邮箱不符合格式！"));
-							registError.show();
-						}else{
-							//系统错误
-							$(".login-error").html($.i18n.prop("系统错误"));
-						}
-					}
-				},
-				error: function (){
-					$(".loading").hide();
-					$(".login-error").hide();
-					$(".login-error").html($.i18n.prop("您的网络有问题，请刷新试试"));
-				}
-			});
-	}
-}
+//function regist(validate){
+//	console.log("this is regist");
+//	//校验name,realName,phone,Email, password，校验如果失败的话不提交
+//	if(validate.form()){
+//			var md5 = new MD5();
+//			console.log();
+//			$.post({
+//				url : "loginUser/register",
+//				data: {
+//					loginName: $("#name").val(),
+//					password: md5.MD5($("#password").val()),
+//					email: $("#email").val(),
+//				},
+//				beforeSend: function(){
+//					$('.loading').show();
+//				},
+//				success: function(data,status){
+//					console.log("data");
+//					$('.loading').hide();
+//					if(data){
+//						if(data == "0"){
+//							//注册成功
+//							window.location.href="registerSure.jsp"
+//						}else if(data == "1"){
+//							//数据库链接失败
+//							$(".login-error").html($.i18n.prop("服务器有问题，请刷新注册"));
+//						}else if(data == "2"){
+//							//参数传递失败
+//							$(".login-error").show();
+//							$(".login-error").html($.i18n.prop("您的网络有问题"));
+//						}else if(data == "3"){
+//							//名字已经被注册
+//							$("#name").addClass("error");
+//							$("#name").after(registError);
+//							$("#name").next("label.repeated").text($.i18n.prop("您的用户名已经存在"));
+//							registError.show();
+//						}else if(data == "4"){
+//							//邮箱已经被注册
+//							$("#email").addClass("error");
+//							$("#email").after(registError);
+//							$("#email").next("label.repeated").text($.i18n.prop("邮箱已经存在"));
+//							registError.show();
+//						}else if(data == "5"){
+//							//邮箱不符合格式
+//							$("#email").addClass("error");
+//							$("#email").after(registError);
+//							$("#email").next("label.repeated").text($.i18n.prop("邮箱不符合格式！"));
+//							registError.show();
+//						}else{
+//							//系统错误
+//							$(".login-error").html($.i18n.prop("系统错误"));
+//						}
+//					}
+//				},
+//				error: function (){
+//					$(".loading").hide();
+//					$(".login-error").hide();
+//					$(".login-error").html($.i18n.prop("您的网络有问题，请刷新试试"));
+//				}
+//			});
+//	}
+//}
 
 var Utils = function(){};
 

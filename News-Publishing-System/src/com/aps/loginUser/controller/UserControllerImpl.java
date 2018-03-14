@@ -39,10 +39,10 @@ public class UserControllerImpl {
 	 * @author Ray
 	 */
 	@RequestMapping(value = "register", method = RequestMethod.POST)
-	@ResponseBody
 	public String register(@RequestParam(name = "name") String name, @RequestParam(name = "email") String email,
 			@RequestParam(name = "password") String password, HttpSession session,HttpServletRequest request) {
 		// code转换
+		name=EncodingTool.encodeStr(name);
 		//System.out.print("进入controller");
 		// 判断email是否符合格式,使用java正则表达式
 		if (EncodingTool.isEmail(email)) {
@@ -61,12 +61,14 @@ public class UserControllerImpl {
 			loginUser.setUserInfo(userInfo);
 			String result = this.userServiceImpl.register(loginUser,request.getServerName()+":"+request.getServerPort());
 			if (result == "0") {
+				System.out.print("为什么不跳转到registerSure 页面");
 				// 这里是迫不得已才改成的自动跳转，本来想的是自动关闭页面，但是由于google浏览器的限制，没有实现该功能！
 				String welcome = "您的注册邮箱为：" + email + "快去邮箱激活账户吧！";
 				session.setAttribute("regiserWelcome", welcome);
 				session.setAttribute("registerTitle", "注册成功");
 				session.setAttribute("registerEmail", email);
-				return result;
+				System.out.print("都获取了email哦！");
+				return "registerSure";
 			}
 			return result;
 		}

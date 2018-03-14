@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;	charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.Date"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -160,6 +160,14 @@
 		<%@ include file="footer.jsp"%>   
 		
     </div>
+<!-- 加载图片显示 -->
+<div class="loading">
+    <div class="mask">
+        <div class="loading-img">
+        <img src="${ctx }/layout/images/loading.gif" width="31" height="31">
+        </div>
+    </div>
+</div>
 
 	<!-- login -->
 	<%@ include file="login.jsp"%>  
@@ -169,13 +177,13 @@
 <script type="text/javascript">
     $(document).keyup(function(e) {
         if (e.keyCode == 13) {
-            $("#submit").click()
+            $("#submit").click();
+            $('.loading').hide();
         }
     });
     
 	function validate() {
 		var md5 = new MD5();
-		debugger
 		var f = '......' == $(
 				'#password')
 				.val() ? ''
@@ -194,9 +202,9 @@
 						.val());
 $('#passwordAgain').val(
 		f1);
-		debugger
 		$('#signupForm')
 				.submit();
+	$('.loading').show();
 	}
 </script>
 
