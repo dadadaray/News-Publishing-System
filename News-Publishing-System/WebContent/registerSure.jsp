@@ -1,8 +1,9 @@
-<%@ page language="java" import="java.util.*"
-	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page errorPage="error.jsp"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+	pageEncoding="UTF-8" import="java.util.Date"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}/font_desk" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <%@page import="java.util.Date"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -91,7 +92,7 @@
 			<article class="article"> <header>
 			<dl class="dl-inline">
 				<dt><%=new Date()%></dt>
-				<dt>Welcome to world of News</dt>
+				<dt>Welcome to world of News Publishing System</dt>
 			</dl>
 			<section class="abstract">
 			<p>
@@ -134,6 +135,6 @@
 <!-- ZUI Javascript组件 -->
 <script src="${ctx }/layout/zui.min.js"></script>
 <!-- 增强文档插件 -->
-<script async src="${ctx }/assets/prettify/prettify.js"></script>
-<script src="${ctx }/assets/marked/marked.min.js"></script>
+<script async src="${ctx }/layout/js/prettify.js"></script>
+<script src="${ctx }/layout/js/marked.min.js"></script>
 </html>

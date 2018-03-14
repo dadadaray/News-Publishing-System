@@ -20,7 +20,7 @@ public class UserServiceImpl {
 	public String register(LoginUser loginUser,String serverNameAndPort) {
 		// 处理业务逻辑
 		// 1.判断是否存在这个email
-		System.out.print("进入UserService");
+		//System.out.print("进入UserService");
 		if (this.loginUserDaoImpl.findByEmil(loginUser.getLoginEmail()) != null) {
 			// 存在这样的数据
 			return "4"; // 邮箱已经存在
@@ -33,14 +33,15 @@ public class UserServiceImpl {
 		// 3.若是数据库中不存在这样的数据，那么开始注册！
 		// 1.增加荣誉值为10
 		String result = this.loginUserDaoImpl.register(loginUser);
+		//System.out.print("这是result："+result);
 		if (result == "0") {
-			// 发送邮件
-			System.out.print("result的值为0，成功发送邮件"+result);
+//			// 发送邮件
+//			System.out.print("result的值为0，成功发送邮件"+result);
 			EmailVo emailVo = new EmailVo();
-			emailVo.setReceivers(new String[] { loginUser.getLoginEmail() });
+			emailVo.setReceivers(new String[] {loginUser.getLoginEmail() });
 			emailVo.setSender("news_website@163.com");
 			emailVo.setSubject("欢迎注册新闻天下");
-			// 邮件内容!
+//			// 邮件内容!
 			String activeURL = "http://localhost:8080"+"/News-Publishing-System/loginUser/activeLoginUser?loginName="
 					+ loginUser.getLoginName();
 			System.out.print("activeURL:"+activeURL);
@@ -50,11 +51,11 @@ public class UserServiceImpl {
 					+ "<table align='center' border='0' cellpadding='0' cellspacing='0' width='600' style='border: 1px solid #cccccc; border-collapse: collapse;'>"
 					+ "<tr>"
 					+ "<td align='center' bgcolor='#70bbd9' style='padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;'>"
-					+ "<img src='http://www.fengtingxin.cn/images/black_logo.png' alt='nullpointer Logo' width='300' height='230' style='display: block;' />"
+					+ "<img src='http://localhost:8080/News-Publishing-System/images/black_logo.png' alt='nullpointer Logo' width='300' height='230' style='display: block;' />"
 					+ "</td>" + "</tr>" + "<tr>" + "<td bgcolor='#ffffff' style='padding: 40px 30px 40px 30px;'>"
 					+ "<table border='0' cellpadding='0' cellspacing='0' width='100%'>" + "<tr>"
 					+ "<td style='color: #153643; font-family: Arial, sans-serif; font-size: 24px;'>"
-					+ "<b>Welcome to nullpointer!</b>" + "</td>" + "</tr>" + "<tr>"
+					+ "<b>Welcome to News Publishing System!</b>" + "</td>" + "</tr>" + "<tr>"
 					+ "<td style='padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'>"
 					+ "请点击以下链接完成注册：<b><br/><a href='" + activeURL
 					+ "'>http://localhost:8080/News-Publishing-System/loginUser/activeLoginUser?loginActive=true（右键在新标签页中打开）</a></b>"
@@ -62,10 +63,11 @@ public class UserServiceImpl {
 					+ "<td bgcolor='#ee4c50' style='padding: 30px 30px 30px 30px;'>"
 					+ "<table border='0' cellpadding='0' cellspacing='0' width='100%'>" + "<tr>"
 					+ "<td style='color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;' width='75%'>"
-					+ "&reg; nullpointer MadeBy EXP 项目开发小组<br/>"
+					+ "&reg;  News-Publishing-System<br/>"
 					+ "<a href='#' style='color: #ffffff;'><font color='#ffffff'>hei boy!</font></a>&nbsp;Welcome you again!"
 					+ "</td></tr></table></td></tr></table></td></tr></table>" + "</body></html>";
 			emailVo.setEmailContent(emailContent);
+			//System.out.print(emailContent);
 			try {
 				emailVo.sendOneEmail(emailVo);
 			} catch (MessagingException e) {
@@ -73,7 +75,7 @@ public class UserServiceImpl {
 				e.printStackTrace();
 				return "1";
 			}
-			// System.out.println("email is success to ");
+			 System.out.println("email is success to ");
 		}
 		return result;
 	}
