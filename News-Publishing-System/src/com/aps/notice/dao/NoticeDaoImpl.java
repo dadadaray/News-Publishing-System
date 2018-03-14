@@ -23,10 +23,10 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 		
 		String hql;
 		if(params!=null && params.length>0){
-			hql="from Notice n where n.noticeContent like ? and n.userInfo.loginUser.role.roleId=3 order by n.noticeCreatTime desc";
+			hql="from Notice n where n.noticeContent like ?  order by n.noticeCreatTime desc";
 			params[0]="%"+params[0]+"%";
 		}else{
-			hql="from Notice n where n.userInfo.loginUser.role.roleId=3 order by n.noticeCreatTime desc";
+			hql="from Notice n  order by n.noticeCreatTime desc";
 		}
 		try{
 			Page<Notice> page = new Page<Notice>();

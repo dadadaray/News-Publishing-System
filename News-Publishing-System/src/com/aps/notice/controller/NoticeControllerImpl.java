@@ -41,11 +41,11 @@ public class NoticeControllerImpl {
 	 */
 	@RequestMapping(value = "listNotice", method = RequestMethod.GET)
 	public String listNotice(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,
+			@RequestParam(name = "noticeType", defaultValue = "") String noticeType,
 			 HttpServletRequest request, HttpSession session) {
 		Page<Notice> page = new Page<Notice>();
 		page = this.noticeServiceImpl.listNotice(pageNum, 8, null);
 		session.setAttribute("page", page);
-		System.out.println("hhahahha");
 		return "backstage/tongzhi";
 	}
 	

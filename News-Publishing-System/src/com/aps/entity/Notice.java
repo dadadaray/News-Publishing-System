@@ -1,6 +1,6 @@
 package com.aps.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -20,6 +20,7 @@ public class Notice {
 	private Integer noticeType; // 0 未通过 1 通过 2 推荐
 	private Date noticeCreatTime;
 	private UserInfo userInfo;
+	private News news;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -64,5 +65,14 @@ public class Notice {
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
 	}
+	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@JoinColumn(name = "newsId")
+	public News getNews() {
+		return news;
+	}
 
+	public void setNews(News news) {
+		this.news = news;
+	}
 }

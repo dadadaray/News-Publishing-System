@@ -23,7 +23,7 @@ public class Comment {
 	private Integer commentId;
 	private String commentContent;// 评论内容
 	private Date commentPublishTime;// 评论发表时间
-	private News news;// 评论对应的bug
+	private News news;// 评论对应的新闻
 	private UserInfo userInfo;// 评论对应的用户
 	private Comment parentComment;// 父评论
 	private Set<Comment> comments = new HashSet<Comment>(0);
