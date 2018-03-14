@@ -1,4 +1,4 @@
-package com.aps.user.controller;
+package com.aps.loginUser.controller;
 
 import java.util.Date;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.aps.entity.Role;
 import com.aps.entity.LoginUser;
 import com.aps.entity.UserInfo;
+import com.aps.loginUser.service.UserServiceImpl;
 import com.aps.role.service.RoleServiceImpl;
-import com.aps.user.service.UserServiceImpl;
 import com.framework.EncodingTool;
 
 @Controller
@@ -54,7 +54,7 @@ public class UserControllerImpl {
 			// 获取用户注册时间
 			Date time = new Date();// new Date()为获取当前系统时间
 			// 给新注册的用户分配角色
-			Role role = this.roleServiceImpl.getRole(2);
+			Role role = this.roleServiceImpl.getRole(1);
 			loginUser.setRole(role);
 			userInfo.setUserRegistTime(time);
 			userInfo.setLoginUser(loginUser);
@@ -85,7 +85,7 @@ public class UserControllerImpl {
 	 * 
 	 */
 	@RequestMapping(value = "activeLoginUser", method = RequestMethod.GET)
-	public String activeLoginUser(@RequestParam(name = "loginName") String loginName, HttpSession session,HttpServletRequest request) {
+	public String activeLoginUser(@RequestParam(name = "name") String loginName, HttpSession session,HttpServletRequest request) {
 		loginName = EncodingTool.encodeStr(loginName);
 		LoginUser loginUser = this.userServiceImpl.findByName(loginName);
 		if (loginUser == null) {

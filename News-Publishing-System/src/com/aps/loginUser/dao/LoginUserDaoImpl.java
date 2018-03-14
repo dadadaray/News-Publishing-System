@@ -1,4 +1,4 @@
-package com.aps.user.dao;
+package com.aps.loginUser.dao;
 
 import javax.annotation.Resource;
 
