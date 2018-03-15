@@ -237,7 +237,7 @@
 											
 											<font color="82949a"> 
 												<span style="display: block; float: left;">&nbsp;&nbsp;你的文章：</span> 
-												<span style="display: block; float: left;" class="bold">《文章名》${notice.news.newsTitle}</span>
+												<span style="display: block; float: left;" class="bold">《${notice.news.newsTitle}》</span>
 												<span class="text_overflow_1" onclick="tanchuang1(this)">
 													${notice.noticeContent}
 												</span>

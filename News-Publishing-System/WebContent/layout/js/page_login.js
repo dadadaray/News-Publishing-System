@@ -8,7 +8,7 @@ $(document).ready(
 
 					// 隐藏Loading/登录失败 DIV
 					$(".loading").hide();
-					$(".login-error1").hide();
+					$(".login-error").hide();
 
 					// 加载国际化语言包资源
 					// utils.loadProperties(args.lang);
@@ -32,67 +32,68 @@ $(document).ready(
 
 					};
 					/* 下面是调用方法 */
-					$.focusblur("#email1");
-					$.focusblur("#password1");
+					$.focusblur("#loginName");
+					$.focusblur("#password");
 					$.focusblur("#codeValue");
 
 					// 获取表单验证对象[填写验证规则]
-					var validate = $("#signupForm1").validate({
-						rules : {
-							password1 : {
-								required : true,
-								minlength : 4,
-								maxlength : 16
-							},
-							codeValue : {
-								required : true
-							},
-							email1: {
-								required: true,
-								email: true
-							},
+					var validate = $("#signupForm")
+							.validate(
+									{
+										rules : {
+											password : {
+												required : true,
+												minlength : 4,
+												maxlength : 16
+											},
+											codeValue : {
+												required : true
+											},
+											loginName : {
+												required : true,
+											}
 
-						},
-						messages : {
-							password1 : {
-								required : $.i18n
-										.prop("请输入密码"),
-								minlength : jQuery
-										.format($.i18n
-												.prop("请输入格式正确密码")),
-								maxlength : jQuery
-										.format($.i18n
-												.prop("长度超过限制"))
-							},
-							codeValue : {
-								required :   function(){
-									$(".login-error1").show();
-									$(".login-error1").html($.i18n.prop("您的验证码有误"));
-									
-								}
-							},
-							email1: {
-								required: $.i18n.prop("请输入email"),
-								email: $.i18n.prop("请输入正确的email")
-							},
-						},
-						errorPlacement: function(error, element) {   
-						    error.insertAfter(element.parent());
-						}
-					});
+										},
+										messages : {
+											password : {
+												required : $.i18n
+														.prop("请输入密码"),
+												minlength : jQuery
+														.format($.i18n
+																.prop("请输入格式正确密码")),
+												maxlength : jQuery
+														.format($.i18n
+																.prop("长度超过限制"))
+											},
+											codeValue : {
+												required : function(){
+													$(".login-error").show();
+													$(".login-error").html($.i18n.prop("您的验证码有误"));
+													
+												}
+											},
+											loginName : {
+												required : $.i18n
+														.prop("请输入用户名"),
+											},
+										},
+										errorPlacement: function(error, element) {   
+										    error.insertAfter(element.parent().next());
+										}
+									});
 
 					// 输入框激活焦点、溢出焦点的渐变特效
-					if($("#email1").val()){
-						$("#email1").prev().fadeOut();
-					};
+					if ($("#loginName").val()) {
+						$("#loginName").prev().fadeOut();
+					}
 					if ($("#codeValue").val()) {
 						$("#codeValue").prev().fadeOut();
 					}
-					if ($("#password1").val()) {
-						$("#password1").prev().fadeOut();
+					if ($("#password").val()) {
+						$("#password").prev().fadeOut();
 					}
 					$("#codeValue").focus(function() {
-						$(".login-error1").show();
+						$(".login-error").show();
 						$(this).prev().fadeOut();
 					});
 					$("#codeValue").blur(function() {
@@ -100,25 +101,25 @@ $(document).ready(
 							$(this).prev().fadeIn();
 						}
 					});
-					$("#email1").focus(function(){
+					$("#loginName").focus(function() {
 						$(this).prev().fadeOut();
 					});
-					$("#email1").blur(function(){
-						if(!$("#email1").val()){
+					$("#loginName").blur(function() {
+						if (!$("#loginName").val()) {
 							$(this).prev().fadeIn();
-						};		
+						}
 					});
-					$("#password1").focus(function() {
+					$("#password").focus(function() {
 						$(this).prev().fadeOut();
 					});
-					$("#password1").blur(function() {
-						if (!$("#password1").val()) {
+					$("#password").blur(function() {
+						if (!$("#password").val()) {
 							$(this).prev().fadeIn();
 						}
 					});
 
 					// ajax提交登录
-					$("#submit1").bind("click", function() {
+					$("#submit").bind("click", function() {
 						login(validate, remeberUser);
 					});					
 					
@@ -126,20 +127,20 @@ $(document).ready(
 				});
 
 function login(validate, remeberUser) {
-	// 校验email, password1,email1,code，校验如果失败的话不提交
+	// 校验email, password,loginName,code，校验如果失败的话不提交
 
 	if (validate.form()) {
 		remeberUser.SetPwdAndChk();
 		var md5 = new MD5();
-		var f = "......" == $("#password1").val() ? "" : md5.MD5($("#password1")
+		var f = "......" == $("#password").val() ? "" : md5.MD5($("#password")
 				.val());
 		var url = document.getElementById('url').getAttribute('data') + "";
 		//console.log(url);
 		$.post({
 			url : "/nullpointer/loginUser/login",
 			data : {
-				password1 : f,
-				email1 : $("#email1").val(),
+				password : f,
+				loginName : $("#loginName").val(),
 				codeValue : $("#codeValue").val()
 			},
 			beforeSend : function() {
@@ -165,42 +166,42 @@ function login(validate, remeberUser) {
 					window.location.href = url;
 				}else if(data=="-1"){
 					//验证码错误
-					$(".login-error1").show();
-					$(".login-error1").html($.i18n.prop("您的验证码有误"));
+					$(".login-error").show();
+					$(".login-error").html($.i18n.prop("您的验证码有误"));
 				}else if (data == "1") {
 					// 数据库链接失败
-					$(".login-error1").show();
-					$(".login-error1").html($.i18n.prop("您的网络有问题")); //正如大多数公司干的，如果是服务器遇到问题，就说是网络问题
+					$(".login-error").show();
+					$(".login-error").html($.i18n.prop("您的网络有问题")); //正如大多数公司干的，如果是服务器遇到问题，就说是网络问题
 				}else if (data == "2") {
 					// 参数传g递失败
-					$(".login-error1").show();
-					$(".login-error1").html($.i18n.prop("请刷新重写"));
-				} else if (data == "5") {
+					$(".login-error").show();
+					$(".login-error").html($.i18n.prop("请刷新重写"));
+				} else if (data == "14") {
 					// 用户名
-					$(".login-error1").show();
-					$(".login-error1").html(
-							$.i18n.prop("邮箱不符合格式！"));
+					$(".login-error").show();
+					$(".login-error").html(
+							$.i18n.prop("不存在该用户"));
 				} else if (data =="16") {
 					// 邮箱未激活
-					$(".login-error1").show();
-					$(".login-error1").html(
+					$(".login-error").show();
+					$(".login-error").html(
 							$.i18n.prop("邮箱未激活，请激活后登录"));
 				} else if (data == "15") {
 					// 登录失败[需要重新输入密码]
-					$(".login-error1").show();
-					$(".login-error1").html(
+					$(".login-error").show();
+					$(".login-error").html(
 							$.i18n.prop("登录失败[密码错误]"));
 				}else {
 				// 登录异常
-				$(".login-error1").show();
-				$(".login-error1").html($.i18n.prop("未知异常！关闭浏览器后重试"));
+				$(".login-error").show();
+				$(".login-error").html($.i18n.prop("未知异常！关闭浏览器后重试"));
 				}
 			},
 			error :function(){
 				// 登录异常
 				$('.loading').hide();
-				$(".login-error1").show();
-				$(".login-error1").html($.i18n.prop("您的网络有问题，请刷新试试"));
+				$(".login-error").show();
+				$(".login-error").html($.i18n.prop("您的网络有问题，请刷新试试"));
 			}
 		});
 	}
@@ -236,7 +237,7 @@ RemeberUser.prototype.GetLastUser = function() {
 // 点击登录时触发客户端事件
 RemeberUser.prototype.SetPwdAndChk = function() {
 	// 取用户名
-	var usr = $("#email1").val();
+	var usr = $("#email").val();
 	// 将最后一个用户信息写入到Cookie
 	this.SetLastUser(usr);
 };
@@ -253,13 +254,13 @@ RemeberUser.prototype.SetLastUser = function(usr) {
 
 // 用户名失去焦点时调用该方法
 RemeberUser.prototype.GetPwdAndChk = function() {
-	var usr = $("#email1").val();
+	var usr = $("#email").val();
 	var pwd = this.GetCookie("currenttoken");
 	if (pwd != null) {
-		// $("#password1").val(pwd);
-		$("#password1").val("......");
+		// $("#password").val(pwd);
+		$("#password").val("......");
 	} else {
-		$("#password1").val("");
+		$("#password").val("");
 	}
 };
 

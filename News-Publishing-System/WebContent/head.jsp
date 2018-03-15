@@ -21,7 +21,7 @@
                         <div class="fr">
                         	<div class="block_top_menu">
                             	<ul>
-                                	<li class="current"><a href="#login" class="open_popup">登录</a></li>
+                                	<li class="current"><a href="${ctx}/login.jsp">登录</a></li>
                                     <li><a href="${ctx}/registration.jsp">注册</a></li>
                                     <li><a href="#">退出</a></li>
                                 </ul>

@@ -110,7 +110,7 @@
                         </a>
                     </li>
                      <li class="tpl-left-nav-item">
-                        <a href="${ctx1}/notice/listNotice" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx1}/backstage/notice/listNotice" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-bell"></i>
                             <span>通知管理</span>
                             <i class="tpl-left-nav-content tpl-badge-danger">
