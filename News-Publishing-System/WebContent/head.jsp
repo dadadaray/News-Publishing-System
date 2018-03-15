@@ -70,7 +70,7 @@
                             </div>
                             
                             <div class="block_search_top">
-                            	<form action="#" />
+                            	<form action="#">
                                 	<div class="field"><input type="text" class="w_def_text" title="输入新闻关键词" /></div>
                                     <input type="submit" class="button" value="Search" />
                                     

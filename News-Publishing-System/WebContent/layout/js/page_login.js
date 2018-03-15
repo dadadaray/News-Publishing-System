@@ -133,13 +133,13 @@ function login(validate, remeberUser) {
 		var md5 = new MD5();
 		var f = "......" == $("#password1").val() ? "" : md5.MD5($("#password1")
 				.val());
-		var url = document.getElementById('url').getAttribute('data') + "";
-		//console.log(url);
+		var url = document.getElementById('url1').getAttribute('data') + "";
+		console.log(url);
 		$.post({
-			url : "/nullpointer/loginUser/login",
+			url : "/News-Publishing-System/loginUser/login",
 			data : {
 				password1 : f,
-				email1 : $("#email1").val(),
+				email1 : $("#loginNames").val(),
 				codeValue : $("#codeValue").val()
 			},
 			beforeSend : function() {

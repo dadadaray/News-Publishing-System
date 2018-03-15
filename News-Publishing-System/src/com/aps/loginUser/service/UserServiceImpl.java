@@ -50,8 +50,8 @@ public class UserServiceImpl {
 					+ "<td style='padding: 10px 0 30px 0;'>"
 					+ "<table align='center' border='0' cellpadding='0' cellspacing='0' width='600' style='border: 1px solid #cccccc; border-collapse: collapse;'>"
 					+ "<tr>"
-					+ "<td align='center' bgcolor='#70bbd9' style='padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;'>"
-					+ "<img src='http://localhost:8080/News-Publishing-System/images/black_logo.png' alt='nullpointer Logo' width='300' height='230' style='display: block;' />"
+					+ "<td align='center' bgcolor='#eccec9' style='padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;'>"
+					+ "<img src='http://localhost:8080/News-Publishing-System/layout/images/email_s.png' alt='New Publishing System Logo' width='437' height='144' style='display: block;' />"
 					+ "</td>" + "</tr>" + "<tr>" + "<td bgcolor='#ffffff' style='padding: 40px 30px 40px 30px;'>"
 					+ "<table border='0' cellpadding='0' cellspacing='0' width='100%'>" + "<tr>"
 					+ "<td style='color: #153643; font-family: Arial, sans-serif; font-size: 24px;'>"
@@ -142,5 +142,21 @@ public class UserServiceImpl {
 	public void updateLoginUser(LoginUser loginUser) {
 		this.loginUserDaoImpl.updateLoginUser(loginUser);
 	}
+	
+	/**
+	 * @author Ray
+	 * @param loginName
+	 * @param password
+	 * @return 返回用户信息
+	 */
+	public LoginUser findLoginUser(String loginName) {
+
+	    LoginUser t1=this.loginUserDaoImpl.findByEmil(loginName);
+	    if(t1==null){
+	    	t1=this.loginUserDaoImpl.findByLoginName(loginName);
+	    }
+	    return t1;
+	}
+
 
 }
