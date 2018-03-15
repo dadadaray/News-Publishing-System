@@ -7,7 +7,7 @@
  * @Description TODO
  */
 
-package com.aps.notice.controller;
+package com.aps.backstage.notice.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -46,7 +46,8 @@ public class NoticeControllerImpl {
 		Page<Notice> page = new Page<Notice>();
 		page = this.noticeServiceImpl.listNotice(pageNum, 8, null);
 		session.setAttribute("page", page);
-		return "backstage/tongzhi";
+		System.out.println("haha");
+		return "index";
 	}
 	
 	
