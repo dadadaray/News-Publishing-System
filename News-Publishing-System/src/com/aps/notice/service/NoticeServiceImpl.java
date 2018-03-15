@@ -12,7 +12,6 @@ package com.aps.notice.service;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.aps.entity.Notice;
 import com.aps.notice.dao.NoticeDaoImpl;
@@ -28,7 +27,6 @@ import com.framework.Page;
  *
  */
 @Service
-@Transactional(readOnly = true)
 public class NoticeServiceImpl {
 	@Resource
 	private NoticeDaoImpl noticeDaoImpl;

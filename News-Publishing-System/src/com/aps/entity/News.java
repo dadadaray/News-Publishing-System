@@ -41,7 +41,8 @@ public class News {
 	private ModMixCenter modMixCenter; // 图文居中
 	private ModMixLR modMixLR; // 图文左右
 	private ModMixSingle modMixSingle; // 图文一个图
-	private Set<Comment> comments = new HashSet<Comment>(0); // 新闻的平林
+	private Set<Comment> comments = new HashSet<Comment>(0); // 新闻的评论
+	private Set<Notice> notices = new HashSet<Notice>(0);// 新闻的消息
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -231,5 +232,15 @@ public class News {
 	public void setViews(Integer views) {
 		this.views = views;
 	}
+	
+	@OneToMany(mappedBy = "news")
+	public Set<Notice> getNotices() {
+		return notices;
+	}
 
+	public void setNotices(Set<Notice> notices) {
+		this.notices = notices;
+	}
+
+	
 }
