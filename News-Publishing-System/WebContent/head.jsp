@@ -148,13 +148,13 @@
                                         <li><a href="#">跟团游</a></li>
                                     </ul>
                                 </li>
-                               <!--  <li  data-content="education"><a href="education.html">政务</a>
+                                 <li  data-content="education"><a href="education.html">政务</a>
                                     <ul>
                                         <li><a href="#">政策解读</a></li>
                                         <li><a href="#">经济发展</a></li>
                                         <li><a href="#">专题聚焦</a></li>
                                     </ul>
-                                </li> -->
+                                </li> 
 							  	<li><a href="${ctx}/media.jsp">媒体</a>
                                 	
                                     <ul>
@@ -172,16 +172,6 @@
                                         <li><a href="${ctx}/main_news.jsp">主要新闻</a></li>
                                         <li><a href="${ctx}/news_post_w_slider.jsp">带滑动条的新闻稿</a></li>
                                         <li><a href="${ctx}/news_post_w_video.jsp">视频新闻发布</a></li>
-                                    </ul>
-                                </li>
-							  	<li><a href="blog.jsp">博客</a>
-                                	
-                                    <ul>
-                                    	<li><a href="${ctx}/blog.jsp">Our Blog Style 1</a></li>
-                                        <li><a href="${ctx}/blog_style_2.jsp">Our Blog Style 2</a></li>
-                                        <li><a href="${ctx}/blog_post.jsp">博客页面</a></li>
-                                        <li><a href="${ctx}/blog_post_w_slider.jsp">后与滑块</a></li>
-                                        <li><a href="${ctx}/blog_post_w_video.jsp">后与视频</a></li>
                                     </ul>
                                 </li>
 		  		  		  		<li><a href="${ctx}/typography.jsp">短代码</a>

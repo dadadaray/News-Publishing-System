@@ -24,7 +24,7 @@
                     <form action="#" id="signupForm1">
                         <div class="column">
                             <p class="label">用户名/邮箱</p>
-                            <div class="field"><input type="text" class="req" name="loginNames" id="loginNames"/></div>
+                            <div class="field"><input type="text" class="req" name="loginNameser" id="loginNameser"/></div>
                         </div>
                         
                         <div class="column">
@@ -36,10 +36,8 @@
                             <p class="label">验证码</p>
                             <div class="field" style="float:left;">
                                 <input type="text" name="codeValue" id="codeValue"> 
-                                <img src="${ctx }/MakeCodeServlet" width="150px" height="40px"
-							style="float: left" />
                             </div>
-                            <img src="${ctx}/images/pic_most_read_3.png" width="150px" height="28px" style="float:left;padding-left:10px;" />
+                            <img src="${ctx}/MakeCodeServlet" width="150px" height="28px" style="float:left;padding-left:10px;" />
                         </div>
                         <div class="login-error1"></div>
                         <div class="column button">

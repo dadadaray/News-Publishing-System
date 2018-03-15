@@ -201,8 +201,13 @@
                                                 <div class="am-u-sm-10">
                                                     <select data-am-selected="{searchBox: 1}">
                                                       <option value="a">财经</option>
-                                                      <option value="b">政务</option>
-                                                      <option value="o">娱乐</option>
+                                                      <option value="b">科技</option>
+                                                      <option value="c">教育</option>
+                                                      <option value="d">体育</option>
+                                                      <option value="e">娱乐</option>
+                                                      <option value="f">军事</option>
+                                                      <option value="g">旅游</option>
+                                                      <option value="h">政务</option>
                                                     </select>
                                                 </div>
                                             </div>
