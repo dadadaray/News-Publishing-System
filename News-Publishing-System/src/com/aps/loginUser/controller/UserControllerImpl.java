@@ -1,5 +1,6 @@
 package com.aps.loginUser.controller;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.annotation.Resource;
@@ -67,7 +68,7 @@ public class UserControllerImpl {
 				session.setAttribute("regiserWelcome", welcome);
 				session.setAttribute("registerTitle", "注册成功");
 				session.setAttribute("registerEmail", email);
-				System.out.print("都获取了email哦！");
+				//System.out.print("都获取了email哦！");
 				return "registerSure";
 			}
 			return result;
@@ -105,6 +106,41 @@ public class UserControllerImpl {
 		return "registerSure";
 	}
 	
-	
 
+	/**
+	 * 功能: 1.能够使用邮箱登录/也可以使用用户名登录 2.验证code 3.验证用户名/邮箱是否存在 4.验证密码的正确性
+	 * 5.跳转到index.jsp //在js中修改
+	 * 
+	 * @param loginName
+	 * @param password
+	 * @param codeValue
+	 * @param session
+	 * @return 返回一个string值 0 表示登录成功 -1 表示验证码错误 1 表示数据连接错误 2 表示参数传递错误 14 表示用户名不存在
+	 *         16 表示尚未激活 19 表示密码错误
+	 * @author Ray
+	 *
+	 */
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@ResponseBody
+	public String login(@RequestParam(name = "loginNames") String loginName,
+			@RequestParam(name = "password1") String password, @RequestParam(name = "codeValue",defaultValue="") String codeValue,
+			HttpSession session) {
+		String code = (String) session.getAttribute("post_validate_code");
+		if (!code.equalsIgnoreCase(codeValue)) {
+			return "-1";
+		}
+		String result = this.userServiceImpl.loginVerify(loginName, password);
+		if (!result.equals("0")) {
+			return result;
+		}
+		// 输入正确
+		LoginUser loginUser = this.userServiceImpl.findLoginUser(loginName);
+		if (result.equals("0")) {
+			
+			session.setAttribute("loginUser", loginUser);
+		}
+		Calendar date = Calendar.getInstance();  
+		//System.out.println(this.signUpRecordServiceImpl.findByYear(date.get(Calendar.YEAR),loginUser.getLoginUserId()));
+		return result;
+	}
 }

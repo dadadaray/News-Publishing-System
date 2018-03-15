@@ -21,7 +21,7 @@
 <script type="text/javascript" src="${ctx }/layout/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx }/layout/js/time_js.js"></script>
 
-<link type="text/css" rel="stylesheet" href="${ctx }layout/time_css.css" />
+<link type="text/css" rel="stylesheet" href="${ctx }/layout/time_css.css" />
 <script type="text/javascript">
 	countDown();
 </script>
@@ -30,7 +30,6 @@
 <link rel="stylesheet" type="text/css" href="${ctx }/layout/zui.lite.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/layout/zui-theme.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/layout/style_email.css">
-<link rel="stylesheet" type="text/css" href="${ctx }/layout/style.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/layout/main5152.css">
 <style id="themeStyle"></style>
 <style type="text/css">
@@ -52,18 +51,14 @@
 		quitBox('quit');
 	}
 	function quitBox(cmd) {
-
-		var win = window.open("${ctx}/login.jsp", "_self");
-		win.close();
+		var win = window.open("${ctx}/index.jsp", "_self");
+		//win.close();
 	}
 </script>
 </head>
 <body>
-	<%@ include file="head.jsp"%>
-	<!--导航栏完成-->
-	<div class="container">
+	<div class="container" style="padding-top:50px;">
 		<div class="row clearfix">
-
 			<div class="game_time" style="float: left;">
 				<div class="hold">
 					<div class="pie pie1"></div>
@@ -75,15 +70,16 @@
 				<div class="time"></div>
 
 			</div>
-			<div style="margin-left: 400px;">
+			<div style="margin-left: 400px; margin-top:100px;">
+			    <h1 style="color:green">激活成功！</h1>
 				<h2>
-					Welcome to nullpointer <small>You will love here!</small>
+					Welcome to news publishing system<br/> <small>You will love here!</small>
 				</h2>
 
 				<h3 class="popover-title">${regiserWelcome }</h3>
 				<div class="popover-content">
 					<h4>
-						<small id="remindContent">本页面将于10秒内自动跳转到登录！<a href='${ctx}/login.jsp'>立即跳转</a></small>
+						<small id="remindContent">本页面将于10秒内自动跳转到登录！<a href='${ctx}/index.jsp'>立即跳转</a></small>
 					</h4>
 				</div>
 			</div>
@@ -98,21 +94,12 @@
 			<p>
 				<strong>简介：</strong> <br /> 项目名称：新闻天下
 			<hr />
-			
-			<hr />
-			项目目标：新闻系统发布系统
 			</p>
 			</section> </header>
 			<blockquote>
 				<section class="abstract">
 				<p>
-					<strong>项目成员简介：</strong> <br /> PM：冯廷鑫
-				<hr />
-				产品经理：张肇霖
-				<hr />
-				用户体验、测试工程师：颜荣恩、汤文茹
-				<hr />
-				开发工程师：冯廷鑫、张肇霖、颜荣恩、汤文茹
+					<strong>项目成员简介：颜荣恩、韩晨、史新立</strong>
 				</p>
 				</section>
 			</blockquote>
@@ -121,19 +108,13 @@
 	</div>
 
 
-	<!--搜索框完成-->
-
-	<!-- footer -->
-		<%@ include file="footer.jsp"%>   
-
 </body>
 <!-- script -->
 <script type="text/javascript" src="${ctx}/layout/js/jquery.js"></script>
 
 
-
 <!-- ZUI Javascript组件 -->
-<script src="${ctx }/layout/zui.min.js"></script>
+<script src="${ctx }/layout/js/zui.min.js"></script>
 <!-- 增强文档插件 -->
 <script async src="${ctx }/layout/js/prettify.js"></script>
 <script src="${ctx }/layout/js/marked.min.js"></script>

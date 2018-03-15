@@ -123,7 +123,6 @@ $(document).ready(
 						login(validate, remeberUser);
 					});					
 					
-
 				});
 
 function login(validate, remeberUser) {
@@ -307,7 +306,7 @@ RemeberUser.prototype.SetCookie = function(name, value, expiresTime) {
 };
 // 重置cookie
 RemeberUser.prototype.ResetCookie = function() {
-	var usr = $("#email").val();
+	var usr = $("#loginNameser").val();
 	var expdate = new Date();
 	this.SetCookie(usr, null, expdate);
 };

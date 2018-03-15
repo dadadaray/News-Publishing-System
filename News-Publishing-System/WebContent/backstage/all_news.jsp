@@ -215,12 +215,15 @@
                             <div class="am-u-sm-12 am-u-md-3">
                                 <div class="am-form-group">
                                     <select data-am-selected="{btnSize: 'sm'}">
-                                      <option value="option1">所有类别</option>
-                                      <option value="option2">军事</option>
-                                      <option value="option3">金融</option>
-                                      <option value="option3">政治</option>
-                                      <option value="option3">生活</option>
-                                      <option value="option3">娱乐</option>
+                                         <option value="a">财经</option>
+                                         <option value="b">科技</option>
+                                         <option value="c">教育</option>
+                                         <option value="d">体育</option>
+                                         <option value="e">娱乐</option>
+                                         <option value="f">军事</option>
+                                         <option value="g">旅游</option>
+                                         <option value="h">政务</option>                                      
+                                      
                                   </select>
                               </div>
                           </div>

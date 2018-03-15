@@ -9,8 +9,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>新闻天下发布系统</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>新闻天下发布系统</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -229,8 +229,13 @@
                                                 <div class="am-u-sm-10">
                                                     <select data-am-selected="{searchBox: 1}">
                                                       <option value="a">财经</option>
-                                                      <option value="b">政务</option>
-                                                      <option value="o">娱乐</option>
+                                                      <option value="b">科技</option>
+                                                      <option value="c">教育</option>
+                                                      <option value="d">体育</option>
+                                                      <option value="e">娱乐</option>
+                                                      <option value="f">军事</option>
+                                                      <option value="g">旅游</option>
+                                                      <option value="h">政务</option>
                                                     </select>
                                                 </div>
                                             </div>
