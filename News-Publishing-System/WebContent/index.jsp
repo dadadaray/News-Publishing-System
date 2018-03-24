@@ -74,13 +74,6 @@
 <script type="text/javascript" src="${ctx}/layout/js/md5.js"></script>
 <!--密码md5加密 end-->
 
-<!--登录表单验证 start-->
-<script type="text/javascript"
-    src="${ctx}/layout/js/page_login.js?lang=zh" id="url"
-    data="<%= request.getHeader("REFERER")%>"></script>
-<!--登录表单验证 start-->
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body>
