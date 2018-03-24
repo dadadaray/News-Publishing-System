@@ -71,8 +71,7 @@
 <!--登录表单验证 start-->
 <script type="text/javascript" src="layout/js/jquery.validate.js"></script>
 <script type="text/javascript" src="layout/js/jquery.i18n.properties-1.0.9.js" ></script>
-<script type="text/javascript"
-    src="layout/js/page_login.js?lang=zh" id="url"
+<script type="text/javascript" src="${ctx}/layout/js/page_login.js?lang=zh" id="urls"
     data="<%= request.getHeader("REFERER")%>"></script>
 <!--登录表单验证 start-->
 
@@ -103,7 +102,7 @@
                         <div class="separator" style="height:39px;"></div>
                         
                         <div class="block_registration">
-                            <form action="#" class="w_validation" id="signupForm"/>
+                            <form action="#" class="w_validation" id="signupForm">
                                 <div class="col_1">
                                     <div class="label"><p>用户名/电子邮箱：<span>*</span></p></div>
                                     <div class="field"><input type="text" class="req" name="loginName" id="loginName"/></div>
@@ -124,14 +123,14 @@
                                     <div class="clearboth"></div>
                                     <div class="separator" style="height:14px;"></div>
                                     
-                                    <div class="separator" style="height:100%;"><img src="images/pic_most_read_3.png" width="150px" height="28px" style="float:left;" /></div>
+                                    <div class="separator" style="height:100%;"><img src="${ctx }/MakeCodeServlet" width="150px" height="28px" style="float:left;" /></div>
                                     <div class="clearboth"></div>
                                     <div class="separator" style="height:12px;"></div>
                                 </div>
                                 <div class="login-error"></div>
                                 <div class="clearboth"></div>
                                 <div class="separator" style="height:32px;"></div>
-                                <p class="info_text"><input type="submit"  class="general_button" value="登 录" /></p>
+                                <p class="info_text"><input type="submit"  class="general_button" value="登 录" id="submitlogin"/></p>
                             </form>
                         </div>
                         

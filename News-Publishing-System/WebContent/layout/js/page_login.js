@@ -1,7 +1,5 @@
 $(document).ready(
 				function() {
-					
-
 					// 获取JS传递的语言参数
 					var utils = new Utils();
 					var args = utils.getScriptArgs();
@@ -119,7 +117,7 @@ $(document).ready(
 					});
 
 					// ajax提交登录
-					$("#submit").bind("click", function() {
+					$("#submitlogin").bind("click", function() {
 						login(validate, remeberUser);
 					});					
 					
