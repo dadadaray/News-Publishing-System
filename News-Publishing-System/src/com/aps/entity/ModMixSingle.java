@@ -11,19 +11,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "mod_mix_single")
 public class ModMixSingle {
-	private Integer modMixSingle;
+	private Integer modMixSingleId;
 	private String mMixSingleImgOne;
 	private String mMixSingleContentOne;
 	private News news;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getModMixSingle() {
-		return modMixSingle;
+	public Integer getModMixSingleId() {
+		return modMixSingleId;
 	}
 
-	public void setModMixSingle(Integer modMixSingle) {
-		this.modMixSingle = modMixSingle;
+	public void setModMixSingleId(Integer modMixSingleId) {
+		this.modMixSingleId = modMixSingleId;
 	}
 
 	public String getmMixSingleImgOne() {

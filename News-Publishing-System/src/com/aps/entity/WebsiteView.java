@@ -9,17 +9,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "website_view")
 public class WebsiteView {
-	private Integer websiteView;
+	private Integer websiteViewId;
 	private Integer num; // 网站浏览量
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getWebsiteView() {
-		return websiteView;
+	public Integer getWebsiteViewId() {
+		return websiteViewId;
 	}
 
-	public void setWebsiteView(Integer websiteView) {
-		this.websiteView = websiteView;
+	public void setWebsiteViewId(Integer websiteViewId) {
+		this.websiteViewId = websiteViewId;
 	}
 
 	public Integer getNum() {

@@ -1,19 +1,17 @@
 package com.aps.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "mod_mix_lr")
 public class ModMixLR {
-	private Integer modMixLR;
+	private Integer modMixLRId;
 	private String mMixLRImgOne;
 	private String mMixLRContentOne;
 	private String mMixLRImgTwo;
@@ -24,12 +22,12 @@ public class ModMixLR {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getModMixLR() {
-		return modMixLR;
+	public Integer getModMixLRId() {
+		return modMixLRId;
 	}
 
-	public void setModMixLR(Integer modMixLR) {
-		this.modMixLR = modMixLR;
+	public void setModMixLRId(Integer modMixLRId) {
+		this.modMixLRId = modMixLRId;
 	}
 
 	public String getmMixLRImgOne() {

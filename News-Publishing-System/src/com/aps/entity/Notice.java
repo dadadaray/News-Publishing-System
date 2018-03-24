@@ -19,8 +19,9 @@ public class Notice {
 	private String noticeContent;
 	private Integer noticeType; // 0 未通过 1 通过 2 推荐
 	private Date noticeCreatTime;
-	private UserInfo userInfo;
+	private UserInfo userInfo;//发送通知的人员
 	private News news;
+	private Integer reciveId;  //接受通知人员
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -57,7 +58,7 @@ public class Notice {
 	}
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.LAZY)
-	@JoinColumn(name = "userId")
+	@JoinColumn(name = "sendUserId")
 	public UserInfo getUserInfo() {
 		return userInfo;
 	}
@@ -74,5 +75,13 @@ public class Notice {
 
 	public void setNews(News news) {
 		this.news = news;
+	}
+
+	public Integer getReciveId() {
+		return reciveId;
+	}
+
+	public void setReciveId(Integer reciveId) {
+		this.reciveId = reciveId;
 	}
 }
