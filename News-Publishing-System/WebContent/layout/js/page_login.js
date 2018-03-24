@@ -131,10 +131,10 @@ function login(validate, remeberUser) {
 		var md5 = new MD5();
 		var f = "......" == $("#password").val() ? "" : md5.MD5($("#password")
 				.val());
-		var url = document.getElementById('url').getAttribute('data') + "";
+		var url = document.getElementById('urls').getAttribute('data') + "";
 		//console.log(url);
 		$.post({
-			url : "/nullpointer/loginUser/login",
+			url : "/News-Publishing-System/loginUser/login",
 			data : {
 				password : f,
 				loginName : $("#loginName").val(),
@@ -304,7 +304,7 @@ RemeberUser.prototype.SetCookie = function(name, value, expiresTime) {
 };
 // 重置cookie
 RemeberUser.prototype.ResetCookie = function() {
-	var usr = $("#loginNameser").val();
+	var usr = $("#loginName").val();
 	var expdate = new Date();
 	this.SetCookie(usr, null, expdate);
 };

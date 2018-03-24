@@ -51,7 +51,7 @@
 		quitBox('quit');
 	}
 	function quitBox(cmd) {
-		var win = window.open("${ctx}/index.jsp", "_self");
+		var win = window.open("${ctx}/login.jsp", "_self");
 		//win.close();
 	}
 </script>

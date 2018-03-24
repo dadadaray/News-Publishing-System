@@ -64,11 +64,6 @@
 
 <script type="text/javascript" src="${ctx}/layout/js/main.js"></script>
 
-<!--注册表单验证 start-->
-<script type="text/javascript" src="${ctx}/layout/js/jquery.validate.js"></script>
-<script type="text/javascript" src="${ctx}/layout/js/page_regist.js?lang=zh"></script>
-<script type="text/javascript" src="${ctx}/layout/js/jquery.i18n.properties-1.0.9.js" ></script>
-<!--注册表单验证 end-->
 
 <!--密码md5加密 start-->
 <script type="text/javascript" src="${ctx}/layout/js/md5.js"></script>

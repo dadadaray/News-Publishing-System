@@ -76,6 +76,7 @@
 <!--密码md5加密 end-->
 
 
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body>
@@ -198,6 +199,7 @@ $('#passwordAgain').val(
 		f1);
 		$('#signupForm')
 				.submit();
+	$('.loading').show();
 	}
 </script>
 

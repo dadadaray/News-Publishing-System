@@ -111,7 +111,7 @@ public class EmailVo {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		JavaMailSenderImpl sender = (JavaMailSenderImpl) ctx.getBean("mailSender");
 		MimeMessage mailMessage = sender.createMimeMessage();
-		System.out.print("这是email+mailMessage"+mailMessage);
+		//System.out.print("这是email+mailMessage"+mailMessage);
 		MimeMessageHelper messageHelper = null;
 		messageHelper = new MimeMessageHelper(mailMessage, true);
 		messageHelper.setFrom(emailVo.getSender());

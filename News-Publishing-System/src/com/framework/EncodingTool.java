@@ -21,7 +21,7 @@ public class EncodingTool {
 
 	public static boolean isEmail(String email) {
 		/**
-		 * @fengtingxin 判断是否为email
+		 * @Ray 判断是否为email
 		 */
 		if (null == email || "".equals(email))
 			return false;

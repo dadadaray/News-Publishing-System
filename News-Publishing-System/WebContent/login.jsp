@@ -15,6 +15,7 @@
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/png" href="${ctx}/layout/images/favicon.png">
 
 <!--[if lt IE 9]>
 <script type="text/javascript" src="layout/plugins/html5.js"></script>
@@ -102,7 +103,7 @@
                         <div class="separator" style="height:39px;"></div>
                         
                         <div class="block_registration">
-                            <form action="#" class="w_validation" id="signupForm">
+                            <form  class="w_validation" id="signupForm">
                                 <div class="col_1">
                                     <div class="label"><p>用户名/电子邮箱：<span>*</span></p></div>
                                     <div class="field"><input type="text" class="req" name="loginName" id="loginName"/></div>
@@ -130,7 +131,10 @@
                                 <div class="login-error"></div>
                                 <div class="clearboth"></div>
                                 <div class="separator" style="height:32px;"></div>
-                                <p class="info_text"><input type="submit"  class="general_button" value="登 录" id="submitlogin"/></p>
+                                <p class="info_text">
+									<input type="submit" class="general_button" value="登 录" id="submitlogin" />
+									<!--  <a  id="submitlogin">登陆</a>-->
+								</p>
                             </form>
                         </div>
                         
