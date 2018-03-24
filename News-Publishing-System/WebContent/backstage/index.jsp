@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
 <!doctype html>
 <html>
 
@@ -97,7 +98,7 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="index.jsp" class="nav-link active">
+                        <a href="${ctx}/index/noticeList" class="nav-link active">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
@@ -109,7 +110,7 @@
                         </a>
                     </li>
                      <li class="tpl-left-nav-item">
-                        <a href="${ctx}/notice/listNotice" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx1}/backstage/notice/listNotice" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-bell"></i>
                             <span>通知管理</span>
                             <i class="tpl-left-nav-content tpl-badge-danger">

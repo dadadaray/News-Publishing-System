@@ -105,7 +105,7 @@
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
 					<li class="tpl-left-nav-item">
-						<a href="${ctx}/index.jsp" class="nav-link"> 
+						<a href="${ctx}/index/noticeList" class="nav-link"> 
 						<i class="am-icon-home"></i> <span>首页</span>
 						</a>
 					</li>
@@ -115,7 +115,7 @@
 						</a>
 					</li>
 					<li class="tpl-left-nav-item">
-						<a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list active"> 
+						<a href="${ctx}/notice/listNotice" class="nav-link  tpl-left-nav-link-list active"> 
 						<i class="am-icon-bell"></i> <span>通知管理</span> 
 						<i class="tpl-left-nav-content tpl-badge-danger"> 12 </i>
 						</a>
@@ -237,7 +237,7 @@
 											
 											<font color="82949a"> 
 												<span style="display: block; float: left;">&nbsp;&nbsp;你的文章：</span> 
-												<span style="display: block; float: left;" class="bold">《文章名》${notice.news.newsTitle}</span>
+												<span style="display: block; float: left;" class="bold">《${notice.news.newsTitle}》</span>
 												<span class="text_overflow_1" onclick="tanchuang1(this)">
 													${notice.noticeContent}
 												</span>

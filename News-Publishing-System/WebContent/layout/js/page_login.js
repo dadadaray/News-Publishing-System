@@ -32,19 +32,16 @@ $(document).ready(
 
 					};
 					/* 下面是调用方法 */
-					$.focusblur("#loginNameser");
-					$.focusblur("#password1");
+					$.focusblur("#loginName");
+					$.focusblur("#password");
 					$.focusblur("#codeValue");
 
 					// 获取表单验证对象[填写验证规则]
-					var validate = $("#signupForm1")
+					var validate = $("#signupForm")
 							.validate(
 									{
 										rules : {
-											loginNameser : {
-												required : true,
-											},
-											password1 : {
+											password : {
 												required : true,
 												minlength : 4,
 												maxlength : 16
@@ -52,15 +49,13 @@ $(document).ready(
 											codeValue : {
 												required : true
 											},
-											
+											loginName : {
+												required : true,
+											}
 
 										},
 										messages : {
-											loginNameser : {
-												required : $.i18n
-														.prop("请输入用户名"),
-											},
-											password1 : {
+											password : {
 												required : $.i18n
 														.prop("请输入密码"),
 												minlength : jQuery
@@ -77,19 +72,25 @@ $(document).ready(
 													
 												}
 											},
-											
+											loginName : {
+												required : $.i18n
+														.prop("请输入用户名"),
+											},
+										},
+										errorPlacement: function(error, element) {   
+										    error.insertAfter(element.parent().next());
 										}
 									});
 
 					// 输入框激活焦点、溢出焦点的渐变特效
-					if ($("#loginNameser").val()) {
-						$("#loginNameser").prev().fadeOut();
+					if ($("#loginName").val()) {
+						$("#loginName").prev().fadeOut();
 					}
 					if ($("#codeValue").val()) {
 						$("#codeValue").prev().fadeOut();
 					}
-					if ($("#password1").val()) {
-						$("#password1").prev().fadeOut();
+					if ($("#password").val()) {
+						$("#password").prev().fadeOut();
 					}
 					$("#codeValue").focus(function() {
 						$(".login-error").show();
@@ -100,25 +101,25 @@ $(document).ready(
 							$(this).prev().fadeIn();
 						}
 					});
-					$("#loginNameser").focus(function() {
+					$("#loginName").focus(function() {
 						$(this).prev().fadeOut();
 					});
-					$("#loginNameser").blur(function() {
-						if (!$("#loginNameser").val()) {
+					$("#loginName").blur(function() {
+						if (!$("#loginName").val()) {
 							$(this).prev().fadeIn();
 						}
 					});
-					$("#password1").focus(function() {
+					$("#password").focus(function() {
 						$(this).prev().fadeOut();
 					});
-					$("#password1").blur(function() {
-						if (!$("#password1").val()) {
+					$("#password").blur(function() {
+						if (!$("#password").val()) {
 							$(this).prev().fadeIn();
 						}
 					});
 
 					// ajax提交登录
-					$("#submit1").bind("click", function() {
+					$("#submit").bind("click", function() {
 						login(validate, remeberUser);
 					});					
 					
@@ -130,15 +131,15 @@ function login(validate, remeberUser) {
 	if (validate.form()) {
 		remeberUser.SetPwdAndChk();
 		var md5 = new MD5();
-		var f = "......" == $("#password1").val() ? "" : md5.MD5($("#password1")
+		var f = "......" == $("#password").val() ? "" : md5.MD5($("#password")
 				.val());
 		var url = document.getElementById('url').getAttribute('data') + "";
 		//console.log(url);
 		$.post({
 			url : "/nullpointer/loginUser/login",
 			data : {
-				password1 : f,
-				loginNameser : $("#loginNameser").val(),
+				password : f,
+				loginName : $("#loginName").val(),
 				codeValue : $("#codeValue").val()
 			},
 			beforeSend : function() {
@@ -235,7 +236,7 @@ RemeberUser.prototype.GetLastUser = function() {
 // 点击登录时触发客户端事件
 RemeberUser.prototype.SetPwdAndChk = function() {
 	// 取用户名
-	var usr = $("#loginNameser").val();
+	var usr = $("#email").val();
 	// 将最后一个用户信息写入到Cookie
 	this.SetLastUser(usr);
 };
@@ -252,13 +253,13 @@ RemeberUser.prototype.SetLastUser = function(usr) {
 
 // 用户名失去焦点时调用该方法
 RemeberUser.prototype.GetPwdAndChk = function() {
-	var usr = $("#loginNameser").val();
+	var usr = $("#email").val();
 	var pwd = this.GetCookie("currenttoken");
 	if (pwd != null) {
 		// $("#password").val(pwd);
-		$("#password1").val("......");
+		$("#password").val("......");
 	} else {
-		$("#password1").val("");
+		$("#password").val("");
 	}
 };
 

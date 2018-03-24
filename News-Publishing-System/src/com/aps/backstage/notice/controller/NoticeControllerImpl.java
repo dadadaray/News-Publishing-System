@@ -7,7 +7,7 @@
  * @Description TODO
  */
 
-package com.aps.notice.controller;
+package com.aps.backstage.notice.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +23,7 @@ import com.aps.notice.service.NoticeServiceImpl;
 import com.framework.Page;
 
 @Controller
-@RequestMapping("notice")
+@RequestMapping("backstage/notice")
 public class NoticeControllerImpl {
 
 	@Resource
@@ -43,11 +43,16 @@ public class NoticeControllerImpl {
 	public String listNotice(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,
 			@RequestParam(name = "noticeType", defaultValue = "") String noticeType,
 			 HttpServletRequest request, HttpSession session) {
+		String loginUser = (String)session.getAttribute("loginUser");  //得到登录后的session
+		System.out.println("loginUser");
 		Page<Notice> page = new Page<Notice>();
 		page = this.noticeServiceImpl.listNotice(pageNum, 8, null);
 		session.setAttribute("page", page);
+		
 		return "backstage/tongzhi";
 	}
+
+	
 	
 	
 }
