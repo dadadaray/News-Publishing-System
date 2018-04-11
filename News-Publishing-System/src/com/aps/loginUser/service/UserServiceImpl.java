@@ -93,9 +93,11 @@ public class UserServiceImpl {
 	public String loginVerify(String loginName, String password) {
 		// 判断登录名称是否为email
 		LoginUser t1 = this.loginUserDaoImpl.findByEmil(loginName);
-
+  
 		if (t1 == null) {
-			return "14"; // 用户名不存在返回14
+			 t1 = this.loginUserDaoImpl.findByLoginName(loginName);
+			 if (t1 == null)
+			     return "14"; // 用户名不存在返回14
 		}
 
 		//// 判断密码是否正确

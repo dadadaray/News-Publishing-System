@@ -136,10 +136,10 @@ public class UserControllerImpl {
 		// 输入正确
 		LoginUser loginUser = this.userServiceImpl.findLoginUser(loginName);
 		if (result.equals("0")) {
-
 			session.setAttribute("loginUser", loginUser);
 		}
 		Calendar date = Calendar.getInstance();
+		System.out.print(result);
 		return result;
 	}
 

@@ -35,7 +35,7 @@ $(document).ready(
 					$.focusblur("#codeValue");
 
 					// 获取表单验证对象[填写验证规则]
-					var validate = $("#signupForm")
+					var validate = $("#signupFormLogin")
 							.validate(
 									{
 										rules : {
@@ -55,13 +55,13 @@ $(document).ready(
 										messages : {
 											password : {
 												required : $.i18n
-														.prop("请输入密码"),
+														.prop("dl请输入密码"),
 												minlength : jQuery
 														.format($.i18n
-																.prop("请输入格式正确密码")),
+																.prop("dl请输入格式正确密码")),
 												maxlength : jQuery
 														.format($.i18n
-																.prop("长度超过限制"))
+																.prop("dl长度超过限制"))
 											},
 											codeValue : {
 												required : function(){
@@ -72,7 +72,7 @@ $(document).ready(
 											},
 											loginName : {
 												required : $.i18n
-														.prop("请输入用户名"),
+														.prop("dl请输入用户名"),
 											},
 										},
 										errorPlacement: function(error, element) {   
@@ -118,23 +118,25 @@ $(document).ready(
 
 					// ajax提交登录
 					$("#submitlogin").bind("click", function() {
+						//console.log("绑定点击事件了！");
 						login(validate, remeberUser);
-					});					
-					
+					});							
 				});
 
 function login(validate, remeberUser) {
+	//console.log("登陆");
 	// 校验email, password,loginName,code，校验如果失败的话不提交
-
 	if (validate.form()) {
 		remeberUser.SetPwdAndChk();
 		var md5 = new MD5();
 		var f = "......" == $("#password").val() ? "" : md5.MD5($("#password")
 				.val());
-		var url = document.getElementById('urls').getAttribute('data') + "";
+		//var url = document.getElementById('url').getAttribute('data') + "";
 		//console.log(url);
-		$.post({
-			url : "/News-Publishing-System/loginUser/login",
+		
+		$.ajax({
+			type:"post",
+			url:"/News-Publishing-System/loginUser/login",
 			data : {
 				password : f,
 				loginName : $("#loginName").val(),
@@ -147,20 +149,20 @@ function login(validate, remeberUser) {
 				$('.loading').hide();
 				if (data == "0") {
 					// 登录成功
-					if(url.indexOf("registerSure")>=0){
-						//console.log(url.substring(0, url.indexOf("registerSure")));
-						url=url.substring(0, url.indexOf("registerSure"));
-					}
-					if(url.indexOf("activeLoginUser")>=0){
-						//console.log(url.substring(0, url.indexOf("loginUser/activeLoginUser")));
-						url=url.substring(0, url.indexOf("loginUser/activeLoginUser"));
-					}
-					if(url.indexOf("upload")>=0){
-						//console.log(url.substring(0, url.indexOf("userimg/upload")));
-						url=url.substring(0, url.indexOf("userimg/upload"));
-						url=url+"/home";
-					}
-					window.location.href = url;
+//					if(url.indexOf("registerSure")>=0){
+//						//console.log(url.substring(0, url.indexOf("registerSure")));
+//						url=url.substring(0, url.indexOf("registerSure"));
+//					}
+//					if(url.indexOf("activeLoginUser")>=0){
+//						//console.log(url.substring(0, url.indexOf("loginUser/activeLoginUser")));
+//						url=url.substring(0, url.indexOf("loginUser/activeLoginUser"));
+//					}
+//					if(url.indexOf("upload")>=0){
+//						//console.log(url.substring(0, url.indexOf("userimg/upload")));
+//						url=url.substring(0, url.indexOf("userimg/upload"));
+//						url=url+"/home";
+//					}
+					window.location.href ="/News-Publishing-System/index";
 				}else if(data=="-1"){
 					//验证码错误
 					$(".login-error").show();
