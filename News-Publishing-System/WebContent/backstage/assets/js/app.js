@@ -26,25 +26,58 @@ $(function() {
            }
        });
 
+        
         //登录页面输入框验证
         var em222=$("input[name='em222']");
         var pass222=$("input[name='pass222']");
-        $(".denglu").click(function(){
+        $("#backstageLogin").click(function(){
+           alert("哈哈哈");
+           if((em222.val()==''&& pass222.val()=='')||(em222.val()=='')){
 
-           if((em222.val()==''&& pass222.val()=='')||(em222.val()==''|| pass222.val()=='')){
-
-                 //alert("都为空，显示");
-                 $(".warninfo2").show();
+                 alert("都为空，显示");
+                 $("#inputinfos").show();
+                 $("#errorpass").hide();  
              }else{
                 //alert("不显示警告");
-                $(".warninfo2").hide();
+                $("#inputinfos").hide();
+                $("#errorpass").hide();  
             }
-            if(em222.val()==''&& pass222.val() == ''){
+            if((!$("#errorpass").is(':hidden'))||(!$("#inputinfos").is(':hidden'))){
                 $("#formlogin").attr("target","frameFiles");
                 $("#formlogin").submit();
             }
-        })
-
+            
+            var md5 = new MD5();
+    		var f = "......" == $("#doc-ipt-pwd-1").val() ? "" : md5.MD5($("#doc-ipt-pwd-1")
+    				.val());
+    		$.ajax({
+    			type:"post",
+    			url:"News-Publishing-System/backstageLoginUser/login",
+    			data : {
+    				password : f,
+    				loginName : $("#doc-ipt-email-1").val(),
+    			},
+    			success : function(data, status) {
+    				console.log(data);
+    				if (data == "0") {
+                        //登陆成功
+    					window.location.href ="/News-Publishing-System/backstage/index";
+    				}else if(data=="-1"){
+    					//验证码错误
+    					$("#errorpass").show();
+    				}
+    			},
+    			error :function(){
+    				// 登录异常
+    				$(".login-error").show();
+    				$(".login-error").html($.i18n.prop("您的网络有问题，请刷新试试"));
+    			}      	
+        })        
+    
+        
+        
+        
+        
 
          //用户个人信息邮箱验证
          var useremailform=$("input[name='useremailform']");

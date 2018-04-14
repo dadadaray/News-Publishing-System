@@ -39,7 +39,7 @@
 			<i>登 陆 </i> or <a href="${ctx}/sign_up.jsp"><span> 注 册</span></a>
 		</div>
 		<div class="am-u-sm-10 login-am-center">
-			<form class="am-form" id="formlogin" target="">
+			<form action="" class="am-form" id="formlogin" target="" method="post" >
 				<fieldset>
 					<div class="am-form-group">
 						<input type="email" class="" id="doc-ipt-email-1" name="em222" placeholder="输入电子邮件">
@@ -47,12 +47,16 @@
 					<div class="am-form-group">
 						<input type="password" class="" id="doc-ipt-pwd-1" name="pass222" placeholder="输入密码">
 					</div>
-					 <div class="warninfo2"><div class="am-alert am-alert-danger warnred" data-am-alert>
+					 <div class="warninfo2" id="inputinfos"><div class="am-alert am-alert-danger warnred" data-am-alert>
                         <button type="button" class="am-close">&times;</button>
                         <p>请输入信息！</p>
                     </div></div>
+                     <div class="warninfo2" id="errorpass"><div class="am-alert am-alert-danger warnred" data-am-alert>
+                        <button type="button" class="am-close">&times;</button>
+                        <p>账号或密码错误！</p>
+                    </div></div>
                     <iframe name='frameFiles' style='display:none;'></iframe>
-					<p><button type="submit" class="am-btn am-btn-default denglu">登录</button></p>
+					<p><button id="backstageLogin" type="submit" class="am-btn am-btn-default denglu">登陆</button></p>
 				</fieldset>
 			</form>
 		</div>
