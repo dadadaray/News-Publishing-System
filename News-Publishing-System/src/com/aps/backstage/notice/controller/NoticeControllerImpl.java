@@ -39,7 +39,7 @@ public class NoticeControllerImpl {
 	 * @author HanChen
 	 * @return String
 	 */
-	@RequestMapping(value = "listNotice", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String listNotice(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,
 			@RequestParam(name = "noticeType", defaultValue = "") String noticeType,
 			 HttpServletRequest request, HttpSession session) {

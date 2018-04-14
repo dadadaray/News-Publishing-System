@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Notice {
 	private Integer noticeId;
 	private String noticeContent;
-	private Integer noticeType; // 0 未通过 1 通过 2 推荐
+	private Integer noticeType; // 0 未通过 1 通过 2 推荐 3管理员收到的待审核消息
 	private Date noticeCreatTime;
 	private UserInfo userInfo;//发送通知的人员
 	private News news;
