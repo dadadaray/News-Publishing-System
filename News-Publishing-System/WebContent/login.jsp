@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html>
@@ -72,7 +73,7 @@
 <!--登录表单验证 start-->
 <script type="text/javascript" src="layout/js/jquery.validate.js"></script>
 <script type="text/javascript" src="layout/js/jquery.i18n.properties-1.0.9.js" ></script>
-<script type="text/javascript" src="${ctx}/layout/js/page_login.js?lang=zh" id="urls"
+<script type="text/javascript" src="${ctx}/layout/js/page_login.js?lang=zh" id="url"
     data="<%= request.getHeader("REFERER")%>"></script>
 <!--登录表单验证 start-->
 
@@ -103,7 +104,7 @@
                         <div class="separator" style="height:39px;"></div>
                         
                         <div class="block_registration">
-                            <form  class="w_validation" id="signupForm">
+                            <form  class="w_validation" id="signupFormLogin">
                                 <div class="col_1">
                                     <div class="label"><p>用户名/电子邮箱：<span>*</span></p></div>
                                     <div class="field"><input type="text" class="req" name="loginName" id="loginName"/></div>
@@ -132,8 +133,8 @@
                                 <div class="clearboth"></div>
                                 <div class="separator" style="height:32px;"></div>
                                 <p class="info_text">
-									<input type="submit" class="general_button" value="登 录" id="submitlogin" />
-									<!--  <a  id="submitlogin">登陆</a>-->
+									<!--  <input type="submit" class="general_button" value="登 录" id="submitlogin" />-->
+									  <a  id="submitlogin">登陆</a>
 								</p>
                             </form>
                         </div>
@@ -151,6 +152,36 @@
 		<!-- footer -->
 		<%@ include file="footer.jsp"%>   
     </div>
+    <!-- 分享 -->
+    <div class="fenxiang">
+		<div id="bdshare">
+			<div class="bdsharebuttonbox"  data-tag="share_1">
+				<a href="javascript:void(0)"  class="bds_more"  data-cmd="more" target="_blank;"></a>
+				<a href="javascript:void(0)" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+				<a href="javascript:void(0)" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+				<a href="javascript:void(0)" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+				<a href="javascript:void(0)" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+			</div>
+			<script>
+			window._bd_share_config={
+					"common":{
+						"bdSnsKey":{},
+						"bdText":"这是分享内容哦！",
+						"bdDesc":"分享页哈",
+						"bdUrl":"http://www.baidu.com",
+						"bdMini":"2",
+						"bdPic":"",
+						"bdStyle":"0",
+						"bdSize":"16"},
+						"share":{},
+						"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],
+						"viewText":"分享到：","viewSize":"16"},
+						"selectShare":{"bdContainerClass":null,
+						"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+			</script>
+		</div>
+	</div> 
+	
 
     <div class="loading">
         <div class="mask">
