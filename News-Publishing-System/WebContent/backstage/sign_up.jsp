@@ -54,7 +54,7 @@
 							<input type="password" class="" id="doc-ipt-pwd-2" name="passone" placeholder="输入密码" required>
 						</div>
 						<div class="am-form-group">
-							<input type="password" class="" id="doc-ipt-pwd-1" name="passtwo" placeholder="重复输入密码" required>
+							<input type="password" class="sign_passtwo" id="doc-ipt-pwd-1" name="passtwo" placeholder="重复输入密码" required>
 						</div>
 						<div class="warninfo">
 							<div class="am-alert am-alert-danger warnred" data-am-alert>

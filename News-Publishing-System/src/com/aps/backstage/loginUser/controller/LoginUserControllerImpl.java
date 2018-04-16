@@ -84,16 +84,26 @@ public class LoginUserControllerImpl {
 	public String login(@RequestParam(name = "loginName") String loginName,
 			@RequestParam(name = "password") String password,
 			HttpSession session) {
-		LoginUser loginUser=this.backUserServiceImpl.bFindUserByEmail(loginName);
-		if(loginUser.getLoginPassword().equals(password)){
-			session.setAttribute("backloginUser", loginUser);
-			System.out.print("对");
-			return "0";
-		}else{
-			System.out.print("错");
-			return "-1";
+		System.out.print(loginName+password);
+		String qString=this.backUserServiceImpl.loginVerifys(loginName,password);
+		System.out.print("这是返回值哦："+qString);
+		LoginUser bloginUser = this.backUserServiceImpl.bFindUserByEmail(loginName);
+		if (qString.equals("0")) {
+			session.setAttribute("loginUser", bloginUser);
+			return qString;
 		}
 		
+		return qString;
 	}
+	/**
+	 * @author Ray
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("index")
+	public String b_index(HttpSession session){
+		return "index";
+	}
+
 
 }

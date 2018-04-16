@@ -20,7 +20,7 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 	 * @return loginUser
 	 * @author Ray
 	 */
-	public LoginUser findByEmil(String email) {
+	public LoginUser bfindByEmil(String email) {
 		try {
 			Query query = this.sessionFactory.getCurrentSession()
 					.createQuery("from LoginUser where loginEmail='" + email + "' and roleId='2'");

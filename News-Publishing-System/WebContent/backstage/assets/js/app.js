@@ -7,7 +7,7 @@ $(function() {
         var pas2=$("input[name='passtwo']");
         var tijiaos=$(".tijiao");
         //警告 密码不一致
-        $("#doc-ipt-pwd-1").mouseout(function(){
+        $(".sign_passtwo").mouseout(function(){
 
             if(typeof(pas1)=='undefined'&& typeof(pas2)=='undefined'){
              $(".warninfo").hidden();
@@ -19,8 +19,10 @@ $(function() {
                     $(".warninfo").hide();
                 }}
             });
+        
+        //登陆页面
         //移除鼠标 移除警告
-        $("#doc-ipt-pwd-1").mouseout(function(){
+        $(".login_pass").mouseout(function(){
             if(emint.val()!='' && username.val()!=''){
                $(".warninfo2").hide(); 
            }
@@ -31,10 +33,10 @@ $(function() {
         var em222=$("input[name='em222']");
         var pass222=$("input[name='pass222']");
         $("#backstageLogin").click(function(){
-           alert("哈哈哈");
+           //alert("哈哈哈");
            if((em222.val()==''&& pass222.val()=='')||(em222.val()=='')){
 
-                 alert("都为空，显示");
+                 //alert("都为空，显示");
                  $("#inputinfos").show();
                  $("#errorpass").hide();  
              }else{
@@ -44,41 +46,36 @@ $(function() {
             }
             if((!$("#errorpass").is(':hidden'))||(!$("#inputinfos").is(':hidden'))){
                 $("#formlogin").attr("target","frameFiles");
-                $("#formlogin").submit();
+               
             }
             
             var md5 = new MD5();
-    		var f = "......" == $("#doc-ipt-pwd-1").val() ? "" : md5.MD5($("#doc-ipt-pwd-1")
+    		var f = "......" == $(".login_pass").val() ? "" : md5.MD5($(".login_pass")
     				.val());
     		$.ajax({
     			type:"post",
-    			url:"News-Publishing-System/backstageLoginUser/login",
+    			url:"/News-Publishing-System/backstageLoginUser/login",
     			data : {
     				password : f,
-    				loginName : $("#doc-ipt-email-1").val(),
+    				loginName : $(".login_names").val(),
     			},
     			success : function(data, status) {
-    				console.log(data);
+    				console.log("这是js返回值："+data);
     				if (data == "0") {
                         //登陆成功
-    					window.location.href ="/News-Publishing-System/backstage/index";
+    					window.location.href ="/News-Publishing-System/backstageLoginUser/index";
     				}else if(data=="-1"){
     					//验证码错误
+    					console.log("错误信息显示哦！");
     					$("#errorpass").show();
     				}
-    			},
-    			error :function(){
-    				// 登录异常
-    				$(".login-error").show();
-    				$(".login-error").html($.i18n.prop("您的网络有问题，请刷新试试"));
-    			}      	
-        })        
+    			}  	
+          })        
+        })
     
         
         
         
-        
-
          //用户个人信息邮箱验证
          var useremailform=$("input[name='useremailform']");
          useremailform.mouseout(function(){

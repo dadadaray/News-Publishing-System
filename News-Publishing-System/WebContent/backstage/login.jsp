@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!doctype html>
 <html>
@@ -22,6 +23,9 @@
   <link rel="stylesheet" href="${ctx}/assets/css/amazeui.min.css" />
   <link rel="stylesheet" href="${ctx}/assets/css/admin.css">
   <link rel="stylesheet" href="${ctx}/assets/css/app.css">
+  <!--密码md5加密 start-->
+<script type="text/javascript" src="${ctx1}/layout/js/md5.js"></script>
+<!--密码md5加密 end-->
 </head>
 
 <body data-type="login">
@@ -39,13 +43,13 @@
 			<i>登 陆 </i> or <a href="${ctx}/sign_up.jsp"><span> 注 册</span></a>
 		</div>
 		<div class="am-u-sm-10 login-am-center">
-			<form action="" class="am-form" id="formlogin" target="" method="post" >
+			<form  class="am-form" id="formlogin" target="" >
 				<fieldset>
 					<div class="am-form-group">
-						<input type="email" class="" id="doc-ipt-email-1" name="em222" placeholder="输入电子邮件">
+						<input type="email" class="login_names" id="doc-ipt-email-1" name="em222" placeholder="输入电子邮件">
 					</div>
 					<div class="am-form-group">
-						<input type="password" class="" id="doc-ipt-pwd-1" name="pass222" placeholder="输入密码">
+						<input type="password" class="login_pass" id="doc-ipt-pwd-1" name="pass222" placeholder="输入密码">
 					</div>
 					 <div class="warninfo2" id="inputinfos"><div class="am-alert am-alert-danger warnred" data-am-alert>
                         <button type="button" class="am-close">&times;</button>
