@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
 <!doctype html>
 <html>
 
@@ -189,7 +190,7 @@
 									<input type="checkbox" class="tpl-table-fz-check" id="checkall"
 										onclick="checkallcheckbox();" style="float: left; margin-left: -7px;">
 									<button style="float: left; margin-left: 20px;" type="button"
-										class="am-btn am-btn-default am-btn-danger">
+										class="am-btn am-btn-default am-btn-danger" onclick="deleteItem()">
 										<span class="am-icon-trash-o"></span> 批量删除
 									</button>
 								</div>
@@ -222,7 +223,7 @@
 									<div class="cosA">
 										<div class="task-checkbox">
 											<input type="hidden" value="1" name="test"> 
-											<input type="checkbox" name="box" onclick="checkonebox()" value="">
+											<input class="checkOne" type="checkbox" name="box" onclick="checkonebox()" value="${notice.noticeId}">
 										</div>
 										<a href="#">  
 											<c:if test="${0 == notice.noticeType}"> 
@@ -247,56 +248,6 @@
 									</div>
 								</li>
 							</c:forEach>
-	<!-- 						<li>
-								<div class="cosB">
-									<span>2小时前 </span>&nbsp;&nbsp;<input type="hidden" data-id="2" />
-									<button type="button" class="am-btn am-btn-xs am-btn-danger  am-round btn-close">
-										<span class="am-icon-trash-o"></span> 删除
-									</button>
-								</div>
-								<div class="cosA">
-									<div class="task-checkbox">
-										<input type="hidden" value="1" name="test"> 
-										<input type="checkbox" name="box" onclick="checkonebox()" value="">
-									</div>
-									<a href="#"> 
-										<span class="label label-sm label-success "
-										style="display: block; float: left;">审核意见</span> 
-										<font color="82949a">
-											<span style="display: block; float: left;">&nbsp;&nbsp;你的文章：</span> 
-											<span class="bold" style="display: block; float: left;">《文章名》</span>
-											<span class="text_overflow_1" onclick="tanchuang1(this)">
-												角度应该侧重民生问题，应该贴近百兴生活。需要修改。 
-											</span>
-											<div style="clear: both;"></div>
-										</font>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="cosB">
-									<span>2小时前 </span>&nbsp;&nbsp;<input type="hidden" data-id="2" />
-									<button type="button" class="am-btn am-btn-xs am-btn-danger  am-round btn-close">
-										<span class="am-icon-trash-o"></span> 删除
-									</button>
-								</div>
-								<div class="cosA">
-									<div class="task-checkbox">
-										<input type="hidden" value="1" name="test"> <input
-											type="checkbox" name="box" onclick="checkonebox()" value="">
-									</div>
-									<a href="#"> 
-										<span class="label label-sm label-warning " style="display: block; float: left;">文章推荐</span> 
-										<font color="82949a"> 
-											<span style="display: block; float: left;">&nbsp;&nbsp;你的文章：</span> 
-											<span class="bold" style="display: block; float: left;">《文章名》</span> 
-											<span class="text_overflow_1" onclick="tanchuang1(this)"> 被设为推荐文章。 </span>
-											<div style="clear: both;"></div>
-									 	</font>
-									</a>
-								</div>
-							</li> -->
-	
 						</ul>
 					</c:if>
 					<c:if test="${empty page or page.totalCount <= 0}">
@@ -306,6 +257,27 @@
 							</li>
 						</ul>
 					</c:if>
+					<div class="am-cf">
+						<div class="am-fr">
+							<ul class="am-pagination tpl-pagination">
+								<li class="am-disabled">
+									<a href="${ctx1}/backstage/notice?pageNum=${page.prePageNum}">«</a>
+								</li>
+								<c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
+									<c:if test="${pageNum == page.currentPageNum}">
+										<li class="am-active">
+										<a href="${ctx1}/backstage/notice?pageNum=${pageNum}">${pageNum}</a></li>
+									</c:if>
+									<c:if test="${pageNum != page.currentPageNum}">
+									<li><a href="${ctx1}/backstage/notice?pageNum=${pageNum}">${pageNum}</a></li>
+									</c:if>
+								</c:forEach>
+								<li>
+									<a href="${ctx1}/backstage/notice?pageNum=${page.nextPageNum}">»</a>
+								</li>
+							</ul>
+						</div>
+					</div>					
 				</div>
 			</form>
 		</div>
@@ -331,8 +303,8 @@
 <script>
 	// 弹窗
 	function tanchuang1(e) {
-		console.log(e);
-		var txt = e.innerText;
+		var aTitle = e.previousSibling.previousSibling;
+		var txt = "你的文章：" + aTitle.innerText + e.innerText;
 		window.wxc.xcConfirm(txt);
 	}
 
@@ -342,14 +314,33 @@
 		window.wxc.xcConfirm(txt);
 	}
 
-	//删除
+	//删除单个通知
 	$('#doc-modal-list').find('.btn-close').on('click', function() {
 		$('#my-confirm').modal({
 			relatedTarget : this,
 			onConfirm : function(options) {
 				var $link = $(this.relatedTarget).prev('input');
+				var id = $link.data('id');
 				var msg = '你要删除的链接 ID 为 ' + $link.data('id');
 				alert(msg);
+				$.ajax({
+					type:"post",
+					url:"/News-Publishing-System/backstage/notice/deleteNotice",
+					data : {
+						noticeIds : id
+					},
+					success : function(data, status) {
+						if (data != "0") {
+							alert("删除成功！");
+							window.location.href ="/News-Publishing-System/backstage/notice";
+						}else{
+							alert("删除出错！");
+						}
+					},
+					error :function(){
+						alert("删除出错！");
+					}
+				});
 			},
 			// closeOnConfirm: false,
 			onCancel : function() {
@@ -357,6 +348,42 @@
 			}
 		});
 	});
+	
+	//批量删除
+	function deleteItem(){
+		var count = 0;
+		var ids = "";
+		debugger;
+		$(".checkOne:checked").each(function(){
+			ids = ids + $(this).val()+",";
+			count++;
+		});
+		if(count==0){
+			alert("请至少选择一条记录进行删除！");
+			return false;
+		}else{
+			$.ajax({
+				type:"post",
+				url:"/News-Publishing-System/backstage/notice/deleteNotice",
+				data : {
+					noticeIds : ids
+				},
+				success : function(data, status) {
+					if (data != "0") {
+						alert("删除成功！");
+						window.location.href ="/News-Publishing-System/backstage/notice";
+					}else{
+						alert("删除出错！");
+					}
+				},
+				error :function(){
+					alert("删除出错！");
+				}
+			});
+		}
+	}
+	
+	
 
 	//全选/全不选功能
 	function checkallcheckbox() {

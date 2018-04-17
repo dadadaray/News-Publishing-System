@@ -1,13 +1,21 @@
 package com.aps.notice.dao;
 
+import javax.annotation.Resource;
+
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.aps.entity.Notice;
 import com.framework.BaseDao;
 import com.framework.Page;
+import com.framework.SqlUtils;
 
 @Repository
 public class NoticeDaoImpl extends BaseDao<Notice, String> {
+	
+	@Resource
+	private SessionFactory sessionFactory;
 	
 	/**
 	 * @Title: findAllNotice
@@ -22,12 +30,15 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 	public Page<Notice> findAllNotice(int pageNum, int pageSize, Object[] params) {
 		
 		String hql;
-		if(params!=null && params.length>0){
+		/*if(params!=null && params.length>0){
 			hql="from Notice n where n.noticeContent like ? and n.noticeType != 3 order by n.noticeCreatTime desc";
 			params[0]="%"+params[0]+"%";
 		}else{
-			hql="from Notice n where n.noticeType != 3  order by n.noticeCreatTime desc";
-		}
+			hql="from Notice n where n.noticeType != 3 order by n.noticeCreatTime desc";
+		}*/
+		hql="from Notice n where n.reciveId = ? and n.noticeType != 3 order by n.noticeCreatTime desc";
+		params[0]=params[0];
+		
 		try{
 			Page<Notice> page = new Page<Notice>();
 			page.setCurrentPageNum(pageNum);
@@ -75,6 +86,26 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 			e.printStackTrace();
 			return "0";
 		}
+	}
+	
+	/**
+	 * @Title: deleteNotice
+	 * @Description: 删除通知
+	 * @param noticeIds
+	 * @return
+	 * @author HanChen 
+	 * @return int
+	 */
+	public int deleteNotice(String noticeIds){
+		int ret = 0;
+		try {
+			Query query = this.sessionFactory.getCurrentSession()
+					.createQuery("delete from Notice n where n.noticeId in" + SqlUtils.toLikeSqlForStr(noticeIds, ","));
+			ret = query.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ret;
 	}
 	
 }

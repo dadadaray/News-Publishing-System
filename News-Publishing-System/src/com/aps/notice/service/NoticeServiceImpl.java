@@ -12,6 +12,7 @@ package com.aps.notice.service;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aps.entity.Notice;
 import com.aps.notice.dao.NoticeDaoImpl;
@@ -44,4 +45,17 @@ public class NoticeServiceImpl {
 	public Page<Notice> listNotice(int pageNum, int pageSize, Object[] params) {
 		return this.noticeDaoImpl.findAllNotice(pageNum, pageSize, params);
 	}
+	
+	/**
+	 * @Title: deleteNotice
+	 * @Description: 删除通知
+	 * @param noticeIds
+	 * @author HanChen 
+	 * @return int
+	 */
+	@Transactional(readOnly = false)
+	public int deleteNotice(String noticeIds) {
+		return this.noticeDaoImpl.deleteNotice(noticeIds);
+	}
+	
 }
