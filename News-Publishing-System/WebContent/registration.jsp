@@ -136,7 +136,7 @@
                                 <div class="separator" style="height:32px;"></div>
                                 <p class="info_text">
                                  <!-- <a  id="submitLogin" style="background:#f54a2f;padding:5px 15px; color:#fff;font-size:16px; border-radius:5px;  text-decoration:none;cursor: pointer;" >注册</a> -->
-                                <input type="submit" value="注册" onclick="validate()" style="cursor: pointer;"/>
+                                <input id="submit" type="submit" value="注册" onclick="validate()" style="cursor: pointer;"/>
                             </form>
                             <p class="info_text"> 已有帐号,请<a href="#login" class="open_popup" style="color:red;" >登录</a></p>
                             
@@ -163,10 +163,6 @@
         </div>
     </div>
 </div>
-
-	<!-- login -->
-	<%@ include file="login.jsp"%>  
-
 </body>
 <!-- 回车登陆 -->
 <script type="text/javascript">

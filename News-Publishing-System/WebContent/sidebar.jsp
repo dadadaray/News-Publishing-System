@@ -1,177 +1,206 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.Date"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" import="java.util.Date"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
-    <!-- CONTENT RIGHT BEGIN -->
-    <div class="sidebar">
-    	<div class="block_subscribes_sidebar">
-        	<div class="service">
-            	<a href="#" class="rss">
-                	<span class="num">11 234</span>
-                    <span class="people">围脖</span>
-                </a>
-            </div>
-            
-            <div class="service">
-            	<a href="#" class="tw">
-                	<span class="num">781</span>
-                    <span class="people">qq空间</span>
-                </a>
-            </div>
-            
-            <div class="service">
-            	<a href="#" class="fb">
-                	<span class="num">341</span>
-                    <span class="people">票圈</span>
-                </a>
-            </div>
-        </div>
-        
-      <div class="separator" style="height:31px;"></div>
-        
-        <div class="block_popular_posts">
-        	<h4>流行元素</h4>
-            
-        	<div class="article">
-				<div class="pic">
-					<a href="#" class="w_hover">
-						<img src="${ctx}/images/pic_popular_post_1.jpg" alt="" />
-						<span></span>
-					</a>
-				</div>
-                        
-				<div class="text">
-					<p class="title"><a href="#">
-						中国工厂太魔幻：未来每2分钟下线一辆汽车。</a></p>
-					<div class="date"><p>2018年1月20日</p></div>
-                    <div class="icons">
-                    	<ul>
-                        	<li><a href="#" class="views">41</a></li>
-                            <li><a href="#" class="comments">22</a></li>
-                        </ul>
-                    </div>
-				</div>
+<!-- CONTENT RIGHT BEGIN -->
+<div class="sidebar">
+	<!-- 分享 -->
+	<div class="fenxiang">
+		<div id="bdshare">
+			<div class="bdsharebuttonbox" data-tag="share_1">
+				<a href="javascript:void(0)" class="bds_more" data-cmd="more" target="_blank;"></a> <a href="javascript:void(0)" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> <a href="javascript:void(0)" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="javascript:void(0)" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> <a href="javascript:void(0)" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
 			</div>
-			<div class="line_3"></div>
-            
-            <div class="article">
-				<div class="pic">
-					<a href="#" class="w_hover">
-						<img src="${ctx}/images/pic_popular_post_2.jpg" alt="" />
-						<span></span>
-					</a>
-				</div>
-                        
-				<div class="text">
-					<p class="title"><a href="#">
-						中国工厂太魔幻：未来每2分钟下线一辆汽车</a></p>
-					<div class="date"><p>07 July, 2012</p></div>
-                    <div class="icons">
-                    	<ul>
-                        	<li><a href="#" class="views">24</a></li>
-                            <li><a href="#" class="comments">16</a></li>
-                        </ul>
-                    </div>
-				</div>
-			</div>
-			<div class="line_3"></div>
-            
-            <div class="article">
-				<div class="pic">
-					<a href="#" class="w_hover">
-						<img src="${ctx}/images/pic_popular_post_3.jpg" alt="" />
-						<span></span>
-					</a>
-				</div>
-                        
-				<div class="text">
-					<p class="title"><a href="#">
-						中国工厂太魔幻：未来每2分钟下线一辆汽车</a></p>
-					<div class="date"><p>05 July, 2012</p></div>
-                    <div class="icons">
-                    	<ul>
-                        	<li><a href="#" class="views">33</a></li>
-                            <li><a href="#" class="comments">25</a></li>
-                        </ul>
-                    </div>
-				</div>
-			</div>
-			<div class="line_2"></div>
-        </div>
-        
-        <div class="separator" style="height:31px;"></div>
-        
-        <div class="block_popular_stuff">
-        	<h4>热点视频</h4>
-            
-            <div class="content">
-            	<a href="#" class="view_all">全部视频</a>
-            	<div class="media">
-                 <!--<a href="http://www.youtube.com/watch?v=ySIvism2af8" class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="${ctx}/images/pic_pop_video.jpg" alt="85-" /></a>-->
-                 <video width="240" height="138" poster="${ctx}/images/pic_pop_video.jpg" controls="controls">
-                 <source src="${ctx}/vedio/vtest.mp4" type="video/ogg">
-                 <source src="${ctx}/vedio/vtest.mp4" type="video/mp4">
-                 <source src="${ctx}/vedio/vtest.mp4" type="video/webm">
-                 <object data="${ctx}/vedio/vtest.mp4" width="240" height="138">
-                 </object>
-            </video> 
-
-                <!--<video width="250" height="200" class="general_pic_hover play no_fx" src="vedio/vtest.mp4" poster="images/pic_pop_video.jpg" autoplay="autoplay"></video>-->    
-                 
-
-                </div>
-                <p><a href="${ctx}/video.jsp">
-					中国工厂太魔幻：未来每2分钟下线一辆汽车</a> <img src="${ctx}/images/icon_video.gif" alt="" /></p>
-                <p class="date">11 July, 2012</p>
-            </div>
-            
-            <div class="info">
-            	<ul>
-                	<li class="comments"><a href="#">115</a></li>
-                    <li class="views"><a href="#">220</a></li>
-                </ul>
-            </div>
-            
-            <div class="clearboth"></div>
-            
-            <div class="line_2"></div>
-        </div>
-        
-        <div class="separator" style="height:31px;"></div>
-        
-        <div class="block_calendar">
-        	<h4>Calendar</h4>
-            
-            <div class="calendar" id="calendar_sidebar">
-            </div>
-            
-            <script type="text/javascript">
-				var today = new Date();
-				var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-				$('#calendar_sidebar').DatePicker({
-					flat : true,
-					date : date,
-					calendars : 1,
-					starts : 1,
-					locale : {
-						days : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-						daysShort : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-						daysMin : ['S', 'M', 'T', 'W', 'T', 'F', 'S', 'S'],
-						months : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-						monthsShort : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-						weekMin : 'wk'
+			<script>
+				window._bd_share_config = {
+					"common" : {
+						"bdSnsKey" : {},
+						"bdText" : "这是分享内容哦！",
+						"bdDesc" : "新闻天下首页分享",
+						"bdUrl" : "http://www.baidu.com",
+						"bdMini" : "2",
+						"bdPic" : "",
+						"bdStyle" : "0",
+						"bdSize" : "16"
+					},
+					"share" : {},
+					"image" : {
+						"viewList" : [ "qzone", "tsina", "tqq", "renren",
+								"weixin" ],
+						"viewText" : "分享到：",
+						"viewSize" : "16"
+					},
+					"selectShare" : {
+						"bdContainerClass" : null,
+						"bdSelectMiniList" : [ "qzone", "tsina", "tqq",
+								"renren", "weixin" ]
 					}
-				});
+				};
+				with (document)
+					0[(getElementsByTagName('head')[0] || body)
+							.appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='
+							+ ~(-new Date() / 36e5)];
 			</script>
-            
-            <div class="line_2"></div>
-        </div>
-        
-        <div class="separator" style="height:31px;"></div>
-        
-        <!-- <div class="block_twitter_widget">
+		</div>
+	</div>
+
+	<div class="separator" style="height: 31px;"></div>
+
+	<div class="block_popular_posts">
+		<h4>流行元素</h4>
+
+		<div class="article">
+			<div class="pic">
+				<a href="#" class="w_hover"> <img src="${ctx}/images/pic_popular_post_1.jpg" alt="" /> <span></span>
+				</a>
+			</div>
+
+			<div class="text">
+				<p class="title">
+					<a href="#"> 中国工厂太魔幻：未来每2分钟下线一辆汽车。</a>
+				</p>
+				<div class="date">
+					<p>2018年1月20日</p>
+				</div>
+				<div class="icons">
+					<ul>
+						<li><a href="#" class="views">41</a></li>
+						<li><a href="#" class="comments">22</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="line_3"></div>
+
+		<div class="article">
+			<div class="pic">
+				<a href="#" class="w_hover"> <img src="${ctx}/images/pic_popular_post_2.jpg" alt="" /> <span></span>
+				</a>
+			</div>
+
+			<div class="text">
+				<p class="title">
+					<a href="#"> 中国工厂太魔幻：未来每2分钟下线一辆汽车</a>
+				</p>
+				<div class="date">
+					<p>07 July, 2012</p>
+				</div>
+				<div class="icons">
+					<ul>
+						<li><a href="#" class="views">24</a></li>
+						<li><a href="#" class="comments">16</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="line_3"></div>
+
+		<div class="article">
+			<div class="pic">
+				<a href="#" class="w_hover"> <img src="${ctx}/images/pic_popular_post_3.jpg" alt="" /> <span></span>
+				</a>
+			</div>
+
+			<div class="text">
+				<p class="title">
+					<a href="#"> 中国工厂太魔幻：未来每2分钟下线一辆汽车</a>
+				</p>
+				<div class="date">
+					<p>05 July, 2012</p>
+				</div>
+				<div class="icons">
+					<ul>
+						<li><a href="#" class="views">33</a></li>
+						<li><a href="#" class="comments">25</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="line_2"></div>
+	</div>
+
+	<div class="separator" style="height: 31px;"></div>
+
+	<div class="block_popular_stuff">
+		<h4>热点视频</h4>
+
+		<div class="content">
+			<a href="#" class="view_all">全部视频</a>
+			<div class="media">
+				<!--<a href="http://www.youtube.com/watch?v=ySIvism2af8" class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="${ctx}/images/pic_pop_video.jpg" alt="85-" /></a>-->
+				<video width="240" height="138" poster="${ctx}/images/pic_pop_video.jpg" controls="controls">
+					<source src="${ctx}/vedio/vtest.mp4" type="video/ogg">
+					<source src="${ctx}/vedio/vtest.mp4" type="video/mp4">
+					<source src="${ctx}/vedio/vtest.mp4" type="video/webm">
+					<object data="${ctx}/vedio/vtest.mp4" width="240" height="138"> </object>
+				</video>
+
+				<!--<video width="250" height="200" class="general_pic_hover play no_fx" src="vedio/vtest.mp4" poster="images/pic_pop_video.jpg" autoplay="autoplay"></video>-->
+
+
+			</div>
+			<p>
+				<a href="${ctx}/video.jsp"> 中国工厂太魔幻：未来每2分钟下线一辆汽车</a> <img src="${ctx}/images/icon_video.gif" alt="" />
+			</p>
+			<p class="date">11 July, 2012</p>
+		</div>
+
+		<div class="info">
+			<ul>
+				<li class="comments"><a href="#">115</a></li>
+				<li class="views"><a href="#">220</a></li>
+			</ul>
+		</div>
+
+		<div class="clearboth"></div>
+
+		<div class="line_2"></div>
+	</div>
+
+	<div class="separator" style="height: 31px;"></div>
+
+	<div class="block_calendar">
+		<h4>Calendar</h4>
+
+		<div class="calendar" id="calendar_sidebar"></div>
+
+		<script type="text/javascript">
+			var today = new Date();
+			var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-'
+					+ today.getDate();
+			$('#calendar_sidebar')
+					.DatePicker(
+							{
+								flat : true,
+								date : date,
+								calendars : 1,
+								starts : 1,
+								locale : {
+									days : [ 'Sunday', 'Monday', 'Tuesday',
+											'Wednesday', 'Thursday', 'Friday',
+											'Saturday', 'Sunday' ],
+									daysShort : [ 'Sun', 'Mon', 'Tue', 'Wed',
+											'Thu', 'Fri', 'Sat', 'Sun' ],
+									daysMin : [ 'S', 'M', 'T', 'W', 'T', 'F',
+											'S', 'S' ],
+									months : [ 'January', 'February', 'March',
+											'April', 'May', 'June', 'July',
+											'August', 'September', 'October',
+											'November', 'December' ],
+									monthsShort : [ 'Jan', 'Feb', 'Mar', 'Apr',
+											'May', 'Jun', 'Jul', 'Aug', 'Sep',
+											'Oct', 'Nov', 'Dec' ],
+									weekMin : 'wk'
+								}
+							});
+		</script>
+
+		<div class="line_2"></div>
+	</div>
+
+	<div class="separator" style="height: 31px;"></div>
+
+	<!-- <div class="block_twitter_widget">
         	<h4>Twitter Widget</h4>
             <div class="lnk_follow"><a href="#" target="_blank">Follow on Twitter</a></div>
             
@@ -186,35 +215,38 @@
             
             <div class="line_2"></div>
         </div> -->
-        
-        <div class="separator" style="height:31px;"></div>
-        
-        <div class="block_popular_stuff">
-        	<h4>流行图片</h4>
-            
-            <div class="content">
-            	<a href="#" class="view_all">全部图片</a>
-            	<div class="media"><a href="images/pic_pop_photo_big.jpg" class="general_pic_hover zoom no_fx" data-rel="prettyPhoto" title="Popular Photo"><img src="${ctx}/images/pic_pop_photo.jpg" alt="" /></a></div>
-                <p><a href="${ctx}/blog_post_w_slider.jsp">
-					中国工厂太魔幻：未来每2分钟下线一辆汽车。</a> <img src="${ctx}/images/icon_photo.gif" alt="" /></p>
-                <p class="date">11 July, 2012</p>
-            </div>
-            
-            <div class="info">
-            	<ul>
-                	<li class="comments"><a href="#">100</a></li>
-                    <li class="views"><a href="#">134</a></li>
-                </ul>
-            </div>
-            
-            <div class="clearboth"></div>
-            
-            <div class="line_2"></div>
-        </div>
-        
-      	<div class="separator" style="height:31px;"></div>
-        
-        <!-- <div class="block_newsletter">
+
+	<div class="separator" style="height: 31px;"></div>
+
+	<div class="block_popular_stuff">
+		<h4>流行图片</h4>
+
+		<div class="content">
+			<a href="#" class="view_all">全部图片</a>
+			<div class="media">
+				<a href="images/pic_pop_photo_big.jpg" class="general_pic_hover zoom no_fx" data-rel="prettyPhoto" title="Popular Photo"><img src="${ctx}/images/pic_pop_photo.jpg" alt="" /></a>
+			</div>
+			<p>
+				<a href="${ctx}/blog_post_w_slider.jsp"> 中国工厂太魔幻：未来每2分钟下线一辆汽车。</a> <img src="${ctx}/images/icon_photo.gif" alt="" />
+			</p>
+			<p class="date">11 July, 2012</p>
+		</div>
+
+		<div class="info">
+			<ul>
+				<li class="comments"><a href="#">100</a></li>
+				<li class="views"><a href="#">134</a></li>
+			</ul>
+		</div>
+
+		<div class="clearboth"></div>
+
+		<div class="line_2"></div>
+	</div>
+
+	<div class="separator" style="height: 31px;"></div>
+
+	<!-- <div class="block_newsletter">
         	<h4>Newsletter</h4>
             
             <form action="#" />
@@ -224,6 +256,6 @@
                 <div class="clearboth"></div>
             </form>
         </div> -->
-        
-    </div>
-    <!-- CONTENT RIGHT END -->
+
+</div>
+<!-- CONTENT RIGHT END -->

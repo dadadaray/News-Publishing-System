@@ -41,7 +41,7 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 	public LoginUser findByLoginName(String loginName) {
 		try {
 			Query query = this.sessionFactory.getCurrentSession()
-					.createQuery("from LoginUser where loginName='" + loginName + "'");
+					.createQuery("from LoginUser where loginName='" + loginName + "' and roleId='1'");
 			return (LoginUser) query.uniqueResult();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -60,7 +60,7 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 	public LoginUser findByEmil(String email) {
 		try {
 			Query query = this.sessionFactory.getCurrentSession()
-					.createQuery("from LoginUser where loginEmail='" + email + "'");
+					.createQuery("from LoginUser where loginEmail='" + email + "' and roleId='1'");
 			return (LoginUser) query.uniqueResult();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
