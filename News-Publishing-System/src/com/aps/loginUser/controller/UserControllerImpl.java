@@ -139,7 +139,7 @@ public class UserControllerImpl {
 			session.setAttribute("loginUser", loginUser);
 		}
 		Calendar date = Calendar.getInstance();
-		System.out.print(result);
+		//System.out.print(result);
 		return result;
 	}
 

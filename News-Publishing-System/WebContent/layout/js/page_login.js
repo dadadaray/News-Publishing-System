@@ -148,20 +148,7 @@ function login(validate, remeberUser) {
 			success : function(data, status) {
 				$('.loading').hide();
 				if (data == "0") {
-					// 登录成功
-//					if(url.indexOf("registerSure")>=0){
-//						//console.log(url.substring(0, url.indexOf("registerSure")));
-//						url=url.substring(0, url.indexOf("registerSure"));
-//					}
-//					if(url.indexOf("activeLoginUser")>=0){
-//						//console.log(url.substring(0, url.indexOf("loginUser/activeLoginUser")));
-//						url=url.substring(0, url.indexOf("loginUser/activeLoginUser"));
-//					}
-//					if(url.indexOf("upload")>=0){
-//						//console.log(url.substring(0, url.indexOf("userimg/upload")));
-//						url=url.substring(0, url.indexOf("userimg/upload"));
-//						url=url+"/home";
-//					}
+					
 					window.location.href ="/News-Publishing-System/index";
 				}else if(data=="-1"){
 					//验证码错误

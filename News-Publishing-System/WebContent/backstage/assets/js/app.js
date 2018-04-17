@@ -34,43 +34,49 @@ $(function() {
         var pass222=$("input[name='pass222']");
         $("#backstageLogin").click(function(){
            //alert("哈哈哈");
-           if((em222.val()==''&& pass222.val()=='')||(em222.val()=='')){
+           if((em222.val()==''&& pass222.val()=='')||(em222.val()=='')||(pass222.val()=='')){
 
                  //alert("都为空，显示");
                  $("#inputinfos").show();
                  $("#errorpass").hide();  
-             }else{
-                //alert("不显示警告");
-                $("#inputinfos").hide();
-                $("#errorpass").hide();  
-            }
-            if((!$("#errorpass").is(':hidden'))||(!$("#inputinfos").is(':hidden'))){
-                $("#formlogin").attr("target","frameFiles");
-               
+             }
+            
+             if(em222.val()!=''&& pass222.val()!=''){
+            	var md5 = new MD5();
+        		var f = "......" == $(".login_pass").val() ? "" : md5.MD5($(".login_pass")
+        				.val());
+        		$.ajax({
+        			type:"post",
+        			url:"/News-Publishing-System/backstageLoginUser/login",
+        			data : {
+        				password : f,
+        				loginName : $(".login_names").val(),
+        			},
+        			success:function(data, status){
+//        				console.log("这是js返回值："+data);
+//        				console.log("这是status："+status);
+        				if (data == "0") {
+                            //登陆成功
+        					window.location.href ="/News-Publishing-System/backstageLoginUser/index";
+        				}else if(data=="-1"){
+        					//验证码错误
+        					console.log("错误信息显示哦！");
+        					$("#errorpass").show();
+        				}
+        			},
+        			error :function(){
+        				console.log("js 返回是错误的。");
+        				// 登录异常
+        				
+        			}
+              }) 
+            }else{
+            	
+                    $("#formlogin").attr("target","frameFiles");  
+                
             }
             
-            var md5 = new MD5();
-    		var f = "......" == $(".login_pass").val() ? "" : md5.MD5($(".login_pass")
-    				.val());
-    		$.ajax({
-    			type:"post",
-    			url:"/News-Publishing-System/backstageLoginUser/login",
-    			data : {
-    				password : f,
-    				loginName : $(".login_names").val(),
-    			},
-    			success : function(data, status) {
-    				console.log("这是js返回值："+data);
-    				if (data == "0") {
-                        //登陆成功
-    					window.location.href ="/News-Publishing-System/backstageLoginUser/index";
-    				}else if(data=="-1"){
-    					//验证码错误
-    					console.log("错误信息显示哦！");
-    					$("#errorpass").show();
-    				}
-    			}  	
-          })        
+                   
         })
     
         

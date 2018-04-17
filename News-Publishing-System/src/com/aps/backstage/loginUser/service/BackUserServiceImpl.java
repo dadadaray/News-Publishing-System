@@ -42,6 +42,7 @@ public class BackUserServiceImpl {
 		LoginUser t1 = this.backUserDaoImpl.bfindByEmil(email);
 
 		//// 判断密码是否正确
+		
 		if (!t1.getLoginPassword().equals(password)) {
 			System.out.print("这是错误的账号");
 			return "-1";
@@ -49,7 +50,6 @@ public class BackUserServiceImpl {
 		System.out.print("正确账号。");
 		// 登录成功！
 		return "0";
-
 	}
 
 }

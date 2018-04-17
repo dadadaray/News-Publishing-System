@@ -84,15 +84,14 @@ public class LoginUserControllerImpl {
 	public String login(@RequestParam(name = "loginName") String loginName,
 			@RequestParam(name = "password") String password,
 			HttpSession session) {
-		System.out.print(loginName+password);
+		//System.out.print(loginName+password);
 		String qString=this.backUserServiceImpl.loginVerifys(loginName,password);
-		System.out.print("这是返回值哦："+qString);
+		//System.out.print("这是返回值哦："+qString);
 		LoginUser bloginUser = this.backUserServiceImpl.bFindUserByEmail(loginName);
 		if (qString.equals("0")) {
-			session.setAttribute("loginUser", bloginUser);
+			session.setAttribute("bloginUser", bloginUser);
 			return qString;
-		}
-		
+		}	
 		return qString;
 	}
 	/**
@@ -102,7 +101,7 @@ public class LoginUserControllerImpl {
 	 */
 	@RequestMapping("index")
 	public String b_index(HttpSession session){
-		return "index";
+		return "/backstage/index";
 	}
 
 
