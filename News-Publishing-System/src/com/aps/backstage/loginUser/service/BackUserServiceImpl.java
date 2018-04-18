@@ -16,17 +16,22 @@ public class BackUserServiceImpl {
 	private LoginUserDaoImpl loginUserDaoImpl;
 	@Resource
 	private BackUserDaoImpl backUserDaoImpl;
-	
+
 	@Transactional(readOnly = false)
-	public void bregiste(LoginUser loginUser){
+	public String bregiste(LoginUser loginUser) {
+		if (this.backUserDaoImpl.bfindByEmil(loginUser.getLoginEmail()) != null) {
+			return "3";
+		}
 		this.loginUserDaoImpl.register(loginUser);
+		return "0";
+
 	}
-	
+
 	@Transactional(readOnly = false)
-	public LoginUser bFindUserByEmail(String  email){
-		 return this.backUserDaoImpl.bfindByEmil(email);
+	public LoginUser bFindUserByEmail(String email) {
+		return this.backUserDaoImpl.bfindByEmil(email);
 	}
-	
+
 	/**
 	 * 功能： 判断是否激活
 	 * 
@@ -42,8 +47,8 @@ public class BackUserServiceImpl {
 		LoginUser t1 = this.backUserDaoImpl.bfindByEmil(email);
 
 		//// 判断密码是否正确
-		
-		if (!t1.getLoginPassword().equals(password)) {
+
+		if (t1 == null || !t1.getLoginPassword().equals(password)) {
 			System.out.print("这是错误的账号");
 			return "-1";
 		}

@@ -51,7 +51,7 @@
 							<input type="email" style="border-radius: 0px;" id="doc-vld-email-1" name="emint" placeholder="输入电子邮件" required>
 						</div>
 						<div class="am-form-group">
-							<input type="password" class="" id="doc-ipt-pwd-2" name="passone" placeholder="输入密码" required>
+							<input type="password" class="repassone" id="doc-ipt-pwd-2" name="passone" placeholder="输入密码" required>
 						</div>
 						<div class="am-form-group">
 							<input type="password" class="sign_passtwo" id="doc-ipt-pwd-1" name="passtwo" placeholder="重复输入密码" required>
@@ -62,9 +62,15 @@
 								<p>两次输入的密码不一致。</p>
 							</div>
 						</div>
+						<div class="reexit">
+							<div class="am-alert am-alert-danger warnred" data-am-alert>
+								<button type="button" class="am-close">&times;</button>
+								<p>账号已存在，请重新输入！</p>
+							</div>
+						</div>
 						<iframe name='frameFile' style='display: none;'></iframe>
 						<p>
-							<input id="regist" type="submit" class="am-btn am-btn-default tijiao" onclick="validatess()" value="确定"/>
+							<button onclick="recili()" id="backstageRegist" type="submit" class="am-btn am-btn-default tijiao"  style="background:#53d192;color:#fff;font-size:16px;border-radius:5px;">确定</button>
 						</p>
 					</fieldset>
 				</form>
@@ -80,20 +86,23 @@
 <script type="text/javascript">
 	$(document).keyup(function(e) {
 		if (e.keyCode == 13) {
-			$("#regist").click();
-			$('.loading').hide();
+			$("#backstageRegist").click();
 		}
 	});
+function recili(){
+	var md5 = new MD5();
+	var f = '......' == $('.repassone').val() ? '' : md5
+			.MD5($('.repassone').val());
+	$('.repassone').val(f);
+	var fr = '......' == $('.sign_passtwo').val() ? ''
+			: md5.MD5($('.sign_passtwo').val());
+	$('.sign_passtwo').val(fr);
 
-	function validatess() {
-		var md5 = new MD5();
-		var f = '......' == $('#doc-ipt-pwd-2').val() ? '' : md5.MD5($(
-				'#doc-ipt-pwd-2').val());
-		$('#doc-ipt-pwd-2').val(f);
-		var f1 = '......' == $('#doc-ipt-pwd-1').val() ? '' : md5.MD5($(
-				'#doc-ipt-pwd-1').val());
-		$('#doc-ipt-pwd-1').val(f1);
-	}
+  }
+	
+    
+    
+	
 </script>
 
 </html>
