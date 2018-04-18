@@ -60,10 +60,10 @@ public class LoginUserControllerImpl {
 			String reString=this.backUserServiceImpl.bregiste(loginUser);
 			if(reString.equals("0")){
 				System.out.print("保存成功");
-				return reString;
+				return "/backstage/login";
 			}
-			System.out.print(reString);
-			return reString;
+			//System.out.print(reString);
+			return "/backstage/sign_up";
 		}
 		return "6";
 	}

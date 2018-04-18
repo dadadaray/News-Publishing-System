@@ -17,6 +17,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Analyzer;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Store;
+
 @Entity
 @Table(name = "news")
 public class News {
@@ -54,6 +61,8 @@ public class News {
 		this.newsId = newsId;
 	}
 
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	@Analyzer(impl=StandardAnalyzer.class)
 	public String getNewsTitle() {
 		return newsTitle;
 	}
