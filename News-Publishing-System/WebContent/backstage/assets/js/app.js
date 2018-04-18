@@ -57,7 +57,7 @@ $(function() {
 //        				console.log("这是status："+status);
         				if (data == "0") {
                             //登陆成功
-        					window.location.href ="/News-Publishing-System/backstageLoginUser/index";
+        					window.location.href ="/News-Publishing-System/backstage/index";
         				}else if(data=="-1"){
         					//验证码错误
         					console.log("错误信息显示哦！");

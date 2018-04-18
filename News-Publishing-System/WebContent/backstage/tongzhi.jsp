@@ -18,8 +18,7 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="icon" type="image/png" href="${ctx}/assets/i/favicon.png">
-<link rel="apple-touch-icon-precomposed"
-	href="${ctx}/assets/i/app-icon72x72@2x.png">
+<link rel="apple-touch-icon-precomposed" href="${ctx}/assets/i/app-icon72x72@2x.png">
 <meta name="apple-mobile-web-app-title" content="Amaze UI" />
 <link rel="stylesheet" href="${ctx}/assets/css/amazeui.min.css" />
 <link rel="stylesheet" href="${ctx}/assets/css/admin.css">
@@ -106,7 +105,7 @@
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
 					<li class="tpl-left-nav-item">
-						<a href="${ctx}/index/noticeList" class="nav-link"> 
+						<a href="${ctx1}/backstage/index" class="nav-link"> 
 						<i class="am-icon-home"></i> <span>首页</span>
 						</a>
 					</li>
@@ -116,7 +115,7 @@
 						</a>
 					</li>
 					<li class="tpl-left-nav-item">
-						<a href="${ctx}/notice/listNotice" class="nav-link  tpl-left-nav-link-list active"> 
+						<a href="${ctx1}/backstage/notice" class="nav-link  tpl-left-nav-link-list active"> 
 						<i class="am-icon-bell"></i> <span>通知管理</span> 
 						<i class="tpl-left-nav-content tpl-badge-danger"> 12 </i>
 						</a>

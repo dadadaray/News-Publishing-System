@@ -180,7 +180,7 @@
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
-                        <span class="am-icon-file-text-o"> </span>  发表文章
+                        <span class="am-icon-file-text-o"> </span>发表文章
                     </div>
                     <div class="tpl-portlet-input tpl-fz-ml">
                         <div class="portlet-input input-small input-inline">
@@ -202,12 +202,10 @@
                                          <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-share-alt"></span> 分享排行
                                          </button>
                                          <button type="button" class="am-btn am-btn-default am-btn-warning">
-                                            <span class="am-icon-eye"></span>
-                                             浏览排行
+                                            <span class="am-icon-eye"></span>浏览排行
                                          </button>
                                          <button type="button" class="am-btn am-btn-default am-btn-success">
-                                            <span class="am-icon-comment"></span>
-                                             留言排行
+                                            <span class="am-icon-comment"></span> 留言排行
                                          </button>
                                     </div>
                                 </div>
@@ -223,7 +221,6 @@
                                          <option value="f">军事</option>
                                          <option value="g">旅游</option>
                                          <option value="h">政务</option>                                      
-                                      
                                   </select>
                               </div>
                           </div>
@@ -248,117 +245,114 @@
                                         </tr>
                                     </thead>
                                     <tbody id="doc-modal-list">
-                                         <tr>
-                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
-                                            <td>1</td>
-                                            <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">45689</td>
-                                            <td class="am-hide-sm-only">1256</td>
-                                            <td class="am-hide-sm-only font-green bold">445</td>
-                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-pencil-square-o">
-                                                            </span> 编辑
-                                                        </button>
-                                                        <input type="hidden" data-id="1"/>
-                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-                                                            <span class="am-icon-trash-o"></span> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
-                                            <td>1</td>
-                                            <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">45689</td>
-                                            <td class="am-hide-sm-only">1256</td>
-                                            <td class="am-hide-sm-only font-green bold">445</td>
-                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-pencil-square-o">
-                                                            </span> 编辑
-                                                        </button>
-                                                        <input type="hidden" data-id="2"/>
-                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-                                                            <span class="am-icon-trash-o"></span> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
-                                            <td>1</td>
-                                            <td><a href="#">《战时孤儿》</a></td>
-                                            <td>军事</td>
-                                            <td class="am-hide-sm-only">45689</td>
-                                            <td class="am-hide-sm-only">1256</td>
-                                            <td class="am-hide-sm-only font-green bold">445</td>
-                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-pencil-square-o">
-                                                            </span> 编辑
-                                                        </button>
-                                                        <input type="hidden" data-id="3"/>
-                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only btn-close">
-                                                            <span class="am-icon-trash-o"></span> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                 </tbody>
-                            </table>
-                            <div class="am-cf">
-
-                                <div class="am-fr">
-                                    <ul class="am-pagination tpl-pagination">
-                                        <li class="am-disabled"><a href="#">«</a></li>
-                                        <li class="am-active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">»</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <hr>
-
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-            <div class="tpl-alert"></div>
-        </div>
-
-
-    </div>
-
-</div>
-
-</div>
-
-</div>
-</div>
+                                    	<c:if test="${not empty page and page.totalCount > 0}">
+                                    		<c:forEach items="${page.list}" var="news">
+		                                        <tr>
+		                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value="${news.newsId}"></td>
+		                                            <td>1</td>
+		                                            <td><a href="#">《${news.newsTitle}》</a></td>
+		                                            <td>${news.newsType.typeName}</td>
+		                                            <td class="am-hide-sm-only">${news.views}</td>
+		                                            <td class="am-hide-sm-only">${news.share}</td>
+		                                            <td class="am-hide-sm-only font-green bold">${news.commentNum}</td>
+		                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+		                                            <td>
+		                                                <div class="am-btn-toolbar">
+		                                                    <div class="am-btn-group am-btn-group-xs">
+		                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+		                                                            <span class="am-icon-pencil-square-o">
+		                                                            </span> 编辑
+		                                                        </button>
+		                                                        <input type="hidden" data-id="1"/>
+		                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+		                                                            <span class="am-icon-trash-o"></span> 删除
+		                                                        </button>
+		                                                    </div>
+		                                                </div>
+		                                            </td>
+		                                         </tr>	
+		                                         <tr>
+		                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
+		                                            <td>1</td>
+		                                            <td><a href="#">《战时孤儿》</a></td>
+		                                            <td>军事</td>
+		                                            <td class="am-hide-sm-only">45689</td>
+		                                            <td class="am-hide-sm-only">1256</td>
+		                                            <td class="am-hide-sm-only font-green bold">445</td>
+		                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+		                                            <td>
+		                                                <div class="am-btn-toolbar">
+		                                                    <div class="am-btn-group am-btn-group-xs">
+		                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+		                                                            <span class="am-icon-pencil-square-o">
+		                                                            </span> 编辑
+		                                                        </button>
+		                                                        <input type="hidden" data-id="2"/>
+		                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+		                                                            <span class="am-icon-trash-o"></span> 删除
+		                                                        </button>
+		                                                    </div>
+		                                                </div>
+		                                            </td>
+		                                        </tr>
+		                                         <tr>
+	                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
+	                                            <td>1</td>
+	                                            <td><a href="#">《战时孤儿》</a></td>
+	                                            <td>军事</td>
+	                                            <td class="am-hide-sm-only">45689</td>
+	                                            <td class="am-hide-sm-only">1256</td>
+	                                            <td class="am-hide-sm-only font-green bold">445</td>
+	                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+	                                            <td>
+	                                                <div class="am-btn-toolbar">
+	                                                    <div class="am-btn-group am-btn-group-xs">
+	                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+	                                                            <span class="am-icon-pencil-square-o">
+	                                                            </span> 编辑
+	                                                        </button>
+	                                                        <input type="hidden" data-id="3"/>
+	                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only btn-close">
+	                                                            <span class="am-icon-trash-o"></span> 删除
+	                                                        </button>
+	                                                    </div>
+	                                                </div>
+	                                            </td>
+	                                        </tr>
+                                 			</c:forEach>
+                                 		</c:if>
+                                 		<c:if test="${empty page or page.totalCount <= 0}">
+                                 			无信息
+                                 		</c:if>
+                                 	</tbody>
+                            	</table>
+	                            <div class="am-cf">
+	
+	                                <div class="am-fr">
+	                                    <ul class="am-pagination tpl-pagination">
+	                                        <li class="am-disabled"><a href="#">«</a></li>
+	                                        <li class="am-active"><a href="#">1</a></li>
+	                                        <li><a href="#">2</a></li>
+	                                        <li><a href="#">3</a></li>
+	                                        <li><a href="#">4</a></li>
+	                                        <li><a href="#">5</a></li>
+	                                        <li><a href="#">»</a></li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+                            	<hr>
+                        	</form>
+                    	</div>
+                	</div>
+            	</div>
+            	<div class="tpl-alert"></div>
+        	</div>
+    	</div>
+	</div>
     <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
       <div class="am-modal-dialog">
         <div class="am-modal-bd" style="padding:40px 10px">
-          你，确定要删除这条记录吗？
+         	 你，确定要删除这条记录吗？
         </div>
         <div class="am-modal-footer">
           <span class="am-modal-btn" data-am-modal-cancel>取消</span>
