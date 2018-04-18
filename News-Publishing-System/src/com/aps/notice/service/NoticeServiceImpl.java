@@ -29,6 +29,7 @@ import com.framework.Page;
  */
 @Service
 public class NoticeServiceImpl {
+	
 	@Resource
 	private NoticeDaoImpl noticeDaoImpl;
 	

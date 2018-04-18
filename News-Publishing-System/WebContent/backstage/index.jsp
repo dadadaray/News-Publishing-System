@@ -29,7 +29,11 @@
 </head>
 
 <body data-type="index">
-
+	<%
+		if (session.getAttribute("page") == null) {
+			request.getRequestDispatcher("backstage/indexs").forward(request, response);
+		}
+	%>
 
     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
@@ -98,7 +102,7 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="${ctx}/index/noticeList" class="nav-link active">
+                        <a href="${ctx1}/backstage/index" class="nav-link active">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
@@ -132,7 +136,7 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="all_news.jsp">
+                                <a href="${ctx1}/backstage/news/publish">
                                    <i class="am-icon-angle-right"></i>
                                     <span>发表文章</span>
                                 </a>
@@ -248,84 +252,68 @@
                             </div>
                         </div>
                     </div>
-
-                    <ul class="tpl-task-list tpl-task-remind" id="doc-modal-list">
-                      <li>
-                       <div class="cosB">
-                         <span>2小时前 </span>  &nbsp &nbsp 
-                         <input type="hidden" data-id="1"/>
-                         <button type="button" class="am-btn am-btn-xs am-btn-danger  am-round btn-close">
-                          <span class="am-icon-trash-o">
-                          </span> 删除
-                        </button>
-                       </div>
-                       <div class="cosA">
-                          <a href="#">
-                           <span class="label label-sm label-warning">文章推荐</span> 
-                           <font color="82949a">
-                            <span>&nbsp&nbsp你的文章：</span>
-                            <span class="bold"> 
-                            《文章名》
-                           </span>
-                           <span>被设为推荐文章</span>
-                           </font>
-                         </a>
-                       </div>
-                      </li>
-                      <li>
-                      <div class="cosB">
-                       <span>2小时前 </span>  &nbsp &nbsp 
-                       <input type="hidden" data-id="2"/>
-                       <button type="button" class="am-btn am-btn-xs am-btn-danger  am-round btn-close">
-                        <span class="am-icon-trash-o">
-                        </span> 删除
-
-                       </button>
-                      </div>
-                      <div class="cosA">
-                        <a href="#">
-                        <span class="label label-sm label-danger">审核通过
-                        <font color="82949a">
-                        </span>
-                        <span>&nbsp&nbsp你的文章：</span>
-                        <span class="bold"> 
-                          《文章名》
-                        </span>
-                        <span > 
-                          已经成功发布了。
-                        </span>  
-                        </font>
-                        </a>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="cosB">
-                       <span>2小时前 </span>  &nbsp &nbsp 
-                       <input type="hidden" data-id="3"/>
-                       <button type="button" class="am-btn am-btn-xs am-btn-danger  am-round btn-close">
-                        <span class="am-icon-trash-o"></span> 删除
-                      </button>
-                    </div>
-                    <div class="cosA">
-                      <a href="#">
-                        <span class="label label-sm label-success ">审核意见</span>
-                        <font color="82949a">
-                          <span>&nbsp&nbsp你的文章：</span>
-                          <span class="bold"> 
-                            《文章名》
-                          </span>
-                          <span > 
-                           需注意：
-                         </span>  
-                         <span > 
-                           角度应该侧重民生问题，应该贴近百兴生活。需要修改。
-                         </span>
-                       </font>
-                     </a>
-                   </div>
-                 </li>
-               </ul>
-             </div>
+					<c:if test="${not empty page and page.totalCount > 0}">
+	                    <ul class="tpl-task-list tpl-task-remind" id="doc-modal-list">
+	                    	<c:forEach items="${page.list}" var="notice">
+		                    	<li>
+		                        	<div class="cosB">
+										<span><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>&nbsp;&nbsp; 
+			                         	<input type="hidden" data-id="${notice.noticeId}"/>
+			                         	<button type="button" class="am-btn am-btn-xs am-btn-danger  am-round btn-close">
+			                          		<span class="am-icon-trash-o"></span> 删除
+			                        	</button>
+		                       		</div>
+		                       		<div class="cosA">
+		                          		<a href="#">
+		                           			<c:if test="${0 == notice.noticeType}"> 
+												<span class="label label-sm label-success">审核意见</span> 
+											</c:if>
+											<c:if test="${1 == notice.noticeType}"> 
+												<span class="label label-sm label-danger">审核通过</span>
+											</c:if>
+											<c:if test="${2 == notice.noticeType}"> 
+												<span class="label label-sm label-warning">文章推荐</span> 
+											</c:if>
+		                           			<font color="82949a">
+		                            			<span>&nbsp&nbsp你的文章：</span>
+		                            			<span class="bold">《${notice.news.newsTitle}》</span>
+		                           				<span>${notice.noticeContent}</span>
+		                           			</font>
+		                         		</a>
+		                       		</div>
+		                      	</li>
+							</c:forEach>
+	               		</ul>
+            		</c:if>
+            		<c:if test="${empty page or page.totalCount <= 0}">
+						<ul class="tpl-task-list tpl-task-remind" id="doc-modal-list">
+							<li>
+								无信息
+							</li>
+						</ul>
+					</c:if>
+					<div class="am-cf">
+						<div class="am-fr">
+							<ul class="am-pagination tpl-pagination">
+								<li class="am-disabled">
+									<a href="${ctx1}/backstage/notice?pageNum=${page.prePageNum}">«</a>
+								</li>
+								<c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
+									<c:if test="${pageNum == page.currentPageNum}">
+										<li class="am-active">
+										<a href="${ctx1}/backstage/notice?pageNum=${pageNum}">${pageNum}</a></li>
+									</c:if>
+									<c:if test="${pageNum != page.currentPageNum}">
+									<li><a href="${ctx1}/backstage/notice?pageNum=${pageNum}">${pageNum}</a></li>
+									</c:if>
+								</c:forEach>
+								<li>
+									<a href="${ctx1}/backstage/notice?pageNum=${page.nextPageNum}">»</a>
+								</li>
+							</ul>
+						</div>
+					</div>	
+             	</div>
              </div>
          </div>
 
@@ -333,7 +321,7 @@
     <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
       <div class="am-modal-dialog">
         <div class="am-modal-bd" style="padding:40px 10px">
-          你，确定要删除这条记录吗？
+          	你，确定要删除这条记录吗？
         </div>
         <div class="am-modal-footer">
           <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -354,8 +342,27 @@
           relatedTarget: this,
           onConfirm: function(options) {
             var $link = $(this.relatedTarget).prev('input');
+            var id = $link.data('id');
             var msg =  '你要删除的链接 ID 为 ' + $link.data('id');
             alert(msg);
+			$.ajax({
+				type:"post",
+				url:"/News-Publishing-System/backstage/notice/deleteNotice",
+				data : {
+					noticeIds : id,
+				},
+				success : function(data, status) {
+					if (data != "0") {
+						alert("删除成功！");
+						window.location.href ="/News-Publishing-System/backstage/indexs";
+					}else{
+						alert("删除出错！");
+					}
+				},
+				error :function(){
+					alert("删除出错！");
+				}
+			});            
           },
           // closeOnConfirm: false,
           onCancel: function() {

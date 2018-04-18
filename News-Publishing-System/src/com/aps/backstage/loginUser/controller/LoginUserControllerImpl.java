@@ -97,15 +97,5 @@ public class LoginUserControllerImpl {
 		}	
 		return qString;
 	}
-	/**
-	 * @author Ray
-	 * @param session
-	 * @return
-	 */
-	@RequestMapping("index")
-	public String b_index(HttpSession session){
-		return "/backstage/index";
-	}
-
 
 }

@@ -1,5 +1,6 @@
 $(function() {
 
+<<<<<<< HEAD
 	// 注册页面输入框校验
 	var username = $("input[name='username']");
 	var emint = $("input[name='emint']");
@@ -169,6 +170,177 @@ $('.tpl-header-nav-hover-ico').on('click', function() {
 	$('.tpl-left-nav').toggle();
 	$('.tpl-content-wrapper').toggleClass('tpl-content-wrapper-hover');
 })
+=======
+        //注册页面输入框校验
+        var username=$("input[name='username']");
+        var emint=$("input[name='emint']");
+        var pas1=$("input[name='passone']");
+        var pas2=$("input[name='passtwo']");
+        var tijiaos=$(".tijiao");
+        //警告 密码不一致
+        $(".sign_passtwo").mouseout(function(){
+
+            if(typeof(pas1)=='undefined'&& typeof(pas2)=='undefined'){
+             $(".warninfo").hidden();
+         }else{
+           if(pas1.val()!=pas2.val()){
+                    // alert("密码错误");
+                    $(".warninfo").show();
+                }else{
+                    $(".warninfo").hide();
+                }}
+            });
+        
+        //登陆页面
+        //移除鼠标 移除警告
+        $(".login_pass").mouseout(function(){
+            if(emint.val()!='' && username.val()!=''){
+               $(".warninfo2").hide(); 
+           }
+       });
+
+        
+        //登录页面输入框验证
+        var em222=$("input[name='em222']");
+        var pass222=$("input[name='pass222']");
+        $("#backstageLogin").click(function(){
+           //alert("哈哈哈");
+           if((em222.val()==''&& pass222.val()=='')||(em222.val()=='')||(pass222.val()=='')){
+
+                 //alert("都为空，显示");
+                 $("#inputinfos").show();
+                 $("#errorpass").hide();  
+             }
+            
+             if(em222.val()!=''&& pass222.val()!=''){
+            	var md5 = new MD5();
+        		var f = "......" == $(".login_pass").val() ? "" : md5.MD5($(".login_pass")
+        				.val());
+        		$.ajax({
+        			type:"post",
+        			url:"/News-Publishing-System/backstageLoginUser/login",
+        			data : {
+        				password : f,
+        				loginName : $(".login_names").val(),
+        			},
+        			success:function(data, status){
+//        				console.log("这是js返回值："+data);
+//        				console.log("这是status："+status);
+        				if (data == "0") {
+                            //登陆成功
+        					window.location.href ="/News-Publishing-System/backstage/index";
+        				}else if(data=="-1"){
+        					//验证码错误
+        					console.log("错误信息显示哦！");
+        					$("#errorpass").show();
+        				}
+        			},
+        			error :function(){
+        				console.log("js 返回是错误的。");
+        				// 登录异常
+        				
+        			}
+              }) 
+            }else{
+            	
+                    $("#formlogin").attr("target","frameFiles");  
+                
+            }
+            
+                   
+        })
+    
+        
+        
+        
+         //用户个人信息邮箱验证
+         var useremailform=$("input[name='useremailform']");
+         useremailform.mouseout(function(){
+          if(!useremailform.val().match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)) {
+             $(".warninfo3").show();
+         } else {
+             $(".warninfo3").hide();
+         }
+     });
+
+
+
+
+
+         //素材库弹窗
+         var $modal = $('#your-modal');
+         $modal.siblings('.am-btn').on('click', function(e) {
+          var $target = $(e.target);
+          if (($target).hasClass('js-modal-open')) {
+            $modal.modal();
+        } 
+    });
+
+         var $modal2 = $('#your-modal2');
+         $modal2.siblings('.am-btn').on('click', function(e) {
+          var $target = $(e.target);
+          if (($target).hasClass('js-modal-open')) {
+            $modal2.modal();
+        } 
+    });
+
+
+         var $modal3 = $('#your-modal3');
+         $modal3.siblings('.am-btn').on('click', function(e) {
+          var $target = $(e.target);
+          if (($target).hasClass('js-modal-open')) {
+            $modal3.modal();
+        } 
+    });
+
+         var $fullText = $('.admin-fullText');
+         $('#admin-fullscreen').on('click', function() {
+            $.AMUI.fullscreen.toggle();
+        });
+
+         $(document).on($.AMUI.fullscreen.raw.fullscreenchange, function() {
+            $fullText.text($.AMUI.fullscreen.isFullscreen ? '退出全屏' : '开启全屏');
+        });
+
+
+         var dataType = $('body').attr('data-type');
+         for (key in pageData) {
+            if (key == dataType) {
+                pageData[key]();
+            }
+        }
+
+        $('.tpl-switch').find('.tpl-switch-btn-view').on('click', function() {
+            $(this).prev('.tpl-switch-btn').prop("checked", function() {
+                if ($(this).is(':checked')) {
+                    return false
+                } else {
+                    return true
+                }
+            })
+                // console.log('123123123')
+
+            })
+    })
+    // ==========================
+    // 侧边导航下拉列表
+    // ==========================
+
+    $('.tpl-left-nav-link-list').on('click', function() {
+        $(this).siblings('.tpl-left-nav-sub-menu').slideToggle(80)
+        .end()
+        .find('.tpl-left-nav-more-ico').toggleClass('tpl-left-nav-more-ico-rotate');
+    })
+    // ==========================
+    // 头部导航隐藏菜单
+    // ==========================
+
+    $('.tpl-header-nav-hover-ico').on('click', function() {
+        $('.tpl-left-nav').toggle();
+        $('.tpl-content-wrapper').toggleClass('tpl-content-wrapper-hover');
+    })
+
+>>>>>>> fe107dd5c5cd5871e96cb63b16fb66875907e725
 
 // 页面数据
 var pageData = {
