@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,6 +14,8 @@ import com.aps.hibernateSearch.service.HibernateServiceImpl;
 import com.framework.EncodingTool;
 import com.framework.Page;
 
+@Controller
+@RequestMapping("Search")
 public class HibernateSearchControllerImpl  {
 	@Resource
 	private HibernateServiceImpl hibernateSearchServiceImpl;
@@ -26,7 +29,7 @@ public class HibernateSearchControllerImpl  {
 	@RequestMapping("/hibsearnews")
 	public String listbug(@RequestParam("s") String search,
 			@RequestParam(name = "pageBugNum", defaultValue = "1") int pageNum, HttpSession session) {
-		Date startTime =new Date();
+		//Date startTime =new Date();
 		Page<News> page;
 		search = EncodingTool.encodeStr(search);
 		// System.out.println("search:" + search );
@@ -36,10 +39,10 @@ public class HibernateSearchControllerImpl  {
 		if (page != null)
 			session.setAttribute("newsPageCount", page.getTotalCount());
 		Date endTime =new Date();
-		session.setAttribute("experienceTime", (endTime.getTime()-startTime.getTime())/1000+"."+(endTime.getTime()-startTime.getTime())%1000/100);
+		//session.setAttribute("experienceTime", (endTime.getTime()-startTime.getTime())/1000+"."+(endTime.getTime()-startTime.getTime())%1000/100);
 		session.setAttribute("newspages", page);
 		session.setAttribute("searchValue", search);
-		return "lists";
+		return "/lists";
 	}
 
 
