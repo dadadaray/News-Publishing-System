@@ -32,6 +32,7 @@ public class News {
 	private Integer share; // 文章分享数量
 	private Integer commentNum; // 文章评论数量
 
+	private Integer auditorId; //审核人id
 	private UserInfo userInfo; // 文章的作者
 	private NewsType newsType; // 文章类型
 	private ModFree modFree; // 自由模板
@@ -242,5 +243,12 @@ public class News {
 		this.notices = notices;
 	}
 
-	
+	public Integer getAuditorId() {
+		return auditorId;
+	}
+
+	public void setAuditorId(Integer auditorId) {
+		this.auditorId = auditorId;
+	}
+
 }

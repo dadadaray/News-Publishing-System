@@ -1,8 +1,13 @@
 package com.aps.notice.dao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -68,6 +73,30 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 			return null;
 		}
 		
+	}
+	
+	/**
+	 * @Title: getNoticeByNewsId
+	 * @Description: 根据新闻id查询通知id
+	 * @param newsIds
+	 * @return HanChen
+	 * @author 
+	 * @return String
+	 */
+	public String getNoticeByNewsId(String newsIds){
+		String hql = "";
+		hql="from Notice n where n.news.newsId in " + SqlUtils.toLikeSqlForStr(newsIds, ",");
+		Session session = super.getSession();
+		Query query = session.createQuery(hql);
+		List<Notice> notices = new ArrayList<Notice>();
+		notices = query.list();
+		String noticeIds = "";
+		Iterator<Notice> it = notices.iterator();
+		while (it.hasNext()) {
+			Notice notice_next = it.next();
+			noticeIds += notice_next.getNoticeId() + ",";
+		}
+		return noticeIds;
 	}
 	
 	/**

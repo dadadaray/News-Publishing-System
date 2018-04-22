@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
 <!doctype html>
 <html>
 
@@ -222,11 +223,7 @@
 										<span class="am-icon-plus"></span>
 										新增文章
 									</a>
-									<button type="button" class="am-btn am-btn-default am-btn-danger">
-										<span class="am-icon-trash-o"></span>
-										批量删除
-									</button>
-								</div>
+ 								</div>
 							</div>
 						</div>
 						<div class="am-u-sm-12 am-u-md-3">
@@ -251,9 +248,6 @@
 								<table class="am-table am-table-striped am-table-hover table-main">
 									<thead>
 										<tr>
-											<th class="table-check">
-												<input type="checkbox" class="tpl-table-fz-check" id="checkall" onclick="checkallcheckbox();">
-											</th>
 											<th class="table-id">ID</th>
 											<th class="table-title">文章名称</th>
 											<th class="table-type">类别</th>
@@ -262,74 +256,51 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>
-												<input type="checkbox" name="box" onclick="checkonebox()" value="">
-											</td>
-											<td>1</td>
-											<td>
-												<a href="#">《战时孤儿》</a>
-											</td>
-											<td>军事</td>
-											<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-											<td>
-												<div class="am-btn-toolbar">
-													<div class="am-btn-group am-btn-group-xs">
-														<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-															<span class="am-icon-eye"> </span>
-															查看
-														</button>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="checkbox" name="box" onclick="checkonebox()" value="">
-											</td>
-											<td>1</td>
-											<td>
-												<a href="#">《战时孤儿》</a>
-											</td>
-											<td>军事</td>
-											<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-											<td>
-												<div class="am-btn-toolbar">
-													<div class="am-btn-group am-btn-group-xs">
-														<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-															<span class="am-icon-eye"> </span>
-															查看
-														</button>
-													</div>
-												</div>
-											</td>
-										</tr>
+										<c:if test="${not empty page and page.totalCount > 0}">
+											<c:forEach items="${page.list}" var="news" varStatus="status">
+												<tr>
+													<td>${status.index+1}</td>
+													<td>
+														<a href="#">《${news.newsTitle}》</a>
+													</td>
+													<td>${news.newsType.typeName}</td>
+													<td class="am-hide-sm-only">${news.createTime}</td>
+													<td>
+														<div class="am-btn-toolbar">
+															<div class="am-btn-group am-btn-group-xs">
+																<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																	<span class="am-icon-eye"> </span>
+																	查看
+																</button>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:if>
+										<c:if test="${empty page or page.totalCount <= 0}">
+											<tr>
+												<td colspan="5">无信息</td>
+											</tr>
+										</c:if>
 									</tbody>
 								</table>
 								<div class="am-cf">
-
 									<div class="am-fr">
 										<ul class="am-pagination tpl-pagination">
 											<li class="am-disabled">
-												<a href="#">«</a>
+												<a href="${ctx1}/backstage/news/checking/list?pageNum=${page.prePageNum}">«</a>
 											</li>
-											<li class="am-active">
-												<a href="#">1</a>
-											</li>
+											<c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
+												<c:if test="${pageNum == page.currentPageNum}">
+	                                        		<li class="am-active"><a href="${ctx1}/backstage/news/checking/list?pageNum=${pageNum}">${pageNum}</a></li>
+	                                        	</c:if>
+	                                        	<c:if test="${pageNum != page.currentPageNum}">
+	                                        		<li><a href="${ctx1}/backstage/news/checking/list?pageNum=${pageNum}">${pageNum}</a></li>
+	                                        	</c:if>
+											</c:forEach>
 											<li>
-												<a href="#">2</a>
-											</li>
-											<li>
-												<a href="#">3</a>
-											</li>
-											<li>
-												<a href="#">4</a>
-											</li>
-											<li>
-												<a href="#">5</a>
-											</li>
-											<li>
-												<a href="#">»</a>
+												<a href="${ctx1}/backstage/news/checking/list?pageNum=${page.nextPageNum}">»</a>
 											</li>
 										</ul>
 									</div>
@@ -348,74 +319,13 @@
 
 	</div>
 
-	</div>
-
-	</div>
-	</div>
 	<script src="${ctx}/assets/js/jquery.min.js"></script>
 	<script src="${ctx}/assets/js/xcConfirm.js"></script>
 	<script src="${ctx}/assets/js/amazeui.min.js"></script>
 	<script src="${ctx}/assets/js/iscroll.js"></script>
 	<script src="${ctx}/assets/js/app.js"></script>
 	<script type="text/javascript">
-		//全选/全不选功能
-		function checkallcheckbox() {
-			var ischecked = document.getElementById("checkall").checked;
-			if (ischecked) {
-				checkallbox();
-			} else {
-				discheckallbox();
-			}
-		}
-		//选中全部复选框
-		function checkallbox() {
-			var boxarray = document.getElementsByName("box");
-			for (var i = 0; i < boxarray.length; i++) {
-				if (boxarray[i].disabled != true)
-					boxarray[i].checked = true;
-			}
-		}
-
-		//取消选中全部复选框
-		function discheckallbox() {
-			var boxarray = document.getElementsByName("box");
-			for (var i = 0; i < boxarray.length; i++) {
-				boxarray[i].checked = false;
-			}
-		}
-
-		//点击每个checkbox时判断是否所有的checkbox全部选中  
-		function checkonebox() {
-			if (isallchecked()) {
-				document.getElementById("checkall").checked = true;
-			}
-			if (isalldischecked()) {
-				document.getElementById("checkall").checked = false;
-			}
-		}
-
-		//是否全部选中
-		function isallchecked() {
-			var boxarray = document.getElementsByName("box");
-			for (var i = 0; i < boxarray.length; i++) {
-				if (!boxarray[i].checked) {
-					return false;
-				}
-			}
-			return true;
-		}
-
-		//是否没有全部选中
-		function isalldischecked() {
-			var boxarray = document.getElementsByName("box");
-			for (var i = 0; i < boxarray.length; i++) {
-				if (!boxarray[i].checked) {
-					return true;
-				}
-			}
-			return false;
-		}
-
+	
 		//查看
 		function preview() {
 			window.open("all_news_back_checking_content.jsp");

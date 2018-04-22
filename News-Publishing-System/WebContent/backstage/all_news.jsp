@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
 <!doctype html>
 <html>
 
@@ -47,7 +48,7 @@
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span></span>
+                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span>
                     </a>
                     <ul class="am-dropdown-content tpl-dropdown-content">
                         <li class="tpl-dropdown-content-external">
@@ -59,21 +60,21 @@
 
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> 
-                                <span>《从大城市的》<span>需要修改
+                                <span>《从大城市的》</span>需要修改
                               </a>
                                 <span class="tpl-dropdown-list-fr">3小时前</span>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-                                 <span>《从大城市的》<span>审核通过
+                                 <span>《从大城市的》</span>审核通过
                             </a>
                                 <span class="tpl-dropdown-list-fr">15分钟前</span>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                                 <a href="#" class="tpl-dropdown-list-fl">
                                     <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
-                                    <span>《从大城市的》<span>成为推荐文章 
+                                    <span>《从大城市的》</span>成为推荐文章 
                                 </a>
                                 <span class="tpl-dropdown-list-fr">2天前</span>
                             </li>
@@ -197,14 +198,14 @@
                             <div class="am-u-sm-12 am-u-md-9">
                                 <div class="am-btn-toolbar">
                                     <div class="am-btn-group am-btn-group-xs">
-                                         <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除
+                                         <button type="button" class="am-btn am-btn-default am-btn-danger" onclick="deleteItem()"><span class="am-icon-trash-o"></span> 批量删除
                                          </button>
-                                         <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-share-alt"></span> 分享排行
+                                         <button type="button" class="am-btn am-btn-default am-btn-secondary" onclick="newsSort(1)"><span class="am-icon-share-alt"></span> 分享排行
                                          </button>
-                                         <button type="button" class="am-btn am-btn-default am-btn-warning">
+                                         <button type="button" class="am-btn am-btn-default am-btn-warning" onclick="newsSort(2)">
                                             <span class="am-icon-eye"></span>浏览排行
                                          </button>
-                                         <button type="button" class="am-btn am-btn-default am-btn-success">
+                                         <button type="button" class="am-btn am-btn-default am-btn-success" onclick="newsSort(3)">
                                             <span class="am-icon-comment"></span> 留言排行
                                          </button>
                                     </div>
@@ -246,16 +247,16 @@
                                     </thead>
                                     <tbody id="doc-modal-list">
                                     	<c:if test="${not empty page and page.totalCount > 0}">
-                                    		<c:forEach items="${page.list}" var="news">
+                                    		<c:forEach items="${page.list}" var="news" varStatus="status">
 		                                        <tr>
-		                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value="${news.newsId}"></td>
-		                                            <td>1</td>
+		                                            <td><input class="checkOne" type="checkbox" name="box" onclick="checkonebox()" value="${news.newsId}"></td>
+		                                            <td>${status.index+1}</td>
 		                                            <td><a href="#">《${news.newsTitle}》</a></td>
 		                                            <td>${news.newsType.typeName}</td>
 		                                            <td class="am-hide-sm-only">${news.views}</td>
 		                                            <td class="am-hide-sm-only">${news.share}</td>
 		                                            <td class="am-hide-sm-only font-green bold">${news.commentNum}</td>
-		                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+		                                            <td class="am-hide-sm-only"><fmt:formatDate value="${news.publishTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 		                                            <td>
 		                                                <div class="am-btn-toolbar">
 		                                                    <div class="am-btn-group am-btn-group-xs">
@@ -263,7 +264,7 @@
 		                                                            <span class="am-icon-pencil-square-o">
 		                                                            </span> 编辑
 		                                                        </button>
-		                                                        <input type="hidden" data-id="1"/>
+		                                                        <input type="hidden" data-id="${news.newsId}"/>
 		                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
 		                                                            <span class="am-icon-trash-o"></span> 删除
 		                                                        </button>
@@ -271,72 +272,28 @@
 		                                                </div>
 		                                            </td>
 		                                         </tr>	
-		                                         <tr>
-		                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
-		                                            <td>1</td>
-		                                            <td><a href="#">《战时孤儿》</a></td>
-		                                            <td>军事</td>
-		                                            <td class="am-hide-sm-only">45689</td>
-		                                            <td class="am-hide-sm-only">1256</td>
-		                                            <td class="am-hide-sm-only font-green bold">445</td>
-		                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-		                                            <td>
-		                                                <div class="am-btn-toolbar">
-		                                                    <div class="am-btn-group am-btn-group-xs">
-		                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-		                                                            <span class="am-icon-pencil-square-o">
-		                                                            </span> 编辑
-		                                                        </button>
-		                                                        <input type="hidden" data-id="2"/>
-		                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-		                                                            <span class="am-icon-trash-o"></span> 删除
-		                                                        </button>
-		                                                    </div>
-		                                                </div>
-		                                            </td>
-		                                        </tr>
-		                                         <tr>
-	                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
-	                                            <td>1</td>
-	                                            <td><a href="#">《战时孤儿》</a></td>
-	                                            <td>军事</td>
-	                                            <td class="am-hide-sm-only">45689</td>
-	                                            <td class="am-hide-sm-only">1256</td>
-	                                            <td class="am-hide-sm-only font-green bold">445</td>
-	                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-	                                            <td>
-	                                                <div class="am-btn-toolbar">
-	                                                    <div class="am-btn-group am-btn-group-xs">
-	                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-	                                                            <span class="am-icon-pencil-square-o">
-	                                                            </span> 编辑
-	                                                        </button>
-	                                                        <input type="hidden" data-id="3"/>
-	                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only btn-close">
-	                                                            <span class="am-icon-trash-o"></span> 删除
-	                                                        </button>
-	                                                    </div>
-	                                                </div>
-	                                            </td>
-	                                        </tr>
                                  			</c:forEach>
                                  		</c:if>
                                  		<c:if test="${empty page or page.totalCount <= 0}">
-                                 			无信息
+                                 			<tr>
+                                 				<td colspan="9">无信息</td>
+                                 			</tr>
                                  		</c:if>
                                  	</tbody>
                             	</table>
 	                            <div class="am-cf">
-	
 	                                <div class="am-fr">
 	                                    <ul class="am-pagination tpl-pagination">
-	                                        <li class="am-disabled"><a href="#">«</a></li>
-	                                        <li class="am-active"><a href="#">1</a></li>
-	                                        <li><a href="#">2</a></li>
-	                                        <li><a href="#">3</a></li>
-	                                        <li><a href="#">4</a></li>
-	                                        <li><a href="#">5</a></li>
-	                                        <li><a href="#">»</a></li>
+	                                        <li class="am-disabled"><a href="${ctx1}/backstage/news/publish/list?pageNum=${page.prePageNum}">«</a></li>
+	                                        <c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
+	                                        	<c:if test="${pageNum == page.currentPageNum}">
+	                                        		<li class="am-active"><a href="${ctx1}/backstage/news/publish/list?pageNum=${pageNum}">${pageNum}</a></li>
+	                                        	</c:if>
+	                                        	<c:if test="${pageNum != page.currentPageNum}">
+	                                        		<li><a href="${ctx1}/backstage/news/publish/list?pageNum=${pageNum}">${pageNum}</a></li>
+	                                        	</c:if>
+	                                        </c:forEach>
+	                                        <li><a href="${ctx1}/backstage/news/publish/list?pageNum=${page.nextPageNum}">»</a></li>
 	                                    </ul>
 	                                </div>
 	                            </div>
@@ -367,14 +324,40 @@
 <script src="${ctx}/assets/js/app.js"></script>
 </body>
 <script type="text/javascript">
-    //删除
+
+	//新闻排序方式
+	function newsSort(orderBy){
+		debugger;
+		window.location.href ="/News-Publishing-System/backstage/news/publish/list?orderBy=" + orderBy;
+	}
+	
+    //单个新闻删除
     $('#doc-modal-list').find('.btn-close').on('click', function() {
         $('#my-confirm').modal({
           relatedTarget: this,
           onConfirm: function(options) {
             var $link = $(this.relatedTarget).prev('input');
+            var id = $link.data('id');
             var msg =  '你要删除的链接 ID 为 ' + $link.data('id');
             alert(msg);
+			$.ajax({
+				type:"post",
+				url:"/News-Publishing-System/backstage/news/delete",
+				data : {
+					newsIds : id,
+				},
+				success : function(data, status) {
+					if (data != "0") {
+						alert("删除成功！");
+						window.location.href ="/News-Publishing-System/backstage/news/publish/list";
+					}else{
+						alert("删除出错！");
+					}
+				},
+				error :function(){
+					alert("删除出错！");
+				}
+			});             
           },
           // closeOnConfirm: false,
           onCancel: function() {
@@ -382,6 +365,39 @@
           }
         });
     });
+    
+    //新闻批量删除
+	function deleteItem(){
+		var count = 0;
+		var ids = "";
+		$(".checkOne:checked").each(function(){
+			ids = ids + $(this).val()+",";
+			count++;
+		});
+		if(count==0){
+			alert("请至少选择一条记录进行删除！");
+			return false;
+		}else{
+			$.ajax({
+				type:"post",
+				url:"/News-Publishing-System/backstage/news/delete",
+				data : {
+					newsIds : ids
+				},
+				success : function(data, status) {
+					if (data != "0") {
+						alert("删除成功！");
+						window.location.href ="/News-Publishing-System/backstage/news/publish/list";
+					}else{
+						alert("删除出错！");
+					}
+				},
+				error :function(){
+					alert("删除出错！");
+				}
+			});
+		}
+	}
 
     //全选/全不选功能
     function checkallcheckbox() { 

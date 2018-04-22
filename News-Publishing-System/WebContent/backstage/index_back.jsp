@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
+
       <!doctype html>
       <html>
 
@@ -46,7 +48,7 @@
           <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
               <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                <span class="am-icon-bell-o"></span> 新文章 <span class="am-badge tpl-badge-danger am-round">2</span></span>
+                <span class="am-icon-bell-o"></span> 新文章 <span class="am-badge tpl-badge-danger am-round">2</span>
               </a>
               <ul class="am-dropdown-content tpl-dropdown-content">
                 <li class="tpl-dropdown-content-external">
@@ -90,7 +92,7 @@
             </a>
             <ul class="tpl-left-nav-sub-menu">
               <li>
-                  <a href="${ctx}/all_news_back_checking.jsp">
+                  <a href="${ctx1}/backstage/news/back/checking/list">
                     <i class="am-icon-angle-right"></i>
                     <span>待审新文章</span>
                   </a>
@@ -120,6 +122,7 @@
             <a href="${ctx}/all_users.jsp">
               <i class="am-icon-angle-right"></i>
               <span>网站用户</span>
+            </a>
             </li>
           </ul>
         </li> 

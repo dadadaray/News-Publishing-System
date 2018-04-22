@@ -59,4 +59,36 @@ public class IndexControllerImpl {
 		return "backstage/index";
 	}
 	
+	/**
+	 * @Title: indexBack
+	 * @Description: 后台管理官登录
+	 * @param pageNum
+	 * @param noticeType
+	 * @param request
+	 * @param session
+	 * @return
+	 * @author HanChen 
+	 * @return String
+	 */
+	@RequestMapping(value = "indexBack")
+	public String indexBack(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,
+			@RequestParam(name = "noticeType", defaultValue = "") String noticeType,
+			 HttpServletRequest request, HttpSession session) {
+		
+		UserInfo userInfo = new UserInfo();
+		userInfo.setUserInfoId(29);
+		LoginUser loginUser = new LoginUser();
+		loginUser.setUserInfo(userInfo);
+		
+		// 获取用户信息
+		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
+		
+		// 如果没有用户信息，需要进行登陆
+		/*if (loginUser == null) {
+			return "login";
+		}*/
+		
+		return "backstage/index_back";
+	}
+	
 }

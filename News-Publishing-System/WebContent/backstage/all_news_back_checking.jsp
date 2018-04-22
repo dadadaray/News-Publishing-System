@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
+
 <!doctype html>
 <html>
 
@@ -49,7 +51,6 @@
 						<span class="am-icon-bell-o"></span>
 						新文章
 						<span class="am-badge tpl-badge-danger am-round">2</span>
-						</span>
 					</a>
 					<ul class="am-dropdown-content tpl-dropdown-content">
 						<li class="tpl-dropdown-content-external">
@@ -151,6 +152,7 @@
 								<a href="${ctx}/all_users.jsp">
 									<i class="am-icon-angle-right"></i>
 									<span>网站用户</span>
+								</a>
 							</li>
 						</ul>
 					</li>
@@ -226,68 +228,41 @@
 										</tr>
 									</thead>
 									<tbody id="doc-modal-list">
-										<tr>
-											<td>
-												<input type="checkbox" name="box" onclick="checkonebox()" value="">
-											</td>
-											<td>1</td>
-											<td>
-												<a href="#">《战时孤儿》</a>
-											</td>
-
-											<td>
-												<img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
-												<a class="user-name" href="###">禁言小张</a>
-											</td>
-											<td>军事</td>
-											<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-											<td>
-												<div class="am-btn-toolbar">
-													<div class="am-btn-group am-btn-group-xs">
-														<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-															<span class="am-icon-eye"> </span>
-															查看
-														</button>
-														<input type="hidden" data-id="1" />
-														<button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-															<span class="am-icon-trash-o"></span>
-															删除
-														</button>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="checkbox" name="box" onclick="checkonebox()" value="">
-											</td>
-											<td>1</td>
-											<td>
-												<a href="#">《战时孤儿》</a>
-											</td>
-
-											<td>
-												<img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
-												<a class="user-name" href="###">禁言小张</a>
-											</td>
-											<td>军事</td>
-											<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-											<td>
-												<div class="am-btn-toolbar">
-													<div class="am-btn-group am-btn-group-xs">
-														<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-															<span class="am-icon-eye"> </span>
-															查看
-														</button>
-														<input type="hidden" data-id="2" />
-														<button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-															<span class="am-icon-trash-o"></span>
-															删除
-														</button>
-													</div>
-												</div>
-											</td>
-										</tr>
+										<c:if test="${not empty page and page.totalCount > 0}">
+											<c:forEach items="${page.list}" var="news" varStatus="status">
+												<tr>
+													<td>
+														<input class="checkOne" type="checkbox" name="box" onclick="checkonebox()" value="">
+													</td>
+													<td>${status.index+1}</td>
+													<td>
+														<a href="#">《${news.newsTitle}》</a>
+													</td>
+		
+													<td>
+														<img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
+														<a class="user-name" href="###">${news.userInfo.loginUser}</a>
+													</td>
+													<td>${news.newsType.typeName}</td>
+													<td class="am-hide-sm-only">${news.createTime}</td>
+													<td>
+														<div class="am-btn-toolbar">
+															<div class="am-btn-group am-btn-group-xs">
+																<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																	<span class="am-icon-eye"> </span>
+																	查看
+																</button>
+																<input type="hidden" data-id="${news.newsId}" />
+																<button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+																	<span class="am-icon-trash-o"></span>
+																	删除
+																</button>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:if>
 									</tbody>
 								</table>
 								<div class="am-cf">
@@ -327,15 +302,9 @@
 				</div>
 				<div class="tpl-alert"></div>
 			</div>
-
 		</div>
-
 	</div>
 
-	</div>
-
-	</div>
-	</div>
 	<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
 		<div class="am-modal-dialog">
 			<div class="am-modal-bd" style="padding: 40px 10px">你，确定要删除这条记录吗？</div>

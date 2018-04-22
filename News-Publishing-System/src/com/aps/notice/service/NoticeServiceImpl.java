@@ -59,4 +59,16 @@ public class NoticeServiceImpl {
 		return this.noticeDaoImpl.deleteNotice(noticeIds);
 	}
 	
+	/**
+	 * @Title: getNoticeByNewsId
+	 * @Description: 根据新闻id查询通知id
+	 * @param newsIds
+	 * @return
+	 * @author HanChen 
+	 * @return String
+	 */
+	public String getNoticeByNewsId(String newsIds){
+		return this.noticeDaoImpl.getNoticeByNewsId(newsIds);
+	}
+	
 }

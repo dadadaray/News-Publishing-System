@@ -52,7 +52,7 @@
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="">
-                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span></span>
+                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span>
                     </a>
                     <ul class="am-dropdown-content tpl-dropdown-content">
                         <li class="tpl-dropdown-content-external">
@@ -64,19 +64,19 @@
 
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> 
-                                <span>《从大城市的》<span>需要修改
+                                <span>《从大城市的》</span>需要修改
                               </a>
                                 <span class="tpl-dropdown-list-fr">3小时前</span>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-                                 <span>《从大城市的》<span>审核通过
+                                 <span>《从大城市的》</span>审核通过
                             </a>
                                 <span class="tpl-dropdown-list-fr">15分钟前</span>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
-                                 <span>《从大城市的》<span>成为推荐文章 
+                                 <span>《从大城市的》</span>成为推荐文章 
                             </a>
                                 <span class="tpl-dropdown-list-fr">2天前</span>
                             </li>
@@ -136,15 +136,15 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="${ctx1}/backstage/news/publish">
+                                <a href="${ctx1}/backstage/news/publish/list">
                                    <i class="am-icon-angle-right"></i>
                                     <span>发表文章</span>
                                 </a>
-                                <a href="all_news_checking.jsp">
+                                <a href="${ctx1}/backstage/news/checking/list">
                                    <i class="am-icon-angle-right"></i>
                                     <span>审核中列表</span>
                                  </a>
-                                <a href="all_news_checked.jsp">
+                                <a href="${ctx1}/backstage/news/unchecked/list">
                                     <i class="am-icon-angle-right"></i>
                                     <span>未通过类表</span>
                                 </a>
@@ -275,7 +275,7 @@
 												<span class="label label-sm label-warning">文章推荐</span> 
 											</c:if>
 		                           			<font color="82949a">
-		                            			<span>&nbsp&nbsp你的文章：</span>
+		                            			<span>&nbsp;&nbsp;你的文章：</span>
 		                            			<span class="bold">《${notice.news.newsTitle}》</span>
 		                           				<span>${notice.noticeContent}</span>
 		                           			</font>
@@ -296,19 +296,19 @@
 						<div class="am-fr">
 							<ul class="am-pagination tpl-pagination">
 								<li class="am-disabled">
-									<a href="${ctx1}/backstage/notice?pageNum=${page.prePageNum}">«</a>
+									<a href="${ctx1}/backstage/indexs?pageNum=${page.prePageNum}">«</a>
 								</li>
 								<c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
 									<c:if test="${pageNum == page.currentPageNum}">
 										<li class="am-active">
-										<a href="${ctx1}/backstage/notice?pageNum=${pageNum}">${pageNum}</a></li>
+										<a href="${ctx1}/backstage/indexs?pageNum=${pageNum}">${pageNum}</a></li>
 									</c:if>
 									<c:if test="${pageNum != page.currentPageNum}">
-									<li><a href="${ctx1}/backstage/notice?pageNum=${pageNum}">${pageNum}</a></li>
+									<li><a href="${ctx1}/backstage/indexs?pageNum=${pageNum}">${pageNum}</a></li>
 									</c:if>
 								</c:forEach>
 								<li>
-									<a href="${ctx1}/backstage/notice?pageNum=${page.nextPageNum}">»</a>
+									<a href="${ctx1}/backstage/indexs?pageNum=${page.nextPageNum}">»</a>
 								</li>
 							</ul>
 						</div>
@@ -316,8 +316,6 @@
              	</div>
              </div>
          </div>
-
-   </div>
     <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
       <div class="am-modal-dialog">
         <div class="am-modal-bd" style="padding:40px 10px">
