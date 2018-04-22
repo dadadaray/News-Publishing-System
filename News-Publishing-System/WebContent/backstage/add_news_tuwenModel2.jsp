@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
 <!doctype html>
 <html>
 
@@ -30,85 +31,37 @@
 <body data-type="index">
 	<header class="am-topbar am-topbar-inverse admin-header">
 		<div class="am-topbar-brand">
-			<a href="javascript:;" class="tpl-logo">
-				<img src="${ctx}/assets/img/logo.png" alt="">
+			<a href="javascript:;" class="tpl-logo"> <img src="${ctx}/assets/img/logo.png" alt="">
 			</a>
 		</div>
 		<div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right"></div>
 
 		<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
-			<span class="am-sr-only">导航切换</span>
-			<span class="am-icon-bars"></span>
+			<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
 		</button>
 
 		<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-					<a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-						<span class="am-icon-bell-o"></span>
-						提醒
-						<span class="am-badge tpl-badge-success am-round">3</span>
-						</span>
-					</a>
+				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;"> <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span> </span>
+				</a>
 					<ul class="am-dropdown-content tpl-dropdown-content">
 						<li class="tpl-dropdown-content-external">
 							<h3>
-								你有
-								<span class="tpl-color-success">3</span>
-								条消息
-							</h3>
-							<a href="${ctx}/tongzhi.jsp" class="font-green">全部</a>
+								你有 <span class="tpl-color-success">3</span> 条消息
+							</h3> <a href="${ctx}/tongzhi.jsp" class="font-green">全部</a>
 						</li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
+						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> <span> 《从大城市的》 <span>需要修改 </a> <span class="tpl-dropdown-list-fr">3小时前</span></li>
+						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span> <span> 《从大城市的》 <span>审核通过 </a> <span class="tpl-dropdown-list-fr">15分钟前</span></li>
+						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> <span> 《从大城市的》 <span>成为推荐文章 </a> <span class="tpl-dropdown-list-fr">2天前</span></li>
+					</ul></li>
+				<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"> <span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span>
+				</a></li>
 
-							<a href="#" class="tpl-dropdown-list-fl">
-								<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span>
-								<span>
-									《从大城市的》
-									<span>需要修改 
-							</a>
-							<span class="tpl-dropdown-list-fr">3小时前</span>
-						</li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
-							<a href="#" class="tpl-dropdown-list-fl">
-								<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-								<span>
-									《从大城市的》
-									<span>审核通过 
-							</a>
-							<span class="tpl-dropdown-list-fr">15分钟前</span>
-						</li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
-							<a href="#" class="tpl-dropdown-list-fl">
-								<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span>
-								<span>
-									《从大城市的》
-									<span>成为推荐文章 
-							</a>
-							<span class="tpl-dropdown-list-fr">2天前</span>
-						</li>
-					</ul>
-				</li>
-				<li class="am-hide-sm-only">
-					<a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link">
-						<span class="am-icon-arrows-alt"></span>
-						<span class="admin-fullText">开启全屏</span>
-					</a>
-				</li>
-
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-					<a href="${ctx}/userinfo.jsp">
-						<span class="tpl-header-list-user-nick">编辑记者身份</span>
-						<span class="tpl-header-list-user-ico">
-							<img src="${ctx}/assets/img/user01.png">
-						</span>
-					</a>
-				</li>
-				<li>
-					<a href="${ctx}/login.jsp" class="tpl-header-list-link">
-						<span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
-					</a>
-				</li>
+				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="${ctx}/userinfo.jsp"> <span class="tpl-header-list-user-nick">编辑记者身份</span> <span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png">
+					</span>
+				</a></li>
+				<li><a href="${ctx}/login.jsp" class="tpl-header-list-link"> <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
+				</a></li>
 			</ul>
 		</div>
 	</header>
@@ -119,60 +72,24 @@
 		<div class="tpl-left-nav tpl-left-nav-hover">
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/index.jsp" class="nav-link">
-							<i class="am-icon-home"></i>
-							<span>首页</span>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list active">
-							<i class="am-icon-edit"></i>
-							<span>添加新文章</span>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list">
-							<i class="am-icon-bell-o"></i>
-							<span>通知管理</span>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list">
-							<i class="am-icon-inbox"></i>
-							<span>草稿箱</span>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/all_news.jsp" class="nav-link  tpl-left-nav-link-list">
-							<i class="am-icon-wpforms"></i>
-							<span>文章管理</span>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-							<i class="am-icon-user"></i>
-							<span>个人中心</span>
-							<i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-						</a>
+					<li class="tpl-left-nav-item"><a href="${ctx}/index.jsp" class="nav-link"> <i class="am-icon-home"></i> <span>首页</span>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list active"> <i class="am-icon-edit"></i> <span>添加新文章</span>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-bell-o"></i> <span>通知管理</span>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-inbox"></i> <span>草稿箱</span>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="${ctx}/all_news.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-wpforms"></i> <span>文章管理</span>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link tpl-left-nav-link-list"> <i class="am-icon-user"></i> <span>个人中心</span> <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+					</a>
 						<ul class="tpl-left-nav-sub-menu">
-							<li>
-								<a href="${ctx}/userinfo.jsp">
-									<i class="am-icon-angle-right"></i>
-									<span>个人资料</span>
-								</a>
-								<a href="${ctx}/re_userinfo.jsp">
-									<i class="am-icon-angle-right"></i>
-									<span>完善信息</span>
-								</a>
-
-								<a href="${ctx}/form-line.jsp">
-									<i class="am-icon-angle-right"></i>
-									<span>退出登录</span>
-								</a>
-							</li>
-						</ul>
-					</li>
+							<li><a href="${ctx}/userinfo.jsp"> <i class="am-icon-angle-right"></i> <span>个人资料</span>
+							</a> <a href="${ctx}/re_userinfo.jsp"> <i class="am-icon-angle-right"></i> <span>完善信息</span>
+							</a> <a href="${ctx}/form-line.jsp"> <i class="am-icon-angle-right"></i> <span>退出登录</span>
+							</a></li>
+						</ul></li>
 				</ul>
 			</div>
 		</div>
@@ -184,33 +101,27 @@
 							<span class="am-icon-file-text-o">&nbsp&nbsp选择模板</span>
 						</div>
 						<div class="am-btn-group" style="float: left;">
-							<a href="${ctx}/add_news.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 20px;">图文自由排版</a>
-							<a href="${ctx}/add_news_img.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">大图轮播</a>
-							<a href="${ctx}/add_news_vedio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">视频专题</a>
-							<a href="${ctx}/add_news_audio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">音频专题</a>
-							<a href="${ctx}/add_news_tuwenModel.jsp" class="am-btn am-btn-primary am-radius" style="margin-left: 10px;">图文模板</a>
+							<a href="${ctx}/add_news.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 20px;">图文自由排版</a> <a href="${ctx}/add_news_img.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">大图轮播</a> <a href="${ctx}/add_news_vedio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">视频专题</a> <a href="${ctx}/add_news_audio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">音频专题</a> <a href="${ctx}/add_news_tuwenModel.jsp" class="am-btn am-btn-primary am-radius" style="margin-left: 10px;">图文模板</a>
 						</div>
 					</div>
 					<div class="tpl-portlet">
 						<div class="portlet-title">
 							<div class="caption font-green bold">
-								<span class="am-icon-pencil">&nbsp&nbsp编辑新闻</span>
-								<a href="${ctx}/add_news_tuwenModel.jsp">
-									<span class="model_return">返&nbsp&nbsp回</span>
+								<span class="am-icon-pencil">&nbsp&nbsp编辑新闻</span> <a href="${ctx}/add_news_tuwenModel.jsp"> <span class="model_return">返&nbsp&nbsp回</span>
 								</a>
 							</div>
 							<div class="tpl-block">
 								<div class="am-g">
 									<div class="tpl-form-body tpl-form-line">
-										<form class="am-form tpl-form-line-form">
-											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="title" value="这是题目">
+										<form id="Form_model2" class="am-form tpl-form-line-form" action="" method="post" enctype="multipart/form-data">
+											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="mod2title" value="这是题目">
 
 											<div>
 												<div style="padding: 10px; text-align: center;">
-													<!--  图片上传显示-->
+													<!--  图片上传显示  代码位置禁止移动！-->
 													<!--input-group start-->
 													<div class="upload_box">
-														<input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 400px; margin: 10px auto 0px 80px;" />
+														<input type="file" name="file1" class="file" onchange="imgChange(this);" style="width: 400px; margin: 10px auto 0px 80px;" />
 														<div class="preview">
 															<img class="imghead" src="${ctx}/assets/img/add.png" width="610" height="260" />
 														</div>
@@ -218,13 +129,13 @@
 													<!--input-group end-->
 												</div>
 												<div style="padding: 10px; align: center;">
-													<textarea rows="8" style="width: 80%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8; margin: 0 auto;" maxlength="200" placeholder="请输入不超过200字内容" required></textarea>
+													<textarea name="textarea1" rows="8" style="width: 80%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8; margin: 0 auto;" maxlength="200" placeholder="请输入不超过200字内容" required></textarea>
 												</div>
 												<div style="padding: 10px; text-align: center;">
 													<!--  图片上传显示-->
 													<!--input-group start-->
 													<div class="upload_box">
-														<input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 400px; margin: 10px auto 0px 80px; outline: none;" />
+														<input type="file" name="file2" class="file" onchange="imgChange(this);" style="width: 400px; margin: 10px auto 0px 80px; outline: none;" />
 														<div class="preview">
 															<img class="imghead" src="${ctx}/assets/img/add.png" width="610" height="260" />
 														</div>
@@ -232,13 +143,13 @@
 													<!--input-group end-->
 												</div>
 												<div style="padding: 10px; align: center;">
-													<textarea rows="8" style="width: 80%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8; margin: 0 auto;" maxlength="200" placeholder="请输入不超过200字内容" required></textarea>
+													<textarea name="textarea2" rows="8" style="width: 80%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8; margin: 0 auto;" maxlength="200" placeholder="请输入不超过200字内容" required></textarea>
 												</div>
 												<div style="padding: 10px; text-align: center;">
 													<!--  图片上传显示-->
 													<!--input-group start-->
 													<div class="upload_box">
-														<input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 400px; margin: 10px auto 0px 80px; outline: none;" />
+														<input type="file" name="file3" class="file" onchange="imgChange(this);" style="width: 400px; margin: 10px auto 0px 80px; outline: none;" />
 														<div class="preview">
 															<img class="imghead" src="${ctx}/assets/img/add.png" width="610" height="260" />
 														</div>
@@ -246,14 +157,14 @@
 													<!--input-group end-->
 												</div>
 												<div style="padding: 10px; align: center;">
-													<textarea rows="8" style="width: 80%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8; margin: 0 auto;" maxlength="200" placeholder="请输入不超过200字内容" required></textarea>
+													<textarea name="textarea3" rows="8" style="width: 80%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8; margin: 0 auto;" maxlength="200" placeholder="请输入不超过200字内容" required></textarea>
 												</div>
 											</div>
 
 											<div class="am-form-group" style="margin-top: 20px;">
 												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
 												<div class="am-u-sm-10">
-													<select data-am-selected="{searchBox: 1}">
+													<select data-am-selected="{searchBox: 1}" name="selectmod2">
 														<option value="a">财经</option>
 														<option value="b">科技</option>
 														<option value="c">教育</option>
@@ -272,18 +183,16 @@
 													<!--  图片上传显示-->
 													<!--input-group start-->
 													<div class="upload_box">
-														<input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 260px" />
+														<input type="file" name="coverImg" class="file" onchange="imgChange(this);" style="width: 260px" />
 														<div class="preview" style="margin-top: 20px; outline: none;">
-															<img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136" />
+															<img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="213" />
 														</div>
 													</div>
 													<!--input-group end-->
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
-												<a href="../前台/news_post_style1_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a>
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
+												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> <a href="../news_post_style1_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa" id="sendMod2">发 布</a>
 											</div>
 										</form>
 									</div>
@@ -305,15 +214,13 @@
 
 								<li style="background: #0e90d2;">
 									<button type="button" class="am-btn am-btn-primary js-modal-open">
-										<span class="am-icon-image am-icon-fw"></span>
-										&nbsp;&nbsp;图片
+										<span class="am-icon-image am-icon-fw"></span> &nbsp;&nbsp;图片
 									</button>
 
 									<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal" style="margin-top: 50px;">
 										<div class="am-modal-dialog" style="width: 930px;">
 											<div class="am-modal-hd">
-												选择图片
-												<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+												选择图片 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
 											</div>
 											<div class="am-modal-bd">
 												<div id="fileUploadContent" class="fileUploadContent"></div>
@@ -328,14 +235,12 @@
 								<li style="background: #0e90d2;">
 
 									<button type="button" class="am-btn am-btn-primary js-modal-open">
-										<span class="am-icon-video-camera am-icon-fw"></span>
-										&nbsp;&nbsp;视频
+										<span class="am-icon-video-camera am-icon-fw"></span> &nbsp;&nbsp;视频
 									</button>
 									<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal2" style="margin-top: 50px;">
 										<div class="am-modal-dialog" style="width: 930px;">
 											<div class="am-modal-hd">
-												选择视频
-												<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+												选择视频 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
 											</div>
 											<div class="am-modal-bd">
 												<div id="fileUploadContent1" class="fileUploadContent"></div>
@@ -348,15 +253,13 @@
 								<li style="background: #0e90d2;">
 
 									<button type="button" class="am-btn am-btn-primary js-modal-open">
-										<span class="am-icon-music am-icon-fw"></span>
-										&nbsp;&nbsp;音频
+										<span class="am-icon-music am-icon-fw"></span> &nbsp;&nbsp;音频
 									</button>
 
 									<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal3" style="margin-top: 50px;">
 										<div class="am-modal-dialog">
 											<div class="am-modal-hd">
-												Modal 标题
-												<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+												Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
 											</div>
 											<div class="am-modal-bd">Modal 内容。</div>
 										</div>
@@ -377,8 +280,7 @@
 		<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
 			<div class="am-modal-dialog">
 				<div class="am-modal-hd">
-					Modal 标题
-					<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+					Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
 				</div>
 				<div class="am-modal-bd">Modal 内容。</div>
 			</div>
@@ -447,8 +349,8 @@
 				var file = e;
 				var imgUrl = window.URL.createObjectURL(file.files[0]);
 				var imgPar = e.parentNode;
-				//console.log(imgPar.childNodes);
-				var img = imgPar.childNodes[1].childNodes[0];
+				console.log(imgPar.childNodes);
+				var img = imgPar.childNodes[3].childNodes[1];
 				img.setAttribute('src', imgUrl);
 			}
 			// 页面上图片上传并显示end
@@ -458,6 +360,14 @@
 				var txt = e.innerText;
 				window.wxc.xcConfirm(txt);
 			}
+
+			//发布按钮
+			$("#sendMod2").click(function() {
+				//alert("点击了");
+				var url = "${ctx1}/addnews/mod2SendNews";
+				$("#Form_model2").attr("action", url);
+				$("#Form_model2").submit();
+			})
 		</script>
 </body>
 
