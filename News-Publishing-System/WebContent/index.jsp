@@ -6,7 +6,6 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html>
-
 <head>
 <title>新闻天下</title>
 

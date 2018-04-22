@@ -24,9 +24,6 @@ public class RoleDaoImpl extends BaseDao<Role, String>{
 	public Role getRole(Integer roleId){
 		try {
 			Role role=super.get(roleId);
-			if(role==null){
-				System.out.println("000000");
-			}
 			return role;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

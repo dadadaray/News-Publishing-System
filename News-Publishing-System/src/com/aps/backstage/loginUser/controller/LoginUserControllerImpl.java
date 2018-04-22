@@ -28,14 +28,12 @@ public class LoginUserControllerImpl {
 	private BackUserServiceImpl backUserServiceImpl;
 
 	/**
-	 * 功能： 实现注册功能 同时实现发送邮件的功能！
+	 * 功能： 实现注册功能 
 	 * 
 	 * @param name
 	 * @param email
 	 * @param password
 	 * @param session
-	 * @return 0表示邮件发送成功 1 代表数据库连接失败，服务器问题 2 代表参数传递错误，网络问题，请刷新重试 3
-	 *         代表用户名已经存在，请重新输入 4 代表邮箱已经存在，请重新输入 5 代表邮箱不符合格式
 	 * @author Ray
 	 */
 	@RequestMapping(value = "register", method = RequestMethod.POST)
@@ -59,10 +57,15 @@ public class LoginUserControllerImpl {
 			userInfo.setUserRegistTime(time);
 			userInfo.setLoginUser(loginUser);
 			loginUser.setUserInfo(userInfo);
-			this.backUserServiceImpl.bregiste(loginUser);
-			
+			String reString=this.backUserServiceImpl.bregiste(loginUser);
+			if(reString.equals("0")){
+				System.out.print("保存成功");
+				return "/backstage/login";
+			}
+			//System.out.print(reString);
+			return "/backstage/sign_up";
 		}
-		return "backstage/login";
+		return "6";
 	}
 
 
