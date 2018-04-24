@@ -25,14 +25,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.aps.entity.LoginUser;
+import com.aps.entity.ModMixCenter;
 import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
+import com.aps.news.service.NewsServiceImpl;
+import com.aps.newsType.service.NewsTypeServiceImpl;
 
 @Controller
 @RequestMapping("addnews")
 public class AddNewsControllerImpl {
 	@Resource
 	private AddNewsServiceImpl addNewsServiceImpl;
+
+	@Resource
+	private NewsTypeServiceImpl NewsTypeServiceImpl;
+
+	@Resource
+	private NewsServiceImpl newsServiceImpl;
 
 	/**
 	 * @dec 模板2 上传新闻
@@ -106,25 +116,34 @@ public class AddNewsControllerImpl {
 		}
 		os3.close();
 		is3.close();
-		
-		
-		//存入新闻
+
+		// 存入新闻
 		News news1 = new News();
 		news1.setNewsTitle(mod2title);
 		news1.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
-		//获取当前时间
+		// 获取当前时间
 		Date currentTime = new Date();
-	    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-	    String dateString = formatter.format(currentTime);
-	    
-	    System.out.print(dateString);
-	   
-		
-		
-		
-		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String dateString = formatter.format(currentTime);
+		news1.setCreateTime(dateString);
+		news1.setStatues(1);
+		// 设置审核人id
+		news1.setAuditorId(30);
+		// 设置新闻编辑人
+		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
+		news1.setUserInfo(u.getUserInfo());
 
-		return "/backstage/all_news_checking";
+		// 保存模板
+		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter(saveFile + newFileName1, textarea1,
+				saveFile + newFileName2, textarea2, saveFile + newFileName3, textarea3);
+		news1.setModMixCenter(mod);
+		// 设置新闻类型
+		news1.setNewsType(this.NewsTypeServiceImpl.getNesType(selectmod2));
+		this.newsServiceImpl.saveNews(news1);
+
+		session.setAttribute("modMixCenter", news1);
+
+		return "redirect:/backstage/news/checking/list";
 	}
 
 }

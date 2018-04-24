@@ -15,7 +15,7 @@
 <meta name="keywords" content="index">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="renderer" content="webkit">
-<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="icon" type="image/png" href="${ctx}/assets/i/favicon.png">
 <link rel="apple-touch-icon-precomposed" href="${ctx}/assets/i/app-icon72x72@2x.png">
 <meta name="apple-mobile-web-app-title" content="Amaze UI" />
@@ -28,90 +28,40 @@
 </head>
 
 <body data-type="index">
-
-
 	<header class="am-topbar am-topbar-inverse admin-header">
 		<div class="am-topbar-brand">
-			<a href="javascript:;" class="tpl-logo">
-				<img src="${ctx}/assets/img/logo.png" alt="">
+			<a href="javascript:;" class="tpl-logo"> <img src="${ctx}/assets/img/logo.png" alt="">
 			</a>
 		</div>
 		<div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right"></div>
 
 		<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
-			<span class="am-sr-only">导航切换</span>
-			<span class="am-icon-bars"></span>
+			<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
 		</button>
 
 		<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
 			<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-					<a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-						<span class="am-icon-bell-o"></span>
-						提醒
-						<span class="am-badge tpl-badge-success am-round">3</span>
-						</span>
-					</a>
+				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;"> <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span> </span>
+				</a>
 					<ul class="am-dropdown-content tpl-dropdown-content">
 						<li class="tpl-dropdown-content-external">
 							<h3>
-								你有
-								<span class="tpl-color-success">3</span>
-								条消息
-							</h3>
-							<a href="${ctx}/tongzhi.jsp" class="font-green">全部</a>
+								你有 <span class="tpl-color-success">3</span> 条消息
+							</h3> <a href="${ctx}/tongzhi.jsp" class="font-green">全部</a>
 						</li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
+						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> <span> 《从大城市的》 <span>需要修改 </a> <span class="tpl-dropdown-list-fr">3小时前</span></li>
+						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span> <span> 《从大城市的》 <span>审核通过 </a> <span class="tpl-dropdown-list-fr">15分钟前</span></li>
+						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> <span> 《从大城市的》 <span>成为推荐文章 </a> <span class="tpl-dropdown-list-fr">2天前</span></li>
+					</ul></li>
+				<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"> <span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span>
+				</a></li>
 
-							<a href="#" class="tpl-dropdown-list-fl">
-								<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span>
-								<span>
-									《从大城市的》
-									<span>需要修改 
-							</a>
-							<span class="tpl-dropdown-list-fr">3小时前</span>
-						</li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
-							<a href="#" class="tpl-dropdown-list-fl">
-								<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-								<span>
-									《从大城市的》
-									<span>审核通过 
-							</a>
-							<span class="tpl-dropdown-list-fr">15分钟前</span>
-						</li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
-							<a href="#" class="tpl-dropdown-list-fl">
-								<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span>
-								<span>
-									《从大城市的》
-									<span>成为推荐文章 
-							</a>
-							<span class="tpl-dropdown-list-fr">2天前</span>
-						</li>
-					</ul>
-				</li>
-				<li class="am-hide-sm-only">
-					<a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link">
-						<span class="am-icon-arrows-alt"></span>
-						<span class="admin-fullText">开启全屏</span>
-					</a>
-				</li>
-
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-					<a href="${ctx}/userinfo.jsp">
-						<span class="tpl-header-list-user-nick">编辑记者身份</span>
-						<span class="tpl-header-list-user-ico">
-							<img src="${ctx}/assets/img/user01.png">
-						</span>
-					</a>
-				</li>
-				<li>
-					<a href="${ctx}/login.jsp" class="tpl-header-list-link">
-						<span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
-					</a>
-				</li>
+				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="${ctx}/userinfo.jsp"> <span class="tpl-header-list-user-nick">编辑记者身份</span> <span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png">
+					</span>
+				</a></li>
+				<li><a href="${ctx}/login.jsp" class="tpl-header-list-link"> <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
+				</a></li>
 			</ul>
 		</div>
 	</header>
@@ -120,79 +70,30 @@
 			<!-- 列表 -->
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/index.jsp" class="nav-link">
-							<i class="am-icon-home"></i>
-							<span>首页</span>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list">
-							<i class="am-icon-pencil-square"></i>
-							<span>添加新文章</span>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list">
-							<i class="am-icon-bell"></i>
-							<span>通知管理</span>
-							<i class="tpl-left-nav-content tpl-badge-danger"> 12 </i>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list">
-							<i class="am-icon-inbox"></i>
-							<span>草稿箱</span>
-						</a>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
-							<i class="am-icon-file-text"></i>
-							<span>文章管理</span>
-							<i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-						</a>
+					<li class="tpl-left-nav-item"><a href="${ctx}/index.jsp" class="nav-link"> <i class="am-icon-home"></i> <span>首页</span>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-pencil-square"></i> <span>添加新文章</span>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-bell"></i> <span>通知管理</span> <i class="tpl-left-nav-content tpl-badge-danger"> 12 </i>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-inbox"></i> <span>草稿箱</span>
+					</a></li>
+					<li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link tpl-left-nav-link-list active"> <i class="am-icon-file-text"></i> <span>文章管理</span> <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+					</a>
 						<ul class="tpl-left-nav-sub-menu" style="display: block;">
-							<li>
-								<a href="${ctx}/all_news.jsp">
-									<i class="am-icon-angle-right"></i>
-									<span>发表文章</span>
-								</a>
-								<a href="${ctx}/all_news_checking.jsp" class="active">
-									<i class="am-icon-angle-right"></i>
-									<span>审核中列表</span>
-								</a>
-
-								<a href="${ctx}/all_news_checked.jsp">
-									<i class="am-icon-angle-right"></i>
-									<span>未通过类表</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="tpl-left-nav-item">
-						<a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-							<i class="am-icon-user"></i>
-							<span>个人中心</span>
-							<i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-						</a>
+							<li><a href="${ctx}/all_news.jsp"> <i class="am-icon-angle-right"></i> <span>发表文章</span>
+							</a> <a href="${ctx}/all_news_checking.jsp" class="active"> <i class="am-icon-angle-right"></i> <span>审核中列表</span>
+							</a> <a href="${ctx}/all_news_checked.jsp"> <i class="am-icon-angle-right"></i> <span>未通过类表</span>
+							</a></li>
+						</ul></li>
+					<li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link tpl-left-nav-link-list"> <i class="am-icon-user"></i> <span>个人中心</span> <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+					</a>
 						<ul class="tpl-left-nav-sub-menu">
-							<li>
-								<a href="${ctx}/userinfo.jsp">
-									<i class="am-icon-angle-right"></i>
-									<span>个人资料</span>
-								</a>
-								<a href="${ctx}/re_userinfo.jsp">
-									<i class="am-icon-angle-right"></i>
-									<span>完善信息</span>
-								</a>
-
-								<a href="${ctx}/login.jsp">
-									<i class="am-icon-angle-right"></i>
-									<span>退出登录</span>
-								</a>
-							</li>
-						</ul>
-					</li>
+							<li><a href="${ctx}/userinfo.jsp"> <i class="am-icon-angle-right"></i> <span>个人资料</span>
+							</a> <a href="${ctx}/re_userinfo.jsp"> <i class="am-icon-angle-right"></i> <span>完善信息</span>
+							</a> <a href="${ctx}/login.jsp"> <i class="am-icon-angle-right"></i> <span>退出登录</span>
+							</a></li>
+						</ul></li>
 				</ul>
 			</div>
 		</div>
@@ -200,14 +101,12 @@
 			<div class="tpl-portlet-components">
 				<div class="portlet-title">
 					<div class="caption font-green bold">
-						<span class="am-icon-file-text-o"> </span>
-						审核列表
+						<span class="am-icon-file-text-o"> </span> 审核列表
 					</div>
 					<div class="tpl-portlet-input tpl-fz-ml">
 						<div class="portlet-input input-small input-inline">
 							<div class="input-icon right">
-								<i class="am-icon-search"></i>
-								<input type="text" class="form-control form-control-solid" placeholder="请输入标题关键字">
+								<i class="am-icon-search"></i> <input type="text" class="form-control form-control-solid" placeholder="请输入标题关键字">
 							</div>
 						</div>
 					</div>
@@ -219,11 +118,9 @@
 						<div class="am-u-sm-12 am-u-md-9">
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
-									<a href="${ctx}/add_news.jsp" class="am-btn am-btn-default am-btn-secondary">
-										<span class="am-icon-plus"></span>
-										新增文章
+									<a href="${ctx}/add_news.jsp" class="am-btn am-btn-default am-btn-secondary"> <span class="am-icon-plus"></span> 新增文章
 									</a>
- 								</div>
+								</div>
 							</div>
 						</div>
 						<div class="am-u-sm-12 am-u-md-3">
@@ -260,17 +157,14 @@
 											<c:forEach items="${page.list}" var="news" varStatus="status">
 												<tr>
 													<td>${status.index+1}</td>
-													<td>
-														<a href="#">《${news.newsTitle}》</a>
-													</td>
+													<td><a href="#">《${news.newsTitle}》</a></td>
 													<td>${news.newsType.typeName}</td>
 													<td class="am-hide-sm-only">${news.createTime}</td>
 													<td>
 														<div class="am-btn-toolbar">
 															<div class="am-btn-group am-btn-group-xs">
 																<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-																	<span class="am-icon-eye"> </span>
-																	查看
+																	<span class="am-icon-eye"> </span> 查看
 																</button>
 															</div>
 														</div>
@@ -278,6 +172,7 @@
 												</tr>
 											</c:forEach>
 										</c:if>
+
 										<c:if test="${empty page or page.totalCount <= 0}">
 											<tr>
 												<td colspan="5">无信息</td>
@@ -288,20 +183,16 @@
 								<div class="am-cf">
 									<div class="am-fr">
 										<ul class="am-pagination tpl-pagination">
-											<li class="am-disabled">
-												<a href="${ctx1}/backstage/news/checking/list?pageNum=${page.prePageNum}">«</a>
-											</li>
+											<li class="am-disabled"><a href="${ctx1}/backstage/news/checking/list?pageNum=${page.prePageNum}">«</a></li>
 											<c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
 												<c:if test="${pageNum == page.currentPageNum}">
-	                                        		<li class="am-active"><a href="${ctx1}/backstage/news/checking/list?pageNum=${pageNum}">${pageNum}</a></li>
-	                                        	</c:if>
-	                                        	<c:if test="${pageNum != page.currentPageNum}">
-	                                        		<li><a href="${ctx1}/backstage/news/checking/list?pageNum=${pageNum}">${pageNum}</a></li>
-	                                        	</c:if>
+													<li class="am-active"><a href="${ctx1}/backstage/news/checking/list?pageNum=${pageNum}">${pageNum}</a></li>
+												</c:if>
+												<c:if test="${pageNum != page.currentPageNum}">
+													<li><a href="${ctx1}/backstage/news/checking/list?pageNum=${pageNum}">${pageNum}</a></li>
+												</c:if>
 											</c:forEach>
-											<li>
-												<a href="${ctx1}/backstage/news/checking/list?pageNum=${page.nextPageNum}">»</a>
-											</li>
+											<li><a href="${ctx1}/backstage/news/checking/list?pageNum=${page.nextPageNum}">»</a></li>
 										</ul>
 									</div>
 								</div>
@@ -325,7 +216,6 @@
 	<script src="${ctx}/assets/js/iscroll.js"></script>
 	<script src="${ctx}/assets/js/app.js"></script>
 	<script type="text/javascript">
-	
 		//查看
 		function preview() {
 			window.open("all_news_back_checking_content.jsp");

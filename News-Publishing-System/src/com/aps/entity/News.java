@@ -30,9 +30,9 @@ public class News {
 	private Integer newsId;
 	private String newsTitle; // 新闻标题
 	private String coverImgUrl; // 封面图片
-	private Date publishTime; // 发表时间
-	private Date createTime; // 创作时间
-	private Integer statues; // 文章状态 0：草稿 1：待审核 2：审核通过 3：未通过 4：发布
+	private String publishTime; // 发表时间
+	private String createTime; // 创作时间
+	private Integer statues; // 文章状态 0：草稿  1：待审核 2：审核通过 3：未通过 4：发布
 	private Integer topShow; // 推荐文章 0：不推 1：推荐
 	private Integer views; // 文章浏览量
 	private Integer likes; // 文章点赞数
@@ -80,20 +80,20 @@ public class News {
 		this.coverImgUrl = coverImgUrl;
 	}
 
-	public Date getPublishTime() {
+	public String getPublishTime() {
 		return publishTime;
 	}
 
-	public void setPublishTime(Date publishTime) {
-		this.publishTime = publishTime;
+	public void setPublishTime(String dateString) {
+		this.publishTime = dateString;
 	}
 
-	public Date getCreateTime() {
+	public String getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
+	public void setCreateTime(String dateString) {
+		this.createTime = dateString;
 	}
 
 	public Integer getTopShow() {

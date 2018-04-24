@@ -98,9 +98,16 @@ public class NewsServiceImpl {
 	 */
 	@Transactional(readOnly = false)
 	public int deleteNews(String newsIds) {
-		return this.newsDaoImpl.deleteNews(newsIds);
-		
+		return this.newsDaoImpl.deleteNews(newsIds);	
 	}
-	
+	/**
+	 * @dec 保存新闻
+	 * @author Ray
+	 * @param news
+	 */
+	@Transactional(readOnly = false)
+	public void saveNews(News news){
+		this.saveNews(news);
+	}
 	
 }
