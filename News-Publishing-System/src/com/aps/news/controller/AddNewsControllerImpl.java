@@ -134,14 +134,14 @@ public class AddNewsControllerImpl {
 		news1.setUserInfo(u.getUserInfo());
 
 		// 保存模板
-		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter(saveFile + newFileName1, textarea1,
-				saveFile + newFileName2, textarea2, saveFile + newFileName3, textarea3);
+		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter(saveFile +"/"+ newFileName1, textarea1,
+				saveFile +"/"+ newFileName2, textarea2, saveFile +"/"+ newFileName3, textarea3);
 		news1.setModMixCenter(mod);
 		// 设置新闻类型
-		news1.setNewsType(this.NewsTypeServiceImpl.getNesType(selectmod2));
+		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news1);
 
-		session.setAttribute("modMixCenter", news1);
+		session.setAttribute("newsmodMixCenter", news1);
 
 		return "redirect:/backstage/news/checking/list";
 	}

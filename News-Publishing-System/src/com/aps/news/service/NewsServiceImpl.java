@@ -107,7 +107,7 @@ public class NewsServiceImpl {
 	 */
 	@Transactional(readOnly = false)
 	public void saveNews(News news){
-		this.saveNews(news);
+		this.newsDaoImpl.saveNews(news);
 	}
 	
 }

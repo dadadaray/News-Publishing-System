@@ -13,13 +13,13 @@ public class NewsTypeServiceImpl {
 	private NewsTypeDaoImpl newsTypeDaoImpl;
 
 	/**
-	 * @dec  通过类别名查询新闻类别
+	 * @dec 通过类别名查询新闻类别
 	 * @author Ray
 	 * @param name
 	 * @return
 	 */
-	public NewsType getNesType(String name) {
-		return this.getNesType(name);
+	public NewsType getNewType(String name) {
+		return this.newsTypeDaoImpl.findNewsTypeByName(name);
 	}
 
 }
