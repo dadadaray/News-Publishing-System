@@ -96,11 +96,11 @@
                     <i class="am-icon-angle-right"></i>
                     <span>待审新文章</span>
                   </a>
-                  <a href="${ctx}/all_news_back.jsp">
+                  <a href="${ctx1}/backstage/news/back/publish/list">
                     <i class="am-icon-angle-right"></i>
                     <span>已发布文章</span>
                   </a>
-                  <a href="${ctx}/all_news_back_checked.jsp">
+                  <a href="${ctx1}/backstage/news/back/unchecked/list">
                     <i class="am-icon-angle-right"></i>
                     <span>未通过文章</span>
                   </a>

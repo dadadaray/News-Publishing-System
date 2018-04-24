@@ -264,7 +264,7 @@
 														<a href="#">《${news.newsTitle}》</a>
 													</td>
 													<td>${news.newsType.typeName}</td>
-													<td class="am-hide-sm-only">${news.createTime}</td>
+													<td class="am-hide-sm-only"><fmt:formatDate value="${news.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 													<td>
 														<div class="am-btn-toolbar">
 															<div class="am-btn-group am-btn-group-xs">

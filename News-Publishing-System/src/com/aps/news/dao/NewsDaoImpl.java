@@ -150,6 +150,74 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	}
 	
 	/**
+	 * @Title: backPublishList
+	 * @Description: 后台管理员已发布文章列表
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @param orderBy 排序方式 默认0：发布时间  1：分享 2：浏览 3：留言
+	 * @return
+	 * @author HanChen
+	 * @return Page<News>
+	 */
+	public Page<News> backPublishList(int pageNum, int pageSize, Object[] params, int orderBy){
+		String hql,orderParam = "";
+		switch(orderBy){
+		case 0:
+			orderParam = "publishTime";
+			break;
+		case 1:
+			orderParam = "share";
+			break;
+		case 2:
+			orderParam = "views";
+			break;
+		case 3:
+			orderParam = "commentNum";
+			break;
+		}
+		hql="from News n where n.auditorId = ? and n.statues = 4 order by n." + orderParam + " desc";
+		params[0]=params[0];
+		
+		try{
+			Page<News> page = new Page<News>();
+			page.setCurrentPageNum(pageNum);
+			page.setPageSize(pageSize);
+			page = this.findByPage(pageNum, pageSize, hql, params);
+			return page;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}		
+	}
+	
+	/**
+	 * @Title: backUncheckingNewsList
+	 * @Description: 后台管理员审核未通过文章列表
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 * @author HanChen
+	 * @return Page<News>
+	 */
+	public Page<News> backUncheckingNewsList(int pageNum, int pageSize, Object[] params){
+		String hql;
+		hql="from News n where n.auditorId = ? and n.statues = 3 order by n.createTime desc";
+		params[0]=params[0];
+		try{
+			Page<News> page = new Page<News>();
+			page.setCurrentPageNum(pageNum);
+			page.setPageSize(pageSize);
+			page = this.findByPage(pageNum, pageSize, hql, params);
+			return page;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}		
+	}
+	
+	/**
 	 * @Title: deleteNews
 	 * @Description: 删除新闻
 	 * @param newsIds
