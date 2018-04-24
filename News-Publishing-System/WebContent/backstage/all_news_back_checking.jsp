@@ -28,8 +28,7 @@
 </head>
 
 <body data-type="index">
-
-
+	
 	<header class="am-topbar am-topbar-inverse admin-header">
 		<div class="am-topbar-brand">
 			<a href="javascript:;" class="tpl-logo">
