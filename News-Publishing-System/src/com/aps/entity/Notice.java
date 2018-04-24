@@ -84,4 +84,5 @@ public class Notice {
 	public void setReciveId(Integer reciveId) {
 		this.reciveId = reciveId;
 	}
+	
 }
