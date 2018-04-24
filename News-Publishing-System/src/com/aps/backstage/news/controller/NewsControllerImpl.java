@@ -173,6 +173,70 @@ public class NewsControllerImpl {
 	}	
 	
 	/**
+	 * @Title: backPublishList
+	 * @Description: 后台管理员已发布文章列表
+	 * @param pageNum
+	 * @param orderBy
+	 * @param session
+	 * @return
+	 * @author HanChen  
+	 * @return String
+	 */
+	@RequestMapping(value = "back/publish/list", method = RequestMethod.GET)
+	public String backPublishList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, 
+			@RequestParam(name = "orderBy", defaultValue = "0") int orderBy, HttpSession session)  {
+		// 获取用户信息
+		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
+		
+		// 如果没有用户信息，需要进行登陆
+		/*if (loginUser == null) {
+			return "login";
+		}*/
+		
+		UserInfo userInfo = new UserInfo();
+		userInfo.setUserInfoId(30);
+		LoginUser loginUser = new LoginUser();
+		loginUser.setUserInfo(userInfo);
+		
+		Page<News> page = new Page<News>();
+		page = this.newsServiceImpl.backPublishNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()}, orderBy);
+
+		session.setAttribute("page", page);
+		return "backstage/all_news_back";		
+	}
+	
+	/**
+	 * @Title: backUncheckedList
+	 * @Description: 后台管理员审核未通过文章列表
+	 * @param pageNum
+	 * @param session
+	 * @return
+	 * @author HanChen
+	 * @return String
+	 */
+	@RequestMapping(value = "back/unchecked/list", method = RequestMethod.GET)
+	public String backUncheckedList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session){
+		// 获取用户信息
+		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
+		
+		// 如果没有用户信息，需要进行登陆
+		/*if (loginUser == null) {
+			return "login";
+		}*/
+		
+		UserInfo userInfo = new UserInfo();
+		userInfo.setUserInfoId(30);
+		LoginUser loginUser = new LoginUser();
+		loginUser.setUserInfo(userInfo);
+		
+		Page<News> page = new Page<News>();
+		page = this.newsServiceImpl.backUncheckedNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
+
+		session.setAttribute("page", page);
+		return "backstage/all_news_back_checked";		
+	}
+	
+	/**
 	 * @Title: deleteNews
 	 * @Description: 删除新闻与新闻相关的通知
 	 * @param newsIds

@@ -87,6 +87,34 @@ public class NewsServiceImpl {
 		return this.newsDaoImpl.backCheckingNewsList(pageNum, pageSize, params);
 	}
 	
+	/**
+	 * @Title: backPublishNewsList
+	 * @Description: 后台管理员已发布文章列表
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @param orderBy
+	 * @return
+	 * @author HanChen 
+	 * @return Page<News>
+	 */
+	public Page<News> backPublishNewsList(int pageNum, int pageSize, Object[] params, int orderBy){
+		return this.newsDaoImpl.backPublishList(pageNum, pageSize, params, orderBy);
+	}
+	
+	/**
+	 * @Title: backUncheckedNewsList
+	 * @Description: 后台管理员审核未通过文章列表
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return HanChen
+	 * @author 
+	 * @return Page<News>
+	 */
+	public Page<News> backUncheckedNewsList(int pageNum, int pageSize, Object[] params){
+		return this.newsDaoImpl.backUncheckingNewsList(pageNum, pageSize, params);
+	}
 	
 	/**
 	 * @Title: deleteNews

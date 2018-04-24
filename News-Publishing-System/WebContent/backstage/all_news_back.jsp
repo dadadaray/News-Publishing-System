@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
+
 <!doctype html>
 <html>
 
@@ -50,7 +52,6 @@
 						<span class="am-icon-bell-o"></span>
 						新文章
 						<span class="am-badge tpl-badge-danger am-round">2</span>
-						</span>
 					</a>
 					<ul class="am-dropdown-content tpl-dropdown-content">
 						<li class="tpl-dropdown-content-external">
@@ -172,6 +173,7 @@
 								<a href="${ctx}/all_users.jsp">
 									<i class="am-icon-angle-right"></i>
 									<span>网站用户</span>
+								</a>
 							</li>
 						</ul>
 					</li>
@@ -208,19 +210,19 @@
 						<div class="am-u-sm-12 am-u-md-9">
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
-									<button type="button" class="am-btn am-btn-default am-btn-danger">
+									<button type="button" class="am-btn am-btn-default am-btn-danger" onclick="deleteItem()">
 										<span class="am-icon-trash-o"></span>
 										批量删除
 									</button>
-									<button type="button" class="am-btn am-btn-default am-btn-secondary">
+									<button type="button" class="am-btn am-btn-default am-btn-secondary" onclick="newsSort(1)">
 										<span class="am-icon-share-alt"></span>
 										分享排行
 									</button>
-									<button type="button" class="am-btn am-btn-default am-btn-warning">
+									<button type="button" class="am-btn am-btn-default am-btn-warning" onclick="newsSort(2)">
 										<span class="am-icon-eye"></span>
 										浏览排行
 									</button>
-									<button type="button" class="am-btn am-btn-default am-btn-success">
+									<button type="button" class="am-btn am-btn-default am-btn-success" onclick="newsSort(3)">
 										<span class="am-icon-comment"></span>
 										留言排行
 									</button>
@@ -264,86 +266,55 @@
 										</tr>
 									</thead>
 									<tbody id="doc-modal-list">
-										<tr>
-											<td>
-												<input type="checkbox" name="box" onclick="checkonebox()" value="">
-											</td>
-											<td>1</td>
-											<td>
-												<a href="#">《战时孤儿》</a>
-											</td>
-
-											<td>
-												<img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
-												<a class="user-name" href="###">禁言小张</a>
-											</td>
-											<td>军事</td>
-											<td class="am-hide-sm-only">45689</td>
-											<td class="am-hide-sm-only">1256</td>
-											<td class="am-hide-sm-only font-blue bold">
-												<a href="#">445</a>
-											</td>
-											<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-											<td>
-												<div class="am-btn-toolbar">
-													<div class="am-btn-group am-btn-group-xs">
-														<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-															<span class="am-icon-eye"> </span>
-															查看
-														</button>
-														<button type="button" class="am-btn am-btn-default am-btn-xs am-text-warning am-hide-sm-only" onclick="topNews(this)">
-															<span class="am-icon-level-up"> </span>
-															推荐
-														</button>
-														<input type="hidden" data-id="1" />
-														<button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-															<span class="am-icon-trash-o"></span>
-															删除
-														</button>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="checkbox" name="box" onclick="checkonebox()" value="">
-											</td>
-											<td>1</td>
-											<td>
-												<a href="#">《战时孤儿》</a>
-											</td>
-
-											<td>
-												<img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
-												<a class="user-name" href="###">禁言小张</a>
-											</td>
-											<td>军事</td>
-											<td class="am-hide-sm-only">45689</td>
-											<td class="am-hide-sm-only">1256</td>
-											<td class="am-hide-sm-only font-blue bold">
-												<a href="#">445</a>
-											</td>
-											<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-											<td>
-												<div class="am-btn-toolbar">
-													<div class="am-btn-group am-btn-group-xs">
-														<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-															<span class="am-icon-eye"> </span>
-															查看
-														</button>
-														<button type="button" class="am-btn am-btn-default am-btn-xs am-text-warning am-hide-sm-only" onclick="topNews(this)">
-															<span class="am-icon-level-up"> </span>
-															推荐
-														</button>
-														<input type="hidden" data-id="2" />
-														<button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-															<span class="am-icon-trash-o"></span>
-															删除
-														</button>
-													</div>
-												</div>
-											</td>
-										</tr>
+										<c:if test="${not empty page and page.totalCount > 0}">
+											<c:forEach items="${page.list}" var="news" varStatus="status">
+												<tr>
+													<td>
+														<input class="checkOne" type="checkbox" name="box" onclick="checkonebox()" value="${news.newsId}">
+													</td>
+													<td>${status.index+1}</td>
+													<td>
+														<a href="#">《${news.newsTitle}》</a>
+													</td>
+		
+													<td>
+														<img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
+														<a class="user-name" href="###">${news.userInfo.loginUser}</a>
+													</td>
+													<td>${news.newsType.typeName}</td>
+													<td class="am-hide-sm-only">${news.views}</td>
+													<td class="am-hide-sm-only">${news.share}</td>
+													<td class="am-hide-sm-only font-blue bold">
+														<a href="#">${news.commentNum}</a>
+													</td>
+													<td class="am-hide-sm-only"><fmt:formatDate value="${news.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+													<td>
+														<div class="am-btn-toolbar">
+															<div class="am-btn-group am-btn-group-xs">
+																<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																	<span class="am-icon-eye"> </span>
+																	查看
+																</button>
+																<button type="button" class="am-btn am-btn-default am-btn-xs am-text-warning am-hide-sm-only" onclick="topNews(this)">
+																	<span class="am-icon-level-up"> </span>
+																	推荐
+																</button>
+																<input type="hidden" data-id="1" />
+																<button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+																	<span class="am-icon-trash-o"></span>
+																	删除
+																</button>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:if>
+										<c:if test="${empty page or page.totalCount <= 0}">
+											<tr>
+												<td colspan="10">无信息</td>
+											</tr>
+										</c:if>										
 									</tbody>
 								</table>
 								<div class="am-cf">
@@ -351,25 +322,18 @@
 									<div class="am-fr">
 										<ul class="am-pagination tpl-pagination">
 											<li class="am-disabled">
-												<a href="#">«</a>
+												<a href="${ctx1}/backstage/news/back/publish/list?pageNum=${page.prePageNum}">«</a>
 											</li>
-											<li class="am-active">
-												<a href="#">1</a>
-											</li>
+											<c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
+	                                        	<c:if test="${pageNum == page.currentPageNum}">
+	                                        		<li class="am-active"><a href="${ctx1}/backstage/news/back/publish/list?pageNum=${pageNum}">${pageNum}</a></li>
+	                                        	</c:if>
+	                                        	<c:if test="${pageNum != page.currentPageNum}">
+	                                        		<li><a href="${ctx1}/backstage/news/back/publish/list?pageNum=${pageNum}">${pageNum}</a></li>
+	                                        	</c:if>
+											</c:forEach>											
 											<li>
-												<a href="#">2</a>
-											</li>
-											<li>
-												<a href="#">3</a>
-											</li>
-											<li>
-												<a href="#">4</a>
-											</li>
-											<li>
-												<a href="#">5</a>
-											</li>
-											<li>
-												<a href="#">»</a>
+												<a href="${ctx1}/backstage/news/back/publish/list?pageNum=${page.nextPageNum}">»</a>
 											</li>
 										</ul>
 									</div>
@@ -386,11 +350,6 @@
 
 		</div>
 
-	</div>
-
-	</div>
-
-	</div>
 	</div>
 
 	<!--删除弹框 start-->
@@ -418,8 +377,28 @@
 				relatedTarget : this,
 				onConfirm : function(options) {
 					var $link = $(this.relatedTarget).prev('input');
+					var id = $link.data('id');
 					var msg = '你要删除的链接 ID 为 ' + $link.data('id');
 					alert(msg);
+					$.ajax({
+						type:"post",
+						url:"/News-Publishing-System/backstage/news/delete",
+						data : {
+							newsIds : id,
+						},
+						success : function(data, status) {
+							if (data != "0") {
+								alert("删除成功！");
+								window.location.href ="/News-Publishing-System/backstage/news/back/publish/list";
+							}else{
+								alert("删除出错！");
+							}
+						},
+						error :function(){
+							alert("删除出错！");
+						}
+					}); 					
+					
 				},
 				// closeOnConfirm: false,
 				onCancel : function() {
@@ -427,7 +406,46 @@
 				}
 			});
 		});
-
+		
+	    //新闻批量删除
+		function deleteItem(){
+			var count = 0;
+			var ids = "";
+			$(".checkOne:checked").each(function(){
+				ids = ids + $(this).val()+",";
+				count++;
+			});
+			if(count==0){
+				alert("请至少选择一条记录进行删除！");
+				return false;
+			}else{
+				$.ajax({
+					type:"post",
+					url:"/News-Publishing-System/backstage/news/delete",
+					data : {
+						newsIds : ids
+					},
+					success : function(data, status) {
+						if (data != "0") {
+							alert("删除成功！");
+							window.location.href ="/News-Publishing-System/backstage/news/back/publish/list";
+						}else{
+							alert("删除出错！");
+						}
+					},
+					error :function(){
+						alert("删除出错！");
+					}
+				});
+			}
+		}		
+		
+		//新闻排序方式
+		function newsSort(orderBy){
+			debugger;
+			window.location.href ="/News-Publishing-System/backstage/news/back/publish/list?orderBy=" + orderBy;
+		}
+		
 		//推荐弹框
 		function topNews() {
 			window.wxc.xcConfirm("已成功推荐该文章！");
