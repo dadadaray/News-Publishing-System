@@ -1,6 +1,6 @@
 package com.aps.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +31,7 @@ public class News {
 	private String newsTitle; // 新闻标题
 	private String coverImgUrl; // 封面图片
 	private Date publishTime; // 发表时间
-	private String createTime; // 创作时间
+	private Date createTime; // 创作时间
 	private Integer statues; // 文章状态 0：草稿  1：待审核 2：审核通过 3：未通过 4：发布
 	private Integer topShow; // 推荐文章 0：不推 1：推荐
 	private Integer views; // 文章浏览量
@@ -88,12 +88,12 @@ public class News {
 		this.publishTime = publishTime;
 	}
 
-	public String getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(String dateString) {
-		this.createTime = dateString;
+	public void setCreateTime(Date currentTime) {
+		this.createTime = currentTime;
 	}
 
 	public Integer getTopShow() {

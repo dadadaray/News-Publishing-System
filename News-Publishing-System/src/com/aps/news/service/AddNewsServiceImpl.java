@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
+import com.aps.entity.ModMixSingle;
 import com.aps.modMixCenter.modMixCenterDaoImpl;
 import com.aps.modMixLF.modMixLFDaoImpl;
+import com.aps.modMixSingle.modMixSingleDaoImpl;
 
 @Service
 public class AddNewsServiceImpl {
@@ -17,6 +19,8 @@ public class AddNewsServiceImpl {
 	private modMixCenterDaoImpl addNewsDaoImpl;
 	@Resource
 	private modMixLFDaoImpl modMixLFDaoImpl;
+	@Resource
+	private modMixSingleDaoImpl modMixSingleDaoImpl;
 
 	/**
 	 * @Method: makeFileName
@@ -76,6 +80,28 @@ public class AddNewsServiceImpl {
 		try {
 			this.modMixLFDaoImpl.save(modMixLR);
 			return modMixLR;
+		} catch (Exception e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+	
+	/**
+	 * @dec 图文混合一个保存并返回
+	 * @author Ray
+	 * @param f1
+	 * @param t1
+	 * @param t3
+	 */
+	public ModMixSingle saveModMixSingle(String f1, String t1) {
+		ModMixSingle modMixSingle = new ModMixSingle();
+		modMixSingle.setmMixSingleImgOne(f1);
+		modMixSingle.setmMixSingleContentOne(t1);
+		try {
+			this.modMixSingleDaoImpl.saveModMixSingle(modMixSingle);
+			return modMixSingle;
 		} catch (Exception e){
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -28,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aps.entity.LoginUser;
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
+import com.aps.entity.ModMixSingle;
 import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
@@ -44,6 +45,7 @@ public class AddNewsControllerImpl {
 
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
+	
 
 	/**
 	 * @dec 模板2 上传新闻
@@ -124,9 +126,7 @@ public class AddNewsControllerImpl {
 		news1.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
 		// 获取当前时间
 		Date currentTime = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String dateString = formatter.format(currentTime);
-		news1.setCreateTime(dateString);
+		news1.setCreateTime(currentTime);
 		news1.setStatues(1);
 		// 设置审核人id
 		news1.setAuditorId(30);
@@ -226,9 +226,7 @@ public class AddNewsControllerImpl {
 		news2.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
 		// 获取当前时间
 		Date currentTime = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String dateString = formatter.format(currentTime);
-		news2.setCreateTime(dateString);
+		news2.setCreateTime(currentTime);
 		news2.setStatues(1);
 		// 设置审核人id
 		news2.setAuditorId(30);
@@ -250,4 +248,80 @@ public class AddNewsControllerImpl {
 		return "redirect:/backstage/news/checking/list";
 	}
 
+	
+	/**
+	 * Deck  模板3 上传新闻
+	 * @actor Ray
+	 * @param file1
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "mod3SendNews", method = RequestMethod.POST)
+	public String mod3SendNews(@RequestParam("mod3title") String mod2title, @RequestParam("file1") MultipartFile file1,
+			@RequestParam("textarea1") String textarea1, @RequestParam("selectmod3") String selectmod2,
+			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
+			HttpSession session) throws IOException {
+
+		// 第一个图片
+		String filename1 = file1.getOriginalFilename();
+		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
+
+		
+
+		// 封面图片
+		String coverImgname = coverImg.getOriginalFilename();
+		String newcoverImgname = addNewsServiceImpl.makeFileName(coverImgname);
+
+		// 写入本地磁盘
+		InputStream is = file1.getInputStream();
+		InputStream is3 = coverImg.getInputStream();
+
+		byte[] bs = new byte[1024];
+		int len;
+		// 保存路径
+		File saveFile = new File("D:/ImgTemp/");
+		if (!saveFile.exists()) {
+			saveFile.mkdirs();
+		}
+		OutputStream os = new FileOutputStream("D:/ImgTemp/" + newFileName1);
+		while ((len = is.read(bs)) != -1) {
+			os.write(bs, 0, len);
+		}
+		os.close();
+		is.close();
+		OutputStream os3 = new FileOutputStream("D:/ImgTemp/" + newcoverImgname);
+		while ((len = is3.read(bs)) != -1) {
+			os3.write(bs, 0, len);
+		}
+		os3.close();
+		is3.close();
+
+		// 存入新闻
+		News news3 = new News();
+		news3.setNewsTitle(mod2title);
+		news3.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
+		// 获取当前时间
+		Date currentTime = new Date();
+		news3.setCreateTime(currentTime);
+		news3.setStatues(1);
+		// 设置审核人id
+		news3.setAuditorId(30);
+		// 设置新闻编辑人
+		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
+		news3.setUserInfo(u.getUserInfo());
+
+		// 保存模板
+		ModMixSingle mods = this.addNewsServiceImpl.saveModMixSingle("D:/ImgTemp/" + newFileName1, textarea1);
+
+		news3.setModMixSingle(mods);
+		// 设置新闻类型
+		news3.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
+		this.newsServiceImpl.saveNews(news3);
+
+		session.setAttribute("newsmodMixLR", news3);
+
+		return "redirect:/backstage/news/checking/list";
+	}
 }

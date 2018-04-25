@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
 <!doctype html>
 <html>
 
@@ -109,7 +110,7 @@
 							<div class="tpl-block">
 								<div class="am-g">
 									<div class="tpl-form-body tpl-form-line">
-										<form id="Form_model1" class="am-form tpl-form-line-form" action="">
+										<form id="Form_model1" class="am-form tpl-form-line-form" action=""  method="post" enctype="multipart/form-data">
 											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="mod1title" value="这是题目">
 											<div style="overflow: hidden; margin-top: 20px;">
 												<div class="am-u-md-3" style="float: left;">
