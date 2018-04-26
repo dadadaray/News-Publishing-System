@@ -56,8 +56,9 @@
 					</ul></li>
 				<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="${ctx}/userinfo.jsp"> <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
-				</a></li>
+				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
+                    </a></li>
 				<li><a href="${ctx}/login.jsp" class="tpl-header-list-link"> <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
 				</a></li>
 			</ul>
@@ -110,7 +111,7 @@
 							<div class="tpl-block">
 								<div class="am-g">
 									<div class="tpl-form-body tpl-form-line">
-										<form id="Form_model1" class="am-form tpl-form-line-form" action=""  method="post" enctype="multipart/form-data">
+										<form id="Form_model1" class="am-form tpl-form-line-form" action="" method="post" enctype="multipart/form-data">
 											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="mod1title" value="这是题目">
 											<div style="overflow: hidden; margin-top: 20px;">
 												<div class="am-u-md-3" style="float: left;">
@@ -200,9 +201,7 @@
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
-												<a href="../前台/news_post_style2_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> 
-												<a id="sendMod1" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
+												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> <a href="../前台/news_post_style2_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> <a id="sendMod1" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
 											</div>
 										</form>
 									</div>
