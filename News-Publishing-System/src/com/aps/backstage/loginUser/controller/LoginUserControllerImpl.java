@@ -56,6 +56,8 @@ public class LoginUserControllerImpl {
 			loginUser.setRole(role);
 			userInfo.setUserRegistTime(time);
 			userInfo.setLoginUser(loginUser);
+			//设置默认头像
+			userInfo.setHeadUrl("default.png");
 			loginUser.setUserInfo(userInfo);
 			String reString=this.backUserServiceImpl.bregiste(loginUser);
 			if(reString.equals("0")){
