@@ -117,6 +117,35 @@ public class NewsServiceImpl {
 	}
 	
 	/**
+	 * @Title: getHotNewsList
+	 * @Description: 后台管理员首页文章排行
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @param timeSlot 排序时间段 默认0：昨天； 1：前天； 2：本周 ；
+	 * @return
+	 * @author HanChen 
+	 * @return Page<News>
+	 */
+	public Page<News> getHotNewsList(int pageNum, int pageSize, Object[] params, int timeSlot){
+		return this.newsDaoImpl.getHotNewsList(pageNum, pageSize, params, timeSlot);
+	}
+
+	/**
+	 * @Title: draftNewsList
+	 * @Description: 草稿箱
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 * @author HanChen  
+	 * @return Page<News>
+	 */
+	public Page<News> draftNewsList(int pageNum, int pageSize, Object[] params){
+		return this.newsDaoImpl.draftNewsList(pageNum, pageSize, params);
+	}
+	
+	/**
 	 * @Title: deleteNews
 	 * @Description: 删除新闻
 	 * @param newsIds

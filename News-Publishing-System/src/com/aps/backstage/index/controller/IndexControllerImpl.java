@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aps.entity.LoginUser;
+import com.aps.entity.News;
 import com.aps.entity.Notice;
 import com.aps.entity.UserInfo;
+import com.aps.news.service.NewsServiceImpl;
 import com.aps.notice.service.NoticeServiceImpl;
 import com.framework.Page;
 
@@ -22,6 +24,9 @@ public class IndexControllerImpl {
 	
 	@Resource
 	private NoticeServiceImpl noticeServiceImpl;
+	
+	@Resource
+	private NewsServiceImpl newsServiceImpl;
 
 	/**
 	 * @Title: index
@@ -61,22 +66,22 @@ public class IndexControllerImpl {
 	
 	/**
 	 * @Title: indexBack
-	 * @Description: 后台管理官登录
+	 * @Description: 后台管理员登录首页
 	 * @param pageNum
-	 * @param noticeType
+	 * @param timeSlot
 	 * @param request
 	 * @param session
 	 * @return
-	 * @author HanChen 
+	 * @author HanChen  
 	 * @return String
 	 */
 	@RequestMapping(value = "indexBack")
 	public String indexBack(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,
-			@RequestParam(name = "noticeType", defaultValue = "") String noticeType,
+			@RequestParam(name = "timeSlot", defaultValue = "0") int timeSlot,
 			 HttpServletRequest request, HttpSession session) {
 		
 		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(29);
+		userInfo.setUserInfoId(30);
 		LoginUser loginUser = new LoginUser();
 		loginUser.setUserInfo(userInfo);
 		
@@ -87,6 +92,11 @@ public class IndexControllerImpl {
 		/*if (loginUser == null) {
 			return "login";
 		}*/
+		
+		Page<News> page = new Page<News>();
+		page = this.newsServiceImpl.getHotNewsList(pageNum, 5, new Object[] { loginUser.getUserInfo().getUserInfoId()}, timeSlot);
+
+		session.setAttribute("page", page);
 		
 		return "backstage/index_back";
 	}

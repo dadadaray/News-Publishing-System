@@ -123,7 +123,7 @@
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="draft.jsp" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx1}/backstage/draft/list" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-inbox"></i>
                             <span>草稿箱</span>
                         </a>

@@ -327,7 +327,6 @@
 
 	//新闻排序方式
 	function newsSort(orderBy){
-		debugger;
 		window.location.href ="/News-Publishing-System/backstage/news/publish/list?orderBy=" + orderBy;
 	}
 	

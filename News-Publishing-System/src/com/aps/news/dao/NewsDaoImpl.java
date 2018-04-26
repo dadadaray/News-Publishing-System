@@ -1,9 +1,12 @@
 package com.aps.news.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -35,7 +38,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	 * @param pageNum
 	 * @param pageSize
 	 * @param params
-	 * @param orderBy 排序方式 默认0：发布时间  1：分享 2：浏览 3：留言
+	 * @param orderBy 排序方式 默认0：发布时间  1：分享 2：浏览 3：留言 4:按浏览量、评论量排序
 	 * @return
 	 * @author HanChen
 	 * @return Page<News>
@@ -57,6 +60,61 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 			break;
 		}
 		hql="from News n where n.userInfo.userInfoId = ? and n.statues = 4 order by n." + orderParam + " desc";
+		params[0]=params[0];
+		
+		try{
+			Page<News> page = new Page<News>();
+			page.setCurrentPageNum(pageNum);
+			page.setPageSize(pageSize);
+			page = this.findByPage(pageNum, pageSize, hql, params);
+			return page;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * @Title: getHotNewsList
+	 * @Description: 后台管理员首页文章排行
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @param timeSlot 排序时间段 默认0：昨天； 1：前天； 2：本周 ；
+	 * @return
+	 * @author HanChen
+	 * @return Page<News>
+	 */
+	public Page<News> getHotNewsList(int pageNum, int pageSize, Object[] params, int timeSlot) {
+		String hql = "from News n where 1=1 and n.publishTime != null and n.auditorId = ? and n.statues = 4 ";
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
+		String startDate = "", endDate = "", date = "";
+		switch(timeSlot){
+		case 0:
+			calendar.add(Calendar.DATE, -1); //昨天
+			date = df.format(calendar.getTime());
+			startDate = date + " 00:00:00";
+			endDate = date + " 23:59:59";			
+			break;
+		case 1:
+			calendar.add(Calendar.DATE, -2); //前天
+			date = df.format(calendar.getTime());
+			startDate = date + " 00:00:00";
+			endDate = date + " 23:59:59";
+			break;
+		case 2:
+			calendar.add(Calendar.DATE, -1); //昨天
+			endDate = df.format(calendar.getTime()) + " 23:59:59";
+			calendar.add(Calendar.DAY_OF_MONTH, -6); //前一周
+			startDate = df.format(calendar.getTime()) + " 00:00:00";
+			break;
+		}
+		if( StringUtils.isNotEmpty(startDate) && StringUtils.isNotEmpty(endDate) ){
+			hql += " and n.publishTime >= '" + startDate.trim() + "'";
+			hql += " and n.publishTime <= '" + endDate.trim() + "'";
+		}
+		hql += " order by n.views desc, commentNum desc";
 		params[0]=params[0];
 		
 		try{
@@ -204,6 +262,32 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	public Page<News> backUncheckingNewsList(int pageNum, int pageSize, Object[] params){
 		String hql;
 		hql="from News n where n.auditorId = ? and n.statues = 3 order by n.createTime desc";
+		params[0]=params[0];
+		try{
+			Page<News> page = new Page<News>();
+			page.setCurrentPageNum(pageNum);
+			page.setPageSize(pageSize);
+			page = this.findByPage(pageNum, pageSize, hql, params);
+			return page;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}		
+	}
+	
+	/**
+	 * @Title: draftNewsList
+	 * @Description: 草稿箱
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 * @author HanChen 
+	 * @return Page<News>
+	 */
+	public Page<News> draftNewsList(int pageNum, int pageSize, Object[] params){
+		String hql;
+		hql="from News n where n.userInfo.userInfoId = ? and n.statues = 0 order by n.createTime desc";
 		params[0]=params[0];
 		try{
 			Page<News> page = new Page<News>();

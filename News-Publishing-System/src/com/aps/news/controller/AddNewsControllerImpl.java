@@ -142,6 +142,7 @@ public class AddNewsControllerImpl {
 		this.newsServiceImpl.saveNews(news1);
 
 		session.setAttribute("newsmodMixCenter", news1);
+		session.setAttribute("1", mod);
 
 		return "redirect:/backstage/news/checking/list";
 	}

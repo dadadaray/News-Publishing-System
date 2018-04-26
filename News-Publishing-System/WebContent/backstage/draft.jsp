@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
+
 <!doctype html>
 <html>
 
@@ -47,7 +49,7 @@
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span></span>
+                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span>
                     </a>
                     <ul class="am-dropdown-content tpl-dropdown-content">
                         <li class="tpl-dropdown-content-external">
@@ -59,21 +61,21 @@
 
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> 
-                                <span>《从大城市的》<span>需要修改
+                                <span>《从大城市的》</span>需要修改
                               </a>
                                 <span class="tpl-dropdown-list-fr">3小时前</span>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-                                 <span>《从大城市的》<span>审核通过
+                                 <span>《从大城市的》</span>审核通过
                             </a>
                                 <span class="tpl-dropdown-list-fr">15分钟前</span>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                                 <a href="#" class="tpl-dropdown-list-fl">
                                     <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
-                                    <span>《从大城市的》<span>成为推荐文章 
+                                    <span>《从大城市的》</span>成为推荐文章 
                                 </a>
                                 <span class="tpl-dropdown-list-fr">2天前</span>
                             </li>
@@ -180,7 +182,7 @@
     <div class="tpl-portlet-components">
         <div class="portlet-title">
             <div class="caption font-green bold">
-                草稿箱列表
+               	 草稿箱列表
             </div>
             <div class="tpl-portlet-input tpl-fz-ml">
                 <div class="portlet-input input-small input-inline">
@@ -194,211 +196,82 @@
             </div>
             <div class="am-g" id="doc-modal-list">
                 <div class="tpl-table-images">
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                        <div class="tpl-table-images-content">
-                            <div class="tpl-table-images-content-i-time">创建时间：<span>2016-09-12</span></div>
-                            <div class="tpl-i-title">
-                                “你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！
-                            </div>
-                            <a href="javascript:;" class="tpl-table-images-content-i">
-                                <div class="tpl-table-images-content-i-info">
-                                    <span class="ico">
-                                        <img src="${ctx}/assets/img/user02.png" alt="">追逐
-                                    </span>
-
-                                </div>
-                                <span class="tpl-table-images-content-i-shadow"></span>
-                                <img src="${ctx}/assets/img/a1.png" alt="">
-                            </a>
-                            <div class="tpl-table-images-content-block">
-                                <div class="tpl-i-font">
-                                    你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片。
-                                </div>
-                                <div class="tpl-i-more">
-                                    <ul>
-                                    </ul>
-                                </div>
-                                <div class="row">
-                                    <a href="${ctx}/add_news.jsp" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</a>
-                                    <input type="hidden" data-id="1"/>
-                                    <button type="button" class="am-u-lg-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-danger am-btn-xs btn-close"><span class="am-icon-trash-o"></span> 删除</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                        <div class="tpl-table-images-content">
-                            <div class="tpl-table-images-content-i-time">创建时间：2016-09-12</div>
-                            <div class="tpl-i-title">
-                                “你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！
-                            </div>
-                            <a href="javascript:;" class="tpl-table-images-content-i">
-                                <div class="tpl-table-images-content-i-info">
-                                    <span class="ico">
-                                        <img src="${ctx}/assets/img/user02.png" alt="">追逐
-                                    </span>
-
-                                </div>
-                                <span class="tpl-table-images-content-i-shadow"></span>
-                                <img src="${ctx}/assets/img/a1.png" alt="">
-                            </a>
-                            <div class="tpl-table-images-content-block">
-                                <div class="tpl-i-font">
-                                    你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片。
-                                </div>
-                                <div class="tpl-i-more">
-                                    <ul>
-                                    </ul>
-                                </div>
-                                <div class="row">
-                                    <a href="${ctx}/add_news.jsp" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</a>
-                                    <input type="hidden" data-id="2"/>
-                                    <button type="button" class="am-u-lg-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-danger am-btn-xs btn-close"><span class="am-icon-trash-o"></span> 删除</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                        <div class="tpl-table-images-content">
-                            <div class="tpl-table-images-content-i-time">创建时间：2016-09-12</div>
-                            <div class="tpl-i-title">
-                                “你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！
-                            </div>
-                            <a href="javascript:;" class="tpl-table-images-content-i">
-                                <div class="tpl-table-images-content-i-info">
-                                    <span class="ico">
-                                        <img src="${ctx}/assets/img/user02.png" alt="">追逐
-                                    </span>
-
-                                </div>
-                                <span class="tpl-table-images-content-i-shadow"></span>
-                                <img src="${ctx}/assets/img/a1.png" alt="">
-                            </a>
-                            <div class="tpl-table-images-content-block">
-                                <div class="tpl-i-font">
-                                    你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片。
-                                </div>
-                                <div class="tpl-i-more">
-                                    <ul>
-                                    </ul>
-                                </div>
-                                <div class="row">
-                                    <a href="${ctx}/add_news.jsp" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</a>
-                                    <input type="hidden" data-id="3"/>
-                                    <button type="button" class="am-u-lg-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-danger am-btn-xs btn-close"><span class="am-icon-trash-o"></span> 删除</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                        <div class="tpl-table-images-content">
-                            <div class="tpl-table-images-content-i-time">创建时间：2016-09-12</div>
-                            <div class="tpl-i-title">
-                                “你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！
-                            </div>
-                            <a href="javascript:;" class="tpl-table-images-content-i">
-                                <div class="tpl-table-images-content-i-info">
-                                    <span class="ico">
-                                        <img src="${ctx}/assets/img/user02.png" alt="">追逐
-                                    </span>
-
-                                </div>
-                                <span class="tpl-table-images-content-i-shadow"></span>
-                                <img src="${ctx}/assets/img/a1.png" alt="">
-                            </a>
-                            <div class="tpl-table-images-content-block">
-                                <div class="tpl-i-font">
-                                    你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片。
-                                </div>
-                                <div class="tpl-i-more">
-                                    <ul>
-                                    </ul>
-                                </div>
-                                <div class="row">
-                                    <a href="${ctx}/add_news.jsp" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</a>
-                                    <input type="hidden" data-id="4"/>
-                                    <button type="button" class="am-u-lg-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-danger am-btn-xs btn-close"><span class="am-icon-trash-o"></span> 删除</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                        <div class="tpl-table-images-content">
-                            <div class="tpl-table-images-content-i-time">创建时间：2016-09-12</div>
-                            <div class="tpl-i-title">
-                                “你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！
-                            </div>
-                            <a href="javascript:;" class="tpl-table-images-content-i">
-                                <div class="tpl-table-images-content-i-info">
-                                    <span class="ico">
-                                        <img src="${ctx}/assets/img/user02.png" alt="">追逐
-                                    </span>
-
-                                </div>
-                                <span class="tpl-table-images-content-i-shadow"></span>
-                                <img src="${ctx}/assets/img/a1.png" alt="">
-                            </a>
-                            <div class="tpl-table-images-content-block">
-                                <div class="tpl-i-font">
-                                    你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片。
-                                </div>
-                                <div class="tpl-i-more">
-                                    <ul>
-                                    </ul>
-                                </div>
-                                <div class="row">
-                                    <a href="${ctx}/add_news.jsp" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</a>
-                                    <input type="hidden" data-id="5"/>
-                                    <button type="button" class="am-u-lg-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-danger am-btn-xs btn-close"><span class="am-icon-trash-o"></span> 删除</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                        <div class="tpl-table-images-content">
-                            <div class="tpl-table-images-content-i-time">创建时间：2016-09-12</div>
-                            <div class="tpl-i-title">
-                                “你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！
-                            </div>
-                            <a href="javascript:;" class="tpl-table-images-content-i">
-                                <div class="tpl-table-images-content-i-info">
-                                    <span class="ico">
-                                        <img src="${ctx}/assets/img/user02.png" alt="">追逐
-                                    </span>
-
-                                </div>
-                                <span class="tpl-table-images-content-i-shadow"></span>
-                                <img src="${ctx}/assets/img/a1.png" alt="">
-                            </a>
-                            <div class="tpl-table-images-content-block">
-                                <div class="tpl-i-font">
-                                    你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片。
-                                </div>
-                                <div class="tpl-i-more">
-                                    <ul>
-                                    </ul>
-                                </div>
-                                <div class="row">
-                                    <a href="${ctx}/add_news.jsp" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</a>
-                                    <input type="hidden" data-id="6"/>
-                                    <button type="button" class="am-u-lg-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-danger am-btn-xs btn-close"><span class="am-icon-trash-o"></span> 删除</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+					<c:if test="${not empty page and page.totalCount > 0}">
+						<c:forEach items="${page.list}" var="news" varStatus="status">                
+		                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+		                        <div class="tpl-table-images-content">
+		                            <div class="tpl-table-images-content-i-time">创建时间：<span><fmt:formatDate value="${news.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span></div>
+		                            <div class="tpl-i-title">
+		                                                                                               《${news.newsTitle}》
+		                            </div>
+		                            <a href="javascript:;" class="tpl-table-images-content-i">
+		                                <div class="tpl-table-images-content-i-info">
+		                                    <span class="ico">
+		                                        <img src="${ctx}/assets/img/user02.png" alt="">${news.userInfo.loginUser}
+		                                    </span>
+		                                </div>
+		                                <span class="tpl-table-images-content-i-shadow"></span>
+		                                <img src="${ctx}/assets/img/a1.png" alt="">
+		                            </a>
+		                            <div class="tpl-table-images-content-block">
+		                                <div class="tpl-i-font">
+		                                	<c:if test="${not empty news.modFree}">
+		                                		${news.modFree.modFreeContent}
+		                                	</c:if>
+		                                	<c:if test="${not empty news.modBigImg}">
+		                                		${news.modBigImg.modBigImgContent}
+		                                	</c:if>
+		                                	<c:if test="${not empty news.modVedio}">
+		                                		${news.modVedio.modVedioContent}
+		                                	</c:if>
+		                                	<c:if test="${not empty news.modAudio}">
+		                                		${news.modAudio.modAudioContent}
+		                                	</c:if>
+		                                	<c:if test="${not empty news.modMixCenter}">
+		                                		${news.modMixCenter.mMixCenterContentOne}
+		                                	</c:if>
+		                                	<c:if test="${not empty news.modMixLR}">
+		                                		${news.modMixLR.mMixLRContentOne}
+		                                	</c:if>
+		                                	<c:if test="${not empty news.modMixSingle}">
+		                                		${news.modMixSingle.mMixSingleContentOne}
+		                                	</c:if>
+		                                </div>
+		                                <div class="tpl-i-more">
+		                                    <ul>
+		                                    </ul>
+		                                </div>
+		                                <div class="row">
+		                                    <a href="${ctx}/add_news.jsp" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</a>
+		                                    <input type="hidden" data-id="${news.newsId}"/>
+		                                    <button type="button" class="am-u-lg-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-danger am-btn-xs btn-close"><span class="am-icon-trash-o"></span> 删除</button>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+						</c:forEach>
+					</c:if>
+            		<c:if test="${empty page or page.totalCount <= 0}">
+						<div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+								无信息
+						</div>
+					</c:if>					
                     <div class="am-u-lg-12">
                         <div class="am-cf">
 
                             <div class="am-fr">
                                 <ul class="am-pagination tpl-pagination">
-                                    <li class="am-disabled"><a href="#">«</a></li>
-                                    <li class="am-active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">»</a></li>
+                                    <li class="am-disabled"><a href="${ctx1}/backstage/draft/list?pageNum=${page.prePageNum}">«</a></li>
+                                    <c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
+										<c:if test="${pageNum == page.currentPageNum}">
+											<li class="am-active">
+											<a href="${ctx1}/backstage/draft/list?pageNum=${pageNum}">${pageNum}</a></li>
+										</c:if>
+										<c:if test="${pageNum != page.currentPageNum}">
+										<li><a href="${ctx1}/backstage/draft/list?pageNum=${pageNum}">${pageNum}</a></li>
+										</c:if>
+									</c:forEach>
+                                    <li><a href="${ctx1}/backstage/draft/list?pageNum=${page.nextPageNum}">»</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -413,13 +286,10 @@
     </div>
 
 </div>
-
-</div>
-</div>
     <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
       <div class="am-modal-dialog">
         <div class="am-modal-bd" style="padding:40px 10px">
-          你，确定要删除这条记录吗？
+          	你，确定要删除这条记录吗？
         </div>
         <div class="am-modal-footer">
           <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -440,8 +310,27 @@
           relatedTarget: this,
           onConfirm: function(options) {
             var $link = $(this.relatedTarget).prev('input');
+            var id = $link.data('id');
             var msg =  '你要删除的链接 ID 为 ' + $link.data('id');
             alert(msg);
+			$.ajax({
+				type:"post",
+				url:"/News-Publishing-System/backstage/news/delete",
+				data : {
+					newsIds : id,
+				},
+				success : function(data, status) {
+					if (data != "0") {
+						alert("删除成功！");
+						window.location.href ="/News-Publishing-System/backstage/draft/list";
+					}else{
+						alert("删除出错！");
+					}
+				},
+				error :function(){
+					alert("删除出错！");
+				}
+			}); 
           },
           // closeOnConfirm: false,
           onCancel: function() {
