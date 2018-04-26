@@ -1,6 +1,6 @@
 package com.aps.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -92,8 +92,8 @@ public class News {
 		return createTime;
 	}
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
+	public void setCreateTime(Date currentTime) {
+		this.createTime = currentTime;
 	}
 
 	public Integer getTopShow() {

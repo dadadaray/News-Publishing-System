@@ -43,7 +43,7 @@
 			<i>登 陆 </i> or <a href="${ctx}/sign_up.jsp"><span> 注 册</span></a>
 		</div>
 		<div class="am-u-sm-10 login-am-center">
-			<form  class="am-form" id="formlogin" target="" >
+			<form  class="am-form" id="formlogin" target="" method="post" >
 				<fieldset>
 					<div class="am-form-group">
 						<input type="email" class="login_names" id="doc-ipt-email-1" name="em222" placeholder="输入电子邮件">

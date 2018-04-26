@@ -94,12 +94,9 @@
 				</li>
 
 				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-					<a href="${ctx}/userinfo.jsp">
-						<span class="tpl-header-list-user-nick">编辑记者身份</span>
-						<span class="tpl-header-list-user-ico">
-							<img src="${ctx}/assets/img/user01.png">
-						</span>
-					</a>
+					<a href="userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
+                    </a>
 				</li>
 				<li>
 					<a href="${ctx}/login.jsp" class="tpl-header-list-link">

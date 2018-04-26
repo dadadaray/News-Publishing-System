@@ -7,12 +7,20 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.aps.entity.ModMixCenter;
-import com.aps.news.dao.AddNewsDaoImpl;
+import com.aps.entity.ModMixLR;
+import com.aps.entity.ModMixSingle;
+import com.aps.modMixCenter.modMixCenterDaoImpl;
+import com.aps.modMixLF.modMixLFDaoImpl;
+import com.aps.modMixSingle.modMixSingleDaoImpl;
 
 @Service
 public class AddNewsServiceImpl {
 	@Resource
-	private AddNewsDaoImpl addNewsDaoImpl;
+	private modMixCenterDaoImpl addNewsDaoImpl;
+	@Resource
+	private modMixLFDaoImpl modMixLFDaoImpl;
+	@Resource
+	private modMixSingleDaoImpl modMixSingleDaoImpl;
 
 	/**
 	 * @Method: makeFileName
@@ -27,19 +35,20 @@ public class AddNewsServiceImpl {
 		// System.out.print(UUID.randomUUID().toString() + "_" + filename);
 		return UUID.randomUUID().toString() + "_" + filename;
 	}
-    /** 
-     * @dec  新闻模板居中保存并返回
-     * @author Ray
-     * @param f1
-     * @param t1
-     * @param f2
-     * @param t2
-     * @param f3
-     * @param t3
-     */
+
+	/**
+	 * @dec 新闻模板居中保存并返回
+	 * @author Ray
+	 * @param f1
+	 * @param t1
+	 * @param f2
+	 * @param t2
+	 * @param f3
+	 * @param t3
+	 */
 	public ModMixCenter saveModMixCenter(String f1, String t1, String f2, String t2, String f3, String t3) {
 
-		ModMixCenter modMixCenter=new ModMixCenter();
+		ModMixCenter modMixCenter = new ModMixCenter();
 		modMixCenter.setmMixCenterImgOne(f1);
 		modMixCenter.setmMixCenterContentOne(t1);
 		modMixCenter.setmMixCenterImgTwo(f2);
@@ -48,6 +57,57 @@ public class AddNewsServiceImpl {
 		modMixCenter.setmMixCenterContentThree(t3);
 		this.addNewsDaoImpl.saveModMixCenterDao(modMixCenter);
 		return modMixCenter;
+	}
+
+	/**
+	 * @dec 新闻模板左右保存并返回
+	 * @author Ray
+	 * @param f1
+	 * @param t1
+	 * @param f2
+	 * @param t2
+	 * @param f3
+	 * @param t3
+	 */
+	public ModMixLR saveModMixLR(String f1, String t1, String f2, String t2, String f3, String t3) {
+		ModMixLR modMixLR = new ModMixLR();
+		modMixLR.setmMixLRImgOne(f1);
+		modMixLR.setmMixLRContentOne(t1);
+		modMixLR.setmMixLRImgTwo(f2);
+		modMixLR.setmMixLRContentTwo(t2);
+		modMixLR.setmMixLRImgThree(f3);
+		modMixLR.setmMixLRContentOne(t3);
+		try {
+			this.modMixLFDaoImpl.save(modMixLR);
+			return modMixLR;
+		} catch (Exception e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+	
+	/**
+	 * @dec 图文混合一个保存并返回
+	 * @author Ray
+	 * @param f1
+	 * @param t1
+	 * @param t3
+	 */
+	public ModMixSingle saveModMixSingle(String f1, String t1) {
+		ModMixSingle modMixSingle = new ModMixSingle();
+		modMixSingle.setmMixSingleImgOne(f1);
+		modMixSingle.setmMixSingleContentOne(t1);
+		try {
+			this.modMixSingleDaoImpl.saveModMixSingle(modMixSingle);
+			return modMixSingle;
+		} catch (Exception e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+
 	}
 
 }

@@ -84,8 +84,8 @@
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a href="${ctx}/userinfo.jsp">
-                        <span class="tpl-header-list-user-nick">编辑记者身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
+                    <a href="userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
                     </a>
                 </li>
                 <li>

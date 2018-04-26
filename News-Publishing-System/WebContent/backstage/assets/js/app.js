@@ -29,13 +29,13 @@ $(function() {
 		}
 	});
 
-	// 登录页面输入框验证
-	var em222 = $("input[name='em222']");
-	var pass222 = $("input[name='pass222']");
+	
 	$("#backstageLogin")
 			.click(
 					function() {
-						// alert("哈哈哈");
+						// 登录页面输入框验证
+						var em222 = $("input[name='em222']");
+						var pass222 = $("input[name='pass222']");
 						if ((em222.val() == '' && pass222.val() == '')
 								|| (em222.val() == '') || (pass222.val() == '')) {
 
@@ -45,7 +45,7 @@ $(function() {
 						}
 
 						if (em222.val() != '' && pass222.val() != '') {
-							
+
 							var md5 = new MD5();
 							var f = "......" == $(".login_pass").val() ? ""
 									: md5.MD5($(".login_pass").val());
@@ -58,14 +58,13 @@ $(function() {
 											loginName : $(".login_names").val(),
 										},
 										success : function(data, status) {
-											
+
 											console.log("这是js返回值：" + data);
 											// console.log("这是status："+status);
 											if (data == "0") {
 												// 登陆成功
 												window.location.href = "/News-Publishing-System/backstage/indexs";
 											} else if (data == "-1") {
-												alert("错误");
 												// 验证码错误
 												console.log("错误信息显示哦！");
 												$("#errorpass").show();
@@ -77,7 +76,7 @@ $(function() {
 
 										}
 									})
-						} else {
+						} else{
 
 							$("#formlogin").attr("target", "frameFiles");
 
