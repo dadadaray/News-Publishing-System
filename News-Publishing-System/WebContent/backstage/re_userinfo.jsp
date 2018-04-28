@@ -59,9 +59,8 @@
 					</ul></li>
 				<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="userinfo.jsp">
-                        <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
-                    </a></li>
+				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="userinfo.jsp"> <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
+				</a></li>
 				<li><a href="${ctx}/login.jsp" class="tpl-header-list-link"> <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
 				</a></li>
 			</ul>
@@ -93,7 +92,7 @@
 						<ul class="tpl-left-nav-sub-menu" style="display: block;">
 							<li><a href="${ctx}/userinfo.jsp"> <i class="am-icon-angle-right"></i> <span>个人资料</span>
 							</a> <a href="${ctx}/re_userinfo.jsp" class="active"> <i class="am-icon-angle-right"></i> <span>完善信息</span>
-							</a> <a href="${ctx}/login.jsp"> <i class="am-icon-angle-right"></i> <span>退出登录</span>
+							</a> <a href="${ctx1}/backstage/logOut"> <i class="am-icon-angle-right"></i> <span>退出登录</span>
 							</a></li>
 						</ul></li>
 				</ul>
@@ -119,7 +118,7 @@
 
 					<div class="am-g tpl-amazeui-form">
 
-						<form class="am-form am-form-horizontal">
+						<form id="updateUserInfo" class="am-form am-form-horizontal" action="" method="post">
 							<div class="am-u-sm-12 am-u-md-9">
 
 								<div class="am-form-group">
@@ -132,11 +131,6 @@
 											<button onclick="show(this)" type="button" class="am-btn am-btn-danger am-btn-sm">
 												<i class="am-icon-cloud-upload"></i> 上传头像
 											</button>
-
-
-
-
-
 										</div>
 									</div>
 								</div>
@@ -146,40 +140,27 @@
 								<div class="am-form-group">
 									<label for="user-name" class="am-u-sm-3 am-form-label">用户名 / Name</label>
 									<div class="am-u-sm-9">
-										<input type="text" id="user-name" placeholder="用户名 / Name"> <small>输入你的用户名，让我们记住你。</small>
-									</div>
-								</div>
-
-								<div class="am-form-group">
-									<label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
-									<div class="am-u-sm-9">
-										<input type="email" name="useremailform" id="user-email" placeholder="输入你的电子邮件 / Email"> <small>邮箱你懂得...</small>
-									</div>
-								</div>
-								<div class="warninfo3" style="margin-left: 200px; margin-top: -10px;">
-									<div class="am-alert am-btn am-btn-danger" data-am-alert>
-										<button type="button" class="am-close">&times;</button>
-										<p style="color: #000">输入正确的邮箱格式吆！</p>
+										<input type="text" name="bUserName" id="user-name" value="${bloginUser.loginName }" placeholder="用户名 / Name"> <small>输入你的用户名，让我们记住你。</small>
 									</div>
 								</div>
 
 
 								<div class="am-form-group">
-									<label for="user-phone" class="am-u-sm-3 am-form-label">电话 / Telephone</label>
+									<label for="user-phone" class="am-u-sm-3 am-form-label" >电话 / Telephone</label>
 									<div class="am-u-sm-9">
-										<input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone">
+										<input type="tel" name="bphone" id="user-phone" value="${bloginUser.userInfo.phone}"  placeholder="输入你的电话号码 / Telephone">
 									</div>
 								</div>
 								<div class="am-form-group">
 									<label for="user-intro" class="am-u-sm-3 am-form-label">职业信条 / creed</label>
 									<div class="am-u-sm-9">
-										<textarea class="" rows="5" id="user-intro" placeholder="输入职业信条(少于250个字)" maxlength="250" required></textarea>
+										<textarea class="" rows="5" name="creed" id="user-intro" placeholder="输入职业信条(少于250个字)" maxlength="250" required>${bloginUser.userInfo.creed}</textarea>
 									</div>
 								</div>
 								<div class="am-form-group">
 									<label for="user-intro" class="am-u-sm-3 am-form-label">简介 / Intro</label>
 									<div class="am-u-sm-9">
-										<textarea class="" rows="5" id="user-intro" placeholder="输入个人简介(少于250个字)" maxlength="250" required=""></textarea>
+										<textarea class="" name="intro" rows="5" id="user-intro"  placeholder="输入个人简介(少于250个字)" maxlength="250" required>${bloginUser.userInfo.info }</textarea>
 
 									</div>
 								</div>
@@ -187,7 +168,7 @@
 
 
 								<div class="am-u-sm-9 am-u-sm-push-3">
-									<button type="button" class="am-btn am-btn-primary">保存修改</button>
+									<button id="saveEditer"  type="button" class="am-btn am-btn-primary">保存修改</button>
 								</div>
 							</div>
 						</form>
@@ -234,6 +215,13 @@
 			var oOpen = window.open(url, "adviceDetail", model);
 			oOpen.focus();
 		}
+
+		$("#saveEditer").click(function(){
+			//alert("点击了");
+			var url = "${ctx1}/backstage/userInfo/saveEditor";
+			$("#updateUserInfo").attr("action", url);
+			$("#updateUserInfo").submit();
+		})
 	</script>
 </body>
 

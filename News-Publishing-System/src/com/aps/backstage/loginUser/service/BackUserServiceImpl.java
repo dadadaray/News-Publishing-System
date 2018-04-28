@@ -17,6 +17,12 @@ public class BackUserServiceImpl {
 	@Resource
 	private BackUserDaoImpl backUserDaoImpl;
 
+	/**
+	 * @dec  注册
+	 * @author Ray
+	 * @param loginUser
+	 * @return
+	 */
 	@Transactional(readOnly = false)
 	public String bregiste(LoginUser loginUser) {
 		if (this.backUserDaoImpl.bfindByEmil(loginUser.getLoginEmail()) != null) {
@@ -55,6 +61,15 @@ public class BackUserServiceImpl {
 		System.out.print("正确账号。");
 		// 登录成功！
 		return "0";
+	}
+
+	/**
+	 * @dec  更新用户名
+	 * @param l
+	 */
+	@Transactional(readOnly = false)
+	public void bupdateUserName(LoginUser l) {
+		this.backUserDaoImpl.updateBUserName(l);
 	}
 
 }

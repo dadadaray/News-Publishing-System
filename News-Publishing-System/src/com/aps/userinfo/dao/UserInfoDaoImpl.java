@@ -45,9 +45,10 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo, String> {
      * @param u
      */
 	public void updateUserInfo(UserInfo u) {
+		System.out.print("到了dao");
 		try {
-			this.excuteBySql("update userinfo set phone=?, creed=?, headUrl=? where userInfoId=?",
-					new Object[]{u.getPhone(),u.getCreed(),u.getHeadUrl(),u.getUserInfoId()});
+			this.excuteBySql("update userinfo set phone=?, creed=?, headUrl=?,info=?,headUrl=? where userInfoId=?",
+					new Object[]{u.getPhone(),u.getCreed(),u.getHeadUrl(),u.getInfo(),u.getHeadUrl(),u.getUserInfoId()});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

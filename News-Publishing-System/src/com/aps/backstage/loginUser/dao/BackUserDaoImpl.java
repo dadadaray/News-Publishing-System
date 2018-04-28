@@ -14,6 +14,7 @@ import com.framework.Page;
 public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 	@Resource
 	private SessionFactory sessionFactory;
+
 	/**
 	 * 功能： 通过email得到loginUser 实体
 	 * 
@@ -32,12 +33,12 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 			return null;
 		}
 	}
-	
-	public Page<LoginUser> reporterList(int pageNum, int pageSize, Object[] params){
+
+	public Page<LoginUser> reporterList(int pageNum, int pageSize, Object[] params) {
 		String hql;
-		hql="from LoginUser u where n.userInfo.userInfoId = ? and n.statues = 1 order by n.createTime desc";
-		params[0]=params[0];
-		try{
+		hql = "from LoginUser u where n.userInfo.userInfoId = ? and n.statues = 1 order by n.createTime desc";
+		params[0] = params[0];
+		try {
 			Page<LoginUser> page = new Page<LoginUser>();
 			page.setCurrentPageNum(pageNum);
 			page.setPageSize(pageSize);
@@ -48,5 +49,21 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 			return null;
 		}
 	}
+
+	/**
+	 * @dec  修改用户的用户名
+	 * @param l
+	 */
+	public void updateBUserName(LoginUser l) {
+		try {
+			super.excuteBySql(
+					"update loginUser set loginName=? where loginUserId=?",
+					new Object[] { l.getLoginName(), l.getLoginUserId() });
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 }
