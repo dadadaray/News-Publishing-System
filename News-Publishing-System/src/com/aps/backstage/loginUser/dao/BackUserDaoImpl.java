@@ -27,21 +27,28 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 					.createQuery("from LoginUser where loginEmail='" + email + "' and roleId='2'");
 			return (LoginUser) query.uniqueResult();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	public Page<LoginUser> reporterList(int pageNum, int pageSize, Object[] params){
+	/**
+	 * @Title: reporterList
+	 * @Description: 记者管理
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 * @author HanChen
+	 * @return Page<LoginUser>
+	 */
+	public Page<LoginUser> reporterList(int pageNum, int pageSize){
 		String hql;
-		hql="from LoginUser u where n.userInfo.userInfoId = ? and n.statues = 1 order by n.createTime desc";
-		params[0]=params[0];
+		hql="from LoginUser u order by u.userInfo.userRegistTime desc";
 		try{
 			Page<LoginUser> page = new Page<LoginUser>();
 			page.setCurrentPageNum(pageNum);
 			page.setPageSize(pageSize);
-			page = this.findByPage(pageNum, pageSize, hql, params);
+			page = this.findByPage(pageNum, pageSize, hql, null);
 			return page;
 		} catch (Exception e) {
 			e.printStackTrace();

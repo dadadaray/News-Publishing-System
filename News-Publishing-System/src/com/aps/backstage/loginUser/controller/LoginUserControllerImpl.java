@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aps.backstage.loginUser.service.BackUserServiceImpl;
 import com.aps.entity.LoginUser;
+import com.aps.entity.News;
 import com.aps.entity.Role;
 import com.aps.entity.UserInfo;
 import com.aps.role.service.RoleServiceImpl;
 import com.framework.EncodingTool;
+import com.framework.Page;
 
 @Controller
 @RequestMapping("backstageLoginUser")
@@ -98,6 +100,38 @@ public class LoginUserControllerImpl {
 			return qString;
 		}	
 		return qString;
+	}
+	
+	/**
+	 * @Title: reporterList
+	 * @Description: 后台记者管理
+	 * @param pageNum
+	 * @param session
+	 * @author HanChen
+	 * @return 
+	 * @return void
+	 */
+	@RequestMapping(value = "reporter/list", method = RequestMethod.GET)
+	public String reporterList (@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session){
+		// 获取用户信息
+		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
+		
+		// 如果没有用户信息，需要进行登陆reporterList
+		/*if (loginUser == null) {
+			return "login";
+		}*/
+		
+		UserInfo userInfo = new UserInfo();
+		userInfo.setUserInfoId(29);
+		LoginUser loginUser = new LoginUser();
+		loginUser.setUserInfo(userInfo);
+		
+		Page<LoginUser> page = new Page<LoginUser>();
+		page = this.backUserServiceImpl.reporterList(pageNum, 8);
+
+		session.setAttribute("page", page);
+		
+		return "backstage/all_repoter";
 	}
 	
 }

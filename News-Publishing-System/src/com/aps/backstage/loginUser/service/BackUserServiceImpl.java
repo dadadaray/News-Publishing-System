@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.aps.backstage.loginUser.dao.BackUserDaoImpl;
 import com.aps.entity.LoginUser;
 import com.aps.loginUser.dao.LoginUserDaoImpl;
+import com.framework.Page;
 
 @Service
 @Transactional(readOnly = true)
@@ -55,6 +56,19 @@ public class BackUserServiceImpl {
 		System.out.print("正确账号。");
 		// 登录成功！
 		return "0";
+	}
+	
+	/**
+	 * @Title: reporterList
+	 * @Description: 后台用户管理--记者列表
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 * @author HanChen
+	 * @return Page<LoginUser>
+	 */
+	public Page<LoginUser> reporterList(int pageNum, int pageSize){
+		return this.backUserDaoImpl.reporterList(pageNum, pageSize);
 	}
 
 }
