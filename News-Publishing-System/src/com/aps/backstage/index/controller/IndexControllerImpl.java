@@ -1,13 +1,16 @@
 
 package com.aps.backstage.index.controller;
 
+import java.io.IOException;
+
 import javax.annotation.Resource;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aps.entity.LoginUser;
@@ -99,6 +102,27 @@ public class IndexControllerImpl {
 		session.setAttribute("page", page);
 		
 		return "backstage/index_back";
+	}
+	
+	/**
+	 * @author Ray_1 用户退出
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	@RequestMapping("/logOut")
+	public String loginOut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.print("退出");
+		HttpSession session = request.getSession();// 防止创建Session
+		if (session == null) {
+			return "backstage/login";
+		}
+		session.invalidate();
+		// session.removeAttribute("loginUser");
+		return "backstage/login";
 	}
 	
 }

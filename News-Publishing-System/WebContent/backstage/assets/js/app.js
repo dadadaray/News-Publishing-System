@@ -84,19 +84,6 @@ $(function() {
 
 					})
 
-	// 用户个人信息邮箱验证
-	var useremailform = $("input[name='useremailform']");
-	useremailform
-			.mouseout(function() {
-				if (!useremailform
-						.val()
-						.match(
-								/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)) {
-					$(".warninfo3").show();
-				} else {
-					$(".warninfo3").hide();
-				}
-			});
 
 	// 素材库弹窗
 	var $modal = $('#your-modal');

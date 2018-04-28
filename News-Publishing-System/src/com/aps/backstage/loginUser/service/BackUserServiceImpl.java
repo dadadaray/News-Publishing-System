@@ -18,6 +18,12 @@ public class BackUserServiceImpl {
 	@Resource
 	private BackUserDaoImpl backUserDaoImpl;
 
+	/**
+	 * @dec  注册
+	 * @author Ray
+	 * @param loginUser
+	 * @return
+	 */
 	@Transactional(readOnly = false)
 	public String bregiste(LoginUser loginUser) {
 		if (this.backUserDaoImpl.bfindByEmil(loginUser.getLoginEmail()) != null) {
@@ -69,6 +75,15 @@ public class BackUserServiceImpl {
 	 */
 	public Page<LoginUser> reporterList(int pageNum, int pageSize){
 		return this.backUserDaoImpl.reporterList(pageNum, pageSize);
+	}
+
+	/**
+	 * @dec  更新用户名
+	 * @param l
+	 */
+	@Transactional(readOnly = false)
+	public void bupdateUserName(LoginUser l) {
+		this.backUserDaoImpl.updateBUserName(l);
 	}
 
 }

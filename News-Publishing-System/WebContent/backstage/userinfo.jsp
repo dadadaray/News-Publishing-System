@@ -88,7 +88,7 @@
                     </a>
                 </li>
                 <li>
-                  <a href="${ctx}/login.jsp" class="tpl-header-list-link">
+                  <a href="${ctx1}/backstage/logOut" class="tpl-header-list-link">
                     <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
                   </a>
                 </li>
@@ -167,7 +167,7 @@
                                     <span>完善信息</span>
                                  </a>
 
-                                <a href="${ctx}/login.jsp">
+                                <a href="${ctx1}/backstage/logOut">
                                     <i class="am-icon-angle-right"></i>
                                     <span>退出登录</span>
                                 </a>
@@ -185,10 +185,10 @@
               <div class="am-panel-hd">
                 <div class="row">
                   <p>
-                    <img class="am-radius user01" src="${ctx}/assets/img/user01.png" width="140" height="140" /> 
+                    <img class="am-radius user01" src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}" width="140" height="140" /> 
                     <div class="user_name">
                         <h4>职业信条:</h4>
-                        <p >做最真的的报道做最真的的报道做最真的的报道做最真的的报道做最真的的报道做最真的的报道做最真的的报道做最真的的报道</p>
+                        <p >${bloginUser.userInfo.creed}</p>
                     </div>
                   </p>
                 </div>
@@ -196,20 +196,20 @@
               </div>
               <div class="am-panel-bd">
                    <h3>  <i class="am-icon-user  font-green" ></i>&nbsp&nbsp&nbsp&nbsp&nbsp 用户名：
-                        <span class="close" data-close="note">Tome</span>
+                        <span class="close" data-close="note">${bloginUser.loginName}</span>
                     </h3>
                     <h3> <i class="am-icon-envelope font-green"></i>&nbsp&nbsp&nbsp&nbsp 邮箱：
-                        <span class="close" data-close="note">1130393192@qq.com</span>
+                        <span class="close" data-close="note">${bloginUser.loginEmail}</span>
                     </h3>
                     <h3> 
                          <i class="am-icon-phone am-success font-green"></i>
                          &nbsp&nbsp&nbsp&nbsp 电话：
-                        <span class="close" data-close="note">15231190729</span>
+                        <span class="close" data-close="note">${bloginUser.userInfo.phone}</span>
                     </h3>
                     <h3> 
                         <i class="am-icon-cube font-green"></i>&nbsp&nbsp&nbsp&nbsp 个人简介：
                     </h3>
-                    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp介绍Amaze UI 含近 20 个 CSS 组件、20 余 JS 组件，更有多个包含不同主题的 Web 组件，可快速构建界面出色、体验优秀的跨屏页面，大幅提升开发效率。介绍Amaze UI 含近 20 个 CSS 组件、20 余 JS 组件，更有多个包含不同主题的 Web 组件，可快速构建界面出色、体验优秀的跨屏页面，大幅提升开发效率。</p>
+                    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${bloginUser.userInfo.info}</p>
                    
               </div>
            </div>
