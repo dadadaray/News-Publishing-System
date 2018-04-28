@@ -13,7 +13,7 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 
-<meta charset="utf-8" />
+<meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" type="image/png" href="${ctx}/layout/images/favicon.png">
 
@@ -98,17 +98,18 @@
             	<div class="general_content">
                     <div class="main_content" id="con_eye">
                         <div class="separator" style="height:30px;">
-                            <a href="../后台/add_news_tuwenModel2.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
+                            <a href="../backstage/add_news_tuwenModel2.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
                         </div>
                         
                         <article class="block_single_news">
                             <p class="title">
-                                <h1>中国工厂太魔幻：未来每2分钟下线一辆汽车</h1>
+                                <h1>${mod2title}</h1>
                             </p>
                             
                             <div class="info">
-                                <div class="date"><p>15 July, 2012</p></div>
-                                <div class="author"><p>作者: <a href="#">王敏</a></p></div>
+                                <div class="date"><p><fmt:formatDate value="${mod2viewcurrentTime}" pattern="yyyy-MM-dd HH:mm:ss" />
+                                </p></div>
+                                <div class="author"><p>作者: <a href="#">${bloginUser.loginName}</a></p></div>
                                     
                                 <div class="r_part">
                                     <a href="#" class="views">0</a>
@@ -117,17 +118,17 @@
                             </div>   
                             <div class="content">
                                 <div class="pic_con_sty1"> 
-                                    <img class="pic_con_style_tu" src="${ctx}/images/pic_technology_big.jpg" alt="" />
+                                    <img class="pic_con_style_tu" src="${ctx}/preViewImgUp/${premod2F1}" alt="" />
                                 </div>
-                                <p class="text_p"><b>最牛实力：</b>这间数字化仿真工厂，冲压环节的零件加工合格率达到100%，焊装环节的焊点定位合格率达到99.8%，总装环节的装配合格率更是达到100%。工程师们通过在仿真系统中的模拟演练，可以减少人为失误风险，大幅节约制造成本，缩短研发周期。.</p> 
+                                <p class="text_p">${mod2textarea1}</p> 
                                 <div class="pic_con_sty1"> 
-                                    <img class="pic_con_style_tu" src="${ctx}/images/pic_technology_big.jpg" alt="" />
+                                    <img class="pic_con_style_tu" src="${ctx}/preViewImgUp/${premod2F2}" alt="" />
                                 </div>
-                                <p class="text_p">　世界，正处在新科技革命和产业变革的交汇点上。信息化、工业化不断融合，以机器人技术为代表的智能装备产业蓬勃兴起。2017年，中国继续成为全球第一大工业机器人市场，销量突破12万台，约占全球总产量的三分之一。与此同时，中国连续第九年成为全球高端数控机床第一消费大国，全球50%的数控机床装在了中国的生产线上。这一年，中国的人工智能企业总数接近600家，跃升世界第二,小编在这为您梳理中国智造“英雄谱”，相信你看完一定会被它们惊艳↓↓↓</p>
+                                <p class="text_p">　${mod2textarea2}</p>
                                  <div class="pic_con_sty1"> 
-                                    <img class="pic_con_style_tu" src="${ctx}/images/pic_technology_big.jpg" alt="" />
+                                    <img class="pic_con_style_tu" src="${ctx}/preViewImgUp/${premod2F3}" alt="" />
                                 </div>
-                                <p class="text_p">　世界，正处在新科技革命和产业变革的交汇点上。信息化、工业化不断融合，以机器人技术为代表的智能装备产业蓬勃兴起。2017年，中国继续成为全球第一大工业机器人市场，销量突破12万台，约占全球总产量的三分之一。与此同时，中国连续第九年成为全球高端数控机床第一消费大国，全球50%的数控机床装在了中国的生产线上。这一年，中国的人工智能企业总数接近600家，跃升世界第二,小编在这为您梳理中国智造“英雄谱”，相信你看完一定会被它们惊艳↓↓↓</p>
+                                <p class="text_p">　${mod2textarea3}</p>
                             </div>
                         </article>
                         
@@ -146,9 +147,6 @@
         </div>
     	<!-- CONTENT END -->
     </div>
-
-	<!-- login -->
-	<%@ include file="login.jsp"%>  
 	
 </body>
 <script type="text/javascript">
