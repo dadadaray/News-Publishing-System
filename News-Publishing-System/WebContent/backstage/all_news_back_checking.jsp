@@ -94,7 +94,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="${ctx}/login.jsp" class="tpl-header-list-link">
+					<a href="${ctx1}/backstage/logOut" class="tpl-header-list-link">
 						<span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
 					</a>
 				</li>
@@ -156,7 +156,7 @@
 						</ul>
 					</li>
 					<li class="tpl-left-nav-item">
-						<a href="${ctx}/login.jsp" class="nav-link tpl-left-nav-link-list">
+						<a href="${ctx1}/backstage/logOut" class="nav-link tpl-left-nav-link-list">
 							<i class="am-icon-sign-out"></i>
 							<span>退出登陆</span>
 						</a>

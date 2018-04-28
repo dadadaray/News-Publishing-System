@@ -61,7 +61,7 @@
 
 				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="userinfo.jsp"> <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
 				</a></li>
-				<li><a href="${ctx}/login.jsp" class="tpl-header-list-link"> <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
+				<li><a href="${ctx1}/backstage/logOut" class="tpl-header-list-link"> <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
 				</a></li>
 			</ul>
 		</div>

@@ -108,7 +108,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="${ctx1}/backstage/logOut">
 								<span class="am-icon-power-off"></span>
 								退出
 							</a>
