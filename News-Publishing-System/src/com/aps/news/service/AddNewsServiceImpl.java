@@ -30,9 +30,13 @@ public class AddNewsServiceImpl {
 	 *            文件的原始名称
 	 * @return uuid+"_"+文件的原始名称
 	 */
-	public String makeFileName(String filename) { // 2.jpg
+	public String makeFileName(String filename) {
+		// 2.jpg
 		// 为防止文件覆盖的现象发生，要为上传文件产生一个唯一的文件名
 		// System.out.print(UUID.randomUUID().toString() + "_" + filename);
+		if(filename==null||filename==""){
+			return null;
+		}
 		return UUID.randomUUID().toString() + "_" + filename;
 	}
 
@@ -76,18 +80,18 @@ public class AddNewsServiceImpl {
 		modMixLR.setmMixLRImgTwo(f2);
 		modMixLR.setmMixLRContentTwo(t2);
 		modMixLR.setmMixLRImgThree(f3);
-		modMixLR.setmMixLRContentOne(t3);
+		modMixLR.setmMixLRContentThree(t3);
 		try {
 			this.modMixLFDaoImpl.save(modMixLR);
 			return modMixLR;
-		} catch (Exception e){
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
 
 	}
-	
+
 	/**
 	 * @dec 图文混合一个保存并返回
 	 * @author Ray
@@ -102,7 +106,7 @@ public class AddNewsServiceImpl {
 		try {
 			this.modMixSingleDaoImpl.saveModMixSingle(modMixSingle);
 			return modMixSingle;
-		} catch (Exception e){
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;

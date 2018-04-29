@@ -114,7 +114,7 @@ public class AddNewsControllerImpl {
 		// 存入新闻
 		News news1 = new News();
 		news1.setNewsTitle(mod2title);
-		news1.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
+		news1.setCoverImgUrl( newcoverImgname);
 		// 获取当前时间
 		Date currentTime = new Date();
 		news1.setCreateTime(currentTime);
@@ -127,8 +127,8 @@ public class AddNewsControllerImpl {
 		news1.setUserInfo(u.getUserInfo());
 
 		// 保存模板
-		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter("D:/ImgTemp/" + newFileName1, textarea1,
-				"D:/ImgTemp/" + newFileName2, textarea2, "D:/ImgTemp/" + newFileName3, textarea3);
+		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter( newFileName1, textarea1,
+				 newFileName2, textarea2,newFileName3, textarea3);
 		news1.setModMixCenter(mod);
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
@@ -223,7 +223,7 @@ public class AddNewsControllerImpl {
 		// 存入新闻
 		News news1 = new News();
 		news1.setNewsTitle(mod2title);
-		news1.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
+		news1.setCoverImgUrl( newcoverImgname);
 		// 获取当前时间
 		Date currentTime = new Date();
 		news1.setCreateTime(currentTime);
@@ -236,8 +236,8 @@ public class AddNewsControllerImpl {
 		news1.setUserInfo(u.getUserInfo());
 
 		// 保存模板
-		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter("D:/ImgTemp/" + newFileName1, textarea1,
-				"D:/ImgTemp/" + newFileName2, textarea2, "D:/ImgTemp/" + newFileName3, textarea3);
+		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter(newFileName1, textarea1,
+				newFileName2, textarea2, newFileName3, textarea3);
 		news1.setModMixCenter(mod);
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
@@ -328,7 +328,7 @@ public class AddNewsControllerImpl {
 		// 存入新闻
 		News news2 = new News();
 		news2.setNewsTitle(mod2title);
-		news2.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
+		news2.setCoverImgUrl(newcoverImgname);
 		// 获取当前时间
 		Date currentTime = new Date();
 		news2.setCreateTime(currentTime);
@@ -341,8 +341,8 @@ public class AddNewsControllerImpl {
 		news2.setUserInfo(u.getUserInfo());
 
 		// 保存模板
-		ModMixLR mod = this.addNewsServiceImpl.saveModMixLR("D:/ImgTemp/" + newFileName1, textarea1,
-				"D:/ImgTemp/" + newFileName2, textarea2, "D:/ImgTemp/" + newFileName3, textarea3);
+		ModMixLR mod = this.addNewsServiceImpl.saveModMixLR( newFileName1, textarea1,
+				 newFileName2, textarea2,  newFileName3, textarea3);
 
 		news2.setModMixLR(mod);
 		// 设置新闻类型
@@ -430,7 +430,7 @@ public class AddNewsControllerImpl {
 		// 存入新闻
 		News news2 = new News();
 		news2.setNewsTitle(mod2title);
-		news2.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
+		news2.setCoverImgUrl( newcoverImgname);
 		// 获取当前时间
 		Date currentTime = new Date();
 		news2.setCreateTime(currentTime);
@@ -443,8 +443,8 @@ public class AddNewsControllerImpl {
 		news2.setUserInfo(u.getUserInfo());
 
 		// 保存模板
-		ModMixLR mod = this.addNewsServiceImpl.saveModMixLR("D:/ImgTemp/" + newFileName1, textarea1,
-				"D:/ImgTemp/" + newFileName2, textarea2, "D:/ImgTemp/" + newFileName3, textarea3);
+		ModMixLR mod = this.addNewsServiceImpl.saveModMixLR( newFileName1, textarea1,
+				newFileName2, textarea2,  newFileName3, textarea3);
 
 		news2.setModMixLR(mod);
 		// 设置新闻类型
@@ -508,7 +508,7 @@ public class AddNewsControllerImpl {
 		// 存入新闻
 		News news3 = new News();
 		news3.setNewsTitle(mod2title);
-		news3.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
+		news3.setCoverImgUrl(newcoverImgname);
 		// 获取当前时间
 		Date currentTime = new Date();
 		news3.setCreateTime(currentTime);
@@ -521,7 +521,7 @@ public class AddNewsControllerImpl {
 		news3.setUserInfo(u.getUserInfo());
 
 		// 保存模板
-		ModMixSingle mods = this.addNewsServiceImpl.saveModMixSingle("D:/ImgTemp/" + newFileName1, textarea1);
+		ModMixSingle mods = this.addNewsServiceImpl.saveModMixSingle(newFileName1, textarea1);
 
 		news3.setModMixSingle(mods);
 		// 设置新闻类型
@@ -584,7 +584,7 @@ public class AddNewsControllerImpl {
 		// 存入新闻
 		News news3 = new News();
 		news3.setNewsTitle(mod2title);
-		news3.setCoverImgUrl("D:/ImgTemp/" + newcoverImgname);
+		news3.setCoverImgUrl(newcoverImgname);
 		// 获取当前时间
 		Date currentTime = new Date();
 		news3.setCreateTime(currentTime);
@@ -597,7 +597,7 @@ public class AddNewsControllerImpl {
 		news3.setUserInfo(u.getUserInfo());
 
 		// 保存模板
-		ModMixSingle mods = this.addNewsServiceImpl.saveModMixSingle("D:/ImgTemp/" + newFileName1, textarea1);
+		ModMixSingle mods = this.addNewsServiceImpl.saveModMixSingle(newFileName1, textarea1);
 
 		news3.setModMixSingle(mods);
 		// 设置新闻类型
