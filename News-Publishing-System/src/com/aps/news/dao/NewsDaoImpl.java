@@ -1,7 +1,9 @@
 package com.aps.news.dao;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -12,6 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import com.aps.entity.News;
+import com.aps.entity.Notice;
 import com.framework.BaseDao;
 import com.framework.Page;
 import com.framework.SqlUtils;;
@@ -367,6 +370,30 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 			e.printStackTrace();
 		}
 
+	}
+	
+	/**
+	 * @Title: getNewsIdByUserId
+	 * @Description: 通过用户id得到用户所写文章
+	 * @param loginUserIds
+	 * @return
+	 * @author HanChen
+	 * @return String
+	 */
+	public String getNewsIdByUserId(String loginUserIds){
+		String hql = "";
+		hql = "from News n where n.userInfo.userInfoId in " + SqlUtils.toLikeSqlForStr(loginUserIds, ",");
+		Session session = super.getSession();
+		Query query = session.createQuery(hql);
+		List<News> notices = new ArrayList<News>();
+		notices = query.list();
+		String newsIds = "";
+		Iterator<News> it = notices.iterator();
+		while (it.hasNext()) {
+			News news_next = it.next();
+			newsIds += news_next.getNewsId() + ",";
+		}
+		return newsIds;
 	}
 
 }

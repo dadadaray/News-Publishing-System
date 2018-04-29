@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import com.aps.entity.LoginUser;
 import com.framework.BaseDao;
+import com.framework.SqlUtils;
 
 @Repository
 public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
@@ -44,7 +45,6 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 					.createQuery("from LoginUser where loginName='" + loginName + "' and roleId='1'");
 			return (LoginUser) query.uniqueResult();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -63,7 +63,6 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 					.createQuery("from LoginUser where loginEmail='" + email + "' and roleId='1'");
 			return (LoginUser) query.uniqueResult();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -88,6 +87,27 @@ public class LoginUserDaoImpl extends BaseDao<LoginUser, String> {
 			// 对错误的处理
 
 		}
+	}
+	
+	
+	/**
+	 * @Title: deleteUser
+	 * @Description: 删除用户
+	 * @param userIds
+	 * @return
+	 * @author HanChen 
+	 * @return int
+	 */
+	public int deleteUser(String userIds){
+		int ret = 0;
+		try {
+			Query query = this.sessionFactory.getCurrentSession()
+					.createQuery("delete from LoginUser u where u.loginUserId in" + SqlUtils.toLikeSqlForStr(userIds, ","));
+			ret = query.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ret;
 	}
 
 }

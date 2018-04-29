@@ -2,21 +2,28 @@ package com.aps.backstage.loginUser.service;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aps.backstage.loginUser.dao.BackUserDaoImpl;
 import com.aps.entity.LoginUser;
 import com.aps.loginUser.dao.LoginUserDaoImpl;
+import com.aps.userinfo.dao.UserInfoDaoImpl;
 import com.framework.Page;
 
 @Service
 @Transactional(readOnly = true)
 public class BackUserServiceImpl {
+	
 	@Resource
 	private LoginUserDaoImpl loginUserDaoImpl;
+	
 	@Resource
 	private BackUserDaoImpl backUserDaoImpl;
+	
+	@Resource
+	private UserInfoDaoImpl userInfoDaoImpl;
 
 	/**
 	 * @dec  注册
@@ -64,17 +71,19 @@ public class BackUserServiceImpl {
 		return "0";
 	}
 	
+
 	/**
-	 * @Title: reporterList
-	 * @Description: 后台用户管理--记者列表
+	 * @Title: userList
+	 * @Description: 用户管理
 	 * @param pageNum
 	 * @param pageSize
+	 * @param roleId
 	 * @return
-	 * @author HanChen
+	 * @author HanChen 
 	 * @return Page<LoginUser>
 	 */
-	public Page<LoginUser> reporterList(int pageNum, int pageSize){
-		return this.backUserDaoImpl.reporterList(pageNum, pageSize);
+	public Page<LoginUser> userList(int pageNum, int pageSize, int roleId){
+		return this.backUserDaoImpl.userList(pageNum, pageSize, roleId);
 	}
 
 	/**
@@ -85,5 +94,32 @@ public class BackUserServiceImpl {
 	public void bupdateUserName(LoginUser l) {
 		this.backUserDaoImpl.updateBUserName(l);
 	}
-
+	
+	/**
+	 * @Title: deleteUser
+	 * @Description: 删除用户
+	 * @param userIds
+	 * @return
+	 * @author HanChen 
+	 * @return int
+	 */
+	@Transactional(readOnly = false)
+	public int deleteUser(String userInfoIds){
+		int delUserInfo = 0, delLoginUser = 0;
+		
+		String loginUserIds = userInfoDaoImpl.getLoginUserId(userInfoIds);
+		if(!StringUtils.isBlank(loginUserIds)){
+			//删除用户详情
+			delUserInfo = userInfoDaoImpl.deleteUserInfo(userInfoIds);
+			//删除用户基础信息
+			delLoginUser = loginUserDaoImpl.deleteUser(loginUserIds);
+		}
+		if ( 0 != delLoginUser){
+			return delUserInfo + delLoginUser;
+		}else{
+			return delLoginUser;
+		}
+		
+	}
+	
 }

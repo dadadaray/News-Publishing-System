@@ -85,7 +85,32 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 	 */
 	public String getNoticeByNewsId(String newsIds){
 		String hql = "";
-		hql="from Notice n where n.news.newsId in " + SqlUtils.toLikeSqlForStr(newsIds, ",");
+		hql = "from Notice n where n.news.newsId in " + SqlUtils.toLikeSqlForStr(newsIds, ",");
+		Session session = super.getSession();
+		Query query = session.createQuery(hql);
+		List<Notice> notices = new ArrayList<Notice>();
+		notices = query.list();
+		String noticeIds = "";
+		Iterator<Notice> it = notices.iterator();
+		while (it.hasNext()) {
+			Notice notice_next = it.next();
+			noticeIds += notice_next.getNoticeId() + ",";
+		}
+		return noticeIds;
+	}
+	
+	/**
+	 * @Title: getNoticeByUserId
+	 * @Description: getNoticeByUserId
+	 * @param userIds
+	 * @return
+	 * @author HanChen
+	 * @return String
+	 */
+	public String getNoticeByUserId(String userIds){
+		String hql = "";
+		hql = "from Notice n where n.userInfo.userInfoId in " + SqlUtils.toLikeSqlForStr(userIds, ",");
+		hql += " or n.reciveId in " + SqlUtils.toLikeSqlForStr(userIds, ",");
 		Session session = super.getSession();
 		Query query = session.createQuery(hql);
 		List<Notice> notices = new ArrayList<Notice>();

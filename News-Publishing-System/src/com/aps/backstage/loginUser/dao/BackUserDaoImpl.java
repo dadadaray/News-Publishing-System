@@ -33,18 +33,20 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 		}
 	}
 	
+
 	/**
-	 * @Title: reporterList
-	 * @Description: 记者管理
+	 * @Title: userList
+	 * @Description: 用户管理
 	 * @param pageNum
 	 * @param pageSize
+	 * @param role
 	 * @return
-	 * @author HanChen
+	 * @author HanChen 
 	 * @return Page<LoginUser>
 	 */
-	public Page<LoginUser> reporterList(int pageNum, int pageSize){
+	public Page<LoginUser> userList(int pageNum, int pageSize, int role){
 		String hql;
-		hql="from LoginUser u order by u.userInfo.userRegistTime desc";
+		hql="from LoginUser u where u.role.roleId = " + role;
 		try{
 			Page<LoginUser> page = new Page<LoginUser>();
 			page.setCurrentPageNum(pageNum);
@@ -67,7 +69,6 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 					"update loginUser set loginName=? where loginUserId=?",
 					new Object[] { l.getLoginName(), l.getLoginUserId() });
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

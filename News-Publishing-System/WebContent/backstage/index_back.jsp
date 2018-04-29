@@ -123,10 +123,10 @@
 							class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
 					</a>
 						<ul class="tpl-left-nav-sub-menu">
-							<li><a href="${ctx}/all_repoter.jsp"> <i
-									class="am-icon-angle-right"></i> <span>记者用户</span>
-							</a> <a href="${ctx}/all_users.jsp"> <i
-									class="am-icon-angle-right"></i> <span>网站用户</span>
+							<li><a href="${ctx1}/backstageLoginUser/user/list?roleId=2"> 
+							<i class="am-icon-angle-right"></i> <span>记者用户</span>
+							</a><a href="${ctx1}/backstageLoginUser/user/list?roleId=1"> 
+							<i class="am-icon-angle-right"></i> <span>网站用户</span>
 							</a></li>
 						</ul></li>
 					<li class="tpl-left-nav-item"><a href="${ctx1}/backstage/logOut"

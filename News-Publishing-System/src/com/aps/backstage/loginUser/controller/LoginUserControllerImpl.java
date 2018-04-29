@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,9 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aps.backstage.loginUser.service.BackUserServiceImpl;
 import com.aps.entity.LoginUser;
-import com.aps.entity.News;
 import com.aps.entity.Role;
 import com.aps.entity.UserInfo;
+import com.aps.news.service.NewsServiceImpl;
+import com.aps.notice.service.NoticeServiceImpl;
 import com.aps.role.service.RoleServiceImpl;
 import com.framework.EncodingTool;
 import com.framework.Page;
@@ -24,10 +26,18 @@ import com.framework.Page;
 @Controller
 @RequestMapping("backstageLoginUser")
 public class LoginUserControllerImpl {
+	
 	@Resource
 	private RoleServiceImpl roleServiceImpl;
+	
 	@Resource
 	private BackUserServiceImpl backUserServiceImpl;
+	
+	@Resource
+	private NoticeServiceImpl noticeServiceImpl;
+	
+	@Resource
+	private NewsServiceImpl newsServiceImpl;
 
 	/**
 	 * 功能： 实现注册功能 
@@ -102,36 +112,69 @@ public class LoginUserControllerImpl {
 		return qString;
 	}
 	
+
 	/**
-	 * @Title: reporterList
-	 * @Description: 后台记者管理
+	 * @Title: userList
+	 * @Description: 用户管理
 	 * @param pageNum
+	 * @param roleId 1：群众；2：记者
 	 * @param session
-	 * @author HanChen
-	 * @return 
-	 * @return void
+	 * @return
+	 * @author HanChen 
+	 * @return String
 	 */
-	@RequestMapping(value = "reporter/list", method = RequestMethod.GET)
-	public String reporterList (@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session){
-		// 获取用户信息
-		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
+	@RequestMapping(value = "user/list", method = RequestMethod.GET)
+	public String userList (@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, 
+			@RequestParam(name = "roleId") int roleId, HttpSession session){
 		
-		// 如果没有用户信息，需要进行登陆reporterList
-		/*if (loginUser == null) {
-			return "login";
-		}*/
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(29);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
+		LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
 		
 		Page<LoginUser> page = new Page<LoginUser>();
-		page = this.backUserServiceImpl.reporterList(pageNum, 8);
+		page = this.backUserServiceImpl.userList(pageNum, 8, roleId);
 
 		session.setAttribute("page", page);
 		
-		return "backstage/all_repoter";
+		if( 1 == roleId){
+			return "backstage/all_users";
+		}else{
+			return "backstage/all_repoter";
+		}
+		
 	}
+	
+	/**
+	 * @Title: deleteUsers
+	 * @Description: 删除用户
+	 * @param userIds
+	 * @return
+	 * @author HanChen
+	 * @return int
+	 */
+	@RequestMapping(value = "user/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public int deleteUsers(@RequestParam(name = "userIds") String userIds){
+		int delNotice = 0, delNews = 0, delUsers = 0, results = 0;
+		String noticeIds = this.noticeServiceImpl.getNoticeByUserId(userIds);
+		if(!StringUtils.isBlank(noticeIds)){//需要删除用户相关的通知
+			delNotice =  this.noticeServiceImpl.deleteNotice(noticeIds);
+		}
+		
+		String newsIds = this.newsServiceImpl.getNewsIdByUserId(userIds);
+		if(!StringUtils.isBlank(newsIds)){//需要删除用户相关的新闻
+			delNews = this.newsServiceImpl.deleteNews(newsIds);
+			if( 0 != delNews){
+				//需要删除所有模板的文章详情
+				
+			}
+		}
+		
+		delUsers =  this.backUserServiceImpl.deleteUser(userIds);
+		
+		if( 0 != delUsers){
+			results = delNotice + delNews + delUsers;
+		}
+		
+		return results;
+	} 
 	
 }
