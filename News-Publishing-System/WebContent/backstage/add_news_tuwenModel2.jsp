@@ -191,7 +191,9 @@
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> <a id="previewMod2" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa" id="sendMod2">发 布</a>
+												<a id="mod2SaveDraftNews" class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
+												<a id="previewMod2" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> 
+												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa" id="sendMod2">发 布</a>
 											</div>
 										</form>
 									</div>
@@ -203,16 +205,6 @@
 
 			</div>
 		</div>
-
-		<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
-			<div class="am-modal-dialog">
-				<div class="am-modal-hd">
-					Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-				</div>
-				<div class="am-modal-bd">Modal 内容。</div>
-			</div>
-		</div>
-
 		<script src="${ctx}/assets/js/jquery.min.js"></script>
 		<script src="${ctx}/assets/js/xcConfirm.js"></script>
 		<script src="${ctx}/assets/js/amazeui.min.js"></script>
@@ -250,6 +242,14 @@
 			$("#previewMod2").click(function() {
 				//alert("点击了");
 				var url = "${ctx1 }/addnews/previewMixMod2";
+				$("#Form_model2").attr("action", url);
+				$("#Form_model2").submit();
+			})
+			
+			//存草稿按钮
+			$("#mod2SaveDraftNews").click(function() {
+				//alert("点击了");
+				var url = "${ctx1 }/addnews/mod2SaveDraftNews";
 				$("#Form_model2").attr("action", url);
 				$("#Form_model2").submit();
 			})

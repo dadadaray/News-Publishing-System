@@ -164,7 +164,7 @@
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
+												<a id="mod3saveNewsDraft"class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
 												<a id="previewMod3" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a>
 												<a id="sendMod3" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
 											</div>
@@ -214,6 +214,14 @@
 			$("#previewMod3").click(function() {
 				//alert("点击了");
 				var url = "${ctx1 }/addnews/previewMixMod3";
+				$("#Form_model3").attr("action", url);
+				$("#Form_model3").submit();
+			})
+			
+			//存草稿按钮
+			$("#mod3saveNewsDraft").click(function() {
+				//alert("点击了");
+				var url = "${ctx1 }/addnews/mod3saveNewsDraft";
 				$("#Form_model3").attr("action", url);
 				$("#Form_model3").submit();
 			})

@@ -200,7 +200,7 @@
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
+												<a id="mod1SaveDraftNews" class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
 												<a id="previewMod2"  class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> 
 												<a id="sendMod1" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
 											</div>
@@ -214,14 +214,6 @@
 			</div>
 		</div>
 
-		<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
-			<div class="am-modal-dialog">
-				<div class="am-modal-hd">
-					Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-				</div>
-				<div class="am-modal-bd">Modal 内容。</div>
-			</div>
-		</div>
 
 		<script src="${ctx}/assets/js/jquery.min.js"></script>
 		<script src="${ctx}/assets/js/xcConfirm.js"></script>
@@ -260,6 +252,14 @@
 			$("#previewMod2").click(function() {
 				//alert("点击了");
 				var url = "${ctx1 }/addnews/previewMixMod1";
+				$("#Form_model1").attr("action", url);
+				$("#Form_model1").submit();
+			})
+			
+			//存草稿按钮
+			$("#mod1SaveDraftNews").click(function() {
+				//alert("点击了");
+				var url = "${ctx1 }/addnews/mod1SaveNewsdraft";
 				$("#Form_model1").attr("action", url);
 				$("#Form_model1").submit();
 			})
