@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!DOCTYPE html>
 <html>
 
@@ -99,17 +100,17 @@
                <div class="main_content" id="con_eye">
                       
                         <div class="separator" style="height:30px;">
-                            <a href="../后台/add_news_tuwenModel1.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
+                            <a href="${ctx1 }/add_news_tuwenModel1.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
                         </div>
                         
                         <article class="block_single_news">
                             <p class="title">
-                                <h1>中国工厂太魔幻：未来每2分钟下线一辆汽车</h1>
+                                <h1>${mod1title}</h1>
                             </p>
                             
                             <div class="info">
-                                <div class="date"><p>15 July, 2012</p></div>
-                                <div class="author"><p>作者: <a href="#">王敏</a></p></div>
+                                <div class="date"><p><fmt:formatDate value="${mod1viewcurrentTime}" pattern="yyyy-MM-dd HH:mm:ss" /></p></div>
+                                <div class="author"><p>作者: <a href="#">${bloginUser.loginName}</a></p></div>
                                     
                                 <div class="r_part">
                                     <a href="#" class="views">0</a>
@@ -119,16 +120,15 @@
                             
                         <div class="content">
                            <div class="separator" style="height:4px;"></div>
-                                <h3>中国进入新时代</h3>
                                 <div class="separator" style="height:4px;"></div>
-                                <a href="#" class="pic w_frame alignleft"><img src="${ctx}/images/pic_blog_post_2.jpg" alt=""/></a>
-                                <p class="text_p">   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>世界正处在新科技革命和产业变革的交汇点上</b>。信息化、工业化不断融合，以机器人技术为代表的智能装备产业蓬勃兴起。2017年，中国继续成为全球第一大工业机器人市场，销量突破12万台，约占全球总产量的三分之一。与此同时，中国连续第九年成为全球高端数控机床第一消费大国，全球50%的数控机床装在了中国的生产线上。这一年，中国的人工智能企业总数接近600家，跃升世界第二,小编在这为您梳理中国智造“英雄谱”，相信你看完一定会被它们惊艳</p>
+                                <a href="#" class="pic w_frame alignleft"><img src="${ctx}/preViewImgUp/${premod1F1}" alt=""/></a>
+                                <p class="text_p">   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${mod1textarea1}</p>
                                 
-                            <a href="#" class="pic w_frame alignright"><img src="${ctx}/images/pic_blog_post_2.jpg" alt="" /></a>
-                            <p class="text_p">　世界，正处在新科技革命和产业变革的交汇点上。信息化、工业化不断融合，以机器人技术为代表的智能装备产业蓬勃兴起。2017年，中国继续成为全球第一大工业机器人市场，销量突破12万台，约占全球总产量的三分之一。</p>
+                            <a href="#" class="pic w_frame alignright"><img src="${ctx}/preViewImgUp/${premod1F2}" alt="" /></a>
+                            <p class="text_p">　${mod1textarea2}</p>
                             <div class="separator" style="height:4px;"></div>
-                                <a href="#" class="pic w_frame alignleft"><img src="${ctx}/images/pic_blog_post_2.jpg" alt=""/></a>
-                                <p class="text_p">   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp世界正处在新科技革命和产业变革的交汇点上。信息化、工业化不断融合，以机器人技术为代表的智能装备产业蓬勃兴起。2017年，中国继续成为全球第一大工业机器人市场，销量突破12万台，约占全球总产量的三分之一。与此同时，中国连续第九年成为全球高端数控机床第一消费大国，全球50%的数控机床装在了中国的生产线上。这一年，中国的人工智能企业总数接近600家，跃升世界第二,小编在这为您梳理中国智造“英雄谱”，相信你看完一定会被它们惊艳</p>
+                                <a href="#" class="pic w_frame alignleft"><img src="${ctx}/preViewImgUp/${premod1F3}" alt=""/></a>
+                                <p class="text_p">   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${mod1textarea3}</p>
 
 
                         </div>
@@ -137,7 +137,7 @@
                         <div class="separator" style="height:4px;"></div>
                         
                         <div class="block_post_tags">
-                            <p>标签: <a href="#">商业,</a><a href="#">股票</a></p>
+                            <p>标签: <a href="#">${ previewselectmod1}</a></p>
                         </div>
                         
                         
@@ -150,8 +150,7 @@
     	<!-- CONTENT END -->
     </div>
 
-	<!-- login -->
-	<%@ include file="login.jsp"%>  
+
 	
 </body>
 <script type="text/javascript">

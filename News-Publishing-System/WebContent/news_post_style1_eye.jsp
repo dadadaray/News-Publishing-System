@@ -135,7 +135,7 @@
                         <div class="separator" style="height:4px;"></div>
                         
                         <div class="block_post_tags">
-                            <p>标签: <a href="#">商业,</a><a href="#">股票</a></p>
+                            <p>标签: <a href="#">${previewselectmod}</a></p>
                         </div>
                         
                         

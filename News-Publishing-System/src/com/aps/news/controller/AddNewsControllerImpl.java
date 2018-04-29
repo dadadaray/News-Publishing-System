@@ -326,6 +326,7 @@ public class AddNewsControllerImpl {
 
 	/**
 	 * @dec 图文混合模板二 预览功能
+	 * @author Ray
 	 * @param mod2title
 	 * @param file1
 	 * @param textarea1
@@ -347,14 +348,14 @@ public class AddNewsControllerImpl {
 			@RequestParam("textarea1") String textarea1, @RequestParam("file2") MultipartFile file2,
 			@RequestParam("textarea2") String textarea2, @RequestParam("file3") MultipartFile file3,
 			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod2") String selectmod2,
-			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
+			 HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws IOException {
 		
 
 		// 新闻预览不保存，只设置session
 		session.setAttribute("mod2title", mod2title);
 		session.setAttribute("mod2textarea1", textarea1);
-		session.setAttribute("mod2textarea2", textarea1);
+		session.setAttribute("mod2textarea2", textarea2);
 		session.setAttribute("mod2textarea3", textarea3);
 		session.setAttribute("previewselectmod", selectmod2);
 		Date currentTime = new Date();
@@ -410,5 +411,153 @@ public class AddNewsControllerImpl {
 		session.setAttribute("premod2F3",newFileName3);
 
 		return "news_post_style1_eye";
+	}
+	/**
+	 * @dec 图文混合模板 预览功能
+	 * @author Ray
+	 * @param mod2title
+	 * @param file1
+	 * @param textarea1
+	 * @param file2
+	 * @param textarea2
+	 * @param file3
+	 * @param textarea3
+	 * @param selectmod2
+	 * @param coverImg
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @return
+	 * @throws IOException 
+	 */
+	// 模板二预览新闻
+	@RequestMapping("previewMixMod1")
+	public String viewNewsMod1(@RequestParam("mod1title") String mod2title, @RequestParam("file1") MultipartFile file1,
+			@RequestParam("textarea1") String textarea1, @RequestParam("file2") MultipartFile file2,
+			@RequestParam("textarea2") String textarea2, @RequestParam("file3") MultipartFile file3,
+			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod1") String selectmod2,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session) throws IOException {
+		
+
+		// 新闻预览不保存，只设置session
+		session.setAttribute("mod1title", mod2title);
+		session.setAttribute("mod1textarea1", textarea1);
+		session.setAttribute("mod1textarea2", textarea2);
+		session.setAttribute("mod1textarea3", textarea3);
+		session.setAttribute("previewselectmod1", selectmod2);
+		Date currentTime = new Date();
+		session.setAttribute("mod1viewcurrentTime", currentTime);
+		//System.out.print(file1.getOriginalFilename());
+		
+		// 第一个图片
+		String filename1 = file1.getOriginalFilename();
+		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
+
+		// 第二个图片
+		String filename2 = file2.getOriginalFilename();
+		String newFileName2 = addNewsServiceImpl.makeFileName(filename2);
+
+		// 第三个图片
+		String filename3 = file3.getOriginalFilename();
+		String newFileName3 = addNewsServiceImpl.makeFileName(filename3);
+
+		// 写入本地磁盘
+		InputStream is = file1.getInputStream();
+		InputStream is1 = file2.getInputStream();
+		InputStream is2 = file3.getInputStream();
+
+		byte[] bs = new byte[1024];
+		int len;
+		// 保存路径
+		String realpath = System.getProperty("b2cweb.root") + "preViewImgUp";
+		File saveFile = new File(realpath);
+		if (!saveFile.exists()) {
+			saveFile.mkdirs();
+		}
+		OutputStream os = new FileOutputStream(realpath+"\\" + newFileName1);
+		while ((len = is.read(bs)) != -1) {
+			os.write(bs, 0, len);
+		}
+		os.close();
+		is.close();
+		OutputStream os1 = new FileOutputStream(realpath+"\\" + newFileName2);
+		while ((len = is1.read(bs)) != -1) {
+			os1.write(bs, 0, len);
+		}
+		os1.close();
+		is1.close();
+		OutputStream os2 = new FileOutputStream(realpath+"\\" + newFileName3);
+		while ((len = is2.read(bs)) != -1) {
+			os2.write(bs, 0, len);
+		}
+		os2.close();
+		is2.close();
+		System.out.print(realpath + newFileName1);
+		session.setAttribute("premod1F1",newFileName1);
+		session.setAttribute("premod1F2",newFileName2);
+		session.setAttribute("premod1F3",newFileName3);
+
+		return "news_post_style2_eye";
+	}
+	
+	
+	/**
+	 * @dec 模板三预览功能
+	 * @author Ray
+	 * @param mod3title
+	 * @param file1
+	 * @param textarea1
+	 * @param selectmod3
+	 * @param request	
+	 * @param response
+	 * @param session
+	 * @return
+	 * @throws IOException
+	 */
+	
+	@RequestMapping("previewMixMod3")
+	public String viewNewsMod3(@RequestParam("mod3title") String mod3title, @RequestParam("file1") MultipartFile file1,
+			@RequestParam("textarea1") String textarea1, @RequestParam("selectmod3") String selectmod3,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session) throws IOException {
+		
+
+		// 新闻预览不保存，只设置session
+		session.setAttribute("mod3title", mod3title);
+		session.setAttribute("mod3textarea1", textarea1);
+		session.setAttribute("previewselectmod3", selectmod3);
+		Date currentTime = new Date();
+		session.setAttribute("mod3viewcurrentTime", currentTime);
+		//System.out.print(file1.getOriginalFilename());
+		//System.out.println(mod3title+textarea1+file1.getOriginalFilename());
+		// 第一个图片
+		String filename1 = file1.getOriginalFilename();
+		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
+
+		
+
+		// 写入本地磁盘
+		InputStream is = file1.getInputStream();
+	
+
+		byte[] bs = new byte[1024];
+		int len;
+		// 保存路径
+		String realpath = System.getProperty("b2cweb.root") + "preViewImgUp";
+		File saveFile = new File(realpath);
+		if (!saveFile.exists()) {
+			saveFile.mkdirs();
+		}
+		OutputStream os = new FileOutputStream(realpath+"\\" + newFileName1);
+		while ((len = is.read(bs)) != -1) {
+			os.write(bs, 0, len);
+		}
+		os.close();
+		is.close();
+	//System.out.print(realpath + newFileName1);
+		session.setAttribute("premod3F1",newFileName1);
+
+		return "news_post_style3_eye";
 	}
 }

@@ -137,14 +137,14 @@
 												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
 												<div class="am-u-sm-10">
 													<select name="selectmod3" data-am-selected="{searchBox: 1}">
-														<option value="a">财经</option>
-														<option value="b">科技</option>
-														<option value="c">教育</option>
-														<option value="d">体育</option>
-														<option value="e">娱乐</option>
-														<option value="f">军事</option>
-														<option value="g">旅游</option>
-														<option value="h">政务</option>
+														<option value="财经">财经</option>
+														<option value="科技">科技</option>
+														<option value="教育">教育</option>
+														<option value="体育">体育</option>
+														<option value="娱乐">娱乐</option>
+														<option value="军事">军事</option>
+														<option value="旅游">旅游</option>
+														<option value="政务">政务</option>
 													</select>
 												</div>
 											</div>
@@ -165,7 +165,7 @@
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
 												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
-												<a href="../前台/news_post_style3_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a>
+												<a id="previewMod3" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a>
 												<a id="sendMod3" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
 											</div>
 										</form>
@@ -177,16 +177,6 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
-			<div class="am-modal-dialog">
-				<div class="am-modal-hd">
-					Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-				</div>
-				<div class="am-modal-bd">Modal 内容。</div>
-			</div>
-		</div>
-
 		<script src="${ctx}/assets/js/jquery.min.js"></script>
 		<script src="${ctx}/assets/js/xcConfirm.js"></script>
 		<script src="${ctx}/assets/js/amazeui.min.js"></script>
@@ -216,6 +206,14 @@
 			$("#sendMod3").click(function() {
 				//alert("点击了");
 				var url = "${ctx1}/addnews/mod3SendNews";
+				$("#Form_model3").attr("action", url);
+				$("#Form_model3").submit();
+			})
+			
+			//预览按钮
+			$("#previewMod3").click(function() {
+				//alert("点击了");
+				var url = "${ctx1 }/addnews/previewMixMod3";
 				$("#Form_model3").attr("action", url);
 				$("#Form_model3").submit();
 			})

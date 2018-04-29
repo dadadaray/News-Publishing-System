@@ -56,9 +56,8 @@
 					</ul></li>
 				<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="userinfo.jsp">
-                        <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
-                    </a></li>
+				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a href="userinfo.jsp"> <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
+				</a></li>
 				<li><a href="${ctx1}/backstage/logOut" class="tpl-header-list-link"> <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
 				</a></li>
 			</ul>
@@ -174,14 +173,14 @@
 												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
 												<div class="am-u-sm-10">
 													<select name="selectmod1" data-am-selected="{searchBox: 1}">
-														<option value="a">财经</option>
-														<option value="b">科技</option>
-														<option value="c">教育</option>
-														<option value="d">体育</option>
-														<option value="e">娱乐</option>
-														<option value="f">军事</option>
-														<option value="g">旅游</option>
-														<option value="h">政务</option>
+														<option value="财经">财经</option>
+														<option value="科技">科技</option>
+														<option value="教育">教育</option>
+														<option value="体育">体育</option>
+														<option value="娱乐">娱乐</option>
+														<option value="军事">军事</option>
+														<option value="旅游">旅游</option>
+														<option value="政务">政务</option>
 													</select>
 												</div>
 											</div>
@@ -201,7 +200,9 @@
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> <a href="../前台/news_post_style2_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> <a id="sendMod1" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
+												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
+												<a id="previewMod2"  class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> 
+												<a id="sendMod1" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
 											</div>
 										</form>
 									</div>
@@ -252,6 +253,13 @@
 			$("#sendMod1").click(function() {
 				//alert("点击了");
 				var url = "${ctx1}/addnews/mod1SendNews";
+				$("#Form_model1").attr("action", url);
+				$("#Form_model1").submit();
+			})
+			//预览按钮
+			$("#previewMod2").click(function() {
+				//alert("点击了");
+				var url = "${ctx1 }/addnews/previewMixMod1";
 				$("#Form_model1").attr("action", url);
 				$("#Form_model1").submit();
 			})
