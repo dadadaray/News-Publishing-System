@@ -11,7 +11,7 @@
       <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title>新闻天下发布系统</title>
+      <title>新闻天下发布系统</title>
       <meta name="description" content="这是一个 index 页面">
       <meta name="keywords" content="index">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,7 +68,7 @@
                         <span class="tpl-header-list-user-nick">管理员身份</span><span class="tpl-header-list-user-ico"> <img src="${ctx}/assets/img/user01.png"></span>
                       </a>
                     </li>
-                    <li><a href="${ctx1}/backstage/logOut" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+                    <li><a href="${ctx}/login.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
                   </ul>
                 </div>
      </header>
@@ -127,7 +127,7 @@
           </ul>
         </li> 
         <li class="tpl-left-nav-item">
-          <a href="${ctx1}/backstage/logOut" class="nav-link tpl-left-nav-link-list">
+          <a href="${ctx}/login.jsp" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-sign-out"></i>
             <span>退出登陆</span>
           </a>
@@ -157,7 +157,7 @@
                             <div class="am-u-sm-12 am-u-md-9">
                                 <div class="am-btn-toolbar">
                                     <div class="am-btn-group am-btn-group-xs">
-                                         <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除
+                                         <button type="button" class="am-btn am-btn-default am-btn-danger" onclick="deleteItem()"><span class="am-icon-trash-o"></span> 批量删除
                                          </button>
                                     </div>
                                 </div>
@@ -175,89 +175,73 @@
                                             </th>
                                             <th class="table-id">ID</th> 
                                             <th class="user-names">用户名</th>
-                                            <th class="table-number am-hide-sm-only">
-                                              电话
-                                            </th>
-                                            <th class="table-number am-hide-sm-only">
-                                              邮箱
-                                            </th>
-                                            <th class="user-names ">发文数量</th>
+                                            <th class="table-number am-hide-sm-only">电话</th>
+                                            <th class="table-number am-hide-sm-only">邮箱</th>
+                                            <th class="user-names">发文数量</th>
                                             <th class="table-date am-show-lg-only">注册日期</th>
                                             <th class="table-set">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody id="doc-modal-list">
-                                        <tr>
-                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
-                                            <td>1</td>
-                                            <td>
-                                                <img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
-                                                <a class="user-name" href="###">记者一号</a>
-                                            </td>
-                                            <td class="am-hide-sm-only">15231190722</td>
-                                             <td class="am-hide-sm-only">1130393192@qq.com</td>
-                                             <td class=" bold">
-                                                <a href="#" class="font-green">5005</a>
-                                            </td>
-                                           <!--  <td class="number am-font-success"><a href="#">131</a></td> -->
-                                            <td class="am-show-lg-only">2014年9月4日 7:28:47</td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <button onclick="repoterPreview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-eye">
-                                                            </span> 查看
-                                                        </button>
-                                                        <input type="hidden" data-id="1"/>
-                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger ">
-                                                            <span class="am-icon-trash-o"></span> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td><input type="checkbox" name="box" onclick="checkonebox()" value=""></td>
-                                            <td>1</td>
-                                            <td>
-                                                <img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
-                                                <a class="user-name" href="###">记者一号</a>
-                                            </td>
-                                            <td class="am-hide-sm-only">15231190722</td>
-                                             <td class="am-hide-sm-only">1130393192@qq.com</td>
-                                             <td class=" bold">
-                                                <a href="#" class="font-green">5005</a>
-                                            </td>
-                                           <!--  <td class="number am-font-success"><a href="#">131</a></td> -->
-                                            <td class="am-show-lg-only">2014年9月4日 7:28:47</td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <button onclick="repoterPreview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-                                                            <span class="am-icon-eye">
-                                                            </span> 查看
-                                                        </button>
-                                                        <input type="hidden" data-id="2"/>
-                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger ">
-                                                            <span class="am-icon-trash-o"></span> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <c:if test="${not empty page and page.totalCount > 0}">
+                                    	<c:forEach items="${page.list}" var="user" varStatus="status">
+	                                        <tr>
+	                                            <td><input class="checkOne" type="checkbox" name="box" onclick="checkonebox()" value="${user.userInfo.userInfoId}"></td>
+	                                            <td>${status.index+1}</td>
+	                                            <td>
+	                                                <img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
+	                                                <a class="user-name" href="###">${user.loginName}</a>
+	                                            </td>
+	                                            <td class="am-hide-sm-only">
+	                                            	<c:if test="${not empty user.userInfo.phone}">
+		                                            	${user.userInfo.phone}
+		                                            </c:if>
+		                                            <c:if test="${empty user.userInfo.phone}">
+		                                            	无
+		                                            </c:if>
+	                                            </td>
+	                                            <td class="am-hide-sm-only">${user.loginEmail}</td>
+	                                            <td class=" bold">
+	                                            	<a href="#" class="font-green">${user.userInfo.sendpassNum}</a>
+	                                            </td>
+	                                            <td class="am-show-lg-only"><fmt:formatDate value="${user.userInfo.userRegistTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+	                                            <td>
+	                                                <div class="am-btn-toolbar">
+	                                                    <div class="am-btn-group am-btn-group-xs">
+	                                                        <button onclick="repoterPreview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+	                                                            <span class="am-icon-eye">
+	                                                            </span> 查看
+	                                                        </button>
+	                                                        <input type="hidden" data-id="${user.userInfo.userInfoId}"/>
+	                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger ">
+	                                                            <span class="am-icon-trash-o"></span> 删除
+	                                                        </button>
+	                                                    </div>
+	                                                </div>
+	                                            </td>
+	                                        </tr>
+                                        </c:forEach>
+                                    </c:if>  
+                                    <c:if test="${empty page or page.totalCount <= 0}">
+                               			<tr>
+                               				<td colspan="8">无信息</td>
+                               			</tr>
+                               		</c:if>  
+                                </tbody>
                             </table>
                             <div class="am-cf">
-
                                 <div class="am-fr">
                                     <ul class="am-pagination tpl-pagination">
-                                        <li class="am-disabled"><a href="#">«</a></li>
-                                        <li class="am-active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">»</a></li>
+                                        <li class="am-disabled"><a href="${ctx1}/backstageLoginUser/user/list?pageNum=${page.prePageNum}&roleId=2">«</a></li>
+                                        <c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
+                                        	<c:if test="${pageNum == page.currentPageNum}">
+                                        		<li class="am-active"><a href="${ctx1}/backstageLoginUser/user/list?pageNum=${pageNum}&roleId=2">${pageNum}</a></li>
+                                        	</c:if>
+                                        	<c:if test="${pageNum != page.currentPageNum}">
+                                        		<li><a href="${ctx1}/backstageLoginUser/user/list?pageNum=${pageNum}&roleId=2">${pageNum}</a></li>
+                                        	</c:if>
+                                        </c:forEach>
+                                        <li><a href="${ctx1}/backstageLoginUser/user/list?pageNum=${page.nextPageNum}&roleId=2">»</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -278,7 +262,7 @@
     <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
       <div class="am-modal-dialog">
         <div class="am-modal-bd" style="padding:40px 10px">
-          你，确定要删除这条记录吗？
+          	你，确定要删除这条记录吗？
         </div>
         <div class="am-modal-footer">
           <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -298,8 +282,27 @@
           relatedTarget: this,
           onConfirm: function(options) {
             var $link = $(this.relatedTarget).prev('input');
+            var id = $link.data('id');
             var msg =  '你要删除的链接 ID 为 ' + $link.data('id');
             alert(msg);
+			$.ajax({
+				type:"post",
+				url:"/News-Publishing-System/backstageLoginUser/user/delete",
+				data : {
+					userIds : id,
+				},
+				success : function(data, status) {
+					if (data != "0") {
+						alert("删除成功！");
+						window.location.href ="/News-Publishing-System/backstageLoginUser/user/list?roleId=2";
+					}else{
+						alert("删除出错！");
+					}
+				},
+				error :function(){
+					alert("删除出错！");
+				}
+			});              
           },
           // closeOnConfirm: false,
           onCancel: function() {
@@ -307,6 +310,39 @@
           }
         });
     });
+    
+    //用户批量删除
+	function deleteItem(){
+		var count = 0;
+		var ids = "";
+		$(".checkOne:checked").each(function(){
+			ids = ids + $(this).val()+",";
+			count++;
+		});
+		if(count==0){
+			alert("请至少选择一条记录进行删除！");
+			return false;
+		}else{
+			$.ajax({
+				type:"post",
+				url:"/News-Publishing-System/backstageLoginUser/user/delete",
+				data : {
+					userIds : ids
+				},
+				success : function(data, status) {
+					if (data != "0") {
+						alert("删除成功！");
+						window.location.href ="/News-Publishing-System/backstageLoginUser/user/list?roleId=2";
+					}else{
+						alert("删除出错！");
+					}
+				},
+				error :function(){
+					alert("删除出错！");
+				}
+			});
+		}
+	}    
 
     //全选/全不选功能
     function checkallcheckbox() { 
@@ -317,6 +353,7 @@
             discheckallbox(); 
         } 
     } 
+    
     //选中全部复选框
     function checkallbox() { 
         var boxarray = document.getElementsByName("box"); 
@@ -337,7 +374,7 @@
     //点击每个checkbox时判断是否所有的checkbox全部选中  
     function checkonebox() { 
         if(isallchecked()) { 
-            document.getElementById("checkall").checked = true; 
+            document.getElementById("checkall").checked = true; s
         }
         if(isalldischecked()) { 
             document.getElementById("checkall").checked = false; 

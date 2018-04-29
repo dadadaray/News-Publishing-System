@@ -167,4 +167,16 @@ public class NewsServiceImpl {
 		this.newsDaoImpl.saveNews(news);
 	}
 	
+	/**
+	 * @Title: getNewsIdByUserId
+	 * @Description: 通过用户id得到用户所写文章
+	 * @param loginUserIds
+	 * @return
+	 * @author HanChen
+	 * @return String
+	 */
+	public String getNewsIdByUserId(String loginUserIds){
+		return this.newsDaoImpl.getNewsIdByUserId(loginUserIds);	
+	}
+	
 }

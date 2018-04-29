@@ -32,29 +32,22 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 			return null;
 		}
 	}
-<<<<<<< HEAD
 	
+
 	/**
-	 * @Title: reporterList
-	 * @Description: 记者管理
+	 * @Title: userList
+	 * @Description: 用户管理
 	 * @param pageNum
 	 * @param pageSize
+	 * @param role
 	 * @return
-	 * @author HanChen
+	 * @author HanChen 
 	 * @return Page<LoginUser>
 	 */
-	public Page<LoginUser> reporterList(int pageNum, int pageSize){
+	public Page<LoginUser> userList(int pageNum, int pageSize, int role){
 		String hql;
-		hql="from LoginUser u order by u.userInfo.userRegistTime desc";
+		hql="from LoginUser u where u.role.roleId = " + role;
 		try{
-=======
-
-	public Page<LoginUser> reporterList(int pageNum, int pageSize, Object[] params) {
-		String hql;
-		hql = "from LoginUser u where n.userInfo.userInfoId = ? and n.statues = 1 order by n.createTime desc";
-		params[0] = params[0];
-		try {
->>>>>>> 20c94adfed9c5d057bfd9bbe7538124d2e61ebd7
 			Page<LoginUser> page = new Page<LoginUser>();
 			page.setCurrentPageNum(pageNum);
 			page.setPageSize(pageSize);
@@ -76,7 +69,6 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 					"update loginUser set loginName=? where loginUserId=?",
 					new Object[] { l.getLoginName(), l.getLoginUserId() });
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

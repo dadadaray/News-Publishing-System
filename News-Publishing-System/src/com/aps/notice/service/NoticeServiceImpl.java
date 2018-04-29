@@ -21,9 +21,8 @@ import com.framework.Page;
 /**
  * 
  * @ClassName NoticeServiceImpl
- * @Description TODO
- * @author lenovo 
- * @date 2018年3月14日上午10:07:01 
+ * @Description 通知service
+ * @author HanChen
  * @version
  *
  */
@@ -69,6 +68,18 @@ public class NoticeServiceImpl {
 	 */
 	public String getNoticeByNewsId(String newsIds){
 		return this.noticeDaoImpl.getNoticeByNewsId(newsIds);
+	}
+	
+	/**
+	 * @Title: getNoticeByUserId
+	 * @Description: 查询与用户相关的通知
+	 * @param userIds
+	 * @return
+	 * @author HanChen  
+	 * @return String
+	 */
+	public String getNoticeByUserId(String userIds){
+		return this.noticeDaoImpl.getNoticeByUserId(userIds);
 	}
 	
 }
