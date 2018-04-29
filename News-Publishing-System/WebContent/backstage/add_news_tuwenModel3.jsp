@@ -137,14 +137,14 @@
 												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
 												<div class="am-u-sm-10">
 													<select name="selectmod3" data-am-selected="{searchBox: 1}">
-														<option value="a">财经</option>
-														<option value="b">科技</option>
-														<option value="c">教育</option>
-														<option value="d">体育</option>
-														<option value="e">娱乐</option>
-														<option value="f">军事</option>
-														<option value="g">旅游</option>
-														<option value="h">政务</option>
+														<option value="财经">财经</option>
+														<option value="科技">科技</option>
+														<option value="教育">教育</option>
+														<option value="体育">体育</option>
+														<option value="娱乐">娱乐</option>
+														<option value="军事">军事</option>
+														<option value="旅游">旅游</option>
+														<option value="政务">政务</option>
 													</select>
 												</div>
 											</div>
@@ -164,8 +164,8 @@
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
-												<a href="../前台/news_post_style3_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a>
+												<a id="mod3saveNewsDraft"class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
+												<a id="previewMod3" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a>
 												<a id="sendMod3" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
 											</div>
 										</form>
@@ -175,91 +175,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="am-u-md-2 am-u-sm-4 row-mb">
-					<div class="tpl-portlet">
-						<div class="portlet-title">
-							<div class="caption font-green bold">
-								<span class="am-icon-list">素材库</span>
-							</div>
-						</div>
-
-						<div style="padding-top: 20px;">
-							<ul class="am-list am-list-border">
-
-								<li style="background: #0e90d2;">
-									<button type="button" class="am-btn am-btn-primary js-modal-open">
-										<span class="am-icon-image am-icon-fw"></span> &nbsp;&nbsp;图片
-									</button>
-
-									<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal" style="margin-top: 50px;">
-										<div class="am-modal-dialog" style="width: 930px;">
-											<div class="am-modal-hd">
-												选择图片 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-											</div>
-											<div class="am-modal-bd">
-												<div id="fileUploadContent" class="fileUploadContent"></div>
-
-												<button onclick="testUpload()">提交</button>
-
-
-											</div>
-										</div>
-									</div>
-								</li>
-								<li style="background: #0e90d2;">
-
-									<button type="button" class="am-btn am-btn-primary js-modal-open">
-										<span class="am-icon-video-camera am-icon-fw"></span> &nbsp;&nbsp;视频
-									</button>
-									<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal2" style="margin-top: 50px;">
-										<div class="am-modal-dialog" style="width: 930px;">
-											<div class="am-modal-hd">
-												选择视频 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-											</div>
-											<div class="am-modal-bd">
-												<div id="fileUploadContent1" class="fileUploadContent"></div>
-
-												<button onclick="testUpload()">提交</button>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li style="background: #0e90d2;">
-
-									<button type="button" class="am-btn am-btn-primary js-modal-open">
-										<span class="am-icon-music am-icon-fw"></span> &nbsp;&nbsp;音频
-									</button>
-
-									<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal3" style="margin-top: 50px;">
-										<div class="am-modal-dialog">
-											<div class="am-modal-hd">
-												Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-											</div>
-											<div class="am-modal-bd">Modal 内容。</div>
-										</div>
-									</div>
-								</li>
-
-							</ul>
-						</div>
-						<!--图片切入页-->
-
-
-
-					</div>
-				</div>
 			</div>
 		</div>
-
-		<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
-			<div class="am-modal-dialog">
-				<div class="am-modal-hd">
-					Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-				</div>
-				<div class="am-modal-bd">Modal 内容。</div>
-			</div>
-		</div>
-
 		<script src="${ctx}/assets/js/jquery.min.js"></script>
 		<script src="${ctx}/assets/js/xcConfirm.js"></script>
 		<script src="${ctx}/assets/js/amazeui.min.js"></script>
@@ -267,57 +184,7 @@
 		<script src="${ctx}/assets/js/app.js"></script>
 		<script type="text/javascript" src="${ctx}/assets/js/fileUpload.js"></script>
 		<script src="${ctx}/assets/js/echarts.min.js"></script>
-		<!--富文本js-->
-		<script language="javascript" type="text/javascript" src="${ctx}/assets/js/tinymce/tinymce.js"></script>
-
 		<script type="text/javascript">
-			//图片上传 begin
-			$("#fileUploadContent").initUpload({
-				"uploadUrl" : "#",//上传文件信息地址
-				//"size":350,//文件大小限制，单位kb,默认不限制
-				//"maxFileNumber":3,//文件个数限制，为整数
-				"filelSavePath" : "D://images",//文件上传地址，后台设置的根目录
-				"beforeUpload" : beforeUploadFun,//在上传前执行的函数
-				//"onUpload":onUploadFun，//在上传后执行的函数
-				//autoCommit:true,//文件是否自动上传
-				"fileType" : [ 'png', 'jpg', 'docx', 'doc', 'gif' ]
-			//文件类型限制，默认不限制，注意写的是文件后缀
-			});
-			function beforeUploadFun(opt) {
-				opt.otherData = [ {
-					"name" : "name",
-					"value" : "zxm"
-				} ];
-			}
-			function onUploadFun(opt, data) {
-				alert(data);
-				uploadTools.uploadError(opt);//显示上传错误
-				uploadTools.uploadSuccess(opt);//显示上传成功
-			}
-
-			function testUpload() {
-				var opt = uploadTools.getOpt("fileUploadContent");
-				uploadEvent.uploadFileEvent(opt);
-			}
-			//图片上传 end
-
-			//视频上传
-			//图片上传 begin
-			$("#fileUploadContent1").initUpload(
-					{
-						"uploadUrl" : "#",//上传文件信息地址
-						//"size":350,//文件大小限制，单位kb,默认不限制
-						//"maxFileNumber":3,//文件个数限制，为整数
-						//"filelSavePath":"D://images",//文件上传地址，后台设置的根目录
-						"beforeUpload" : beforeUploadFun,//在上传前执行的函数
-						//"onUpload":onUploadFun，//在上传后执行的函数
-						//autoCommit:true,//文件是否自动上传
-						"fileType" : [ 'avi', 'wmv', 'mp4', 'mpeg', 'flv',
-								'rm', 'rmvb', 'vob' ]
-					//文件类型限制，默认不限制，注意写的是文件后缀
-					});
-			//end
-
 			// 页面上图片上传并显示start
 			function imgChange(e) {
 				var file = e;
@@ -339,6 +206,22 @@
 			$("#sendMod3").click(function() {
 				//alert("点击了");
 				var url = "${ctx1}/addnews/mod3SendNews";
+				$("#Form_model3").attr("action", url);
+				$("#Form_model3").submit();
+			})
+			
+			//预览按钮
+			$("#previewMod3").click(function() {
+				//alert("点击了");
+				var url = "${ctx1 }/addnews/previewMixMod3";
+				$("#Form_model3").attr("action", url);
+				$("#Form_model3").submit();
+			})
+			
+			//存草稿按钮
+			$("#mod3saveNewsDraft").click(function() {
+				//alert("点击了");
+				var url = "${ctx1 }/addnews/mod3saveNewsDraft";
 				$("#Form_model3").attr("action", url);
 				$("#Form_model3").submit();
 			})

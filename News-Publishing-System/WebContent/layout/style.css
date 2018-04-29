@@ -887,7 +887,7 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 .block_single_post .about_author .bio .name a {font-size:10px; color:#636363; text-transform:uppercase;}
 .block_single_post .about_author .bio .name a:hover {color:#f24024; text-decoration:none;}
 
-.block_post_tags {padding:13px 0px; border-top:1px solid #f0f0f0;}
+.block_post_tags {padding:13px 0px; border-top:1px solid #f0f0f0; margin-bottom:20px;margin-bottom:20px;}
 .block_post_tags p {padding-bottom:0px; font-size:11px; color:#4e4e4e; font-weight:bold; line-height:normal;}
 .block_post_tags a {font-size:11px; color:#818181; font-weight:normal;}
 .block_post_tags a:hover {color:#f24024; text-decoration:none;}

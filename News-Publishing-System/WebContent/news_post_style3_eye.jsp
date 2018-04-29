@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.Date"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" import="java.util.Date"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}/backstage"></c:set>
 <!DOCTYPE html>
 <html>
 
@@ -67,7 +67,7 @@
 <!--注册表单验证 start-->
 <script type="text/javascript" src="${ctx}/layout/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}/layout/js/page_regist.js?lang=zh"></script>
-<script type="text/javascript" src="${ctx}/layout/js/jquery.i18n.properties-1.0.9.js" ></script>
+<script type="text/javascript" src="${ctx}/layout/js/jquery.i18n.properties-1.0.9.js"></script>
 <!--注册表单验证 end-->
 
 <!--密码md5加密 start-->
@@ -75,94 +75,99 @@
 <!--密码md5加密 end-->
 
 <!--登录表单验证 start-->
-<script type="text/javascript"
-    src="${ctx}/layout/js/page_login.js?lang=zh" id="url"
-    data="<%= request.getHeader("REFERER")%>"></script>
+<script type="text/javascript" src="${ctx}/layout/js/page_login.js?lang=zh" id="url" data="<%= request.getHeader("REFERER")%>"></script>
 <!--登录表单验证 start-->
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 
 <body>
 	<div class="wrapper sticky_footer">
 		<!-- head -->
 		<%@ include file="head.jsp"%>
-        
-        <!-- CONTENT BEGIN -->
-        <div id="content" class="right_sidebar ">
-        	<div class="inner">
-            	<div class="general_content">
-	               <div class="main_content" id="con_eye">
-	                      
-	                        <div class="separator" style="height:30px;">
-	                            <a href="../后台/add_news_tuwenModel3.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
-	                        </div>
-	                        
-	                        <article class="block_single_news">
-	                            <p class="title">
-	                                <h1>中国工厂太魔幻：未来每2分钟下线一辆汽车</h1>
-	                            </p>
-	                            
-	                            <div class="info">
-	                                <div class="date"><p>15 July, 2012</p></div>
-	                                <div class="author"><p>作者: <a href="#">王敏</a></p></div>
-	                                    
-	                                <div class="r_part">
-	                                    <a href="#" class="views">0</a>
-	                                    <a href="#" class="comments">0</a>
-	                                </div>
-	                            </div>
-	                            
-	                        <div class="content">
-	                          <div class="f_pic"><a href="#"><img src="${ctx}/images/pic_news_post_1.jpg" alt="" /></a></div>
-	                           <!-- <div class="pic_con_sty1"> 
-	                                <img class="pic_con_style_tu" src="${ctx}/images/pic_technology_big.jpg" alt="" />
-	                            </div> -->
-	                            <p class="text_p"><b>最牛实力：</b>这间数字化仿真工厂，冲压环节的零件加工合格率达到100%，焊装环节的焊点定位合格率达到99.8%，总装环节的装配合格率更是达到100%。工程师们通过在仿真系统中的模拟演练，可以减少人为失误风险，大幅节约制造成本，缩短研发周期。.</p> 
-	                            <p class="text_p"><b>最牛实力：</b>这间数字化仿真工厂，冲压环节的零件加工合格率达到100%，焊装环节的焊点定位合格率达到99.8%，总装环节的装配合格率更是达到100%。工程师们通过在仿真系统中的模拟演练，可以减少人为失误风险，大幅节约制造成本，缩短研发周期。.</p> 
-	                            <p class="text_p"><b>最牛实力：</b>这间数字化仿真工厂，冲压环节的零件加工合格率达到100%，焊装环节的焊点定位合格率达到99.8%，总装环节的装配合格率更是达到100%。工程师们通过在仿真系统中的模拟演练，可以减少人为失误风险，大幅节约制造成本，缩短研发周期。.</p> 
-	
-	                        </div>
-	                        </article>
-	                        
-	                        <div class="separator" style="height:4px;"></div>
-	                        
-	                        <div class="block_post_tags">
-	                            <p>标签: <a href="#">商业,</a><a href="#">股票</a></p>
-	                        </div>
-	                        
-	                        
-	                    </div>
-	                
-	                	
-                </div>
-            </div>
-        </div>
-    	<!-- CONTENT END -->
-    </div>
 
-	<!-- login -->
-	<%@ include file="login.jsp"%>  
+		<!-- CONTENT BEGIN -->
+		<div id="content" class="right_sidebar ">
+			<div class="inner">
+				<div class="general_content">
+					<div class="main_content" id="con_eye">
+
+						<div class="separator" style="height: 30px;">
+							<a href="${ctx1}/add_news_tuwenModel3.jsp"><span style="float: right; font-size: 16px;">返&nbsp&nbsp回</span></a>
+						</div>
+
+						<article class="block_single_news">
+							<p class="title">
+							<h1>${mod3title}</h1>
+							</p>
+
+							<div class="info">
+								<div class="date">
+									<p>
+										<fmt:formatDate value="${mod3viewcurrentTime}" pattern="yyyy-MM-dd HH:mm:ss" />
+									</p>
+								</div>
+								<div class="author">
+									<p>
+										作者: <a href="#">${bloginUser.loginName}</a>
+									</p>
+								</div>
+
+								<div class="r_part">
+									<a href="#" class="views">0</a> <a href="#" class="comments">0</a>
+								</div>
+							</div>
+
+							<div class="content">
+								<div class="f_pic">
+									<a href="#"><img src="${ctx}/preViewImgUp/${premod3F1}" alt="" /></a>
+								</div>
+								<p class="text_p">
+									${mod3textarea1}
+								</p>
+
+							</div>
+						</article>
+
+						<div class="separator" style="height: 4px;"></div>
+
+						<div class="block_post_tags">
+							<p>
+								标签: <a href="#">${previewselectmod3}</a>
+							</p>
+						</div>
+
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+		<!-- CONTENT END -->
+	</div>
+
 
 </body>
 <script type="text/javascript">
-    <!-- 回车登陆 -->
-    $(document).keyup(function(e) {
-        if (e.keyCode == 13) {
-            $("#submit1").click()
-        }
-    });
-    /*点赞，点击变换图片*/
-    function toggle(){
-        debugger;
-        var xihuan_change = $('#xihuan_change');
-        var val = xihuan_change.attr("src").indexOf('2');
-          
-        if(val >= 0){
-            $('#xihuan_change').attr('src', '${ctx}/layout/images/xihuan1.png');  
-        }else{
-            $('#xihuan_change').attr('src', '${ctx}/layout/images/xihuan2.png');  
-        }
-    }
+<!-- 回车登陆 -->
+	$(document).keyup(function(e) {
+		if (e.keyCode == 13) {
+			$("#submit1").click()
+		}
+	});
+	/*点赞，点击变换图片*/
+	function toggle() {
+		debugger;
+		var xihuan_change = $('#xihuan_change');
+		var val = xihuan_change.attr("src").indexOf('2');
+
+		if (val >= 0) {
+			$('#xihuan_change').attr('src', '${ctx}/layout/images/xihuan1.png');
+		} else {
+			$('#xihuan_change').attr('src', '${ctx}/layout/images/xihuan2.png');
+		}
+	}
 </script>
 </html>

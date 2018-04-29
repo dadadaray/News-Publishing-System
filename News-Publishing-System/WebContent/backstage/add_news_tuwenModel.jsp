@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/backstage"></c:set>
-<c:set var="ctx1" value="${pageContext.request.contextPath}/backstage"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}"></c:set>
 <!doctype html>
 <html>
 
@@ -188,7 +188,7 @@
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板一</h3>
-                                        <a href="../前台/news_post_style1_eye.jsp" style="float: right;">预览</a>
+                                        <a href="${ctx1}/news_post_style1_eye.jsp" style="float: right;">预览</a>
                                     </div>
                                 </div>
 
@@ -208,7 +208,7 @@
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板二</h3>
-                                        <a href="../前台/news_post_style2_eye.jsp" style="float: right;">预览</a>   
+                                        <a href="${ctx1}/news_post_style2_eye.jsp" style="float: right;">预览</a>   
                                     </div>
                                 </div>
                             </div>
@@ -226,7 +226,7 @@
                                     <div class="tpl-table-images-content-block" style="height: 30px;">
                                         <!-- 名称 与预览按钮  -->
                                         <h3 style="text-align: center; float: left;">模板三</h3>
-                                        <a href="../前台/news_post_style3_eye.jsp" style="float: right;">预览</a>
+                                        <a href="${ctx1}/news_post_style3_eye.jsp" style="float: right;">预览</a>
                             
                                        
                                     </div>
