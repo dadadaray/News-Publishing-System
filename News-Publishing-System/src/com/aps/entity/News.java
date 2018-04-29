@@ -43,7 +43,7 @@ public class News {
 	private UserInfo userInfo; // 文章的作者
 	private NewsType newsType; // 文章类型
 	private ModFree modFree; // 自由模板
-	private ModBigImg modBigImg; // 大图模板
+	private Set<ModBigImg> modBigImgs=new HashSet<ModBigImg>(0);
 	private ModVedio modVedio; // 视频模板
 	private ModAudio modAudio; // 音频模板
 	private ModMixCenter modMixCenter; // 图文居中
@@ -51,6 +51,7 @@ public class News {
 	private ModMixSingle modMixSingle; // 图文一个图
 	private Set<Comment> comments = new HashSet<Comment>(0); // 新闻的评论
 	private Set<Notice> notices = new HashSet<Notice>(0);// 新闻的消息
+	private String bigImgContent;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,6 +67,14 @@ public class News {
 	@Analyzer(impl=StandardAnalyzer.class)
 	public String getNewsTitle() {
 		return newsTitle;
+	}
+
+	public String getBigImgContent() {
+		return bigImgContent;
+	}
+
+	public void setBigImgContent(String bigImgContent) {
+		this.bigImgContent = bigImgContent;
 	}
 
 	public void setNewsTitle(String newsTitle) {
@@ -149,17 +158,6 @@ public class News {
 	public void setModFree(ModFree modFree) {
 		this.modFree = modFree;
 	}
-
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public ModBigImg getModBigImg() {
-		return modBigImg;
-	}
-
-	public void setModBigImg(ModBigImg modBigImg) {
-		this.modBigImg = modBigImg;
-	}
-
 	@OneToOne
 	@PrimaryKeyJoinColumn
 	public ModVedio getModVedio() {
@@ -258,6 +256,14 @@ public class News {
 
 	public void setAuditorId(Integer auditorId) {
 		this.auditorId = auditorId;
+	}
+	@OneToMany(mappedBy = "news")
+	public Set<ModBigImg> getModBigImgs() {
+		return modBigImgs;
+	}
+
+	public void setModBigImgs(Set<ModBigImg> modBigImgs) {
+		this.modBigImgs = modBigImgs;
 	}
 
 }
