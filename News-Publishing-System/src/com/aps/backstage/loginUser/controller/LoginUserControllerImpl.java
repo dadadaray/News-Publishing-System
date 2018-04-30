@@ -26,21 +26,21 @@ import com.framework.Page;
 @Controller
 @RequestMapping("backstageLoginUser")
 public class LoginUserControllerImpl {
-	
+
 	@Resource
 	private RoleServiceImpl roleServiceImpl;
-	
+
 	@Resource
 	private BackUserServiceImpl backUserServiceImpl;
-	
+
 	@Resource
 	private NoticeServiceImpl noticeServiceImpl;
-	
+
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
 
 	/**
-	 * 功能： 实现注册功能 
+	 * 功能： 实现注册功能
 	 * 
 	 * @param name
 	 * @param email
@@ -68,20 +68,19 @@ public class LoginUserControllerImpl {
 			loginUser.setRole(role);
 			userInfo.setUserRegistTime(time);
 			userInfo.setLoginUser(loginUser);
-			//设置默认头像
+			// 设置默认头像
 			userInfo.setHeadUrl("default.png");
 			loginUser.setUserInfo(userInfo);
-			String reString=this.backUserServiceImpl.bregiste(loginUser);
-			if(reString.equals("0")){
+			String reString = this.backUserServiceImpl.bregiste(loginUser);
+			if (reString.equals("0")) {
 				System.out.print("保存成功");
 				return "/backstage/login";
 			}
-			//System.out.print(reString);
+			// System.out.print(reString);
 			return "/backstage/sign_up";
 		}
 		return "6";
 	}
-
 
 	/**
 	 * 功能: 1.能够使用邮箱登录/也可以使用用户名登录 2.验证code 3.验证用户名/邮箱是否存在 4.验证密码的正确性
@@ -99,47 +98,46 @@ public class LoginUserControllerImpl {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	@ResponseBody
 	public String login(@RequestParam(name = "loginName") String loginName,
-			@RequestParam(name = "password") String password,
-			HttpSession session) {
-		//System.out.print(loginName+password);
-		String qString=this.backUserServiceImpl.loginVerifys(loginName,password);
-		//System.out.print("这是返回值哦："+qString);
+			@RequestParam(name = "password") String password, HttpSession session) {
+		// System.out.print(loginName+password);
+		String qString = this.backUserServiceImpl.loginVerifys(loginName, password);
+		// System.out.print("这是返回值哦："+qString);
 		LoginUser bloginUser = this.backUserServiceImpl.bFindUserByEmail(loginName);
-		if (qString.equals("0")) {
+		if (qString.equals("0") || qString.equals("5")) {
 			session.setAttribute("bloginUser", bloginUser);
 			return qString;
-		}	
+		}
 		return qString;
 	}
-	
 
 	/**
 	 * @Title: userList
 	 * @Description: 用户管理
 	 * @param pageNum
-	 * @param roleId 1：群众；2：记者
+	 * @param roleId
+	 *            1：群众；2：记者
 	 * @param session
 	 * @return
-	 * @author HanChen 
+	 * @author HanChen
 	 * @return String
 	 */
 	@RequestMapping(value = "user/list", method = RequestMethod.GET)
-	public String userList (@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, 
-			@RequestParam(name = "roleId") int roleId, HttpSession session){
-		
+	public String userList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,
+			@RequestParam(name = "roleId") int roleId, HttpSession session) {
+
 		Page<LoginUser> page = new Page<LoginUser>();
 		page = this.backUserServiceImpl.userList(pageNum, 8, roleId);
 
 		session.setAttribute("page", page);
-		
-		if( 1 == roleId){
+
+		if (1 == roleId) {
 			return "backstage/all_users";
-		}else{
+		} else {
 			return "backstage/all_repoter";
 		}
-		
+
 	}
-	
+
 	/**
 	 * @Title: deleteUsers
 	 * @Description: 删除用户
@@ -150,29 +148,29 @@ public class LoginUserControllerImpl {
 	 */
 	@RequestMapping(value = "user/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public int deleteUsers(@RequestParam(name = "userIds") String userIds){
+	public int deleteUsers(@RequestParam(name = "userIds") String userIds) {
 		int delNotice = 0, delNews = 0, delUsers = 0, results = 0;
 		String noticeIds = this.noticeServiceImpl.getNoticeByUserId(userIds);
-		if(!StringUtils.isBlank(noticeIds)){//需要删除用户相关的通知
-			delNotice =  this.noticeServiceImpl.deleteNotice(noticeIds);
+		if (!StringUtils.isBlank(noticeIds)) {// 需要删除用户相关的通知
+			delNotice = this.noticeServiceImpl.deleteNotice(noticeIds);
 		}
-		
+
 		String newsIds = this.newsServiceImpl.getNewsIdByUserId(userIds);
-		if(!StringUtils.isBlank(newsIds)){//需要删除用户相关的新闻
+		if (!StringUtils.isBlank(newsIds)) {// 需要删除用户相关的新闻
 			delNews = this.newsServiceImpl.deleteNews(newsIds);
-			if( 0 != delNews){
-				//需要删除所有模板的文章详情
-				
+			if (0 != delNews) {
+				// 需要删除所有模板的文章详情
+
 			}
 		}
-		
-		delUsers =  this.backUserServiceImpl.deleteUser(userIds);
-		
-		if( 0 != delUsers){
+
+		delUsers = this.backUserServiceImpl.deleteUser(userIds);
+
+		if (0 != delUsers) {
 			results = delNotice + delNews + delUsers;
 		}
-		
+
 		return results;
-	} 
-	
+	}
+
 }
