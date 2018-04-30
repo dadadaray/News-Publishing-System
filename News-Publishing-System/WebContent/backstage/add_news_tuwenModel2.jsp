@@ -112,7 +112,7 @@
 							<div class="tpl-block">
 								<div class="am-g">
 									<div class="tpl-form-body tpl-form-line">
-										<form id="Form_model2" class="am-form tpl-form-line-form" action="" method="post" enctype="multipart/form-data">
+										<form id="Form_model2" class="am-form tpl-form-line-form" target="" action="" method="post" enctype="multipart/form-data">
 											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="mod2title" value="这是题目">
 
 											<div>
@@ -243,6 +243,7 @@
 				//alert("点击了");
 				var url = "${ctx1 }/addnews/previewMixMod2";
 				$("#Form_model2").attr("action", url);
+				$("#Form_model2").attr("target", "_blank");
 				$("#Form_model2").submit();
 			})
 			

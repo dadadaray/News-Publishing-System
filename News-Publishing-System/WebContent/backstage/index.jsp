@@ -58,7 +58,7 @@
                         <li class="tpl-dropdown-content-external">
                             <h3>你有 
                               <span class="tpl-color-success">3</span> 条消息</h3>
-                              <a href="tongzhi.jsp" class="font-green">全部</a>
+                              <a href="${ctx1}/backstage/notice" class="font-green">全部</a>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
 
