@@ -62,9 +62,12 @@ $(function() {
 											console.log("这是js返回值：" + data);
 											// console.log("这是status："+status);
 											if (data == "0") {
-												// 登陆成功
+												// 记者登陆成功
 												window.location.href = "/News-Publishing-System/backstage/indexs";
-											} else if (data == "-1") {
+											} else if(data=="5"){
+												// 记者登陆成功
+												window.location.href = "/News-Publishing-System/backstage/indexBack";
+											}else if (data == "-1") {
 												// 验证码错误
 												console.log("错误信息显示哦！");
 												$("#errorpass").show();
