@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.aps.entity.ModBigImg;
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
 import com.aps.entity.ModMixSingle;
@@ -113,5 +114,16 @@ public class AddNewsServiceImpl {
 		}
 
 	}
+	
+	public ModBigImg saveModBigImg(String f,String t){
+		ModBigImg modBigImg=new ModBigImg();
+		modBigImg.setModBigImgContent(t);
+		return modBigImg;
+	}
+	
+	
+	
+	
+	
 
 }
