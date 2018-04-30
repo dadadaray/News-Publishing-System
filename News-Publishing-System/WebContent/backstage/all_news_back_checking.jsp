@@ -239,8 +239,8 @@
 													</td>
 		
 													<td>
-														<img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
-														<a class="user-name" href="###">${news.userInfo.loginUser}</a>
+														<img src="${ctx1}/imgUp/${news.userInfo.headUrl}" alt="" class="author_pics">
+														<a class="user-name" href="###">${news.userInfo.loginUser.loginName}</a>
 													</td>
 													<td>${news.newsType.typeName}</td>
 													<td class="am-hide-sm-only"><fmt:formatDate value="${news.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>

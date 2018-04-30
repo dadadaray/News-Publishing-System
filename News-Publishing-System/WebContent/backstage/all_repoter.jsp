@@ -189,7 +189,7 @@
 	                                            <td><input class="checkOne" type="checkbox" name="box" onclick="checkonebox()" value="${user.userInfo.userInfoId}"></td>
 	                                            <td>${status.index+1}</td>
 	                                            <td>
-	                                                <img src="${ctx}/assets/img/user01.png" alt="" class="author_pics">
+	                                                <img src="${ctx1}/imgUp/${user.userInfo.headUrl}" alt="" class="author_pics">
 	                                                <a class="user-name" href="###">${user.loginName}</a>
 	                                            </td>
 	                                            <td class="am-hide-sm-only">

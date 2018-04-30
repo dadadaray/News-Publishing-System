@@ -50,20 +50,8 @@ public class NoticeControllerImpl {
 	public String listNotice(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,
 			@RequestParam(name = "noticeType", defaultValue = "") String noticeType,
 			 HttpServletRequest request, HttpSession session) {
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(29);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
-		
-		
 		// 获取用户信息
-		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-		
-		// 如果没有用户信息，需要进行登陆
-		/*if (loginUser == null) {
-			return "login";
-		}*/
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<Notice> page = new Page<Notice>();
 		page = this.noticeServiceImpl.listNotice(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
@@ -89,7 +77,5 @@ public class NoticeControllerImpl {
 		
 		return delNum + "";
 	}
-	
-	
 	
 }
