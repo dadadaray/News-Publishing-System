@@ -114,10 +114,10 @@ public class AddNewsServiceImpl {
 		}
 
 	}
-	
 	public ModBigImg saveModBigImg(String f,String t){
 		ModBigImg modBigImg=new ModBigImg();
 		modBigImg.setModBigImgContent(t);
+		modBigImg.setModBigImgUrl(f);
 		return modBigImg;
 	}
 	

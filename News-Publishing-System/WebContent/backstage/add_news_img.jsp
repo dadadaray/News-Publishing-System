@@ -108,16 +108,13 @@
 									<div class="am-u-md-2 am-u-sm-4 gallery-img">
 										<!--  图片上传显示-->
 										<!--input-group start-->
-										<div class="upload_box">
-											<input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 131.33px" />
-											<div class="preview">
-												<img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180" />
+										<div class="upload_box"><input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180" />
 											</div>
 										</div>
 										<!--input-group end-->
 									</div>
 									<div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;">
-										<textarea rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea>
+										<textarea name="textInfo" rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea>
 									</div>
 									<div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;">
 										<i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i>
@@ -145,7 +142,7 @@
 												<div class="am-u-sm-10">
 													<select data-am-selected="{searchBox: 1}" name="selectmod">
 														<option value="财经">财经</option>
-														<option value="财经">财经</option>
+														<option value="科技">科技</option>
 														<option value="教育">教育</option>
 														<option value="体育">体育</option>
 														<option value="娱乐">娱乐</option>
@@ -195,14 +192,6 @@
 		</div>
 	</div>
 
-	<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
-		<div class="am-modal-dialog">
-			<div class="am-modal-hd">
-				Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-			</div>
-			<div class="am-modal-bd">Modal 内容。</div>
-		</div>
-	</div>
 	<script src="${ctx}/assets/js/jquery.min.js"></script>
 	<script src="${ctx}/assets/js/xcConfirm.js"></script>
 	<script src="${ctx}/assets/js/amazeui.min.js"></script>
@@ -215,7 +204,7 @@
 		function addImg() {
 			$("#father")
 					.append(
-							'<div><div class="pagelet-figure-gallery-item"><div class="am-u-md-2 am-u-sm-4 gallery-img"><div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180"/></div></div></div><div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;"><textarea rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea></div><div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;"><i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i></div></div></div>');
+							'<div><div class="pagelet-figure-gallery-item"><div class="am-u-md-2 am-u-sm-4 gallery-img"><div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180"/></div></div></div><div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;"><textarea name="textInfo" rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea></div><div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;"><i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i></div></div></div>');
 		}
 		function removeImg(e) {
 			$(e).parent().parent().remove();
