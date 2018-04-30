@@ -207,7 +207,7 @@
 		                            <a href="javascript:;" class="tpl-table-images-content-i">
 		                                <div class="tpl-table-images-content-i-info">
 		                                    <span class="ico">
-		                                        <img src="${ctx}/assets/img/user02.png" alt="">${news.userInfo.loginUser}
+		                                        <img src="${ctx1}/imgUp/${news.userInfo.headUrl}" alt="">${news.userInfo.loginUser.loginName}
 		                                    </span>
 		                                </div>
 		                                <span class="tpl-table-images-content-i-shadow"></span>

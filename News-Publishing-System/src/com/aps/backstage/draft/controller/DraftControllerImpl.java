@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aps.entity.LoginUser;
 import com.aps.entity.News;
-import com.aps.entity.UserInfo;
 import com.aps.news.service.NewsServiceImpl;
 import com.framework.Page;
 
@@ -51,17 +50,7 @@ public class DraftControllerImpl {
 	public String draftList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session){	
 		
 		// 获取用户信息
-		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-		
-		// 如果没有用户信息，需要进行登陆
-		/*if (loginUser == null) {
-			return "login";
-		}*/
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(29);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
 		page = this.newsServiceImpl.draftNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});

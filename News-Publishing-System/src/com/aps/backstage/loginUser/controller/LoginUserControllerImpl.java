@@ -127,8 +127,6 @@ public class LoginUserControllerImpl {
 	public String userList (@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, 
 			@RequestParam(name = "roleId") int roleId, HttpSession session){
 		
-		LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-		
 		Page<LoginUser> page = new Page<LoginUser>();
 		page = this.backUserServiceImpl.userList(pageNum, 8, roleId);
 

@@ -1,7 +1,6 @@
 package com.aps.backstage.userinfo.controller;
 
 import javax.annotation.Resource;
-import javax.security.auth.login.CredentialException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 

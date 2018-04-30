@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aps.entity.LoginUser;
 import com.aps.entity.News;
-import com.aps.entity.UserInfo;
 import com.aps.news.service.NewsServiceImpl;
 import com.aps.notice.service.NoticeServiceImpl;
 import com.framework.Page;
@@ -59,17 +58,7 @@ public class NewsControllerImpl {
 			@RequestParam(name = "orderBy", defaultValue = "0") int orderBy, HttpSession session)  {
 
 		// 获取用户信息
-		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-		
-		// 如果没有用户信息，需要进行登陆
-		/*if (loginUser == null) {
-			return "login";
-		}*/
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(29);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
 		page = this.newsServiceImpl.publishNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()}, orderBy);
@@ -91,17 +80,7 @@ public class NewsControllerImpl {
 	public String checkingList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session){
 		
 		// 获取用户信息
-		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-		
-		// 如果没有用户信息，需要进行登陆
-		/*if (loginUser == null) {
-			return "login";
-		}*/
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(29);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
 		page = this.newsServiceImpl.checkingNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
@@ -122,17 +101,7 @@ public class NewsControllerImpl {
 	@RequestMapping(value = "unchecked/list", method = RequestMethod.GET)
 	public String unCheckedList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session){
 		// 获取用户信息
-		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-		
-		// 如果没有用户信息，需要进行登陆
-		/*if (loginUser == null) {
-			return "login";
-		}*/
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(29);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
 		page = this.newsServiceImpl.uncheckedNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
@@ -152,18 +121,8 @@ public class NewsControllerImpl {
 	 */
 	@RequestMapping(value = "back/checking/list", method = RequestMethod.GET)
 	public String backCheckingList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session){
-//		// 获取用户信息
-//		LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-//		
-//		// 如果没有用户信息，需要进行登陆
-//		if (loginUser == null) {
-//			return "login";
-//		}
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(30);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
 		page = this.newsServiceImpl.backCheckingNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
@@ -186,17 +145,7 @@ public class NewsControllerImpl {
 	public String backPublishList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, 
 			@RequestParam(name = "orderBy", defaultValue = "0") int orderBy, HttpSession session)  {
 		// 获取用户信息
-		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-		
-		// 如果没有用户信息，需要进行登陆
-		/*if (loginUser == null) {
-			return "login";
-		}*/
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(30);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
 		page = this.newsServiceImpl.backPublishNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()}, orderBy);
@@ -217,17 +166,7 @@ public class NewsControllerImpl {
 	@RequestMapping(value = "back/unchecked/list", method = RequestMethod.GET)
 	public String backUncheckedList(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session){
 		// 获取用户信息
-		//LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-		
-		// 如果没有用户信息，需要进行登陆
-		/*if (loginUser == null) {
-			return "login";
-		}*/
-		
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserInfoId(30);
-		LoginUser loginUser = new LoginUser();
-		loginUser.setUserInfo(userInfo);
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
 		page = this.newsServiceImpl.backUncheckedNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
