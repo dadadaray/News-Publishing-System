@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
 import com.aps.backstage.loginUser.dao.BackUserDaoImpl;
 import com.aps.entity.LoginUser;
@@ -68,7 +69,15 @@ public class BackUserServiceImpl {
 		}
 		System.out.print("正确账号。");
 		// 登录成功！
-		return "0";
+		//判断记者 跳转记者页面
+		if(t1.getRole().getRoleId().equals(2)){
+			return "0";
+		}else if(t1.getRole().getRoleId().equals(3)){
+			//管理员跳转
+			return "5";
+		}
+		return "-1";
+		
 	}
 	
 
