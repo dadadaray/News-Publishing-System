@@ -28,7 +28,7 @@ import com.aps.newsType.service.NewsTypeServiceImpl;
 
 @Controller
 @RequestMapping("addnews")
-public class AddNewsControllerImpl {
+public class AddMixNewsControllerImpl {
 	@Resource
 	private AddNewsServiceImpl addNewsServiceImpl;
 

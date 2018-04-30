@@ -25,7 +25,7 @@ public class BackUserDaoImpl extends BaseDao<LoginUser, String> {
 	public LoginUser bfindByEmil(String email) {
 		try {
 			Query query = this.sessionFactory.getCurrentSession()
-					.createQuery("from LoginUser where loginEmail='" + email + "' and roleId='2'");
+					.createQuery("from LoginUser where loginEmail='" + email + "' and roleId>'1'");
 			return (LoginUser) query.uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
