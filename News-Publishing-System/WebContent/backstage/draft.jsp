@@ -218,8 +218,12 @@
 		                                	<c:if test="${not empty news.modFree}">
 		                                		${news.modFree.modFreeContent}
 		                                	</c:if>
-		                                	<c:if test="${not empty news.modBigImg}">
-		                                		${news.modBigImg.modBigImgContent}
+		                                	<c:if test="${not empty news.modBigImgs}">
+		                                		<c:forEach items="${news.modBigImgs}" var="modBigImg">
+		                                			<c:if test="${news.newsId eq modBigImg.news.newsId}">
+		                                				${modBigImg.modBigImgContent}
+		                                			</c:if>
+		                                		</c:forEach>
 		                                	</c:if>
 		                                	<c:if test="${not empty news.modVedio}">
 		                                		${news.modVedio.modVedioContent}
