@@ -33,6 +33,22 @@ public class NewsServiceImpl {
 	private NewsDaoImpl newsDaoImpl;
 	
 	/**
+	 * @dec  查询单个新闻
+	 * @author Ray
+	 * @param newsId
+	 * @return
+	 */
+	public News getOneNews(Integer newsId) {
+		try {
+			return this.newsDaoImpl.getOneNews(newsId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
 	 * @dec 返回首页新闻查询列表  按浏览量数排序
 	 * @author Ray
 	 * @return
@@ -41,6 +57,20 @@ public class NewsServiceImpl {
 		return newsDaoImpl.findNewsRecommend();
 	}
 	
+	/**
+	 * @function 更新单个新闻
+	 * @author Ray
+	 * @param News
+	 */
+	@Transactional(readOnly = false)
+	public void updateNews(News news) {
+		try {
+			this.newsDaoImpl.updateNews(news);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * @Title: publishNewsList
 	 * @Description: 得到新闻发布列表

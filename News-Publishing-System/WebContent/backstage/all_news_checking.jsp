@@ -83,7 +83,7 @@
 						<ul class="tpl-left-nav-sub-menu" style="display: block;">
 							<li><a href="${ctx}/all_news.jsp"> <i class="am-icon-angle-right"></i> <span>发表文章</span>
 							</a> <a href="${ctx}/all_news_checking.jsp" class="active"> <i class="am-icon-angle-right"></i> <span>审核中列表</span>
-							</a> <a href="${ctx}/all_news_checked.jsp"> <i class="am-icon-angle-right"></i> <span>未通过类表</span>
+							</a> <a href="${ctx}/all_news_checked.jsp"> <i class="am-icon-angle-right"></i> <span>未通过列表</span>
 							</a></li>
 						</ul></li>
 					<li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link tpl-left-nav-link-list"> <i class="am-icon-user"></i> <span>个人中心</span> <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>

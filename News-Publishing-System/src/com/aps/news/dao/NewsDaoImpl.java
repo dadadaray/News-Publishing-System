@@ -35,6 +35,23 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	}
 	
 	/**
+	 * @dec 根据id 得到news实体
+	 * @author Ray
+	 * @param newsId
+	 * @return
+	 */
+	public News getOneNews(int newsId) {
+		try {
+			News bug = this.get(newsId);
+			return bug;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
 	 * @Title: findPublishList
 	 * @Description: 得到发布新闻的列表
 	 * @param pageNum
