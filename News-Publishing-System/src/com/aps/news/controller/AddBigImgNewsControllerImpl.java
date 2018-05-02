@@ -48,17 +48,18 @@ public class AddBigImgNewsControllerImpl {
 		byte[] bs = new byte[1024];
 		int len;
 		// 保存路径
-		File saveFile = new File("D:/ImgTemp/");
-		if (!saveFile.exists()) {
-			saveFile.mkdirs();
-		}
+				String realpath = System.getProperty("b2cweb.root") + "newsImgUp";
+				File saveFile = new File(realpath);
+				if (!saveFile.exists()) {
+					saveFile.mkdirs();
+				}
 		Set<ModBigImg> modBigImgs = new HashSet<ModBigImg>(0);
 		// 遍历
 		for (int i = 0; i < files.size(); i++) {
 			String filename = files.get(i).getOriginalFilename();
 			String newFileName = addNewsServiceImpl.makeFileName(filename);
 			InputStream is = files.get(i).getInputStream();
-			OutputStream os = new FileOutputStream("D:/ImgTemp/" + newFileName);
+			OutputStream os = new FileOutputStream(realpath + "\\"+ newFileName);
 			while ((len = is.read(bs)) != -1) {
 				os.write(bs, 0, len);
 			}
@@ -78,7 +79,7 @@ public class AddBigImgNewsControllerImpl {
 		String coverImgname = coverfile.getOriginalFilename();
 		String newcoverImgname = addNewsServiceImpl.makeFileName(coverImgname);
 		InputStream is3 = coverfile.getInputStream();
-		OutputStream os3 = new FileOutputStream("D:/ImgTemp/" + newcoverImgname);
+		OutputStream os3 = new FileOutputStream(realpath + "\\" + newcoverImgname);
 		while ((len = is3.read(bs)) != -1) {
 			os3.write(bs, 0, len);
 		}

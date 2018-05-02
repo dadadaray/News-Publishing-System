@@ -164,7 +164,7 @@
 							<c:forEach items="${newsHonorList}" var="news">
 								<div class="block_home_post">
 									<div class="pic">
-										<a href="${ctx}/news_post.jsp" class="w_hover"> <img src="${ctx}/images/pic_home_news_1.jpg" alt="" /> <span></span>
+										<a href="${ctx}/news_post.jsp" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px" ;/> <span></span>
 										</a>
 									</div>
 
