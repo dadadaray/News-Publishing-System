@@ -134,7 +134,7 @@ public class AddMixNewsControllerImpl {
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news1);
-
+        
 		session.setAttribute("newsmodMixCenter", news1);
 		session.setAttribute("1", mod);
 
@@ -344,13 +344,20 @@ public class AddMixNewsControllerImpl {
 
 		// 保存模板
 		ModMixLR mod = this.addNewsServiceImpl.saveModMixLR(newFileName1, textarea1, newFileName2, textarea2,
-				newFileName3, textarea3);
+				newFileName3, textarea3,news2);
 
 		news2.setModMixLR(mod);
+		
 		// 设置新闻类型
 		news2.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news2);
-
+		
+		
+		//System.out.print(news2.getNewsId()+news2.getModMixLR().getmMixLRContentOne());
+        
+		News news = this.newsServiceImpl.getOneNews(news2.getNewsId());
+		news.getLikes();
+		System.out.print(news2.getNewsId()+news2.getModMixLR().getmMixLRContentOne());
 		session.setAttribute("newsmodMixLR", news2);
 
 		return "redirect:/backstage/news/checking/list";
@@ -447,7 +454,7 @@ public class AddMixNewsControllerImpl {
 
 		// 保存模板
 		ModMixLR mod = this.addNewsServiceImpl.saveModMixLR(newFileName1, textarea1, newFileName2, textarea2,
-				newFileName3, textarea3);
+				newFileName3, textarea3,news2);
 
 		news2.setModMixLR(mod);
 		// 设置新闻类型

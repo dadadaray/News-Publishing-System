@@ -164,13 +164,13 @@
 							<c:forEach items="${newsHonorList}" var="news">
 								<div class="block_home_post">
 									<div class="pic">
-										<a href="${ctx}/news_post.jsp" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px" ;/> <span></span>
+										<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px"/> <span></span>
 										</a>
 									</div>
 
 									<div class="text">
 										<p class="title">
-											<a href="${ctx}/news_post.jsp">${fn:substring(news.newsTitle, 0,25)} <c:if test="${fn:length(news.newsTitle)>25}">...</c:if></a>
+											<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}">${fn:substring(news.newsTitle, 0,25)} <c:if test="${fn:length(news.newsTitle)>25}">...</c:if></a>
 										</p>
 										<div class="date">
 											<p>
@@ -186,46 +186,6 @@
 								</div>
 								<div class="line_3" style="margin: 14px 0px 17px;"></div>
 							</c:forEach>
-
-							<!--  <div class="block_home_post">
-								<div class="pic">
-									<a href="${ctx}/news_post_style2.jsp" class="w_hover">
-										<img src="${ctx}/images/pic_home_news_2.jpg" alt="" />
-										<span></span>
-									</a>
-								</div>
-                                        
-								<div class="text">
-									<p class="title"><a href="${ctx}/news_post_listen.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
-									<div class="date"><p>11 July, 2012</p></div>
-                                    <div class="icons">
-                                    	<ul>
-                                        	<li><a href="#" class="views">74</a></li>
-                                        </ul>
-                                    </div>
-								</div>
-							</div>
-                            <div class="line_3" style="margin:14px 0px 17px;"></div>-->
-
-							<!--  <div class="block_home_post">
-								<div class="pic">
-									<a href="${ctx}/news_post.jsp" class="w_hover">
-										<img src="${ctx}/images/pic_home_news_3.jpg" alt="" />
-										<span></span>
-									</a>
-								</div>
-                                        
-								<div class="text">
-									<p class="title"><a href="${ctx}/news_post_video.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a></p>
-									<div class="date"><p>11 July, 2012</p></div>
-                                    <div class="icons">
-                                    	<ul>
-                                        	<li><a href="#" class="views">88</a></li>
-                                        </ul>
-                                    </div>
-								</div>
-							</div>-->
-
 						</div>
 
 						<div class="block_home_col_2">
@@ -234,13 +194,13 @@
 							<c:forEach items="${newsHonorList}" var="news">
 								<div class="block_home_post">
 									<div class="pic">
-										<a href="${ctx}/news_post.jsp" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px" ;/> <span></span>
+										<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px"/> <span></span>
 										</a>
 									</div>
 
 									<div class="text">
 										<p class="title">
-											<a href="${ctx}/news_post.jsp">${fn:substring(news.newsTitle, 0,25)} <c:if test="${fn:length(news.newsTitle)>25}">...</c:if></a>
+											<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}">${fn:substring(news.newsTitle, 0,25)} <c:if test="${fn:length(news.newsTitle)>25}">...</c:if></a>
 										</p>
 										<div class="date">
 											<p>
@@ -256,50 +216,6 @@
 								</div>
 								<div class="line_3" style="margin: 14px 0px 17px;"></div>
 							</c:forEach>
-
-							<!--  <div class="block_home_post">
-								<div class="pic">
-									<a href="${ctx}/news_post_style3.jsp" class="w_hover"> <img src="${ctx}/images/pic_home_news_5.jpg" alt="" /> <span></span>
-									</a>
-								</div>
-
-								<div class="text">
-									<p class="title">
-										<a href="${ctx}/news_post_style2.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a>
-									</p>
-									<div class="date">
-										<p>11 July, 2012</p>
-									</div>
-									<div class="icons">
-										<ul>
-											<li><a href="#" class="views">74</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="line_3" style="margin: 14px 0px 17px;"></div>-->
-
-							<!--  <div class="block_home_post">
-								<div class="pic">
-									<a href="${ctx}/news_post.jsp" class="w_hover"> <img src="${ctx}/images/pic_home_news_6.jpg" alt="" /> <span></span>
-									</a>
-								</div>
-
-								<div class="text">
-									<p class="title">
-										<a href="${ctx}/news_post_style3.jsp">宪法修正案(草案)：对中国现行宪法作出21条修改。</a>
-									</p>
-									<div class="date">
-										<p>11 July, 2012</p>
-									</div>
-									<div class="icons">
-										<ul>
-											<li><a href="#" class="views">88</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>-->
-
 						</div>
 						<div class="clearboth"></div>
 

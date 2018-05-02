@@ -10,6 +10,7 @@ import com.aps.entity.ModBigImg;
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
 import com.aps.entity.ModMixSingle;
+import com.aps.entity.News;
 import com.aps.modBigImg.dao.ModBigImgDaoImpl;
 import com.aps.modMixCenter.modMixCenterDaoImpl;
 import com.aps.modMixLF.modMixLFDaoImpl;
@@ -78,7 +79,7 @@ public class AddNewsServiceImpl {
 	 * @param f3
 	 * @param t3
 	 */
-	public ModMixLR saveModMixLR(String f1, String t1, String f2, String t2, String f3, String t3) {
+	public ModMixLR saveModMixLR(String f1, String t1, String f2, String t2, String f3, String t3,News news) {
 		ModMixLR modMixLR = new ModMixLR();
 		modMixLR.setmMixLRImgOne(f1);
 		modMixLR.setmMixLRContentOne(t1);
@@ -86,8 +87,9 @@ public class AddNewsServiceImpl {
 		modMixLR.setmMixLRContentTwo(t2);
 		modMixLR.setmMixLRImgThree(f3);
 		modMixLR.setmMixLRContentThree(t3);
+		modMixLR.setNews(news);
 		try {
-			this.modMixLFDaoImpl.save(modMixLR);
+			this.modMixLFDaoImpl.saveModMixLF(modMixLR);
 			return modMixLR;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

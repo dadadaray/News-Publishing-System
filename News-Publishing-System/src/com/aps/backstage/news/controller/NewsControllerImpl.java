@@ -27,7 +27,7 @@ import com.framework.Page;
 
 /**
  * 
- * @ClassName NewsControllerImpl
+ * @ClassName NewsFrontControllerImpl
  * @Description 新闻管理
  * @author HanChen
  * @version
