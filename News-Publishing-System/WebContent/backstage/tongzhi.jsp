@@ -119,7 +119,7 @@
 						</a>
 					</li>
 					<li class="tpl-left-nav-item">
-						<a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list"> 
+						<a href="${ctx1}/backstage/draft/list" class="nav-link  tpl-left-nav-link-list"> 
 						<i class="am-icon-inbox"></i> <span>草稿箱</span>
 						</a>
 					</li>
@@ -130,13 +130,13 @@
 						</a>
 						<ul class="tpl-left-nav-sub-menu">
 							<li>
-								<a href="${ctx}/all_news.jsp"> 
+								<a href="${ctx1}/backstage/news/publish/list"> 
 								<i class="am-icon-angle-right"></i> <span>发表文章</span>
 								</a> 
-								<a href="${ctx}/all_news_checking.jsp"> 
+								<a href="${ctx1}/backstage/news/checking/list"> 
 								<i class="am-icon-angle-right"></i> <span>审核中列表</span>
 								</a> 
-								<a href="${ctx}/all_news_checked.jsp"> 
+								<a href="${ctx1}/backstage/news/unchecked/list"> 
 								<i class="am-icon-angle-right"></i> <span>未通过类表</span>
 								</a>
 							</li>
@@ -336,7 +336,7 @@
 					},
 					error :function(){
 						alert("删除出错！");
-					}
+					}//
 				});
 			},
 			// closeOnConfirm: false,
