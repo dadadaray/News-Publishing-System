@@ -8,6 +8,8 @@
 
 package com.aps.news.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -29,6 +31,15 @@ import com.framework.Page;
 public class NewsServiceImpl {
 	@Resource
 	private NewsDaoImpl newsDaoImpl;
+	
+	/**
+	 * @dec 返回首页新闻查询列表  按浏览量数排序
+	 * @author Ray
+	 * @return
+	 */
+	public List<News> findHonor() {
+		return newsDaoImpl.findNewsRecommend();
+	}
 	
 	/**
 	 * @Title: publishNewsList

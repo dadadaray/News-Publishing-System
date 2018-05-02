@@ -101,62 +101,62 @@
 							<a href="${ctx}/add_news.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 20px;">图文自由排版</a> <a href="${ctx}/add_news_img.jsp" class="am-btn am-btn-primary am-radius" style="margin-left: 10px;">大图轮播</a> <a href="${ctx}/add_news_vedio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">视频专题</a> <a href="${ctx}/add_news_audio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">音频专题</a> <a href="${ctx}/add_news_tuwenModel.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">图文模板</a>
 						</div>
 					</div>
-					<div class="tpl-portlet" id="father">
-						<div>
-							<div class="pagelet-figure-gallery-item">
-								<div class="am-u-md-2 am-u-sm-4 gallery-img">
-									<!--  图片上传显示-->
-									<!--input-group start-->
-									<div class="upload_box">
-										<input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 131.33px" />
-										<div class="preview">
-											<img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180" />
+					<form id="bigImgForm" class="am-form tpl-form-line-form" action="" method="post" enctype="multipart/form-data">
+						<div class="tpl-portlet" id="father">
+							<div>
+								<div class="pagelet-figure-gallery-item">
+									<div class="am-u-md-2 am-u-sm-4 gallery-img">
+										<!--  图片上传显示-->
+										<!--input-group start-->
+										<div class="upload_box"><input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180" />
+											</div>
 										</div>
+										<!--input-group end-->
 									</div>
-									<!--input-group end-->
-								</div>
-								<div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;">
-									<textarea rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea>
-								</div>
-								<div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;">
-									<i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i>
+									<div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;">
+										<textarea name="textInfo" rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea>
+									</div>
+									<div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;">
+										<i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="tpl-portlet">
-						<button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success " onclick="addImg()">添加图片</button>
-						<div class="portlet-title">
-							<div class="tpl-block">
-								<div class="am-g">
-									<div class="tpl-form-body tpl-form-line">
-										<form class="am-form tpl-form-line-form">
+
+						<div class="tpl-portlet">
+							<button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success " onclick="addImg()">添加图片</button>
+							<div class="portlet-title">
+								<div class="tpl-block">
+									<div class="am-g">
+										<div class="tpl-form-body tpl-form-line">
+
 											<div class="am-form-group">
 												<label for="user-name" class="am-u-sm-2 am-form-label">标题</label>
 												<div class="am-u-sm-10">
-													<input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字"> <small style="color: red;">请填写标题文字10-20字左右。</small>
+													<input type="text" class="tpl-form-input" name="title" id="user-name" placeholder="请输入标题文字"> <small style="color: red;">请填写标题文字10-20字左右。</small>
 												</div>
 											</div>
 
 											<div class="am-form-group">
 												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
 												<div class="am-u-sm-10">
-													<select data-am-selected="{searchBox: 1}">
-														<option value="a">财经</option>
-														<option value="b">科技</option>
-														<option value="c">教育</option>
-														<option value="d">体育</option>
-														<option value="e">娱乐</option>
-														<option value="f">军事</option>
-														<option value="g">旅游</option>
-														<option value="h">政务</option>
+													<select data-am-selected="{searchBox: 1}" name="selectmod">
+														<option value="财经">财经</option>
+														<option value="科技">科技</option>
+														<option value="教育">教育</option>
+														<option value="体育">体育</option>
+														<option value="娱乐">娱乐</option>
+														<option value="军事">军事</option>
+														<option value="旅游">旅游</option>
+														<option value="政务">政务</option>
 													</select>
 												</div>
 											</div>
 											<div class="am-form-group">
-											    <label for="user-name" class="am-u-sm-2 am-form-label ">内容简介</label>
-												<div class="am-u-md-9 am-u-sm-14 gallery-txt" style="float:left;">
-													<textarea rows="10" placeholder="（不超过1000个字）" maxlength="1000" style="overflow-y:scroll"></textarea>
+												<label for="user-name" class="am-u-sm-2 am-form-label ">内容简介</label>
+												<div class="am-u-md-9 am-u-sm-14 gallery-txt" style="float: left;">
+													<textarea name="textarea" rows="10" placeholder="（不超过1000个字）" maxlength="1000" style="overflow-y: scroll"></textarea>
+
 												</div>
 											</div>
 
@@ -166,10 +166,7 @@
 												<div class="am-u-sm-10">
 													<!--  图片上传显示-->
 													<!--input-group start-->
-													<div class="upload_box">
-														<input type="file" name="file" class="file" onchange="imgChange(this);" style="width: 260px" />
-														<div class="preview" style="margin-top: 20px;">
-															<img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136" />
+													<div class="upload_box"><input type="file" name="coverfile" class="file" onchange="imgChange(this)" style="width: 260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136" />
 														</div>
 													</div>
 													<!--input-group end-->
@@ -177,28 +174,21 @@
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> <a href="${ctx1 }/Bgimgshow_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
+												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> <a href="${ctx1 }/Bgimgshow_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> <a id="bigImgSend" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
 											</div>
-										</form>
+
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 
 		</div>
 	</div>
 
-	<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
-		<div class="am-modal-dialog">
-			<div class="am-modal-hd">
-				Modal 标题 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-			</div>
-			<div class="am-modal-bd">Modal 内容。</div>
-		</div>
-	</div>
 	<script src="${ctx}/assets/js/jquery.min.js"></script>
 	<script src="${ctx}/assets/js/xcConfirm.js"></script>
 	<script src="${ctx}/assets/js/amazeui.min.js"></script>
@@ -211,7 +201,7 @@
 		function addImg() {
 			$("#father")
 					.append(
-							'<div><div class="pagelet-figure-gallery-item"><div class="am-u-md-2 am-u-sm-4 gallery-img"><div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180"/></div></div></div><div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;"><textarea rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea></div><div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;"><i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i></div></div></div>');
+							'<div><div class="pagelet-figure-gallery-item"><div class="am-u-md-2 am-u-sm-4 gallery-img"><div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width: 131.33px" /><div class="preview"><img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="260" height="180"/></div></div></div><div class="am-u-md-9 am-u-sm-14 gallery-txt" style="padding-top: 24px;"><textarea name="textInfo" rows="3" placeholder="图片说明（不超过200个字）" maxlength="200"></textarea></div><div class="am-u-md-1 am-u-sm-2 gallery-action" style="padding-top: 24px;"><i class="am-icon-trash am-icon-fw gallery-icon" type="delete" onclick="removeImg(this)"></i></div></div></div>');
 		}
 		function removeImg(e) {
 			$(e).parent().parent().remove();
@@ -235,6 +225,12 @@
 			var txt = e.innerText;
 			window.wxc.xcConfirm(txt);
 		}
+		//发布按钮
+		$("#bigImgSend").click(function() {
+			var url = "${ctx1 }/addnews/bigImg/sendBigImgNews";
+			$("#bigImgForm").attr("action", url);
+			$("#bigImgForm").submit();
+		})
 	</script>
 </body>
 

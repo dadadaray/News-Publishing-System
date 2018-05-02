@@ -34,6 +34,8 @@
 	
 			<ul class="adaptive-slider"> 
 			  <!-- Slider Item -->
+			  
+			  <c:forEach items="" var="bigImgs">
 			  <li>
 			    <figure>
 			      <img src="${ctx}/images/1.png">
@@ -45,10 +47,11 @@
 			      </figcaption>
 			    </figure>
 			  </li>
+			  </c:forEach>
 			  <!-- End Slider Item -->
 
 			  <!-- Slider Item -->
-			  <li>
+			  <!--  <li>
 			    <figure>
 			      <img src="${ctx}/images/2.jpg">
 			      <figcaption>
@@ -58,11 +61,11 @@
 			        </p>
 			      </figcaption>
 			    </figure>
-			  </li>
+			  </li>-->
 			  <!-- End Slider Item -->
 
 			  <!-- Slider Item -->
-			  <li>
+			  <!--  <li>
 			    <figure>
 			      <img src="${ctx}/images/3.jpg">
 			      <figcaption>
@@ -72,11 +75,11 @@
 			        </p>
 			      </figcaption>
 			    </figure>
-			  </li>
+			  </li>-->
 			  <!-- End Slider Item -->
 
 			  <!-- Slider Item -->
-			  <li>
+			  <!--  <li>
 			    <figure>
 			      <img src="${ctx}/images/4.jpg">
 			      <figcaption>
@@ -84,11 +87,11 @@
 
 			      </figcaption>
 			    </figure>
-			  </li>
+			  </li>-->
 			  <!-- End Slider Item -->
 
 			  <!-- Slider Item -->
-			  <li>
+			  <!--  <li>
 			    <figure>
 			      <img src="${ctx}/images/5.jpg">
 			      <figcaption>
@@ -98,11 +101,11 @@
 			        </p>
 			      </figcaption>
 			    </figure>
-			  </li>
+			  </li>-->
 			  <!-- End Slider Item -->
 
 			  <!-- Slider Item -->
-			  <li>
+			  <!--  <li>
 			    <figure>
 			      <img src="${ctx}/images/6.jpg">
 			      <figcaption>
@@ -112,7 +115,7 @@
 			        </p>
 			      </figcaption>
 			    </figure>
-			  </li>
+			  </li>-->
 			  <!-- End Slider Item -->
 			  <li>
 			    <figure style="height: 490px;color:#fff;background-color: #fff">     
