@@ -51,37 +51,59 @@
 
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a class="am-dropdown-toggle tpl-header-list-link" href="">
-                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span>
-                    </a>
-                    <ul class="am-dropdown-content tpl-dropdown-content">
-                        <li class="tpl-dropdown-content-external">
-                            <h3>你有 
-                              <span class="tpl-color-success">3</span> 条消息</h3>
-                              <a href="${ctx1}/backstage/notice" class="font-green">全部</a>
+                	 <a class="am-dropdown-toggle tpl-header-list-link" href="">
+                		<c:if test="${not empty page and page.totalCount > 0}">
+	                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">${page.totalCount}</span>
+	                	</c:if>
+	                	<c:if test="${empty page or page.totalCount <= 0}">
+	                		<span class="am-icon-bell-o"></span> 提醒
+	                	</c:if>
+	                 </a>
+                   	 <ul class="am-dropdown-content tpl-dropdown-content">
+                   		<c:if test="${not empty page and page.totalCount > 0}">
+                        	<li class="tpl-dropdown-content-external">
+                            	<h3>你有 <span class="tpl-color-success">${page.totalCount}</span> 条消息</h3>
+                            	<a href="${ctx1}/backstage/notice" class="font-green">全部</a>
                             </li>
-                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
-
-                              <a href="#" class="tpl-dropdown-list-fl">
-                                <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> 
-                                <span>《从大城市的》</span>需要修改
-                              </a>
-                                <span class="tpl-dropdown-list-fr">3小时前</span>
-                            </li>
-                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
-                              <a href="#" class="tpl-dropdown-list-fl">
-                                <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-                                 <span>《从大城市的》</span>审核通过
-                            </a>
-                                <span class="tpl-dropdown-list-fr">15分钟前</span>
-                            </li>
-                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
-                                 <span>《从大城市的》</span>成为推荐文章 
-                            </a>
-                                <span class="tpl-dropdown-list-fr">2天前</span>
-                            </li>
-                        </ul>
-                    </li>
+                           	<c:forEach items="${page.list}" var="notice">
+	                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
+	                              <a href="#" class="tpl-dropdown-list-fl">
+	                              	<c:if test="${0 == notice.noticeType}"> 
+	                                	<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 
+	                                </c:if>
+	                                <c:if test="${1 == notice.noticeType}"> 
+	                                	<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span>
+	                                </c:if>
+	                                <c:if test="${2 == notice.noticeType}"> 
+	                                	<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
+	                                </c:if>
+	                                <span>《${notice.news.newsTitle}》</span>${notice.noticeContent}
+	                              </a>
+	                                <span class="tpl-dropdown-list-fr"><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+	                            </li>
+                            </c:forEach>
+                           </c:if>
+	                       <c:if test="${empty page or page.totalCount <= 0}">
+	                       	<li class="tpl-dropdown-content-external">
+	                       		<h3>无消息</h3>
+	                       	</li>
+	                       </c:if>
+                           <!-- <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
+                             <a href="#" class="tpl-dropdown-list-fl">
+                               <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span>
+                                <span>《从大城市的》</span>审核通过
+                           </a>
+                               <span class="tpl-dropdown-list-fr">15分钟前</span>
+                           </li>
+                           <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
+                           	<a href="#" class="tpl-dropdown-list-fl">
+                           		<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
+                                	<span>《从大城市的》</span>成为推荐文章 
+                           	</a>
+                               <span class="tpl-dropdown-list-fr">2天前</span>
+                           </li> -->
+                       </ul>
+                   </li>
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
@@ -146,7 +168,7 @@
                                  </a>
                                 <a href="${ctx1}/backstage/news/unchecked/list">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>未通过类表</span>
+                                    <span>未通过列表</span>
                                 </a>
                             </li>
                         </ul>

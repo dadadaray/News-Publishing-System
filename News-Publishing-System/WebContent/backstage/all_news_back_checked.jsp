@@ -109,7 +109,7 @@
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
 					<li class="tpl-left-nav-item">
-						<a href="${ctx}/index_back.jsp" class="nav-link">
+						<a href="${ctx1}/backstage/indexBack" class="nav-link">
 							<i class="am-icon-home"></i>
 							<span>首页</span>
 						</a>
@@ -122,15 +122,15 @@
 						</a>
 						<ul class="tpl-left-nav-sub-menu" style="display: block;">
 							<li>
-								<a href="${ctx}/all_news_back_checking.jsp">
+								<a href="${ctx1}/backstage/news/back/checking/list">
 									<i class="am-icon-angle-right"></i>
 									<span>待审新文章</span>
 								</a>
-								<a href="${ctx}/all_news_back.jsp">
+								<a href="${ctx1}/backstage/news/back/publish/list">
 									<i class="am-icon-angle-right"></i>
 									<span>已发布文章</span>
 								</a>
-								<a href="${ctx}/all_news_back_checked.jsp" class="active">
+								<a href="${ctx1}/backstage/news/back/unchecked/list" class="active">
 									<i class="am-icon-angle-right"></i>
 									<span>未通过文章</span>
 								</a>
@@ -145,11 +145,11 @@
 						</a>
 						<ul class="tpl-left-nav-sub-menu">
 							<li>
-								<a href="${ctx}/all_repoter.jsp">
+								<a href="${ctx1}/backstageLoginUser/user/list?roleId=2">
 									<i class="am-icon-angle-right"></i>
 									<span>记者用户</span>
 								</a>
-								<a href="${ctx}/all_users.jsp">
+								<a href="${ctx1}/backstageLoginUser/user/list?roleId=1">
 									<i class="am-icon-angle-right"></i>
 									<span>网站用户</span>
 								</a>

@@ -69,13 +69,13 @@
 		<div class="tpl-left-nav tpl-left-nav-hover">
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
-					<li class="tpl-left-nav-item"><a href="${ctx}/index.jsp" class="nav-link"> <i class="am-icon-home"></i> <span>首页</span>
+					<li class="tpl-left-nav-item"><a href="${ctx1}/backstage/indexs" class="nav-link"> <i class="am-icon-home"></i> <span>首页</span>
 					</a></li>
 					<li class="tpl-left-nav-item"><a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list active"> <i class="am-icon-edit"></i> <span>添加新文章</span>
 					</a></li>
-					<li class="tpl-left-nav-item"><a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-bell-o"></i> <span>通知管理</span>
+					<li class="tpl-left-nav-item"><a href="${ctx1}/backstage/notice" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-bell-o"></i> <span>通知管理</span>
 					</a></li>
-					<li class="tpl-left-nav-item"><a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-inbox"></i> <span>草稿箱</span>
+					<li class="tpl-left-nav-item"><a href="${ctx1}/backstage/draft/list" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-inbox"></i> <span>草稿箱</span>
 					</a></li>
 					<li class="tpl-left-nav-item"><a href="${ctx}/all_news.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-wpforms"></i> <span>文章管理</span>
 					</a></li>

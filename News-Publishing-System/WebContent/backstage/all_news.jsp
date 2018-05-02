@@ -100,7 +100,7 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="${ctx}/index.jsp" class="nav-link">
+                        <a href="${ctx1}/backstage/indexs" class="nav-link">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
@@ -112,7 +112,7 @@
                         </a>
                     </li>
                      <li class="tpl-left-nav-item">
-                        <a href="${ctx}/tongzhi.jsp" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx1}/backstage/notice" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-bell"></i>
                             <span>通知管理</span>
                             <i class="tpl-left-nav-content tpl-badge-danger">
@@ -121,7 +121,7 @@
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="${ctx}/draft.jsp" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx1}/backstage/draft/list" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-inbox"></i>
                             <span>草稿箱</span>
                         </a>
@@ -134,18 +134,18 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display:block">
                             <li>
-                                <a href="${ctx}/all_news.jsp" class="active">
+                                <a href="${ctx1}/backstage/news/publish/list" class="active">
                                    <i class="am-icon-angle-right"></i>
                                     <span>已发表文章</span>
                                 </a>
-                                <a href="${ctx}/all_news_checking.jsp">
+                                <a href="${ctx1}/backstage/news/checking/list">
                                    <i class="am-icon-angle-right"></i>
                                     <span>审核中列表</span>
                                  </a>
 
-                                <a href="${ctx}/all_news_checked.jsp">
+                                <a href="${ctx1}/backstage/news/unchecked/list">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>未通过类表</span>
+                                    <span>未通过列表</span>
                                 </a>
                             </li>
                         </ul>
