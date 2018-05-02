@@ -101,7 +101,7 @@
 							<a href="${ctx}/add_news.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 20px;">图文自由排版</a> <a href="${ctx}/add_news_img.jsp" class="am-btn am-btn-primary am-radius" style="margin-left: 10px;">大图轮播</a> <a href="${ctx}/add_news_vedio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">视频专题</a> <a href="${ctx}/add_news_audio.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">音频专题</a> <a href="${ctx}/add_news_tuwenModel.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left: 10px;">图文模板</a>
 						</div>
 					</div>
-					<form id="bigImgForm" class="am-form tpl-form-line-form" action="" method="post">
+					<form id="bigImgForm" class="am-form tpl-form-line-form" action="" method="post" enctype="multipart/form-data">
 						<div class="tpl-portlet" id="father">
 							<div>
 								<div class="pagelet-figure-gallery-item">
@@ -166,10 +166,7 @@
 												<div class="am-u-sm-10">
 													<!--  图片上传显示-->
 													<!--input-group start-->
-													<div class="upload_box">
-														<input type="file" name="coverfile" class="file" onchange="imgChange(this);" style="width: 260px" />
-														<div class="preview" style="margin-top: 20px;">
-															<img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136" />
+													<div class="upload_box"><input type="file" name="coverfile" class="file" onchange="imgChange(this)" style="width: 260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136" />
 														</div>
 													</div>
 													<!--input-group end-->

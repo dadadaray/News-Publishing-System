@@ -10,6 +10,7 @@ import com.aps.entity.ModBigImg;
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
 import com.aps.entity.ModMixSingle;
+import com.aps.modBigImg.dao.ModBigImgDaoImpl;
 import com.aps.modMixCenter.modMixCenterDaoImpl;
 import com.aps.modMixLF.modMixLFDaoImpl;
 import com.aps.modMixSingle.modMixSingleDaoImpl;
@@ -22,6 +23,9 @@ public class AddNewsServiceImpl {
 	private modMixLFDaoImpl modMixLFDaoImpl;
 	@Resource
 	private modMixSingleDaoImpl modMixSingleDaoImpl;
+	
+	@Resource
+	private ModBigImgDaoImpl modBigImgDaoImpl;
 
 	/**
 	 * @Method: makeFileName
@@ -114,10 +118,18 @@ public class AddNewsServiceImpl {
 		}
 
 	}
+	/**
+	 * @dec 保存大图模板
+	 * @author Ray
+	 * @param f
+	 * @param t
+	 * @return
+	 */
 	public ModBigImg saveModBigImg(String f,String t){
 		ModBigImg modBigImg=new ModBigImg();
 		modBigImg.setModBigImgContent(t);
 		modBigImg.setModBigImgUrl(f);
+		this.modBigImgDaoImpl.saveModBigImgDao(modBigImg);
 		return modBigImg;
 	}
 	

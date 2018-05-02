@@ -14,7 +14,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import com.aps.entity.News;
-import com.aps.entity.Notice;
 import com.framework.BaseDao;
 import com.framework.Page;
 import com.framework.SqlUtils;;
@@ -394,6 +393,18 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 			newsIds += news_next.getNewsId() + ",";
 		}
 		return newsIds;
+	}
+	
+	/**
+	 * @dec  返回首页中的新闻列表 按浏览量、点赞量降序
+	 * @author Ray
+	 * @return
+	 */
+	public List<News> findNewsRecommend() {
+		Session session = super.getSession();
+		// 按照赞的数量排序
+		Query query = session.createQuery("from News where statues=4 order by views DESC,share DESC");
+		return query.list();
 	}
 
 }

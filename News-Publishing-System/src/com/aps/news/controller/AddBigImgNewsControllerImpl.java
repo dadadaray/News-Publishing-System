@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aps.entity.LoginUser;
 import com.aps.entity.ModBigImg;
+import com.aps.entity.ModMixCenter;
 import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
@@ -66,7 +67,10 @@ public class AddBigImgNewsControllerImpl {
 			ModBigImg m = new ModBigImg();
 			m.setModBigImgUrl(newFileName);
 			m.setModBigImgContent(textInfos.get(i));
-			modBigImgs.add(m);
+			
+			// 保存模板
+			ModBigImg mod = this.addNewsServiceImpl.saveModBigImg(m.getModBigImgUrl(),m.getModBigImgContent());
+			modBigImgs.add(mod);
 		}
 
 		// 保存封面图
@@ -98,6 +102,11 @@ public class AddBigImgNewsControllerImpl {
 
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
+		// 设置新闻简介
+		news1.setBigImgContent(textarea);
+		// 保存模板
+		
+
 		// 设置新闻模板
 		news1.setModBigImgs(modBigImgs);
 
