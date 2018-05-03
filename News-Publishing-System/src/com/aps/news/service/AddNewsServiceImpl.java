@@ -56,7 +56,7 @@ public class AddNewsServiceImpl {
 	 * @param f3
 	 * @param t3
 	 */
-	public ModMixCenter saveModMixCenter(String f1, String t1, String f2, String t2, String f3, String t3) {
+	public ModMixCenter saveModMixCenter(String f1, String t1, String f2, String t2, String f3, String t3,News news) {
 
 		ModMixCenter modMixCenter = new ModMixCenter();
 		modMixCenter.setmMixCenterImgOne(f1);
@@ -65,6 +65,7 @@ public class AddNewsServiceImpl {
 		modMixCenter.setmMixCenterContentTwo(t2);
 		modMixCenter.setmMixCenterImgThree(f3);
 		modMixCenter.setmMixCenterContentThree(t3);
+		modMixCenter.setNews(news);
 		this.addNewsDaoImpl.saveModMixCenterDao(modMixCenter);
 		return modMixCenter;
 	}
@@ -79,7 +80,7 @@ public class AddNewsServiceImpl {
 	 * @param f3
 	 * @param t3
 	 */
-	public ModMixLR saveModMixLR(String f1, String t1, String f2, String t2, String f3, String t3) {
+	public ModMixLR saveModMixLR(String f1, String t1, String f2, String t2, String f3, String t3,News news) {
 		ModMixLR modMixLR = new ModMixLR();
 		modMixLR.setmMixLRImgOne(f1);
 		modMixLR.setmMixLRContentOne(t1);
@@ -87,6 +88,7 @@ public class AddNewsServiceImpl {
 		modMixLR.setmMixLRContentTwo(t2);
 		modMixLR.setmMixLRImgThree(f3);
 		modMixLR.setmMixLRContentThree(t3);
+		modMixLR.setNews(news);
 		try {
 			this.modMixLFDaoImpl.saveModMixLF(modMixLR);
 			return modMixLR;
@@ -105,10 +107,11 @@ public class AddNewsServiceImpl {
 	 * @param t1
 	 * @param t3
 	 */
-	public ModMixSingle saveModMixSingle(String f1, String t1) {
+	public ModMixSingle saveModMixSingle(String f1, String t1,News news) {
 		ModMixSingle modMixSingle = new ModMixSingle();
 		modMixSingle.setmMixSingleImgOne(f1);
 		modMixSingle.setmMixSingleContentOne(t1);
+		modMixSingle.setNews(news);
 		try {
 			this.modMixSingleDaoImpl.saveModMixSingle(modMixSingle);
 			return modMixSingle;

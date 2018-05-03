@@ -36,29 +36,29 @@ public class NewsFrontControllerImpl {
 		// this.newsServiceImpl.updateNews(news);
 		request.setAttribute("OneNews", news);
 
-		System.out.print(news.getNewsTitle() + news.getModMixCenter() + news.getModMixLR() + news.getModMixSingle());
-		if (news.getModAudio() != null) {
+		//System.out.print(news.getNewsTitle() + news.getModMixCenter() + news.getModMixLR() + news.getModMixSingle());
+		if (news.getModAudios() != null) {
 			System.out.print("视频");
 			return "news_post_video";
 		}
-		if (news.getModFree() != null) {
+		if (news.getModFrees() != null) {
 			System.out.print("1");
 			return "news_free";
 		}
-		if (news.getModMixCenter() != null) {
+		if (news.getModMixCenters() != null) {
 			System.out.print("2");
 			return "news_post_style1";
 		}
-		if (news.getModMixLR() != null) {
+		if (news.getModMixLRs() != null) {
 			System.out.print("3");
 			return "news_post_style2";
 		}
-		if (news.getModMixSingle() != null) {
+		if (news.getModMixSingles() != null) {
 			System.out.print("4");
 
 			return "news_post_style3";
 		}
-		if (news.getModAudio() != null) {
+		if (news.getModAudios() != null) {
 			System.out.print("5");
 			return "news_post_listen";
 		}

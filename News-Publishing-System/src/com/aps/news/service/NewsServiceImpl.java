@@ -32,11 +32,6 @@ import com.framework.Page;
 public class NewsServiceImpl {
 	@Resource
 	private NewsDaoImpl newsDaoImpl;
-	public void saveNewsMod(News news,ModMixLR mod){
-		news.setModMixLR(mod);
-		this.updateNews(news);
-	}
-	
 	/**
 	 * @dec  查询单个新闻
 	 * @author Ray

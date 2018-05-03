@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aps.entity.LoginUser;
+import com.aps.entity.ModBigImg;
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
 import com.aps.entity.ModMixSingle;
@@ -126,11 +129,12 @@ public class AddMixNewsControllerImpl {
 		// 设置新闻编辑人
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
 		news1.setUserInfo(u.getUserInfo());
-
+		Set<ModMixCenter> modMixCenters = new HashSet<ModMixCenter>(0);
 		// 保存模板
 		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter(newFileName1, textarea1, newFileName2, textarea2,
-				newFileName3, textarea3);
-		news1.setModMixCenter(mod);
+				newFileName3, textarea3, news1);
+		modMixCenters.add(mod);
+		news1.setModMixCenters(modMixCenters);
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news1);
@@ -240,10 +244,12 @@ public class AddMixNewsControllerImpl {
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
 		news1.setUserInfo(u.getUserInfo());
 
+		Set<ModMixCenter> modMixCenters = new HashSet<ModMixCenter>(0);
 		// 保存模板
 		ModMixCenter mod = this.addNewsServiceImpl.saveModMixCenter(newFileName1, textarea1, newFileName2, textarea2,
-				newFileName3, textarea3);
-		news1.setModMixCenter(mod);
+				newFileName3, textarea3, news1);
+		modMixCenters.add(mod);
+		news1.setModMixCenters(modMixCenters);
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news1);
@@ -342,11 +348,12 @@ public class AddMixNewsControllerImpl {
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
 		news2.setUserInfo(u.getUserInfo());
 
+		Set<ModMixLR> modMixLRs = new HashSet<ModMixLR>(0);
 		// 保存模板
 		ModMixLR mod = this.addNewsServiceImpl.saveModMixLR(newFileName1, textarea1, newFileName2, textarea2,
-				newFileName3, textarea3);
-
-		news2.setModMixLR(mod);
+				newFileName3, textarea3, news2);
+		modMixLRs.add(mod);
+		news2.setModMixLRs(modMixLRs);
 
 		// 设置新闻类型
 		news2.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
@@ -447,11 +454,12 @@ public class AddMixNewsControllerImpl {
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
 		news2.setUserInfo(u.getUserInfo());
 
+		Set<ModMixLR> modMixLRs = new HashSet<ModMixLR>(0);
 		// 保存模板
 		ModMixLR mod = this.addNewsServiceImpl.saveModMixLR(newFileName1, textarea1, newFileName2, textarea2,
-				newFileName3, textarea3);
-
-		news2.setModMixLR(mod);
+				newFileName3, textarea3, news2);
+		modMixLRs.add(mod);
+		news2.setModMixLRs(modMixLRs);
 		// 设置新闻类型
 		news2.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news2);
@@ -526,10 +534,11 @@ public class AddMixNewsControllerImpl {
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
 		news3.setUserInfo(u.getUserInfo());
 
+		Set<ModMixSingle> modMixSingles = new HashSet<ModMixSingle>(0);
 		// 保存模板
-		ModMixSingle mods = this.addNewsServiceImpl.saveModMixSingle(newFileName1, textarea1);
-
-		news3.setModMixSingle(mods);
+		ModMixSingle mod = this.addNewsServiceImpl.saveModMixSingle(newFileName1, textarea1, news3);
+		modMixSingles.add(mod);
+		news3.setModMixSingles(modMixSingles);
 		// 设置新闻类型
 		news3.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news3);
@@ -605,10 +614,11 @@ public class AddMixNewsControllerImpl {
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
 		news3.setUserInfo(u.getUserInfo());
 
+		Set<ModMixSingle> modMixSingles = new HashSet<ModMixSingle>(0);
 		// 保存模板
-		ModMixSingle mods = this.addNewsServiceImpl.saveModMixSingle(newFileName1, textarea1);
-
-		news3.setModMixSingle(mods);
+		ModMixSingle mod = this.addNewsServiceImpl.saveModMixSingle(newFileName1, textarea1, news3);
+		modMixSingles.add(mod);
+		news3.setModMixSingles(modMixSingles);
 		// 设置新闻类型
 		news3.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news3);
