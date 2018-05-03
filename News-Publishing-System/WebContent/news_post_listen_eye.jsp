@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}/backstage"></c:set>
+
 <!DOCTYPE html>
 <html>
 
@@ -98,7 +100,7 @@
             	<div class="general_content">
                     <div class="main_content" id="con_eye">
                         <div class="separator" style="height:30px;">
-                            <a href="../后台/add_news_audio.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
+                            <a href="${ctx1}/add_news_audio.jsp"><span style="float:right;font-size: 16px;">返&nbsp;&nbsp;回</span></a>
                         </div>
 
                         <article class="block_single_news">
