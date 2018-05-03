@@ -1,7 +1,14 @@
 package com.aps.news.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.aps.entity.LoginUser;
 import com.aps.entity.News;
 import com.aps.news.service.NewsServiceImpl;
+import com.framework.Page;
 
 @Controller
 @RequestMapping("newsFront")
@@ -57,6 +65,27 @@ public class NewsFrontControllerImpl {
 			return "Bgimgshow";
 		}
 		return null;
+	}
+
+	/**
+	 * @dec 前台分页获取所有新闻 每页七条
+	 * @author Ray
+	 * @param pageNum
+	 * @param session
+	 * @param request
+	 * @return
+	 */
+	public String frontListAllNews(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session,
+			HttpServletRequest request) {
+		Page<News> page;
+		page = this.newsServiceImpl.findAllNewsFront(pageNum, 7, null);
+		if (page == null) {
+			request.setAttribute("page", null);
+		} else {
+			request.setAttribute("page", page);
+		}
+		return "lists";
+
 	}
 
 }

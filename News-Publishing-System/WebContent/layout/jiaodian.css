@@ -181,13 +181,17 @@ div.center h1#author a:hover {
   font-family:Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
-
+  line-height:30px;
 } /*  color: #5c5c5c;*/
-.news_list a p:hover{
-  color: red;
+.list_con_p:hover{
+	font-weight:900;
+	font-size:14px;
 }
-.list_top_p:hover{
-  color: red;
+.news_list a p:hover{
+  color:#5c3971;
+}
+.list_top_p a:hover{
+  color:#5c3971;
 }
 .list_time{ 
   float: left;

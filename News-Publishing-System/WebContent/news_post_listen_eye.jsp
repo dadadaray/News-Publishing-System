@@ -87,6 +87,8 @@
 
 <body>
 	<div class="wrapper sticky_footer">
+	<!-- head -->
+		<%@ include file="head.jsp"%>
     	<!-- HEADER BEGIN -->
         <header>
             <div id="header">
@@ -99,11 +101,7 @@
         	<div class="inner">
             	<div class="general_content">
                     <div class="main_content" id="con_eye">
-                        <div class="separator" style="height:30px;">
-                            <a href="${ctx1}/add_news_audio.jsp"><span style="float:right;font-size: 16px;">返&nbsp;&nbsp;回</span></a>
-                        </div>
-
-                        <article class="block_single_news">
+                         <article class="block_single_news">
                             <div class="f_pic"><a href="#"><img src="${ctx}/images/pic_news_post_1.jpg" alt="" /></a></div>
                             <p class="title">
                                 <h1>中国工厂太魔幻：未来每2分钟下线一辆汽车</h1>

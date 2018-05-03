@@ -22,6 +22,23 @@ import com.framework.SqlUtils;;
 public class NewsDaoImpl extends BaseDao<News, String> {
 	@Resource
 	private SessionFactory sessionFactory;
+	
+	public Page<News> findAllNewsFront(int pageNum, int pageSize, Object[] params) {
+		String hql;
+
+		hql = "from News";
+		params[0] = params[0];
+		try {
+			Page<News> page = new Page<News>();
+			page.setCurrentPageNum(pageNum);
+			page.setPageSize(pageSize);
+			page = this.findByPage(pageNum, pageSize, hql, params);
+			return page;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	/**
 	 * 查询所有news 无序
