@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.aps.entity.ModMixLR;
 import com.aps.entity.News;
 import com.aps.news.dao.NewsDaoImpl;
 import com.framework.Page;
@@ -31,6 +32,10 @@ import com.framework.Page;
 public class NewsServiceImpl {
 	@Resource
 	private NewsDaoImpl newsDaoImpl;
+	public void saveNewsMod(News news,ModMixLR mod){
+		news.setModMixLR(mod);
+		this.updateNews(news);
+	}
 	
 	/**
 	 * @dec  查询单个新闻
@@ -40,7 +45,7 @@ public class NewsServiceImpl {
 	 */
 	public News getOneNews(Integer newsId) {
 		try {
-			return this.newsDaoImpl.getOneNews(newsId);
+			return newsDaoImpl.getOneNews(newsId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

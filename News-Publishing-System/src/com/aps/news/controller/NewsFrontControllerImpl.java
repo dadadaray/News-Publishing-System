@@ -32,16 +32,16 @@ public class NewsFrontControllerImpl {
 		// LoginUser loginUser = (LoginUser)
 		// request.getSession().getAttribute("loginUser");
 		System.out.print(newsId);
-//		news.setViews(news.getViews() + 1);
-//		this.newsServiceImpl.updateNews(news);
+		// news.setViews(news.getViews() + 1);
+		// this.newsServiceImpl.updateNews(news);
 		request.setAttribute("OneNews", news);
-		
+
 		System.out.print(news.getNewsTitle() + news.getModMixCenter() + news.getModMixLR() + news.getModMixSingle());
 		if (news.getModAudio() != null) {
 			System.out.print("视频");
 			return "news_post_video";
 		}
-		if (news.getModFree()!= null) {
+		if (news.getModFree() != null) {
 			System.out.print("1");
 			return "news_free";
 		}
@@ -62,8 +62,9 @@ public class NewsFrontControllerImpl {
 			System.out.print("5");
 			return "news_post_listen";
 		}
-		if (news.getBigImgContent() != null) {
-			System.out.print(news.getBigImgContent());
+		if (news.getModBigImgs() != null && news.getModBigImgs().size() > 0) {
+			// System.out.print("----" + news.getModBigImgs().);
+			// System.out.print(news.getBigImgContent());
 			return "Bgimgshow";
 		}
 		return null;

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "website_view")
+@Table(name = "websiteView")
 public class WebsiteView {
 	private Integer websiteViewId;
 	private Integer num; // 网站浏览量

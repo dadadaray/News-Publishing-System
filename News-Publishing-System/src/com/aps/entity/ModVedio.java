@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mod_vedio")
+@Table(name = "modVedio")
 public class ModVedio {
 	private Integer modVedioId;
 	private String mvideoUrl;

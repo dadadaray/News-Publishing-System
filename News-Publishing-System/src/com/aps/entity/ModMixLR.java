@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mod_mix_lr")
+@Table(name = "modMixLR")
 public class ModMixLR {
 	private Integer modMixLRId;
 	private String mMixLRImgOne;

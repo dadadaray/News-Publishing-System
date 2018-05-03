@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "news_type")
+@Table(name = "newsType")
 public class NewsType {
 	private Integer newsTypeId;
 	private String typeName;

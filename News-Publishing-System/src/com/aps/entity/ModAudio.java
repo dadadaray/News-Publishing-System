@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mod_audio")
+@Table(name = "modAudio")
 public class ModAudio {
 	private Integer ModAudioId;
 	private String mAudioUrl;

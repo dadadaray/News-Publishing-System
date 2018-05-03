@@ -5,11 +5,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mod_mix_center")
+@Table(name = "modMixCenter")
 public class ModMixCenter {
 	private Integer mMixCenterId;
 	private String mMixCenterImgOne;
@@ -77,9 +78,8 @@ public class ModMixCenter {
 	public void setmMixCenterContentThree(String mMixCenterContentThree) {
 		this.mMixCenterContentThree = mMixCenterContentThree;
 	}
-
 	@OneToOne(mappedBy = "modMixCenter", fetch = FetchType.EAGER)
-	public News getNews() {
+	public News getNews(){
 		return news;
 	}
 

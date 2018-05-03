@@ -87,7 +87,6 @@ data="<%= request.getHeader("REFERER")%>"></script>
 	<div class="wrapper sticky_footer">
 		<!-- head -->
 		<%@ include file="head.jsp"%>
-
        <!-- CONTENT BEGIN -->
        <div id="content" class="right_sidebar">
            <div class="inner">

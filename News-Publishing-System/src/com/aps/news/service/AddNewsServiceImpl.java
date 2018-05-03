@@ -79,7 +79,7 @@ public class AddNewsServiceImpl {
 	 * @param f3
 	 * @param t3
 	 */
-	public ModMixLR saveModMixLR(String f1, String t1, String f2, String t2, String f3, String t3,News news) {
+	public ModMixLR saveModMixLR(String f1, String t1, String f2, String t2, String f3, String t3) {
 		ModMixLR modMixLR = new ModMixLR();
 		modMixLR.setmMixLRImgOne(f1);
 		modMixLR.setmMixLRContentOne(t1);
@@ -87,7 +87,6 @@ public class AddNewsServiceImpl {
 		modMixLR.setmMixLRContentTwo(t2);
 		modMixLR.setmMixLRImgThree(f3);
 		modMixLR.setmMixLRContentThree(t3);
-		modMixLR.setNews(news);
 		try {
 			this.modMixLFDaoImpl.saveModMixLF(modMixLR);
 			return modMixLR;
@@ -127,10 +126,11 @@ public class AddNewsServiceImpl {
 	 * @param t
 	 * @return
 	 */
-	public ModBigImg saveModBigImg(String f,String t){
+	public ModBigImg saveModBigImg(String f,String t,News news){
 		ModBigImg modBigImg=new ModBigImg();
 		modBigImg.setModBigImgContent(t);
 		modBigImg.setModBigImgUrl(f);
+		modBigImg.setNews(news);
 		this.modBigImgDaoImpl.saveModBigImgDao(modBigImg);
 		return modBigImg;
 	}

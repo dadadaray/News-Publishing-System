@@ -11,7 +11,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mod_free")
+@Table(name = "modFree")
 public class ModFree {
 	private Integer modFreeId;
 	private String modFreeContent;
