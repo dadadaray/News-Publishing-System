@@ -158,10 +158,11 @@ public class AddNewsServiceImpl {
 	 * @author HanChen
 	 * @return ModVedio
 	 */
-	public ModVedio saveModVedio(String f,String t,News news){
+	public ModVedio saveModVedio(String f,String t,String c, News news){
 		ModVedio modVedio = new ModVedio();
 		modVedio.setMvideoUrl(f);
 		modVedio.setModVedioContent(t);
+		modVedio.setmVideoCoverImgUrl(c);
 		modVedio.setNews(news);
 		this.modModVedioDaoImpl.saveModVedioDao(modVedio);
 		return modVedio;

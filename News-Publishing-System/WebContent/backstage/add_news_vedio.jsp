@@ -190,7 +190,23 @@
 											</div>
 											<div id="file-list"></div>
 											<!-- 视频上传结束 -->
-											<hr />
+											<hr/>
+											<div class="am-form-group">
+												<label for="user-weibo" class="am-u-sm-2 am-form-label">视频封面：</label>
+												<div class="am-u-sm-10">
+													<!--  图片上传显示-->
+													<!--input-group start-->
+													<div class="upload_box">
+														<input type="file" name="coverViedoFile" class="file"
+															onchange="imgChange(this);" style="width: 260px" />
+														<div class="preview" style="margin-top: 20px;">
+															<img class="imghead" src="${ctx}/assets/img/add.png"
+																width="427" height="181" />
+														</div>
+													</div>
+													<!--input-group end-->
+												</div>
+											</div>
 											<div class="am-form-group">
 												<label for="user-name" class="am-u-sm-2 am-form-label">视频标题：</label>
 												<div class="am-u-sm-10">
@@ -200,7 +216,7 @@
 												</div>
 											</div>
 											<div class="am-form-group">
-												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
+												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类：</label>
 												<div class="am-u-sm-10">
 													<select data-am-selected="{searchBox: 1}" name="selectmod">
 														<option value="财经">财经</option>
@@ -225,7 +241,7 @@
 											</div>
 
 											<div class="am-form-group">
-												<label for="user-weibo" class="am-u-sm-2 am-form-label">封面图</label>
+												<label for="user-weibo" class="am-u-sm-2 am-form-label">封面图：</label>
 												<div class="am-u-sm-10">
 													<!--  图片上传显示-->
 													<!--input-group start-->

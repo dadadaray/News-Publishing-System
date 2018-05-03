@@ -28,13 +28,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aps.entity.LoginUser;
-import com.aps.entity.ModMixSingle;
 import com.aps.entity.ModVedio;
 import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
 import com.aps.newsType.service.NewsTypeServiceImpl;
-import com.framework.EncodingTool;
 
 /**
  * 
@@ -67,6 +65,7 @@ public class AddVideoNewsControllerImpl {
 	 * @param textarea
 	 * @param coverfile
 	 * @param session
+	 * @param coverViedoFile
 	 * @return
 	 * @throws IOException
 	 * @author HanChen
@@ -75,7 +74,8 @@ public class AddVideoNewsControllerImpl {
 	@RequestMapping(value = "sendVideoNews", method = RequestMethod.POST)
 	private String sendVideo(@RequestParam("videoFile") MultipartFile videoFile, @RequestParam("title") String title,
 			@RequestParam("selectmod") String selectmod, @RequestParam("textarea") String textarea,
-			@RequestParam("coverfile") MultipartFile coverfile, HttpSession session) throws IOException {
+			@RequestParam("coverfile") MultipartFile coverfile, @RequestParam("coverViedoFile") MultipartFile coverViedoFile,
+			HttpSession session) throws IOException {
 		// 视频文件名称
 		String filename = videoFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
@@ -99,6 +99,17 @@ public class AddVideoNewsControllerImpl {
 		os.close();
 		is.close();
 
+		// 视频封面图
+		String coverVedioImg = coverViedoFile.getOriginalFilename();
+		String newcoverVedioImg = addNewsServiceImpl.makeFileName(coverVedioImg);
+		InputStream is1 = coverViedoFile.getInputStream();
+		OutputStream os1 = new FileOutputStream(realpath + "\\" + newcoverVedioImg);
+		while ((len = is1.read(bs)) != -1) {
+			os1.write(bs, 0, len);
+		}
+		os1.close();
+		is1.close();
+		
 		// 封面图片
 		String realpath1 = System.getProperty("b2cweb.root") + "newsImgUp";
 		File saveFile1 = new File(realpath1);
@@ -108,13 +119,13 @@ public class AddVideoNewsControllerImpl {
 
 		String coverImgname = coverfile.getOriginalFilename();
 		String newcoverImgname = addNewsServiceImpl.makeFileName(coverImgname);
-		InputStream is1 = coverfile.getInputStream();
-		OutputStream os1 = new FileOutputStream(realpath1 + "\\" + newcoverImgname);
-		while ((len = is1.read(bs)) != -1) {
-			os1.write(bs, 0, len);
+		InputStream is2 = coverfile.getInputStream();
+		OutputStream os2 = new FileOutputStream(realpath1 + "\\" + newcoverImgname);
+		while ((len = is2.read(bs)) != -1) {
+			os2.write(bs, 0, len);
 		}
-		os1.close();
-		is1.close();
+		os2.close();
+		is2.close();
 
 		// 存入新闻
 		News news1 = new News();
@@ -140,15 +151,10 @@ public class AddVideoNewsControllerImpl {
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
 
 		// 保存模板
-		ModVedio m = new ModVedio();
-		m.setMvideoUrl(newFileName);
-		m.setModVedioContent(textarea);
-
-		Set<ModVedio> modMixSingles = new HashSet<ModVedio>(0);
-		// 保存模板
-		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea, news1);
-		modMixSingles.add(mod);
-		news1.setModVedios(modMixSingles);
+		Set<ModVedio> modModVedios = new HashSet<ModVedio>(0);
+		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea,newcoverVedioImg, news1);
+		modModVedios.add(mod);
+		news1.setModVedios(modModVedios);
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
 
@@ -163,6 +169,7 @@ public class AddVideoNewsControllerImpl {
 	 * @param selectmod
 	 * @param textarea
 	 * @param coverfile
+	 * @param coverViedoFile 
 	 * @param session
 	 * @return
 	 * @throws IOException
@@ -173,7 +180,7 @@ public class AddVideoNewsControllerImpl {
 	private String videoSaveNewsDraft(@RequestParam("videoFile") MultipartFile videoFile,
 			@RequestParam("title") String title, @RequestParam("selectmod") String selectmod,
 			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile,
-			HttpSession session) throws IOException {
+			@RequestParam("coverViedoFile") MultipartFile coverViedoFile, HttpSession session) throws IOException {
 		// 视频文件名称
 		String filename = videoFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
@@ -197,6 +204,17 @@ public class AddVideoNewsControllerImpl {
 		os.close();
 		is.close();
 
+		// 视频封面图
+		String coverVedioImg = coverViedoFile.getOriginalFilename();
+		String newcoverVedioImg = addNewsServiceImpl.makeFileName(coverVedioImg);
+		InputStream is1 = coverViedoFile.getInputStream();
+		OutputStream os1 = new FileOutputStream(realpath + "\\" + newcoverVedioImg);
+		while ((len = is1.read(bs)) != -1) {
+			os1.write(bs, 0, len);
+		}
+		os1.close();
+		is1.close();
+
 		// 封面图片
 		String realpath1 = System.getProperty("b2cweb.root") + "newsImgUp";
 		File saveFile1 = new File(realpath1);
@@ -206,13 +224,13 @@ public class AddVideoNewsControllerImpl {
 
 		String coverImgname = coverfile.getOriginalFilename();
 		String newcoverImgname = addNewsServiceImpl.makeFileName(coverImgname);
-		InputStream is1 = coverfile.getInputStream();
-		OutputStream os1 = new FileOutputStream(realpath1 + "\\" + newcoverImgname);
-		while ((len = is1.read(bs)) != -1) {
-			os1.write(bs, 0, len);
+		InputStream is2 = coverfile.getInputStream();
+		OutputStream os2 = new FileOutputStream(realpath1 + "\\" + newcoverImgname);
+		while ((len = is2.read(bs)) != -1) {
+			os2.write(bs, 0, len);
 		}
-		os1.close();
-		is1.close();
+		os2.close();
+		is2.close();
 
 		// 存入新闻
 		News news1 = new News();
@@ -236,11 +254,11 @@ public class AddVideoNewsControllerImpl {
 
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
-		Set<ModVedio> modMixSingles = new HashSet<ModVedio>(0);
+		Set<ModVedio> modModVedios = new HashSet<ModVedio>(0);
 		// 保存模板
-		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea, news1);
-		modMixSingles.add(mod);
-		news1.setModVedios(modMixSingles);
+		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea,newcoverVedioImg, news1);
+		modModVedios.add(mod);
+		news1.setModVedios(modModVedios);
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
 
@@ -255,6 +273,7 @@ public class AddVideoNewsControllerImpl {
 	 * @param selectmod
 	 * @param textarea
 	 * @param coverfile
+	 * @param coverViedoFile
 	 * @param session
 	 * @return
 	 * @throws IOException
@@ -264,7 +283,8 @@ public class AddVideoNewsControllerImpl {
 	@RequestMapping(value = "previewVideo", method = RequestMethod.POST)
 	private String previewVideo(@RequestParam("videoFile") MultipartFile videoFile, @RequestParam("title") String title,
 			@RequestParam("selectmod") String selectmod, @RequestParam("textarea") String textarea,
-			@RequestParam("coverfile") MultipartFile coverfile, HttpSession session) throws IOException {
+			@RequestParam("coverfile") MultipartFile coverfile,@RequestParam("coverViedoFile") MultipartFile coverViedoFile,
+			HttpSession session) throws IOException {
 
 		// 新闻预览不保存，只设置session
 		session.setAttribute("title", title);
@@ -295,6 +315,18 @@ public class AddVideoNewsControllerImpl {
 		os.close();
 		is.close();
 		session.setAttribute("preVideoF1", newFileName);
+		
+		// 视频封面图
+		String coverVedioImg = coverViedoFile.getOriginalFilename();
+		String newcoverVedioImg = addNewsServiceImpl.makeFileName(coverVedioImg);
+		InputStream is1 = coverViedoFile.getInputStream();
+		OutputStream os1 = new FileOutputStream(realpath + "\\" + newcoverVedioImg);
+		while ((len = is1.read(bs)) != -1) {
+			os1.write(bs, 0, len);
+		}
+		os1.close();
+		is1.close();
+		session.setAttribute("preVideoCoverF", newcoverVedioImg);
 
 		return "news_post_video_eye";
 
