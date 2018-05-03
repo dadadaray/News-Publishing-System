@@ -211,12 +211,16 @@
 		                                    </span>
 		                                </div>
 		                                <span class="tpl-table-images-content-i-shadow"></span>
-		                                <img src="${ctx1}/newsImgUp/${news.coverImgUrl}" alt="">
+		                                <img src="${ctx1}/newsImgUp/${news.coverImgUrl}" alt="" width="235px" height="137px">
 		                            </a>
 		                            <div class="tpl-table-images-content-block">
 		                                <div class="tpl-i-font">
-		                                	<c:if test="${not empty news.modFree}">
-		                                		${news.modFree.modFreeContent}
+		                                	<c:if test="${not empty news.modFrees}">
+		                                		<c:forEach items="${news.modFrees}" var="modFree">
+		                                			<c:if test="${news.newsId eq modFree.news.newsId}">
+		                                				${modFree.modFreeContent}
+		                                			</c:if>
+		                                		</c:forEach>
 		                                	</c:if>
 		                                	<c:if test="${not empty news.modBigImgs}">
 		                                		<c:forEach items="${news.modBigImgs}" var="modBigImg">
@@ -225,20 +229,40 @@
 		                                			</c:if>
 		                                		</c:forEach>
 		                                	</c:if>
-		                                	<c:if test="${not empty news.modVedio}">
-		                                		${news.modVedio.modVedioContent}
+		                                	<c:if test="${not empty news.modVedios}">
+		                                		<c:forEach items="${news.modVedios}" var="modVedio">
+		                                			<c:if test="${news.newsId eq modVedio.news.newsId}">
+		                                				${modVedio.modVedioContent}
+		                                			</c:if>
+		                                		</c:forEach>
 		                                	</c:if>
-		                                	<c:if test="${not empty news.modAudio}">
-		                                		${news.modAudio.modAudioContent}
+		                                	<c:if test="${not empty news.modAudios}">
+		                                		<c:forEach items="${news.modAudios}" var="modAudio">
+		                                			<c:if test="${news.newsId eq modAudio.news.newsId}">
+		                                				${modAudio.modAudioContent}
+		                                			</c:if>
+		                                		</c:forEach>
 		                                	</c:if>
-		                                	<c:if test="${not empty news.modMixCenter}">
-		                                		${news.modMixCenter.mMixCenterContentOne}
+		                                	<c:if test="${not empty news.modMixCenters}">
+		                                		<c:forEach items="${news.modMixCenters}" var="modMixCenter">
+		                                			<c:if test="${news.newsId eq modMixCenter.news.newsId}">
+		                                				${modMixCenter.mMixCenterContentOne}
+		                                			</c:if>
+		                                		</c:forEach>
 		                                	</c:if>
-		                                	<c:if test="${not empty news.modMixLR}">
-		                                		${news.modMixLR.mMixLRContentOne}
+		                                	<c:if test="${not empty news.modMixLRs}">
+		                                		<c:forEach items="${news.modMixLRs}" var="modMixLR">
+		                                			<c:if test="${news.newsId eq modMixLR.news.newsId}">
+		                                				${modMixLR.mMixLRContentOne}
+		                                			</c:if>
+		                                		</c:forEach>
 		                                	</c:if>
-		                                	<c:if test="${not empty news.modMixSingle}">
-		                                		${news.modMixSingle.mMixSingleContentOne}
+		                                	<c:if test="${not empty news.modMixSingles}">
+		                                		<c:forEach items="${news.modMixSingles}" var="modMixSingle">
+		                                			<c:if test="${news.newsId eq modMixSingle.news.newsId}">
+		                                				${modMixSingle.mMixSingleContentOne}
+		                                			</c:if>
+		                                		</c:forEach>
 		                                	</c:if>
 		                                </div>
 		                                <div class="tpl-i-more">

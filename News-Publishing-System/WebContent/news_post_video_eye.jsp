@@ -119,7 +119,7 @@
                             <div class="content">
                             
 	                            <div class="block_video">
-	                              	<video width="612" height="344" poster="${ctx}/images/pic_pop_video.jpg" controls="controls">
+	                              	<video width="612" height="344" poster="${ctx}/preViewVideo/${preVideoCoverF}" controls="controls">
 										<source src="${ctx}/preViewVideo/${preVideoF1}" type="video/ogg">
 										<source src="${ctx}/preViewVideo/${preVideoF1}" type="video/mp4">
 										<source src="${ctx}/preViewVideo/${preVideoF1}" type="video/webm">
@@ -143,9 +143,7 @@
     </div>
 
 </body>
-<!--富文本js-->
-<script language="javascript" type="text/javascript"
-	src="${ctx}/layout/js/tinymce/tinymce.js"></script>
+
 <script type="text/javascript">
 
     <!-- 回车登陆 -->
@@ -155,11 +153,7 @@
         }
     });
     
-    $(document).ready(function(){
-    	
-    	tinyMCE.activeEditor.setContent("需要设置的编辑器内容");
-    	
-    });
+    
     /*点赞，点击变换图片*/
     function toggle(){
         debugger;

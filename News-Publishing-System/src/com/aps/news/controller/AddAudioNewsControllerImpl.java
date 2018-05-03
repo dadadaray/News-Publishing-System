@@ -29,7 +29,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aps.entity.LoginUser;
 import com.aps.entity.ModAudio;
-import com.aps.entity.ModMixSingle;
 import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
@@ -151,6 +150,20 @@ public class AddAudioNewsControllerImpl {
 		
 	}
 	
+	/**
+	 * @Title: audioSaveNewsDraft
+	 * @Description: 音频模板存草稿
+	 * @param audioFile
+	 * @param title
+	 * @param selectmod
+	 * @param textarea
+	 * @param coverfile
+	 * @param session
+	 * @return
+	 * @throws IOException
+	 * @author HanChen 
+	 * @return String
+	 */
 	@RequestMapping(value = "audioSaveNewsDraft", method = RequestMethod.POST)
 	private String audioSaveNewsDraft(@RequestParam("audioFile") MultipartFile audioFile,
 			@RequestParam("title") String title, @RequestParam("selectmod") String selectmod, 
@@ -226,8 +239,27 @@ public class AddAudioNewsControllerImpl {
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
 		
-		
 		return "redirect:/backstage/draft/list";
-		
 	}	
+	
+	/**
+	 * @Title: previewAudio
+	 * @Description: 音频预览
+	 * @param audioFile
+	 * @param title
+	 * @param selectmod
+	 * @param textarea
+	 * @param session
+	 * @return
+	 * @throws IOException
+	 * @author HanChen 
+	 * @return String
+	 */
+	@RequestMapping(value = "previewAudio", method = RequestMethod.POST)
+	private String previewAudio(@RequestParam("audioFile") MultipartFile audioFile,
+			@RequestParam("title") String title, @RequestParam("selectmod") String selectmod, 
+			@RequestParam("textarea") String textarea, HttpSession session) throws IOException{
+		
+		return "";
+	}
 }

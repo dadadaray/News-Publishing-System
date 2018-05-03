@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +16,7 @@ public class ModVedio {
 	private Integer modVedioId;
 	private String mvideoUrl;
 	private String modVedioContent;
+	private String mVideoCoverImgUrl;
 	private News news;
 
 	@Id
@@ -53,6 +53,14 @@ public class ModVedio {
 
 	public void setNews(News news) {
 		this.news = news;
+	}
+
+	public String getmVideoCoverImgUrl() {
+		return mVideoCoverImgUrl;
+	}
+
+	public void setmVideoCoverImgUrl(String mVideoCoverImgUrl) {
+		this.mVideoCoverImgUrl = mVideoCoverImgUrl;
 	}
 
 }
