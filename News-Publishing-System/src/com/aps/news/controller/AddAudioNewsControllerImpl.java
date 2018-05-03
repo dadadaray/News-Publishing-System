@@ -259,7 +259,36 @@ public class AddAudioNewsControllerImpl {
 	private String previewAudio(@RequestParam("audioFile") MultipartFile audioFile,
 			@RequestParam("title") String title, @RequestParam("selectmod") String selectmod, 
 			@RequestParam("textarea") String textarea, HttpSession session) throws IOException{
+		// 新闻预览不保存，只设置session
+		session.setAttribute("title", title);
+		session.setAttribute("textarea", textarea);
+		session.setAttribute("selectmod", selectmod);
+		Date currentTime = new Date();
+		session.setAttribute("videoViewCurrentTime", currentTime);
 		
-		return "";
+		// 保存视频
+		String filename = audioFile.getOriginalFilename();
+		String newFileName = addNewsServiceImpl.makeFileName(filename);
+
+		// 写入本地磁盘
+		InputStream is = audioFile.getInputStream();
+
+		byte[] bs = new byte[1024];
+		int len;
+		// 保存路径
+		String realpath = System.getProperty("b2cweb.root") + "preViewAudio";
+		File saveFile = new File(realpath);
+		if (!saveFile.exists()) {
+			saveFile.mkdirs();
+		}
+		OutputStream os = new FileOutputStream(realpath + "\\" + newFileName);
+		while ((len = is.read(bs)) != -1) {
+			os.write(bs, 0, len);
+		}
+		os.close();
+		is.close();
+		session.setAttribute("preAudioF1", newFileName);		
+		
+		return "news_post_listen_eye";
 	}
 }
