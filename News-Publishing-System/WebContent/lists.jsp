@@ -95,12 +95,41 @@
 							<c:if test="${not empty page and page.totalCount > 0}">
 								<c:forEach items="${page.list}" var="news" varStatus="status">
 									<a href="#" style="text-decoration: none; out-line: none;">
-										<h2 class="list_top_p">${news.newsTitle}</h2>
-										<p class="list_con_p" style="line_heigth: 25px;">马云商业说：掀起学习狂潮。气风云看世态炎凉。观沧海赏云卷云舒马云商业说：掀起学习狂潮。气风云看世态炎凉。观沧海赏云卷云舒[详情]</p>
+										<h2 class="list_top_p">${fn:substring(news.newsTitle, 0,50)}<c:if test="${fn:length(news.newsTitle)>50}">...</c:if>
+										</h2> <c:if test="${not empty news.modFrees}">
+											<c:forEach items="${news.modFrees}" var="modFree">
+		                                			${fn:substring(modFree.modFreeContent,0,50)}<c:if test="${fn:length(modFree.modFreeContent)>50}">...</c:if>
+											</c:forEach>
+										</c:if> <c:if test="${not empty news.modBigImgs}">
+											<c:forEach items="${news.modBigImgs}" var="modBigImg">
+											            ${fn:substring(modBigImg.modBigImgContent,0,50)}<c:if test="${fn:length(modBigImg.modBigImgContent)>50}">...</c:if>
+		                                		</c:forEach>
+										</c:if> <c:if test="${not empty news.modVedios}">
+											<c:forEach items="${news.modVedios}" var="modVedio">
+											            ${fn:substring(modVedio.modVedioContent,0,50)}<c:if test="${fn:length(modVedio.modVedioContent)>50}">...</c:if>
+		                                		</c:forEach>
+										</c:if> <c:if test="${not empty news.modAudios}">
+											<c:forEach items="${news.modAudios}" var="modAudio">
+											            ${fn:substring(modAudio.modAudioContent,0,50)}<c:if test="${fn:length(modAudio.modAudioContent)>50}">...</c:if>
+		                                		</c:forEach>
+										</c:if> <c:if test="${not empty news.modMixCenters}">
+											<c:forEach items="${news.modMixCenters}" var="modMixCenter">
+											            ${fn:substring(modMixCenter.mMixCenterContentOne,0,50)}<c:if test="${fn:length(modMixCenter.mMixCenterContentOne)>50}">...</c:if>
+		                                		</c:forEach>
+										</c:if> <c:if test="${not empty news.modMixLRs}">
+											<c:forEach items="${news.modMixLRs}" var="modMixLR">
+											            ${fn:substring(modMixLR.mMixLRContentOne,0,50)}<c:if test="${fn:length(modMixLR.mMixLRContentOne)>50}">...</c:if>
+		                                		</c:forEach>
+										</c:if> <c:if test="${not empty news.modMixSingles}">
+											<c:forEach items="${news.modMixSingles}" var="modMixSingle">
+											            ${fn:substring(modMixSingle.mMixSingleContentOne,0,50)}<c:if test="${fn:length(modMixSingle.mMixSingleContentOne)>50}">...</c:if>
+		                                		</c:forEach>
+										</c:if>
+
 									</a>
-									<div class="list_time">2月3日</div>
+									<div class="list_time">${news.publishTime}</div>
 									<div class="list_share">
-										<a>分享 </a>|<a> 评论 </a>
+										<a> 评论 </a>
 									</div>
 									<div class="list_line"></div>
 								</c:forEach>
@@ -111,27 +140,6 @@
 
 
 						<div class="line_4" style="margin: 0px 0px 18px;"></div>
-
-						<!--  <article class="block_topic_post_feature">
-                            
-                              
-                               <div class="content">
-                                <div class="title">
-                                    <a href="news_post.jsp">
-                                       马云商业说：掀起学习狂潮。气风云看世态炎凉。观沧海赏云卷云舒。
-                                    </a>
-                                </div>
-                               <div class="info">
-                                    <div class="date"><p>11 July, 2012</p></div>
-                                    
-                                    <div class="r_part">
-                                        <div class="category"><p><a href="#">Business</a></p></div>
-                                        <a href="#" class="views">220</a>
-                                    </div>
-                                </div>
-                                    
-                                
-                            </div> -->
 
 						<div class="clearboth"></div>
 						</article>

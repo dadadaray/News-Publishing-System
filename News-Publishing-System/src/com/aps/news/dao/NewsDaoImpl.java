@@ -27,7 +27,6 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 		String hql;
 
 		hql = "from News";
-		params[0] = params[0];
 		try {
 			Page<News> page = new Page<News>();
 			page.setCurrentPageNum(pageNum);

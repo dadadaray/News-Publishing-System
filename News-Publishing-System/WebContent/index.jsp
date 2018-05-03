@@ -220,7 +220,7 @@
 						<div class="clearboth"></div>
 
 						<div class="line_3" style="margin: 14px 0px 13px;"></div>
-						<a href="${ctx}/main_news.jsp" class="lnk_all_news fl">全部新闻</a>
+						<a href="${ctx}/newsFront/frontListAllNews" class="lnk_all_news fl">全部新闻</a>
 						<div class="clearboth"></div>
 						<div class="line_3" style="margin: 13px 0px 35px;"></div>
 
