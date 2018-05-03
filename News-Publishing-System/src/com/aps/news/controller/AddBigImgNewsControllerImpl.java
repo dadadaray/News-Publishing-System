@@ -48,30 +48,10 @@ public class AddBigImgNewsControllerImpl {
 		byte[] bs = new byte[1024];
 		int len;
 		// 保存路径
-				String realpath = System.getProperty("b2cweb.root") + "newsImgUp";
-				File saveFile = new File(realpath);
-				if (!saveFile.exists()) {
-					saveFile.mkdirs();
-				}
-		Set<ModBigImg> modBigImgs = new HashSet<ModBigImg>(0);
-		// 遍历
-		for (int i = 0; i < files.size(); i++) {
-			String filename = files.get(i).getOriginalFilename();
-			String newFileName = addNewsServiceImpl.makeFileName(filename);
-			InputStream is = files.get(i).getInputStream();
-			OutputStream os = new FileOutputStream(realpath + "\\"+ newFileName);
-			while ((len = is.read(bs)) != -1) {
-				os.write(bs, 0, len);
-			}
-			os.close();
-			is.close();
-			ModBigImg m = new ModBigImg();
-			m.setModBigImgUrl(newFileName);
-			m.setModBigImgContent(textInfos.get(i));
-			
-			// 保存模板
-			ModBigImg mod = this.addNewsServiceImpl.saveModBigImg(m.getModBigImgUrl(),m.getModBigImgContent());
-			modBigImgs.add(mod);
+		String realpath = System.getProperty("b2cweb.root") + "newsImgUp";
+		File saveFile = new File(realpath);
+		if (!saveFile.exists()) {
+			saveFile.mkdirs();
 		}
 
 		// 保存封面图
@@ -85,7 +65,6 @@ public class AddBigImgNewsControllerImpl {
 		}
 		os3.close();
 		is3.close();
-
 		// 存入新闻
 		News news1 = new News();
 		news1.setNewsTitle(title);
@@ -105,8 +84,29 @@ public class AddBigImgNewsControllerImpl {
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
 		// 设置新闻简介
 		news1.setBigImgContent(textarea);
+		Set<ModBigImg> modBigImgs = new HashSet<ModBigImg>(0);
+		// 遍历
+		for (int i = 0; i < files.size(); i++) {
+			String filename = files.get(i).getOriginalFilename();
+			String newFileName = addNewsServiceImpl.makeFileName(filename);
+			InputStream is = files.get(i).getInputStream();
+			OutputStream os = new FileOutputStream(realpath + "\\" + newFileName);
+			while ((len = is.read(bs)) != -1) {
+				os.write(bs, 0, len);
+			}
+			os.close();
+			is.close();
+			ModBigImg m = new ModBigImg();
+			m.setModBigImgUrl(newFileName);
+			m.setModBigImgContent(textInfos.get(i));
+
+			// 保存模板
+			ModBigImg mod = this.addNewsServiceImpl.saveModBigImg(m.getModBigImgUrl(), m.getModBigImgContent(),news1);
+			modBigImgs.add(mod);
+		}
+
+
 		// 保存模板
-		
 
 		// 设置新闻模板
 		news1.setModBigImgs(modBigImgs);

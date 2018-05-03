@@ -67,7 +67,7 @@ public class AddNewsServiceImpl {
 	 * @param f3
 	 * @param t3
 	 */
-	public ModMixCenter saveModMixCenter(String f1, String t1, String f2, String t2, String f3, String t3) {
+	public ModMixCenter saveModMixCenter(String f1, String t1, String f2, String t2, String f3, String t3,News news) {
 
 		ModMixCenter modMixCenter = new ModMixCenter();
 		modMixCenter.setmMixCenterImgOne(f1);
@@ -76,6 +76,7 @@ public class AddNewsServiceImpl {
 		modMixCenter.setmMixCenterContentTwo(t2);
 		modMixCenter.setmMixCenterImgThree(f3);
 		modMixCenter.setmMixCenterContentThree(t3);
+		modMixCenter.setNews(news);
 		this.addNewsDaoImpl.saveModMixCenterDao(modMixCenter);
 		return modMixCenter;
 	}
@@ -139,10 +140,11 @@ public class AddNewsServiceImpl {
 	 * @param t
 	 * @return
 	 */
-	public ModBigImg saveModBigImg(String f,String t){
+	public ModBigImg saveModBigImg(String f,String t,News news){
 		ModBigImg modBigImg=new ModBigImg();
 		modBigImg.setModBigImgContent(t);
 		modBigImg.setModBigImgUrl(f);
+		modBigImg.setNews(news);
 		this.modBigImgDaoImpl.saveModBigImgDao(modBigImg);
 		return modBigImg;
 	}
@@ -156,10 +158,11 @@ public class AddNewsServiceImpl {
 	 * @author HanChen
 	 * @return ModVedio
 	 */
-	public ModVedio saveModVedio(String f,String t){
+	public ModVedio saveModVedio(String f,String t,News news){
 		ModVedio modVedio = new ModVedio();
 		modVedio.setMvideoUrl(f);
 		modVedio.setModVedioContent(t);
+		modVedio.setNews(news);
 		this.modModVedioDaoImpl.saveModVedioDao(modVedio);
 		return modVedio;
 	}
@@ -173,10 +176,11 @@ public class AddNewsServiceImpl {
 	 * @author HanChen 
 	 * @return ModAudio
 	 */
-	public ModAudio saveModAudio(String f, String t){
+	public ModAudio saveModAudio(String f, String t,News news){
 		ModAudio modAudio = new ModAudio();
 		modAudio.setmAudioUrl(f);
 		modAudio.setModAudioContent(t);
+		modAudio.setNews(news);
 		this.modAudioDaoImpl.saveModAudioDao(modAudio);
 		return modAudio;
 	}

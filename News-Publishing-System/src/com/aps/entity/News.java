@@ -32,23 +32,23 @@ public class News {
 	private String coverImgUrl; // 封面图片
 	private Date publishTime; // 发表时间
 	private Date createTime; // 创作时间
-	private Integer statues; // 文章状态 0：草稿  1：待审核 2：审核通过 3：未通过 4：发布
+	private Integer statues; // 文章状态 0：草稿 1：待审核 2：审核通过 3：未通过 4：发布
 	private Integer topShow; // 推荐文章 0：不推 1：推荐
 	private Integer views; // 文章浏览量
 	private Integer likes; // 文章点赞数
 	private Integer share; // 文章分享数量
 	private Integer commentNum; // 文章评论数量
 
-	private Integer auditorId; //审核人id
+	private Integer auditorId; // 审核人id
 	private UserInfo userInfo; // 文章的作者
 	private NewsType newsType; // 文章类型
-	private ModFree modFree; // 自由模板
-	private Set<ModBigImg> modBigImgs=new HashSet<ModBigImg>(0);
-	private ModVedio modVedio; // 视频模板
-	private ModAudio modAudio; // 音频模板
-	private ModMixCenter modMixCenter; // 图文居中
-	private ModMixLR modMixLR; // 图文左右
-	private ModMixSingle modMixSingle; // 图文一个图
+	private Set<ModFree> modFrees = new HashSet<ModFree>(0); // 自由模板
+	private Set<ModBigImg> modBigImgs = new HashSet<ModBigImg>(0); // 大图模板
+	private Set<ModVedio> modVedios = new HashSet<ModVedio>(0); // 视频模板
+	private Set<ModAudio> modAudios = new HashSet<ModAudio>(0); // 音频模板
+	private Set<ModMixCenter> modMixCenters = new HashSet<ModMixCenter>(0); // 混合居中模板
+	private Set<ModMixLR> modMixLRs = new HashSet<ModMixLR>(0);// 图文左右
+	private Set<ModMixSingle> modMixSingles = new HashSet<ModMixSingle>(0);// 图文一个图
 	private Set<Comment> comments = new HashSet<Comment>(0); // 新闻的评论
 	private Set<Notice> notices = new HashSet<Notice>(0);// 新闻的消息
 	private String bigImgContent;
@@ -64,9 +64,18 @@ public class News {
 	}
 
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	@Analyzer(impl=StandardAnalyzer.class)
+	@Analyzer(impl = StandardAnalyzer.class)
 	public String getNewsTitle() {
 		return newsTitle;
+	}
+
+	@OneToMany(mappedBy = "news")
+	public Set<ModMixSingle> getModMixSingles() {
+		return modMixSingles;
+	}
+
+	public void setModMixSingles(Set<ModMixSingle> modMixSingles) {
+		this.modMixSingles = modMixSingles;
 	}
 
 	public String getBigImgContent() {
@@ -149,63 +158,49 @@ public class News {
 		this.userInfo = userInfo;
 	}
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public ModFree getModFree() {
-		return modFree;
+	@OneToMany(mappedBy = "news")
+	public Set<ModFree> getModFrees() {
+		return modFrees;
 	}
 
-	public void setModFree(ModFree modFree) {
-		this.modFree = modFree;
-	}
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public ModVedio getModVedio() {
-		return modVedio;
+	public void setModFrees(Set<ModFree> modFrees) {
+		this.modFrees = modFrees;
 	}
 
-	public void setModVedio(ModVedio modVedio) {
-		this.modVedio = modVedio;
+	@OneToMany(mappedBy = "news")
+	public Set<ModVedio> getModVedios() {
+		return modVedios;
 	}
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public ModAudio getModAudio() {
-		return modAudio;
+	public void setModVedios(Set<ModVedio> modVedios) {
+		this.modVedios = modVedios;
 	}
 
-	public void setModAudio(ModAudio modAudio) {
-		this.modAudio = modAudio;
+	@OneToMany(mappedBy = "news")
+	public Set<ModAudio> getModAudios() {
+		return modAudios;
 	}
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public ModMixCenter getModMixCenter() {
-		return modMixCenter;
+	public void setModAudios(Set<ModAudio> modAudios) {
+		this.modAudios = modAudios;
 	}
 
-	public void setModMixCenter(ModMixCenter modMixCenter) {
-		this.modMixCenter = modMixCenter;
+	@OneToMany(mappedBy = "news")
+	public Set<ModMixCenter> getModMixCenters() {
+		return modMixCenters;
 	}
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public ModMixLR getModMixLR() {
-		return modMixLR;
+	public void setModMixCenters(Set<ModMixCenter> modMixCenters) {
+		this.modMixCenters = modMixCenters;
 	}
 
-	public void setModMixLR(ModMixLR modMixLR) {
-		this.modMixLR = modMixLR;
+	@OneToMany(mappedBy = "news")
+	public Set<ModMixLR> getModMixLRs() {
+		return modMixLRs;
 	}
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public ModMixSingle getModMixSingle() {
-		return modMixSingle;
-	}
-
-	public void setModMixSingle(ModMixSingle modMixSingle) {
-		this.modMixSingle = modMixSingle;
+	public void setModMixLRs(Set<ModMixLR> modMixLRs) {
+		this.modMixLRs = modMixLRs;
 	}
 
 	@OneToMany(mappedBy = "news")
@@ -240,7 +235,7 @@ public class News {
 	public void setViews(Integer views) {
 		this.views = views;
 	}
-	
+
 	@OneToMany(mappedBy = "news")
 	public Set<Notice> getNotices() {
 		return notices;
@@ -257,6 +252,7 @@ public class News {
 	public void setAuditorId(Integer auditorId) {
 		this.auditorId = auditorId;
 	}
+
 	@OneToMany(mappedBy = "news")
 	public Set<ModBigImg> getModBigImgs() {
 		return modBigImgs;

@@ -1,15 +1,18 @@
 package com.aps.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mod_mix_single")
+@Table(name = "modMixSingle")
 public class ModMixSingle {
 	private Integer modMixSingleId;
 	private String mMixSingleImgOne;
@@ -42,7 +45,8 @@ public class ModMixSingle {
 		this.mMixSingleContentOne = mMixSingleContentOne;
 	}
 
-	@OneToOne(mappedBy = "modMixSingle", fetch = FetchType.EAGER)
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@JoinColumn(name = "newsId")
 	public News getNews() {
 		return news;
 	}

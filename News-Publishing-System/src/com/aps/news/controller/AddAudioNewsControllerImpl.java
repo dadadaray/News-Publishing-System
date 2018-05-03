@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -27,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aps.entity.LoginUser;
 import com.aps.entity.ModAudio;
+import com.aps.entity.ModMixSingle;
 import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
@@ -134,14 +137,13 @@ public class AddAudioNewsControllerImpl {
 		
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
-		// 保存模板
-		ModAudio m = new ModAudio();
-		m.setmAudioUrl(newFileName);
-		m.setModAudioContent(textarea);
 		
-		ModAudio mod = this.addNewsServiceImpl.saveModAudio(newFileName, textarea);
-		// 设置新闻模板
-		news1.setModAudio(mod);
+		Set<ModAudio> modMixSingles = new HashSet<ModAudio>(0);
+		// 保存模板
+		ModAudio mod = this.addNewsServiceImpl.saveModAudio(newFileName, textarea, news1);
+		modMixSingles.add(mod);
+		news1.setModAudios(modMixSingles);
+		
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
 		
@@ -216,14 +218,11 @@ public class AddAudioNewsControllerImpl {
 		
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
+		Set<ModAudio> modMixSingles = new HashSet<ModAudio>(0);
 		// 保存模板
-		ModAudio m = new ModAudio();
-		m.setmAudioUrl(newFileName);
-		m.setModAudioContent(textarea);
-		
-		ModAudio mod = this.addNewsServiceImpl.saveModAudio(newFileName, textarea);
-		// 设置新闻模板
-		news1.setModAudio(mod);
+		ModAudio mod = this.addNewsServiceImpl.saveModAudio(newFileName, textarea, news1);
+		modMixSingles.add(mod);
+		news1.setModAudios(modMixSingles);
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
 		

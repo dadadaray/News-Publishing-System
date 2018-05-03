@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mod_big_img")
+@Table(name = "modBigImg")
 public class ModBigImg {
 	private Integer modBigImgId;
 	private String modBigImgUrl;

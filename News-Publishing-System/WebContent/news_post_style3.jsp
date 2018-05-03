@@ -98,8 +98,7 @@ data="<%= request.getHeader("REFERER")%>"></script>
 	
 	                        <ul>
 	                            <li><a href="index.jsp">首页</a></li>
-	                            <li><a href="business.jsp">商业</a></li>
-	                            <li>股票</li>
+	                            <li><a href="business.jsp">${OneNews.newsType.typeName}</a></li>	                       
 	                        </ul>
 	                    </div>
 	                    <div class="separator" style="height:30px;"></div>
