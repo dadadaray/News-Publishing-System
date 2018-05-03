@@ -323,9 +323,6 @@ data="<%= request.getHeader("REFERER")%>"></script>
 		<%@ include file="footer.jsp"%>    
 	</div>
 
-    
-	<!-- login -->
-	<%@ include file="login.jsp"%>  
 </body>
 <script type="text/javascript">
 <!-- 回车登陆 -->

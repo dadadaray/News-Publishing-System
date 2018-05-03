@@ -97,10 +97,7 @@
         	<div class="inner">
             	<div class="general_content">
                     <div class="main_content" id="con_eye">
-                        <div class="separator" style="height:30px;">
-                            <a href="../backstage/add_news_tuwenModel2.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
-                        </div>
-                        
+                                                
                         <article class="block_single_news">
                             <p class="title">
                                 <h1>${mod2title}</h1>

@@ -32,6 +32,13 @@ import com.framework.Page;
 public class NewsServiceImpl {
 	@Resource
 	private NewsDaoImpl newsDaoImpl;
+	
+	public Page<News>findAllNewsFront(int pageNum, int pageSize, Object[] params) {
+		return this.newsDaoImpl.findAllNewsFront(pageNum, pageSize, params);
+	}
+	
+	
+	
 	/**
 	 * @dec  查询单个新闻
 	 * @author Ray
