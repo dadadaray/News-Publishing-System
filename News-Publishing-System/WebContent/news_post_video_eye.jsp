@@ -103,7 +103,7 @@
 
                             <div class="info">
                                 <div class="date">
-	                                <p><fmt:formatDate value="${videoViewCurrentTime}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
+	                                <p><fmt:formatDate value="${videoViewCurrentTime}" pattern="yyyy-MM-dd" /></p>
                                 </div>
                                 <div class="author"><p>作者: <a href="#">${bloginUser.loginName}</a></p></div>
 

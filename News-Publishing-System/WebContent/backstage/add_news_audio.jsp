@@ -192,7 +192,7 @@
                                         <!-- 音频上传结束 -->
                                         <hr/>
                                             <div class="am-form-group">
-                                                <label for="user-name" class="am-u-sm-2 am-form-label">视频标题：</label>
+                                                <label for="user-name" class="am-u-sm-2 am-form-label">音频标题：</label>
                                                 <div class="am-u-sm-10">
                                                     <input name="title" type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">
                                                     <small style="color:red;">请填写标题文字10-20字左右。</small>
@@ -236,7 +236,7 @@
                                             </div>
                                             <div class="am-u-sm-8 am-u-sm-push-2 add_button">
                                                 <a id="saveNewsDraft" class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
-                                                <a id="preview" href="../font_desk/news_post_listen_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
+                                                <a id="preview" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
                                                 <a id="audioSends" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
                                             </div>
                                         </form>
