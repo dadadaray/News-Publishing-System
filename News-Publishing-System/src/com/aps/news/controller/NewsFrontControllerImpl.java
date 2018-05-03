@@ -31,44 +31,32 @@ public class NewsFrontControllerImpl {
 		News news = this.newsServiceImpl.getOneNews(newsId);
 		// LoginUser loginUser = (LoginUser)
 		// request.getSession().getAttribute("loginUser");
-		System.out.print(newsId);
-		// news.setViews(news.getViews() + 1);
-		// this.newsServiceImpl.updateNews(news);
+		// System.out.print(newsId);
+		news.setViews(news.getViews() + 1);
+		this.newsServiceImpl.updateNews(news);
 		request.setAttribute("OneNews", news);
-
-		//System.out.print(news.getNewsTitle() + news.getModMixCenter() + news.getModMixLR() + news.getModMixSingle());
-		if (news.getModAudios() != null) {
-			System.out.print("视频");
+		if (news.getModAudios().size() > 0) {
 			return "news_post_video";
 		}
-		if (news.getModFrees() != null) {
-			System.out.print("1");
+		if (news.getModFrees().size() > 0) {
 			return "news_free";
 		}
-		if (news.getModMixCenters() != null) {
-			System.out.print("2");
+		if (news.getModMixCenters().size() > 0) {
 			return "news_post_style1";
 		}
-		if (news.getModMixLRs() != null) {
-			System.out.print("3");
+		if (news.getModMixLRs().size() > 0) {
 			return "news_post_style2";
 		}
-		if (news.getModMixSingles() != null) {
-			System.out.print("4");
-
+		if (news.getModMixSingles().size() > 0) {
 			return "news_post_style3";
 		}
-		if (news.getModAudios() != null) {
-			System.out.print("5");
+		if (news.getModAudios().size() > 0) {
 			return "news_post_listen";
 		}
-		if (news.getModBigImgs() != null && news.getModBigImgs().size() > 0) {
-			// System.out.print("----" + news.getModBigImgs().);
-			// System.out.print(news.getBigImgContent());
+		if (news.getModBigImgs().size() > 0) {
 			return "Bgimgshow";
 		}
 		return null;
-
 	}
 
 }
