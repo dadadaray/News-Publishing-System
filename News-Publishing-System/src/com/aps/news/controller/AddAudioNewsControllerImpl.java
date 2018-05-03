@@ -227,6 +227,7 @@ public class AddAudioNewsControllerImpl {
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
 		
+		
 		return "redirect:/backstage/draft/list";
 		
 	}	
