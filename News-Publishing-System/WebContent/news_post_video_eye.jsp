@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctx1" value="${pageContext.request.contextPath}/backstage"></c:set>
+
 <!DOCTYPE html>
 <html>
 
@@ -94,42 +96,44 @@
             	<div class="general_content">
                     <div class="main_content" id="con_eye">
                         <div class="separator" style="height:30px;">
-                            <a href="../后台/add_news_vedio.jsp"><span style="float:right;font-size: 16px;">返&nbsp&nbsp回</span></a>
+                            <a href="${ctx1}/add_news_vedio.jsp"><span style="float:right;font-size: 16px;">返&nbsp;&nbsp;回</span></a>
                         </div>
 
                         <article class="block_single_news">
                             <p class="title">
-                                <h1>中国工厂太魔幻：未来每2分钟下线一辆汽车</h1>
+                                <h1>${title}</h1>
                             </p>
 
                             <div class="info">
-                                <div class="date"><p>15 July, 2012</p></div>
-                                <div class="author"><p>作者: <a href="#">王敏</a></p></div>
+                                <div class="date">
+	                                <p><fmt:formatDate value="${videoViewCurrentTime}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
+                                </div>
+                                <div class="author"><p>作者: <a href="#">${bloginUser.loginName}</a></p></div>
 
                                 <div class="r_part">
-                                    <a href="#" class="views">220</a>
-                                    <a href="#" class="comments">25</a>
+                                    <a href="#" class="views">0</a>
+                                    <a href="#" class="comments">0</a>
                                 </div>
                             </div>
 
                             <div class="content">
-                               <h5>YouTube</h5>
                             
-                            <div class="block_video">
-                              <iframe width="612" height="344" src="http://www.youtube.com/embed/ySIvism2af8" frameborder="0" allowfullscreen=""></iframe>
-                            </div>
-                                <p class="text_p">　世界，正处在新科技革命和产业变革的交汇点上。信息化、工业化不断融合，以机器人技术为代表的智能装备产业蓬勃兴起。2017年，中国继续成为全球第一大工业机器人市场，销量突破12万台，约占全球总产量的三分之一。与此同时，中国连续第九年成为全球高端数控机床第一消费大国，全球50%的数控机床装在了中国的生产线上。这一年，中国的人工智能企业总数接近600家，跃升世界第二,小编在这为您梳理中国智造“英雄谱”，相信你看完一定会被它们惊艳↓↓↓</p>
-                                <h3>重器：智能制造核心-数字化仿真智能工厂</h3>
-                                <p class="text_p"><b>最牛实力：</b>这间数字化仿真工厂，冲压环节的零件加工合格率达到100%，焊装环节的焊点定位合格率达到99.8%，总装环节的装配合格率更是达到100%。工程师们通过在仿真系统中的模拟演练，可以减少人为失误风险，大幅节约制造成本，缩短研发周期。.</p> 
-                               
-                                <p class="text_p">　智能制造时代来临，中国正在涌现一个又一个“智造先锋”，涵盖石化、钢铁、航空、汽车等82个行业。两年来，平均生产效率提高30%，能源利用率提升10%。<a href="#" class="lnk_blue text_a"><b>智能制造时代</b></a>查看恢弘气势</p>  
-                                <blockquote class="full">引言样式</blockquote>
-
+	                            <div class="block_video">
+	                              	<video width="612" height="344" poster="${ctx}/images/pic_pop_video.jpg" controls="controls">
+										<source src="${ctx}/preViewVideo/${preVideoF1}" type="video/ogg">
+										<source src="${ctx}/preViewVideo/${preVideoF1}" type="video/mp4">
+										<source src="${ctx}/preViewVideo/${preVideoF1}" type="video/webm">
+										<object data="${ctx}/preViewVideo/${preVideoF1}" width="612" height="344"> </object>
+									</video>
+	                            </div>
+	                            <p class="text_p">
+									${textarea}
+								</p>
                             </div>
                         </article>
                         <div class="separator" style="height:4px;"></div>
                         <div class="block_post_tags">
-                            <p>标签: <a href="#">商业,</a><a href="#">股票</a></p>
+                            <p>标签: <a href="#">${selectmod}</a></p>
                         </div>
                     </div>
                 </div>
@@ -138,16 +142,23 @@
     	<!-- CONTENT END -->
     </div>
 
-	<!-- login -->
-	<%@ include file="login.jsp"%>  
-
 </body>
+<!--富文本js-->
+<script language="javascript" type="text/javascript"
+	src="${ctx}/layout/js/tinymce/tinymce.js"></script>
 <script type="text/javascript">
+
     <!-- 回车登陆 -->
     $(document).keyup(function(e) {
         if (e.keyCode == 13) {
             $("#submit1").click()
         }
+    });
+    
+    $(document).ready(function(){
+    	
+    	tinyMCE.activeEditor.setContent("需要设置的编辑器内容");
+    	
     });
     /*点赞，点击变换图片*/
     function toggle(){

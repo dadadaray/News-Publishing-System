@@ -6,15 +6,20 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.aps.entity.ModAudio;
 import com.aps.entity.ModBigImg;
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
 import com.aps.entity.ModMixSingle;
+import com.aps.entity.ModVedio;
 import com.aps.entity.News;
+import com.aps.modAudio.ModAudioDaoImpl;
 import com.aps.modBigImg.dao.ModBigImgDaoImpl;
 import com.aps.modMixCenter.modMixCenterDaoImpl;
 import com.aps.modMixLF.modMixLFDaoImpl;
 import com.aps.modMixSingle.modMixSingleDaoImpl;
+import com.aps.modVideo.ModVedioDaoImpl;
+import com.framework.EncodingTool;
 
 @Service
 public class AddNewsServiceImpl {
@@ -27,6 +32,12 @@ public class AddNewsServiceImpl {
 	
 	@Resource
 	private ModBigImgDaoImpl modBigImgDaoImpl;
+	
+	@Resource
+	private ModVedioDaoImpl modModVedioDaoImpl;
+	
+	@Resource
+	private ModAudioDaoImpl modAudioDaoImpl;
 
 	/**
 	 * @Method: makeFileName
@@ -138,9 +149,41 @@ public class AddNewsServiceImpl {
 		return modBigImg;
 	}
 	
+	/**
+	 * @Title: saveModVedio
+	 * @Description: 保存视频模板
+	 * @param f
+	 * @param t
+	 * @return
+	 * @author HanChen
+	 * @return ModVedio
+	 */
+	public ModVedio saveModVedio(String f,String t,News news){
+		ModVedio modVedio = new ModVedio();
+		modVedio.setMvideoUrl(f);
+		modVedio.setModVedioContent(t);
+		modVedio.setNews(news);
+		this.modModVedioDaoImpl.saveModVedioDao(modVedio);
+		return modVedio;
+	}
 	
-	
-	
+	/**
+	 * @Title: saveModAudio
+	 * @Description: 保存音频模板
+	 * @param f
+	 * @param t
+	 * @return
+	 * @author HanChen 
+	 * @return ModAudio
+	 */
+	public ModAudio saveModAudio(String f, String t,News news){
+		ModAudio modAudio = new ModAudio();
+		modAudio.setmAudioUrl(f);
+		modAudio.setModAudioContent(t);
+		modAudio.setNews(news);
+		this.modAudioDaoImpl.saveModAudioDao(modAudio);
+		return modAudio;
+	}
 	
 
 }

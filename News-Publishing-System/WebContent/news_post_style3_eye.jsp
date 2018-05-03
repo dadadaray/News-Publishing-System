@@ -94,7 +94,7 @@
 					<div class="main_content" id="con_eye">
 
 						<div class="separator" style="height: 30px;">
-							<a href="${ctx1}/add_news_tuwenModel3.jsp"><span style="float: right; font-size: 16px;">返&nbsp&nbsp回</span></a>
+							<a href="${ctx1}/add_news_tuwenModel3.jsp"><span style="float: right; font-size: 16px;">返&nbsp;&nbsp;回</span></a>
 						</div>
 
 						<article class="block_single_news">
