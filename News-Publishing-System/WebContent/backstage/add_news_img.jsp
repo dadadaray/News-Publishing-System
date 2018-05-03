@@ -227,7 +227,7 @@
 		}
 		//发布按钮
 		$("#bigImgSend").click(function() {
-			var url = "${ctx1 }/addnews/bigImg/sendBigImgNews";
+			var url = "${ctx1}/addnews/bigImg/sendBigImgNews";
 			$("#bigImgForm").attr("action", url);
 			$("#bigImgForm").submit();
 		})

@@ -138,9 +138,6 @@
 		
     </div>
     
-	<!-- login -->
-	<%@ include file="login.jsp"%>  
-	
 </body>
 <!-- 回车登陆 -->
 <script type="text/javascript">

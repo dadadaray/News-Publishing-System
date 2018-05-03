@@ -53,7 +53,7 @@ public class DraftControllerImpl {
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
-		page = this.newsServiceImpl.draftNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
+		page = this.newsServiceImpl.draftNewsList(pageNum, 20, new Object[] { loginUser.getUserInfo().getUserInfoId()});
 
 		session.setAttribute("page", page);
 		return "backstage/draft";

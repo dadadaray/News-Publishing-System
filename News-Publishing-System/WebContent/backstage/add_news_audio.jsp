@@ -46,7 +46,7 @@
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span></span>
+                        <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span>
                     </a>
                     <ul class="am-dropdown-content tpl-dropdown-content">
                         <li class="tpl-dropdown-content-external">
@@ -58,21 +58,21 @@
 
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> 
-                                <span>《从大城市的》<span>需要修改
+                                <span>《从大城市的》</span>需要修改
                               </a>
                                 <span class="tpl-dropdown-list-fr">3小时前</span>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                               <a href="#" class="tpl-dropdown-list-fl">
                                 <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-                                 <span>《从大城市的》<span>审核通过
+                                 <span>《从大城市的》</span>审核通过
                             </a>
                                 <span class="tpl-dropdown-list-fr">15分钟前</span>
                             </li>
                             <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
                                 <a href="#" class="tpl-dropdown-list-fl">
                                     <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
-                                    <span>《从大城市的》<span>成为推荐文章 
+                                    <span>《从大城市的》</span>成为推荐文章 
                                 </a>
                                 <span class="tpl-dropdown-list-fr">2天前</span>
                             </li>
@@ -162,7 +162,7 @@
                 <div class="am-u-md-12 am-u-sm-14 row-mb">
                     <div class="tpl-portlet" style="margin-bottom:10px;overflow:hidden;">
                         <div class="caption font-green bold" style="float:left;">
-                            <span class="am-icon-file-text-o">&nbsp&nbsp选择模板</span> 
+                            <span class="am-icon-file-text-o">&nbsp;&nbsp;选择模板</span> 
                         </div>
                         <div class="am-btn-group" style="float:left;">
                             <a href="${ctx}/add_news.jsp" class="am-btn am-btn-secondary am-radius" style="margin-left:20px;">图文自由排版</a>
@@ -175,17 +175,18 @@
                     <div class="tpl-portlet">
                         <div class="portlet-title">
                             <div class="caption font-green bold">
-                                <span class="am-icon-pencil">&nbsp&nbsp编辑音频</span> 
+                                <span class="am-icon-pencil">&nbsp;&nbsp;编辑音频</span> 
                             </div>                     
                             <div class="tpl-block">
                                 <div class="am-g">
                                     <div class="tpl-form-body tpl-form-line">
-                                        <form class="am-form tpl-form-line-form">
+                                        <form id="audioForm" class="am-form tpl-form-line-form"
+											action="" method="post" enctype="multipart/form-data">
                                         <!--音频上传 -->
                                         <div class="am-form-group am-form-file" style="margin-left: 25px;">
                                             <button type="button" class="am-btn am-btn-danger am-btn-sm">
                                             <i class="am-icon-cloud-upload"></i> 选择要上传的音频</button>
-                                            <input id="doc-form-file" type="file" multiple>
+                                            <input id="doc-form-file" type="file" name="audioFile" class="file" multiple>
                                         </div>
                                         <div id="file-list"></div>
                                         <!-- 音频上传结束 -->
@@ -193,22 +194,22 @@
                                             <div class="am-form-group">
                                                 <label for="user-name" class="am-u-sm-2 am-form-label">视频标题：</label>
                                                 <div class="am-u-sm-10">
-                                                    <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">
+                                                    <input name="title" type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">
                                                     <small style="color:red;">请填写标题文字10-20字左右。</small>
                                                 </div>
                                             </div>
                                              <div class="am-form-group">
                                                 <label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
                                                 <div class="am-u-sm-10">
-                                                    <select data-am-selected="{searchBox: 1}">
-                                                      <option value="a">财经</option>
-                                                      <option value="b">科技</option>
-                                                      <option value="c">教育</option>
-                                                      <option value="d">体育</option>
-                                                      <option value="e">娱乐</option>
-                                                      <option value="f">军事</option>
-                                                      <option value="g">旅游</option>
-                                                      <option value="h">政务</option>
+                                                    <select data-am-selected="{searchBox: 1}" name="selectmod">
+														<option value="财经">财经</option>
+														<option value="科技">科技</option>
+														<option value="教育">教育</option>
+														<option value="体育">体育</option>
+														<option value="娱乐">娱乐</option>
+														<option value="军事">军事</option>
+														<option value="旅游">旅游</option>
+														<option value="政务">政务</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -216,11 +217,11 @@
                         
 
                                             <div class="am-form-group">
-                                                <label for="user-intro" class="am-u-sm-2 am-form-label">视频介绍：</label>
+                                                <label for="user-intro" class="am-u-sm-2 am-form-label">音频介绍：</label>
                                             </div>
                                             <div class="am-form-group">
                                                 <div class="am-u-sm-12">
-                                                    <textarea class="" rows="10" id="user-intro" placeholder="请输入视频介绍" type="hidden"></textarea>
+                                                    <textarea name="textarea" class="" rows="10" id="user-intro" placeholder="请输入音频介绍" type="hidden"></textarea>
                                                 </div>
                                             </div>
 
@@ -229,14 +230,14 @@
                                                 <div class="am-u-sm-10">
                                                     <!--  图片上传显示-->
                                                     <!--input-group start-->
-                                                    <div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width:260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136"/></div></div>
+                                                    <div class="upload_box"><input name="coverfile" type="file" name="file"  class="file" onchange="imgChange(this);" style="width:260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136"/></div></div>
                                                     <!--input-group end-->
                                                 </div>
                                             </div>
                                             <div class="am-u-sm-8 am-u-sm-push-2 add_button">
-                                                <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
-                                                <a href="../font_desk/news_post_listen_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
-                                                <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
+                                                <a id="saveNewsDraft" class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
+                                                <a id="preview" href="../font_desk/news_post_listen_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
+                                                <a id="audioSends" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
                                             </div>
                                         </form>
                                     </div>
@@ -270,6 +271,28 @@
 <script language="javascript" type="text/javascript" src="${ctx}/assets/js/tinymce/tinymce.js"></script>
 
 <script type="text/javascript">
+
+	//发布按钮
+	$("#audioSends").click(function() {
+		var url = "${ctx1}/addnews/audio/sendAudioNews";
+		$("#audioForm").attr("action", url);
+		$("#audioForm").submit();
+	});
+	
+	//存草稿按钮
+	$("#saveNewsDraft").click(function() {
+		var url = "${ctx1}/addnews/audio/audioSaveNewsDraft";
+		$("#audioForm").attr("action", url);
+		$("#audioForm").submit();
+	});
+	//预览按钮
+	$("#preview").click(function() {
+		var url = "${ctx1}/addnews/audio/previewAudio";
+		$("#audioForm").attr("action", url);
+		$("#audioForm").attr("target", "_blank");
+		$("#audioForm").submit();
+	});
+	
     //富文本 begin
     tinymce.init({
         selector: "textarea",

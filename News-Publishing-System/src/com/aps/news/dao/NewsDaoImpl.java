@@ -43,6 +43,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	public News getOneNews(int newsId) {
 		try {
 			News news = this.get(newsId);
+			
 			return news;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

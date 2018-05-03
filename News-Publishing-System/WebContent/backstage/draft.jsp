@@ -211,7 +211,7 @@
 		                                    </span>
 		                                </div>
 		                                <span class="tpl-table-images-content-i-shadow"></span>
-		                                <img src="${ctx}/assets/img/a1.png" alt="">
+		                                <img src="${ctx1}/newsImgUp/${news.coverImgUrl}" alt="">
 		                            </a>
 		                            <div class="tpl-table-images-content-block">
 		                                <div class="tpl-i-font">
