@@ -103,27 +103,27 @@
 										</c:if> <c:if test="${not empty news.modBigImgs}">
 											<c:forEach items="${news.modBigImgs}" var="modBigImg">
 											            ${fn:substring(modBigImg.modBigImgContent,0,50)}<c:if test="${fn:length(modBigImg.modBigImgContent)>50}">...</c:if>
-		                                		</c:forEach>
+											</c:forEach>
 										</c:if> <c:if test="${not empty news.modVedios}">
 											<c:forEach items="${news.modVedios}" var="modVedio">
 											            ${fn:substring(modVedio.modVedioContent,0,50)}<c:if test="${fn:length(modVedio.modVedioContent)>50}">...</c:if>
-		                                		</c:forEach>
+											</c:forEach>
 										</c:if> <c:if test="${not empty news.modAudios}">
 											<c:forEach items="${news.modAudios}" var="modAudio">
 											            ${fn:substring(modAudio.modAudioContent,0,50)}<c:if test="${fn:length(modAudio.modAudioContent)>50}">...</c:if>
-		                                		</c:forEach>
+											</c:forEach>
 										</c:if> <c:if test="${not empty news.modMixCenters}">
 											<c:forEach items="${news.modMixCenters}" var="modMixCenter">
 											            ${fn:substring(modMixCenter.mMixCenterContentOne,0,50)}<c:if test="${fn:length(modMixCenter.mMixCenterContentOne)>50}">...</c:if>
-		                                		</c:forEach>
+											</c:forEach>
 										</c:if> <c:if test="${not empty news.modMixLRs}">
 											<c:forEach items="${news.modMixLRs}" var="modMixLR">
 											            ${fn:substring(modMixLR.mMixLRContentOne,0,50)}<c:if test="${fn:length(modMixLR.mMixLRContentOne)>50}">...</c:if>
-		                                		</c:forEach>
+											</c:forEach>
 										</c:if> <c:if test="${not empty news.modMixSingles}">
 											<c:forEach items="${news.modMixSingles}" var="modMixSingle">
 											            ${fn:substring(modMixSingle.mMixSingleContentOne,0,50)}<c:if test="${fn:length(modMixSingle.mMixSingleContentOne)>50}">...</c:if>
-		                                		</c:forEach>
+											</c:forEach>
 										</c:if>
 
 									</a>
@@ -150,16 +150,18 @@
 
 
 						<div class="block_pager">
-							<a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a>
+							<a href="${ctx}/newsFront/frontListAllNews?pageNum=${page.prePageNum}" class="prev">Previous</a> <a href="${ctx}/newsFront/frontListAllNews?pageNum=${page.nextPageNum}" class="next">Next</a>
 
 							<div class="pages">
 								<ul>
-									<li class="current"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#">6</a></li>
+									<c:forEach begin="1" end="${page.totalPageNum}" var="pageNum">
+										<c:if test="${pageNum == page.currentPageNum}">
+											<li class="current"><a href="${ctx}/newsFront/frontListAllNews?pageNum=${pageNum}">${pageNum}</a></li>
+										</c:if>
+										<c:if test="${pageNum != page.currentPageNum}">
+											<li><a href="${ctx}/newsFront/frontListAllNews?pageNum=${pageNum}">${pageNum}</a></li>
+										</c:if>
+									</c:forEach>
 								</ul>
 							</div>
 
