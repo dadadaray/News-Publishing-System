@@ -55,6 +55,16 @@ public class NewsServiceImpl {
 		return this.newsDaoImpl.findnewsByType(pageNum, pageSize, params);
 	}
 	
+	/**
+	 * @dec 今天 按浏览量排序的新闻
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 */
+	public Page<News>findANewsFrontToday(int pageNum, int pageSize) {
+		return this.newsDaoImpl.findNewsFrontToday(pageNum, pageSize);
+	}
 	
 	
 	

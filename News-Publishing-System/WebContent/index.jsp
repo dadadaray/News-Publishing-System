@@ -72,7 +72,8 @@
 
 <body>
 	<%
-		if (session.getAttribute("listNewsIndex1") == null) {
+		if (session.getAttribute("listNewsIndex1") == null || session.getAttribute("listNewsIndex2") == null
+				|| request.getAttribute("YesterdayPage") == null) {
 			request.getRequestDispatcher("index").forward(request, response);
 		}
 	%>
@@ -164,7 +165,7 @@
 							<c:forEach items="${newsHonorList}" var="news">
 								<div class="block_home_post">
 									<div class="pic">
-										<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px"/> <span></span>
+										<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px" /> <span></span>
 										</a>
 									</div>
 
@@ -194,7 +195,7 @@
 							<c:forEach items="${newsHonorList}" var="news">
 								<div class="block_home_post">
 									<div class="pic">
-										<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px"/> <span></span>
+										<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="65px" height="43px" /> <span></span>
 										</a>
 									</div>
 
@@ -224,124 +225,50 @@
 						<div class="clearboth"></div>
 						<div class="line_3" style="margin: 13px 0px 35px;"></div>
 
-						<h3 style="font-size: 16px;">今日新闻</h3>
+						<h3 style="font-size: 16px;">昨日新闻</h3>
 						<div class="line_4" style="margin: -4px 0px 18px;"></div>
 
 						<div class="block_topic_news">
-							<article class="block_topic_post">
-								<p class="title">
-									<a href="${ctx}/Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”。</a>
-								</p>
-								<div class="f_pic">
-									<a href="${ctx}/Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/images/pic_home_main_news_1.jpg" alt="" /></a>
-								</div>
-								<p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
-								<div class="info">
-									<div class="date">
-										<p>11 July, 2012</p>
-									</div>
-
-									<div class="r_part">
-										<div class="category">
-											<p>
-												<a href="#">Business</a>
-											</p>
+							<c:if test="${not empty YesterdayPage and YesterdayPage.totalCount > 0}">
+								<c:forEach items="${YesterdayPage.list}" var="news" varStatus="status">
+									<article class="block_topic_post">
+										<p class="title">
+											<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}">${fn:substring(news.newsTitle, 0,15)}<c:if test="${fn:length(news.newsTitle)>15}">...</c:if></a>
+										</p>
+										<div class="f_pic">
+											<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="general_pic_hover scale"><img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="255px" height="160px"/></a>
 										</div>
-										<a href="#" class="views">183</a>
-									</div>
-								</div>
-							</article>
+										<p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
+										<div class="info">
+											<div class="date">
+												<p>
+													<fmt:formatDate value="${news.publishTime}" pattern="yyyy-MM-dd" />
+												</p>
+											</div>
 
-							<article class="block_topic_post">
-								<p class="title">
-									<a href="${ctx}/Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a>
-								</p>
-								<div class="f_pic">
-									<a href="${ctx}/Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/images/pic_home_main_news_2.jpg" alt="" /></a>
-								</div>
-								<p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
-								<div class="info">
-									<div class="date">
-										<p>11 July, 2012</p>
-									</div>
-
-									<div class="r_part">
-										<div class="category">
-											<p>
-												<a href="#">Business</a>
-											</p>
+											<div class="r_part">
+												<div class="category">
+													<p>
+														<a href="#">${news.newsType.typeName }</a>
+													</p>
+												</div>
+												<a href="#" class="views">${news.views }</a>
+											</div>
 										</div>
-										<a href="#" class="views">183</a>
-									</div>
-								</div>
-							</article>
+									</article>
+								</c:forEach>
+							</c:if>
 
-							<article class="block_topic_post">
-								<p class="title">
-									<a href="${ctx}/Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a>
-								</p>
-								<div class="f_pic">
-									<a href="${ctx}/Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/images/pic_home_main_news_3.jpg" alt="" /></a>
-								</div>
-								<p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
-								<div class="info">
-									<div class="date">
-										<p>11 July, 2012</p>
-									</div>
 
-									<div class="r_part">
-										<div class="category">
-											<p>
-												<a href="#">Business</a>
-											</p>
-										</div>
-										<a href="#" class="views">183</a>
-									</div>
-								</div>
-							</article>
 
-							<article class="block_topic_post">
-								<p class="title">
-									<a href="${ctx}/Bgimgshow.jsp">菲律宾近400名警官被革职 杜特尔特：警队“已腐烂”</a>
-								</p>
-								<div class="f_pic">
-									<a href="${ctx}/Bgimgshow.jsp" class="general_pic_hover scale"><img src="${ctx}/images/pic_home_main_news_4.jpg" alt="" /></a>
-								</div>
-								<p class="text">菲律宾总警司约翰·布拉拉考2日说，自2016年年中以来，已有将近400名警官因不当行为遭革职。</p>
-								<div class="info">
-									<div class="date">
-										<p>11 July, 2012</p>
-									</div>
 
-									<div class="r_part">
-										<div class="category">
-											<p>
-												<a href="#">Business</a>
-											</p>
-										</div>
-										<a href="#" class="views">183</a>
-									</div>
-								</div>
-							</article>
+
 
 						</div>
 
 						<div class="line_3" style="margin: 20px 0px 24px;"></div>
 
 						<div class="block_pager">
-							<a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a>
-
-							<div class="pages">
-								<ul>
-									<li class="current"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#">6</a></li>
-								</ul>
-							</div>
-
 							<div class="clearboth"></div>
 						</div>
 

@@ -22,7 +22,7 @@ import com.framework.SqlUtils;;
 public class NewsDaoImpl extends BaseDao<News, String> {
 	@Resource
 	private SessionFactory sessionFactory;
-	
+
 	/**
 	 * @dec 查询所有已发表文章
 	 * @param pageNum
@@ -33,7 +33,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	public Page<News> findAllNewsFront(int pageNum, int pageSize, Object[] params) {
 		String hql;
 
-		hql = "from News where statues=4";  //查询所有已发表的文章
+		hql = "from News where statues=4"; // 查询所有已发表的文章
 		try {
 			Page<News> page = new Page<News>();
 			page.setCurrentPageNum(pageNum);
@@ -45,6 +45,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 			return null;
 		}
 	}
+
 	/**
 	 * @dec 按类查询已经发表的文章
 	 * @author Ray
@@ -56,14 +57,51 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	public Page<News> findnewsByType(int pageNum, int pageSize, Object[] params) {
 		String hql;
 
-		//hql = "from News t left outer join t.newsType where t.newsType.newsTypeId = ?";  //查询所有已发表的文章
-		hql="from News n where n.newsType.newsTypeId = ? and n.statues=4";
+		hql = "from News n where n.newsType.newsTypeId = ? and n.statues=4";
 		params[0] = params[0];
 		try {
 			Page<News> page = new Page<News>();
 			page.setCurrentPageNum(pageNum);
 			page.setPageSize(pageSize);
 			page = this.findByPage(pageNum, pageSize, hql, params);
+			return page;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * @dec 按浏览量查询昨天的新闻
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 */
+	public Page<News> findNewsFrontToday(int pageNum, int pageSize) {
+		String hql;
+
+		hql = "from News n where n.statues=4";
+
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String startDate = "", endDate = "", date = "";
+		calendar.add(Calendar.DATE, -1); // 昨天
+		date = df.format(calendar.getTime());
+		startDate = date + " 00:00:00";
+		endDate = date + " 23:59:59";
+
+		if (StringUtils.isNotEmpty(startDate) && StringUtils.isNotEmpty(endDate)) {
+			hql += " and n.publishTime >= '" + startDate.trim() + "'";
+			hql += " and n.publishTime <= '" + endDate.trim() + "'";
+		}
+		hql += " order by n.views desc, commentNum desc";
+		//params[0] = params[0];
+		try {
+			Page<News> page = new Page<News>();
+			page.setCurrentPageNum(pageNum);
+			page.setPageSize(pageSize);
+			page = this.findByPage(pageNum, pageSize, hql, null);
 			return page;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,7 +193,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	 * @return Page<News>
 	 */
 	public Page<News> getHotNewsList(int pageNum, int pageSize, Object[] params, int timeSlot) {
-		String hql = "from News n where 1=1 and n.publishTime != null and n.auditorId = ? and n.statues = 4 ";
+		String hql = "from News n where n.publishTime!= null and n.auditorId = ? and n.statues = 4 ";
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String startDate = "", endDate = "", date = "";
