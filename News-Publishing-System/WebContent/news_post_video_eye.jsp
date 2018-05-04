@@ -123,9 +123,9 @@
 										<object data="${ctx}/preViewVideo/${preVideoF1}" width="612" height="344"> </object>
 									</video>
 	                            </div>
-	                            <p class="text_p">
+	                            <div class="tpl-i-font">
 									${textarea}
-								</p>
+								</div>
                             </div>
                         </article>
                         <div class="separator" style="height:4px;"></div>

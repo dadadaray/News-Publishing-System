@@ -10,6 +10,7 @@
 package com.aps.backstage.news.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
@@ -197,5 +198,33 @@ public class NewsControllerImpl {
 		}
 		
 		return results;
+	}
+	
+	@RequestMapping(value = "findoneNews", method = RequestMethod.GET)
+	public String getNews(@RequestParam(name = "newsId") Integer newsId, HttpServletRequest request) {
+		News news = this.newsServiceImpl.getOneNews(newsId);
+		request.setAttribute("OneNews", news);
+		if (news.getModAudios().size() > 0) {
+			return "news_post_video";
+		}
+		if (news.getModFrees().size() > 0) {
+			return "news_free";
+		}
+		if (news.getModMixCenters().size() > 0) {
+			return "news_post_style1";
+		}
+		if (news.getModMixLRs().size() > 0) {
+			return "news_post_style2";
+		}
+		if (news.getModMixSingles().size() > 0) {
+			return "news_post_style3";
+		}
+		if (news.getModAudios().size() > 0) {
+			return "news_post_listen";
+		}
+		if (news.getModBigImgs().size() > 0) {
+			return "Bgimgshow";
+		}
+		return null;
 	}
 }

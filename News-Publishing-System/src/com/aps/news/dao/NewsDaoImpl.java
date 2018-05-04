@@ -444,5 +444,25 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 		Query query = session.createQuery("from News where statues=4 order by views DESC,share DESC");
 		return query.list();
 	}
-
+	
+	/**
+	 * @Title: getMostHotNews
+	 * @Description: 最热文章
+	 * @return
+	 * @author HanChen
+	 * @return News
+	 */
+	public News getMostHotNews(){
+		Session session = super.getSession();
+		// 按照赞的数量排序
+		Query query = session.createQuery("from News n where 1=1 and n.publishTime != null and n.auditorId = 30 and n.statues = 4");
+		List<News> news = new ArrayList<News>();
+		news = query.list();
+		News news_next = new News();
+		Iterator<News> it = news.iterator();
+		while (it.hasNext()) {
+			news_next = it.next();
+		}
+		return news_next;
+	}
 }
