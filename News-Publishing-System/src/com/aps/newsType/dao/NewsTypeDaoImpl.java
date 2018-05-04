@@ -19,7 +19,7 @@ public class NewsTypeDaoImpl extends BaseDao<NewsType, String>{
 	 * @return
 	 */
 	public NewsType findNewsTypeByName(String newsTypeName){
-		String hql="from NewsType t where t.typeName= '"+newsTypeName+"'";
+		String hql="from NewsType t where t.typeName="+newsTypeName;
 		try {
 			return this.findOne(hql, null);
 		} catch (Exception e) {
