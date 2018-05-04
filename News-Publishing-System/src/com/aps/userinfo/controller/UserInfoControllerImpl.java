@@ -38,6 +38,8 @@ public class UserInfoControllerImpl {
 		session.setAttribute("listNewsIndex1", listNewsIndex1);
 		List<News> listNewsIndex2 = newsServiceImpl.findHonor().subList(3, 6);
 		session.setAttribute("listNewsIndex2", listNewsIndex2);
+		List<News> listNewsIndex3 = newsServiceImpl.findHonor().subList(6, 9);
+		session.setAttribute("listNewsIndex3", listNewsIndex3);
 		
 		//获取昨日新闻
 		Page<News> page;
@@ -47,6 +49,7 @@ public class UserInfoControllerImpl {
 		} else {
 			request.setAttribute("YesterdayPage", page);
 		}
+		
 
 		return "index";
 	}

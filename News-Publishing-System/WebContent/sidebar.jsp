@@ -48,74 +48,34 @@
 
 	<div class="block_popular_posts">
 		<h4>流行元素</h4>
-
-		<div class="article">
-			<div class="pic">
-				<a href="#" class="w_hover"> <img src="${ctx}/images/pic_popular_post_1.jpg" alt="" /> <span></span>
-				</a>
-			</div>
-
-			<div class="text">
-				<p class="title">
-					<a href="#"> 中国工厂太魔幻：未来每2分钟下线一辆汽车。</a>
-				</p>
-				<div class="date">
-					<p>2018年1月20日</p>
+		<c:set var="newsHonorList" value="${sessionScope.listNewsIndex3}"></c:set>
+		<c:forEach items="${newsHonorList}" var="news">
+			<div class="article">
+				<div class="pic">
+					<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="w_hover"> <img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="75px" height="50px"/> <span></span>
+					</a>
 				</div>
-				<div class="icons">
-					<ul>
-						<li><a href="#" class="views">41</a></li>
-						<li><a href="#" class="comments">22</a></li>
-					</ul>
+
+				<div class="text">
+					<p class="title"> <a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}"> ${fn:substring(news.newsTitle, 0,14)} <c:if test="${fn:length(news.newsTitle)>14}">...</c:if></a>
+					</p>
+					<div class="date">
+						<p><fmt:formatDate value="${news.publishTime}" pattern="yyyy-MM-dd" /></p>
+					</div>
+					<div class="icons">
+						<ul>
+							<li><a href="#" class="views">${news.views}</a></li>
+							<li><a href="#" class="comments">${news.commentNum}</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
+		
+
 		<div class="line_3"></div>
-
-		<div class="article">
-			<div class="pic">
-				<a href="#" class="w_hover"> <img src="${ctx}/images/pic_popular_post_2.jpg" alt="" /> <span></span>
-				</a>
-			</div>
-
-			<div class="text">
-				<p class="title">
-					<a href="#"> 中国工厂太魔幻：未来每2分钟下线一辆汽车</a>
-				</p>
-				<div class="date">
-					<p>07 July, 2012</p>
-				</div>
-				<div class="icons">
-					<ul>
-						<li><a href="#" class="views">24</a></li>
-						<li><a href="#" class="comments">16</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="line_3"></div>
-
-		<div class="article">
-			<div class="pic">
-				<a href="#" class="w_hover"> <img src="${ctx}/images/pic_popular_post_3.jpg" alt="" /> <span></span>
-				</a>
-			</div>
-
-			<div class="text">
-				<p class="title">
-					<a href="#"> 中国工厂太魔幻：未来每2分钟下线一辆汽车</a>
-				</p>
-				<div class="date">
-					<p>05 July, 2012</p>
-				</div>
-				<div class="icons">
-					<ul>
-						<li><a href="#" class="views">33</a></li>
-						<li><a href="#" class="comments">25</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+</c:forEach>
+		
+	
 		<div class="line_2"></div>
 	</div>
 

@@ -106,7 +106,7 @@ public class NewsFrontControllerImpl {
 		} else {
 			request.setAttribute("page", page);
 		}
-		page.getList().get(0).getNewsTitle();
+		request.setAttribute("newsTypeNameFront", newsTypeName);
 		return "lists";
 
 	}	
