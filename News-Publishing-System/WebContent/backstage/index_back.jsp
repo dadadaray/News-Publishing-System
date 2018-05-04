@@ -240,7 +240,7 @@
 												<td>《${news.newsTitle}》</td>
 												<td>
 													<img src="${ctx}/assets/img/user01.png" alt="" class="user-pic">
-													<a class="user-name" href="###">${news.userInfo.loginUser}</a>
+													<a class="user-name" href="###">${news.userInfo.loginUser.loginName}</a>
 												</td>
 												<td>${news.views}</td>
 												<td class="font-green bold">${news.share}</td>
