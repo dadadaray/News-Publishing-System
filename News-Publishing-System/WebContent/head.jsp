@@ -92,13 +92,13 @@
 					<ul>
 						<li class="current_page_item"><a href="${ctx}/index.jsp">首页</a></li>
 						<li data-content="business"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='财经'">财经</a></li>
-						<li data-content="technology"><a href="">科技</a></li>
-						<li data-content="education"><a href="">教育</a></li>
-						<li data-content="education"><a href="">体育</a></li>
-						<li data-content="education"><a href="">娱乐</a></li>
-						<li data-content="education"><a href="">军事</a></li>
-						<li data-content="education"><a href="">旅游</a></li>
-						<li data-content="education"><a href="">政务</a></li>
+						<li data-content="technology"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='财经'">科技</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='教育'">教育</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='体育'">体育</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='娱乐'">娱乐</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='军事'">军事</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='旅游'">旅游</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='政务'">政务</a></li>
 
 						<li><a href="#">企业相关</a>
 							<ul>
@@ -119,18 +119,6 @@
 
 		<section class="section_secondary_menu">
 			<div class="inner">
-				<nav class="secondary_menu">
-					<ul>
-						<li><a href="${ctx}/main_news_europe.jsp">世界军事</a></li>
-						<li><a href="${ctx}/main_news_usa.jsp">股票</a></li>
-						<li><a href="${ctx}/main_news_m_east.jsp">中东局势</a></li>
-						<li><a href="${ctx}/main_news_money.jsp">金融</a></li>
-						<li><a href="${ctx}/main_news_science.jsp">创新科技</a></li>
-						<li><a href="${ctx}/main_news_culture.jsp">文化教育</a></li>
-						<li><a href="${ctx}/main_news_top.jsp">置顶新闻</a></li>
-					</ul>
-				</nav>
-
 				<div class="block_clock">
 					<p>
 						当前时间 <span id="time"></span>

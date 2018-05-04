@@ -56,7 +56,8 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	public Page<News> findnewsByType(int pageNum, int pageSize, Object[] params) {
 		String hql;
 
-		hql = "from News t left outer join t.newsType where t.newsType.newsTypeId = ?";  //查询所有已发表的文章
+		//hql = "from News t left outer join t.newsType where t.newsType.newsTypeId = ?";  //查询所有已发表的文章
+		hql="from News n where n.newsType.newsTypeId = ? and n.statues=4";
 		params[0] = params[0];
 		try {
 			Page<News> page = new Page<News>();
