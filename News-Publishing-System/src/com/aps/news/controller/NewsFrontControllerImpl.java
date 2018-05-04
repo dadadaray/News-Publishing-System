@@ -86,7 +86,7 @@ public class NewsFrontControllerImpl {
 
 	}
 	/**
-	 * @dec 按类别显示新闻
+	 * @dec  前台按类别显示新闻
 	 * @author Ray
 	 * @param newsTypeName
 	 * @param pageNum
@@ -106,8 +106,10 @@ public class NewsFrontControllerImpl {
 		} else {
 			request.setAttribute("page", page);
 		}
+		page.getList().get(0).getNewsTitle();
 		return "lists";
 
-	}
+	}	
+	
 
 }
