@@ -212,14 +212,14 @@
 						</div>
 						<div class="tpl-scrollable">
 							<div class="number-stats">
-								<c:if test="${not empty page and page.totalCount > 0}">
+								<c:if test="${not empty theMostHot}">
 									<div class="stat-number am-fl am-u-md-6">
 										<div class="title am-text-right">最热文章</div>
-										<div class="text_wen am-text-right am-text-warning">《${page.list[0].newsTitle}》</div>
+										<div class="text_wen am-text-right am-text-warning">《${theMostHot.newsTitle}》</div>
 									</div>
 									<div class="stat-number am-fr am-u-md-6">
 										<div class="title">浏览量</div>
-										<div class="number am-text-success">${page.list[0].views}</div>
+										<div class="number am-text-success">${theMostHot.views}</div>
 									</div>
 								</c:if>
 							</div>

@@ -478,14 +478,44 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	/**
 	 * @Title: getMostHotNews
 	 * @Description: 最热文章
+	 * @param timeSlot
+	 *            排序时间段 默认0：昨天； 1：前天； 2：本周 ；
 	 * @return
 	 * @author HanChen
 	 * @return News
 	 */
-	public News getMostHotNews(){
+	public News getMostHotNews(int timeSlot){
 		Session session = super.getSession();
-		// 按照赞的数量排序
-		Query query = session.createQuery("from News n where 1=1 and n.publishTime != null and n.auditorId = 30 and n.statues = 4");
+		String hql = "from News n where 1=1 and n.publishTime != null and n.auditorId = 30 and n.statues = 4";
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String startDate = "", endDate = "", date = "";
+		switch (timeSlot) {
+		case 0:
+			calendar.add(Calendar.DATE, -1); // 昨天
+			date = df.format(calendar.getTime());
+			startDate = date + " 00:00:00";
+			endDate = date + " 23:59:59";
+			break;
+		case 1:
+			calendar.add(Calendar.DATE, -2); // 前天
+			date = df.format(calendar.getTime());
+			startDate = date + " 00:00:00";
+			endDate = date + " 23:59:59";
+			break;
+		case 2:
+			calendar.add(Calendar.DATE, -1); // 昨天
+			endDate = df.format(calendar.getTime()) + " 23:59:59";
+			calendar.add(Calendar.DAY_OF_MONTH, -6); // 前一周
+			startDate = df.format(calendar.getTime()) + " 00:00:00";
+			break;
+		}
+		if (StringUtils.isNotEmpty(startDate) && StringUtils.isNotEmpty(endDate)) {
+			hql += " and n.publishTime >= '" + startDate.trim() + "'";
+			hql += " and n.publishTime <= '" + endDate.trim() + "'";
+		}
+		hql += " order by n.views desc, commentNum desc";		
+		Query query = session.createQuery(hql);
 		List<News> news = new ArrayList<News>();
 		news = query.list();
 		News news_next = new News();

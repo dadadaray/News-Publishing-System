@@ -247,4 +247,16 @@ public class NewsServiceImpl {
 		return this.newsDaoImpl.getNewsIdByUserId(loginUserIds);	
 	}
 	
+	/**
+	 * @Title: getMostHotNews
+	 * @Description: 最热文章
+	 * @param timeSlot 排序时间段 默认0：昨天； 1：前天； 2：本周 ；	 * 
+	 * @return
+	 * @author HanChen
+	 * @return News
+	 */
+	public News getMostHotNews(int timeSlot){
+		return this.newsDaoImpl.getMostHotNews(timeSlot);
+	}
+	
 }

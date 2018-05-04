@@ -80,6 +80,10 @@ public class IndexControllerImpl {
 
 		session.setAttribute("page", page);
 		
+		News theMostHot = new News();
+		theMostHot = this.newsServiceImpl.getMostHotNews(timeSlot);
+		session.setAttribute("theMostHot", theMostHot);
+		
 		return "backstage/index_back";
 	}
 	

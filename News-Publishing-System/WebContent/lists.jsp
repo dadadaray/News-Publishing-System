@@ -91,53 +91,54 @@
 						</div>
 						<div class="separator" style="height: 30px;"></div>
 
-						<div class="news_list">
-							<c:if test="${not empty page and page.totalCount > 0}">
-								<c:forEach items="${page.list}" var="news" varStatus="status">
+						<c:if test="${not empty page and page.totalCount > 0}">
+							<c:forEach items="${page.list}" var="news" varStatus="status">
+								<div class="news_list">
 									<a href="#" style="text-decoration: none; out-line: none;">
-										<h2 class="list_top_p">${fn:substring(news.newsTitle, 0,50)}<c:if test="${fn:length(news.newsTitle)>50}">...</c:if>
-										</h2> <c:if test="${not empty news.modFrees}">
+										<h2 class="list_top_p">${fn:substring(news.newsTitle, 0,50)}<c:if test="${fn:length(news.newsTitle)>50}">...</c:if></h2> 
+										<p class="list_con_p" style="font-size:15px;line-height:30px;">
+										<c:if test="${not empty news.modFrees}">
 											<c:forEach items="${news.modFrees}" var="modFree">
 		                                			${fn:substring(modFree.modFreeContent,0,50)}<c:if test="${fn:length(modFree.modFreeContent)>50}">...</c:if>
 											</c:forEach>
 										</c:if> <c:if test="${not empty news.modBigImgs}">
-											<c:forEach items="${news.modBigImgs}" var="modBigImg">
-											            ${fn:substring(modBigImg.modBigImgContent,0,50)}<c:if test="${fn:length(modBigImg.modBigImgContent)>50}">...</c:if>
+											<c:forEach items="${news.modBigImgs}" var="modBigImg" varStatus="status">
+												<c:if test="${status.index eq 0}">
+													${fn:substring(news.bigImgContent,0,50)}<c:if test="${fn:length(news.bigImgContent)>50}">...</c:if>
+												</c:if>
 											</c:forEach>
 										</c:if> <c:if test="${not empty news.modVedios}">
 											<c:forEach items="${news.modVedios}" var="modVedio">
-											            ${fn:substring(modVedio.modVedioContent,0,50)}<c:if test="${fn:length(modVedio.modVedioContent)>50}">...</c:if>
+											
+											     ${fn:substring(modVedio.modVedioContent,0,50)}<c:if test="${fn:length(modVedio.modVedioContent)>50}">...</c:if>
 											</c:forEach>
 										</c:if> <c:if test="${not empty news.modAudios}">
 											<c:forEach items="${news.modAudios}" var="modAudio">
-											            ${fn:substring(modAudio.modAudioContent,0,50)}<c:if test="${fn:length(modAudio.modAudioContent)>50}">...</c:if>
+											     ${fn:substring(modAudio.modAudioContent,0,50)}<c:if test="${fn:length(modAudio.modAudioContent)>50}">...</c:if>
 											</c:forEach>
 										</c:if> <c:if test="${not empty news.modMixCenters}">
 											<c:forEach items="${news.modMixCenters}" var="modMixCenter">
-											            ${fn:substring(modMixCenter.mMixCenterContentOne,0,50)}<c:if test="${fn:length(modMixCenter.mMixCenterContentOne)>50}">...</c:if>
+											     ${fn:substring(modMixCenter.mMixCenterContentOne,0,50)}<c:if test="${fn:length(modMixCenter.mMixCenterContentOne)>50}">...</c:if>
 											</c:forEach>
 										</c:if> <c:if test="${not empty news.modMixLRs}">
 											<c:forEach items="${news.modMixLRs}" var="modMixLR">
-											            ${fn:substring(modMixLR.mMixLRContentOne,0,50)}<c:if test="${fn:length(modMixLR.mMixLRContentOne)>50}">...</c:if>
+											      ${fn:substring(modMixLR.mMixLRContentOne,0,50)}<c:if test="${fn:length(modMixLR.mMixLRContentOne)>50}">...</c:if>
 											</c:forEach>
 										</c:if> <c:if test="${not empty news.modMixSingles}">
 											<c:forEach items="${news.modMixSingles}" var="modMixSingle">
-											            ${fn:substring(modMixSingle.mMixSingleContentOne,0,50)}<c:if test="${fn:length(modMixSingle.mMixSingleContentOne)>50}">...</c:if>
+											       ${fn:substring(modMixSingle.mMixSingleContentOne,0,50)}<c:if test="${fn:length(modMixSingle.mMixSingleContentOne)>50}">...</c:if>
 											</c:forEach>
 										</c:if>
-
+										</p>
 									</a>
 									<div class="list_time">${news.publishTime}</div>
 									<div class="list_share">
 										<a> 评论 </a>
 									</div>
 									<div class="list_line"></div>
-								</c:forEach>
-							</c:if>
-						</div>
-
-
-
+								</div>
+							</c:forEach>
+						</c:if>						
 
 						<div class="line_4" style="margin: 0px 0px 18px;"></div>
 

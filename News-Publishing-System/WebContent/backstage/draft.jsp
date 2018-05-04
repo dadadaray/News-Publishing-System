@@ -191,8 +191,6 @@
                         <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
                     </div>
                 </div>
-
-
             </div>
             <div class="am-g" id="doc-modal-list">
                 <div class="tpl-table-images">
@@ -221,8 +219,10 @@
 		                                		</c:forEach>
 		                                	</c:if>
 		                                	<c:if test="${not empty news.modBigImgs}">
-		                                		<c:forEach items="${news.modBigImgs}" var="modBigImg">
-		                                				${modBigImg.modBigImgContent}
+		                                		<c:forEach items="${news.modBigImgs}" var="modBigImg" varStatus="status">
+		                                			<c:if test="${status.index eq 0}">
+		                                				${news.bigImgContent}
+		                                			</c:if>
 		                                		</c:forEach>
 		                                	</c:if>
 		                                	<c:if test="${not empty news.modVedios}">

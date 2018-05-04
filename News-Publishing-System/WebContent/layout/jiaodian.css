@@ -177,6 +177,11 @@ div.center h1#author a:hover {
   font-size: 18px;
   color:#ddd !importent;
 }
+.list_top_p:hover{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight:900;
+}
 .list_con_p{
   font-family:Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -216,7 +221,6 @@ div.center h1#author a:hover {
 .news_list a{
   text-decoration: none;
 }
-
 
 /*.news_list{
   border-bottom: 1px dashed #ddd;
