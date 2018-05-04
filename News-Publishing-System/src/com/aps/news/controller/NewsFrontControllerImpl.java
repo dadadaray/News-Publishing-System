@@ -1,24 +1,17 @@
 package com.aps.news.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.connector.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.aps.entity.LoginUser;
 import com.aps.entity.News;
+import com.aps.entity.NewsType;
 import com.aps.news.service.NewsServiceImpl;
+import com.aps.newsType.service.NewsTypeServiceImpl;
+import com.framework.EncodingTool;
 import com.framework.Page;
 
 @Controller
@@ -27,6 +20,9 @@ public class NewsFrontControllerImpl {
 
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
+	
+	@Resource
+	private NewsTypeServiceImpl NewsTypeServiceImpl;
 
 	/**
 	 * @dec 显示一条新闻
@@ -81,6 +77,30 @@ public class NewsFrontControllerImpl {
 			HttpServletRequest request) {
 		Page<News> page;
 		page = this.newsServiceImpl.findAllNewsFront(pageNum, 7, null);
+		if (page == null) {
+			request.setAttribute("page", null);
+		} else {
+			request.setAttribute("page", page);
+		}
+		return "lists";
+
+	}
+	/**
+	 * @dec 按类别显示新闻
+	 * @author Ray
+	 * @param newsTypeName
+	 * @param pageNum
+	 * @param session
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="frontListNewsByType",method=RequestMethod.GET)
+	public String frontListNewsByType(@RequestParam(name="newsTypeName") String newsTypeName,@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session,
+			HttpServletRequest request) {
+		newsTypeName=EncodingTool.encodeStr(newsTypeName);
+		NewsType type=this.NewsTypeServiceImpl.getNewType(newsTypeName);
+		Page<News> page;
+		page = this.newsServiceImpl.findNewsByType(pageNum, 7,new Object[]{type.getNewsTypeId()});
 		if (page == null) {
 			request.setAttribute("page", null);
 		} else {

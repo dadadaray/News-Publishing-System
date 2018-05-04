@@ -91,14 +91,14 @@
 				<nav class="main_menu">
 					<ul>
 						<li class="current_page_item"><a href="${ctx}/index.jsp">首页</a></li>
-						<li data-content="business"><a href${ctx}/="business.jsp">财经</a></li>
-						<li data-content="technology"><a href="${ctx}/technology.jsp">科技</a></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">教育</a></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">体育</a></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">娱乐</a></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">军事</a></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">旅游</a></li>
-						<li data-content="education"><a href="education.html">政务</a></li>
+						<li data-content="business"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='财经'">财经</a></li>
+						<li data-content="technology"><a href="">科技</a></li>
+						<li data-content="education"><a href="">教育</a></li>
+						<li data-content="education"><a href="">体育</a></li>
+						<li data-content="education"><a href="">娱乐</a></li>
+						<li data-content="education"><a href="">军事</a></li>
+						<li data-content="education"><a href="">旅游</a></li>
+						<li data-content="education"><a href="">政务</a></li>
 
 						<li><a href="#">企业相关</a>
 							<ul>
