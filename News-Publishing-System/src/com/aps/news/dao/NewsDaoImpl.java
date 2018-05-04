@@ -23,10 +23,40 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	@Resource
 	private SessionFactory sessionFactory;
 	
+	/**
+	 * @dec 查询所有已发表文章
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 */
 	public Page<News> findAllNewsFront(int pageNum, int pageSize, Object[] params) {
 		String hql;
 
-		hql = "from News";
+		hql = "from News where statues=4";  //查询所有已发表的文章
+		try {
+			Page<News> page = new Page<News>();
+			page.setCurrentPageNum(pageNum);
+			page.setPageSize(pageSize);
+			page = this.findByPage(pageNum, pageSize, hql, params);
+			return page;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	/**
+	 * @dec 按类查询已经发表的文章
+	 * @author Ray
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 */
+	public Page<News> findnewsByType(int pageNum, int pageSize, Object[] params) {
+		String hql;
+
+		hql = "from News where statues=4 and newsTypeId=?";  //查询所有已发表的文章
 		params[0] = params[0];
 		try {
 			Page<News> page = new Page<News>();

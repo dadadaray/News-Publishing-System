@@ -24,11 +24,11 @@
 								<li class="current"><a href="${ctx}/login.jsp">登录</a></li>
 								<li><a href="${ctx}/registration.jsp">注册</a></li>
 							</c:if>
-                        
+
 							<c:if test="${loginUser!=null}">
-							    <li></li>
-							    <li style="color:#fff;font-size:14px;">${loginUser.loginName},您好！</li>
-							    <li><a href="#">退出</a></li>
+								<li></li>
+								<li style="color: #fff; font-size: 14px;">${loginUser.loginName},您好！</li>
+								<li><a href="#">退出</a></li>
 							</c:if>
 						</ul>
 					</div>
@@ -73,7 +73,7 @@
 					<div class="block_search_top">
 						<form action="${ctx}/Search/hibsearnews" method="post">
 							<div class="field">
-								<input type="text" class="w_def_text" title="输入新闻关键词" name="s"/>
+								<input type="text" class="w_def_text" title="输入新闻关键词" name="s" />
 							</div>
 							<input type="submit" class="button" value="Search" />
 
@@ -91,98 +91,26 @@
 				<nav class="main_menu">
 					<ul>
 						<li class="current_page_item"><a href="${ctx}/index.jsp">首页</a></li>
-						<li data-content="business"><a href${ctx}/="business.jsp">财经</a>
-							<ul>
-								<li><a href="#">金融</a></li>
-								<li><a href="#">证券</a></li>
-								<li><a href="#">理财</a></li>
-								<li><a href="#">基金</a></li>
-								<li><a href="#">保险</a></li>
-							</ul></li>
-						<li data-content="technology"><a href="${ctx}/technology.jsp">科技</a>
-							<ul>
-								<li><a href="#">互联网</a></li>
-								<li><a href="#">程序</a></li>
-								<li><a href="#">技术</a></li>
-								<li><a href="#">汽车</a></li>
-							</ul></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">教育</a>
-							<ul>
-								<li><a href="#">高校</a></li>
-								<li><a href="#">著名学府</a></li>
-								<li><a href="#">培育人才</a></li>
-								<li><a href="#">成人教育</a></li>
-							</ul></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">体育</a>
-							<ul>
-								<li><a href="#">中超</a></li>
-								<li><a href="#">英超</a></li>
-								<li><a href="#">NBA</a></li>
-								<li><a href="#">CBA</a></li>
-								<li><a href="#">综合</a></li>
-							</ul></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">娱乐</a>
-							<ul>
-								<li><a href="#">明星</a></li>
-								<li><a href="#">综艺</a></li>
-								<li><a href="#">电影</a></li>
-								<li><a href="#">电视剧</a></li>
-								<li><a href="#">音乐</a></li>
-							</ul></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">军事</a>
-							<ul>
-								<li><a href="#">中国军情</a></li>
-								<li><a href="#">周边扫描</a></li>
-								<li><a href="#">环球军情</a></li>
-								<li><a href="#">军备动态</a></li>
-							</ul></li>
-						<li data-content="education"><a href="${ctx}/education.jsp">旅游</a>
-							<ul>
-								<li><a href="#">旅游咨询</a></li>
-								<li><a href="#">达人游记</a></li>
-								<li><a href="#">自助游</a></li>
-								<li><a href="#">跟团游</a></li>
-							</ul></li>
-						<li data-content="education"><a href="education.html">政务</a>
-							<ul>
-								<li><a href="#">政策解读</a></li>
-								<li><a href="#">经济发展</a></li>
-								<li><a href="#">专题聚焦</a></li>
-							</ul></li>
-						<li><a href="${ctx}/media.jsp">媒体</a>
+						<li data-content="business"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='财经'">财经</a></li>
+						<li data-content="technology"><a href="">科技</a></li>
+						<li data-content="education"><a href="">教育</a></li>
+						<li data-content="education"><a href="">体育</a></li>
+						<li data-content="education"><a href="">娱乐</a></li>
+						<li data-content="education"><a href="">军事</a></li>
+						<li data-content="education"><a href="">旅游</a></li>
+						<li data-content="education"><a href="">政务</a></li>
 
-							<ul>
-								<li><a href="${ctx}/media.jsp">娱乐</a></li>
-								<li><a href="${ctx}/media_item.jsp">周报</a></li>
-							</ul></li>
 						<li><a href="#">企业相关</a>
-
 							<ul>
 								<li><a href="${ctx}/about.jsp">关于我们</a></li>
 								<li><a href="${ctx}/about_author.jsp">记者们</a></li>
 								<li><a href="${ctx}/contact.jsp">联系我们</a></li>
-								<li><a href="${ctx}/registration.jsp">注册</a></li>
-								<li><a href="${ctx}/main_news.jsp">主要新闻</a></li>
-								<li><a href="${ctx}/news_post_w_slider.jsp">带滑动条的新闻稿</a></li>
-								<li><a href="${ctx}/news_post_w_video.jsp">视频新闻发布</a></li>
-							</ul></li>
-						<li><a href="${ctx}/typography.jsp">短代码</a>
 
-							<ul>
-								<li><a href="${ctx}/accordion.jsp">Accordeon</a></li>
-								<li><a href="${ctx}/blockquote.jsp">Blockquote</a></li>
-								<li><a href="${ctx}/table.jsp">Table</a></li>
-								<li><a href="${ctx}/columns.jsp">Columns</a></li>
-								<li><a href="${ctx}/pricing_table.jsp">Pricing Table</a></li>
-								<li><a href="${ctx}/testimonials.jsp">Testimonials</a></li>
-								<li><a href="${ctx}/boxes.jsp">Info Boxes</a></li>
-								<li><a href="${ctx}/dropcaps.jsp">Dropcaps</a></li>
-								<li><a href="${ctx}/tabs.jsp">Tabs</a></li>
-								<li><a href="${ctx}/lists.jsp">List Slyle</a></li>
-								<li><a href="${ctx}/buttons.jsp">Buttons</a></li>
-								<li><a href="${ctx}/video.jsp">Video</a></li>
-								<li><a href="${ctx}/typography.jsp">Typography</a></li>
-							</ul></li>
+							</ul>
+							</li>
+						<li data-content="education"><a>文化</a></li>
+						<li data-content="education"><a>生活</a></li>
+
 					</ul>
 				</nav>
 			</div>
