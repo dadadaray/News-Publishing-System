@@ -169,7 +169,7 @@
 									<span>点击分享</span>
 								</p>
 								<ul>
-									<li><a href="http://www.facebook.com/share.php?u=http://google.com" target="_blank"><img src="images/button_social_1.png" alt="" /></a></li>
+									<li><a href="http://www.facebook.com/share.php?u=http://google.com" target="_blank"><img src="${ctx }/images/button_social_1.png" alt="" /></a></li>
 									<li><a href="https://twitter.com/share?text=I like BusinessNews Template and You?" target="_blank"><img src="${ctx}/images/button_social_2.png" alt="" /></a></li>
 									<li><a href="https://plusone.google.com/_/+1/confirm?url=http://google.com" target="_blank"><img src="${ctx}/images/button_social_3.png" alt="" /></a></li>
 									<li><a href="http://pinterest.com/pin/create/button/?url=http://google.com" target="_blank"><img src="${ctx}/images/button_social_4.png" alt="" /></a></li>
@@ -275,98 +275,86 @@
 							<h3>3 评论</h3>
 							<a href="#" class="add_new">查看所有评论</a>
 
-							<div class="comment">
-								<div class="userpic">
-									<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
-								</div>
-
-								<div class="comment_wrap">
-									<div class="name">
-										<p>
-											<a href="#">颜荣恩</a>
-										</p>
-									</div>
-									<div class="date">
-										<p>Febr 16, 2012 at 4:43 pm</p>
-									</div>
-									<div class="reply">
-										<p>
-											<a href="#">回复</a>
-										</p>
-									</div>
-									<div class="content">
-										<p>说的很好，巴拉巴拉巴拉巴巴拉巴拉巴拉巴</p>
-									</div>
-								</div>
-								<div class="clearboth"></div>
-								<div class="line_3"></div>
-								<div class="comment">
-									<div class="userpic">
-										<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
-									</div>
-
-									<div class="comment_wrap">
-										<div class="name">
-											<p>
-												<a href="#">韩晨</a>
-											</p>
+							<!-- 查看所有评论 -->
+							<c:set var="comment" value="${OneNews.comments}"></c:set>
+							<c:forEach var="ct" items="${comment}" varStatus="status">
+							
+								<c:if test="${ct.parentComment == null }">
+									<div class="comment">
+										<c:set var="parentId" value="${ct.commentId }"></c:set>
+										<div class="userpic">
+											<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
 										</div>
-										<div class="date">
-											<p>Febr 16, 2012 at 4:43 pm</p>
+
+										<div class="comment_wrap">
+											<div class="name">
+												<p>
+													<a href="#">${ct.userInfo.loginUser.loginName }</a>
+												</p>
+											</div>
+											<div class="date">
+												<p>
+													<fmt:formatDate value="${ct.commentPublishTime }" pattern="yyyy-MM-dd HH:mm" />
+												</p>
+											</div>
+											<div class="reply">
+												<p>
+													<a href="javascript:focusAndChangeStatus(${ct.commentId })">回复</a>
+												</p>
+											</div>
+											<div class="content">
+												<p>${ct.commentContent }</p>
+											</div>
 										</div>
-										<div class="reply">
-											<p>
-												<a href="#">回复</a>
-											</p>
+										<div class="clearboth"></div>
+										<div class="line_3"></div>
+										<div class="comment">
+											<c:set var="comms" value="${OneNews.comments}"></c:set>
+											<c:forEach var="cts" items="${comms}">
+												<c:if test="${cts.parentComment!= null && cts.parentComment.commentId == parentId}">
+													<div class="userpic">
+														<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
+													</div>
+
+													<div class="comment_wrap">
+														<div class="name">
+															<p>
+																<a href="#">${cts.userInfo.loginUser.loginName }</a>
+															</p>
+														</div>
+														<div class="date">
+															<p><fmt:formatDate value="${cts.commentPublishTime }"
+														pattern="yyyy-MM-dd HH:mm" /></p>
+														</div>
+														<div class="reply">
+															<p>
+																<a href="#">回复</a>
+															</p>
+														</div>
+														<div class="content">
+															<p>${cts.commentContent}</p>
+														</div>
+													</div>
+													<div class="clearboth"></div>
+													<div class="line_3"></div>
+												</c:if>
+											</c:forEach>
 										</div>
-										<div class="content">
-											<p>巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴</p>
-										</div>
 									</div>
-									<div class="clearboth"></div>
-									<div class="line_3"></div>
-								</div>
-							</div>
+								</c:if>
 
-
-
-							<div class="comment">
-								<div class="userpic">
-									<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
-								</div>
-
-								<div class="comment_wrap">
-									<div class="name">
-										<p>
-											<a href="#">黎明</a>
-										</p>
-									</div>
-									<div class="date">
-										<p>Febr 16, 2012 at 4:43 pm</p>
-									</div>
-									<div class="reply">
-										<p>
-											<a href="#">回复</a>
-										</p>
-									</div>
-									<div class="content">
-										<p>巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴</p>
-									</div>
-								</div>
-								<div class="clearboth"></div>
-								<div class="line_3"></div>
-							</div>
-
+							</c:forEach>
 						</div>
 
 						<div class="separator" style="height: 30px;"></div>
 
-						<div class="block_leave_reply">
+						<div class="block_leave_reply" id="commentReplyForm2">
 							<h3>添加评论</h3>
 							<!-- <p class="text">Your email address will not be published. Required fields are marked <span>*</span></p> -->
 
 							<form id="formSendComment3" class="w_validation" action="${ctx}/comment/${OneNews.newsId}">
 								<p>评论</p>
+								<input type="hidden" id="commentIdInput" name="commentId" value="" />
 								<div class="textarea">
 									<textarea cols="1" rows="1" id="commentContent3" name="content"></textarea>
 								</div>
@@ -395,24 +383,20 @@
 
   // 判断评论前是否登录   评论是否为空
 	  $("#sendComment3").click(function(){
-		  var user="<%=session.getAttribute("loginUser")%>"; 
-	         if(user.length==4){
-	        	 alert("请登录！");
-	        	 widows.location.href="login.jsp";
-	         } else{
-	        	 var a= $("#commentContent3");
-	   	         if(a==null){
-	   	    	   alert("评论内容不能为空！");
-	   	         }
-	         }
-	  })
+		  var user="<%=session.getAttribute("loginUser")%>";
+	
+		if (user.length == 4) {
+			alert("请登录！");
+			widows.location.href = "login.jsp";
+		} else {
+			var a = $("#commentContent3");
+			if (a == null) {
+				alert("评论内容不能为空！");
+			}
+		}
+	})
 
-
-       
-         
-
-
-//发表评论进行登陆
+	//发表评论进行登陆
 	$(document).keyup(function(e) {
 		if (e.keyCode == 13) {
 			$("#submit1").click()
@@ -425,10 +409,20 @@
 		var val = xihuan_change.attr("src").indexOf('2');
 
 		if (val >= 0) {
-			$('#xihuan_change').attr('src', 'layout/images/xihuan1.png');
+			$('#xihuan_change').attr('src', '${ctx}/layout/images/xihuan1.png');
 		} else {
-			$('#xihuan_change').attr('src', 'layout/images/xihuan2.png');
+			$('#xihuan_change').attr('src', '${ctx}/layout/images/xihuan2.png');
 		}
+	}
+	/*
+	 * 当点击回复时，修改commentId为点击回复的值
+	 同时滚动到输入框的div
+	 */
+	function focusAndChangeStatus(comentId){
+		document.getElementById("commentIdInput").value=comentId; //修改ID
+	    $('html, body').animate({  
+	        scrollTop: $("#commentReplyForm2").offset().top
+	    }, 1000);
 	}
 </script>
 </html>
