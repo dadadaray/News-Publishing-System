@@ -283,7 +283,7 @@
 									<div class="comment">
 										<c:set var="parentId" value="${ct.commentId }"></c:set>
 										<div class="userpic">
-											<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
+											<a href="#"><img src="${ctx}/imgUp/${ct.userInfo.headUrl}" alt="" width="36px" height="36px"/></a>
 										</div>
 
 										<div class="comment_wrap">
@@ -313,7 +313,8 @@
 											<c:forEach var="cts" items="${comms}">
 												<c:if test="${cts.parentComment!= null && cts.parentComment.commentId == parentId}">
 													<div class="userpic">
-														<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
+													
+														<a href="#"><img src="${ctx}/imgUp/${cts.userInfo.headUrl}" alt="" width="36px" height="36px"/></a>
 													</div>
 
 													<div class="comment_wrap">
