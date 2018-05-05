@@ -321,131 +321,32 @@
 							<div class="slider">
 								<div id="best_materials_slider" class="flexslider">
 									<ul class="slides">
+									<c:set var="newsHonorList" value="${sessionScope.listNewsIndex4}"></c:set>
+							<c:forEach items="${newsHonorList}" var="news">
 										<li>
 											<div class="block_best_material_post">
 												<div class="f_pic">
-													<a href="${ctx}/news_post.jsp" class="w_hover"><img src="${ctx}/images/pic_home_best_materials_1.jpg" alt="" /><span></span></a>
+													<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" class="w_hover"><img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="184px" height="105px" /><span></span></a>
 												</div>
 												<p class="title">
-													<a href="${ctx}/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a>
+													<a href="${s}/newsFront/findoneNews?newsId=${news.newsId}">${fn:substring(news.newsTitle, 0,25)} <c:if test="${fn:length(news.newsTitle)>25}">...</c:if></a>
 												</p>
 												<div class="info">
 													<div class="date">
-														<p>08 July, 2012</p>
+														<p><fmt:formatDate value="${news.publishTime}" pattern="yyyy-MM-dd" /></p>
 													</div>
 													<div class="category">
 														<p>
-															<a href="#">Business</a>
+															<a href="#">${news.newsType.typeName}</a>
 														</p>
 													</div>
 												</div>
 											</div>
 										</li>
+										</c:forEach>
+										
 
-										<li>
-											<div class="block_best_material_post">
-												<div class="f_pic">
-													<a href="${ctx}/news_post.jsp" class="w_hover"><img src="${ctx}/images/pic_home_best_materials_2.jpg" alt="" /><span></span></a>
-												</div>
-												<p class="title">
-													<a href="${ctx}/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a>
-												</p>
-												<div class="info">
-													<div class="date">
-														<p>08 July, 2012</p>
-													</div>
-													<div class="category">
-														<p>
-															<a href="#">People</a>
-														</p>
-													</div>
-												</div>
-											</div>
-										</li>
-
-										<li>
-											<div class="block_best_material_post">
-												<div class="f_pic">
-													<a href="${ctx}/news_post.jsp" class="w_hover"><img src="${ctx}/images/pic_home_best_materials_3.jpg" alt="" /><span></span></a>
-												</div>
-												<p class="title">
-													<a href="${ctx}/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a>
-												</p>
-												<div class="info">
-													<div class="date">
-														<p>08 July, 2012</p>
-													</div>
-													<div class="category">
-														<p>
-															<a href="#">Technology</a>
-														</p>
-													</div>
-												</div>
-											</div>
-										</li>
-
-										<li>
-											<div class="block_best_material_post">
-												<div class="f_pic">
-													<a href="${ctx}/news_post.jsp" class="w_hover"><img src="${ctx}/images/pic_home_best_materials_4.jpg" alt="" /><span></span></a>
-												</div>
-												<p class="title">
-													<a href="${ctx}/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a>
-												</p>
-												<div class="info">
-													<div class="date">
-														<p>08 July, 2012</p>
-													</div>
-													<div class="category">
-														<p>
-															<a href="#">Business</a>
-														</p>
-													</div>
-												</div>
-											</div>
-										</li>
-
-										<li>
-											<div class="block_best_material_post">
-												<div class="f_pic">
-													<a href="${ctx}/news_post.jsp" class="w_hover"><img src="${ctx}/images/pic_home_best_materials_5.jpg" alt="" /><span></span></a>
-												</div>
-												<p class="title">
-													<a href="${ctx}/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a>
-												</p>
-												<div class="info">
-													<div class="date">
-														<p>08 July, 2012</p>
-													</div>
-													<div class="category">
-														<p>
-															<a href="#">People</a>
-														</p>
-													</div>
-												</div>
-											</div>
-										</li>
-
-										<li>
-											<div class="block_best_material_post">
-												<div class="f_pic">
-													<a href="${ctx}/news_post.jsp" class="w_hover"><img src="${ctx}/images/pic_home_best_materials_6.jpg" alt="" /><span></span></a>
-												</div>
-												<p class="title">
-													<a href="${ctx}/news_post.jsp">特朗普将正式公布进口钢铝关税 不豁免任何国家</a>
-												</p>
-												<div class="info">
-													<div class="date">
-														<p>08 July, 2012</p>
-													</div>
-													<div class="category">
-														<p>
-															<a href="#">Technology</a>
-														</p>
-													</div>
-												</div>
-											</div>
-										</li>
+									
 									</ul>
 								</div>
 							</div>

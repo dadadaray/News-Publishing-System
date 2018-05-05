@@ -28,6 +28,7 @@ import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
 import com.aps.newsType.service.NewsTypeServiceImpl;
+import com.framework.EncodingTool;
 
 @Controller
 @RequestMapping("addnews")
@@ -56,7 +57,7 @@ public class AddMixNewsControllerImpl {
 	public String mod2SendNews(@RequestParam("mod2title") String mod2title, @RequestParam("file1") MultipartFile file1,
 			@RequestParam("textarea1") String textarea1, @RequestParam("file2") MultipartFile file2,
 			@RequestParam("textarea2") String textarea2, @RequestParam("file3") MultipartFile file3,
-			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod2") String selectmod2,
+			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod2") Integer selectmod2,
 			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws IOException {
 
@@ -136,7 +137,7 @@ public class AddMixNewsControllerImpl {
 		modMixCenters.add(mod);
 		news1.setModMixCenters(modMixCenters);
 		// 设置新闻类型
-		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
+		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		this.newsServiceImpl.saveNews(news1);
 
 		session.setAttribute("newsmodMixCenter", news1);
@@ -170,7 +171,7 @@ public class AddMixNewsControllerImpl {
 			@RequestParam(value = "textarea2", required = false) String textarea2,
 			@RequestParam(value = "file3", required = false) MultipartFile file3,
 			@RequestParam(value = "textarea3", required = false) String textarea3,
-			@RequestParam(value = "selectmod2", required = false) String selectmod2,
+			@RequestParam(value = "selectmod2", required = false) Integer selectmod2,
 			@RequestParam(value = "coverImg", required = false) MultipartFile coverImg, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) throws IOException {
 
@@ -251,7 +252,7 @@ public class AddMixNewsControllerImpl {
 		modMixCenters.add(mod);
 		news1.setModMixCenters(modMixCenters);
 		// 设置新闻类型
-		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
+		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		this.newsServiceImpl.saveNews(news1);
 
 		session.setAttribute("newsmodMixCenterDraft", news1);
@@ -274,7 +275,7 @@ public class AddMixNewsControllerImpl {
 	public String mod1SendNews(@RequestParam("mod1title") String mod2title, @RequestParam("file1") MultipartFile file1,
 			@RequestParam("textarea1") String textarea1, @RequestParam("file2") MultipartFile file2,
 			@RequestParam("textarea2") String textarea2, @RequestParam("file3") MultipartFile file3,
-			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod1") String selectmod2,
+			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod1") Integer selectmod2,
 			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws IOException {
 
@@ -357,7 +358,7 @@ public class AddMixNewsControllerImpl {
 		news2.setModMixLRs(modMixLRs);
 
 		// 设置新闻类型
-		news2.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
+		news2.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		// 保存新闻模板
 		this.newsServiceImpl.saveNews(news2);
 		session.setAttribute("newsmodMixLR", news2);
@@ -380,7 +381,7 @@ public class AddMixNewsControllerImpl {
 			@RequestParam("file1") MultipartFile file1, @RequestParam("textarea1") String textarea1,
 			@RequestParam("file2") MultipartFile file2, @RequestParam("textarea2") String textarea2,
 			@RequestParam("file3") MultipartFile file3, @RequestParam("textarea3") String textarea3,
-			@RequestParam("selectmod1") String selectmod2, @RequestParam("coverImg") MultipartFile coverImg,
+			@RequestParam("selectmod1") Integer  selectmod2, @RequestParam("coverImg") MultipartFile coverImg,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
 
 		// 第一个图片
@@ -460,7 +461,7 @@ public class AddMixNewsControllerImpl {
 		modMixLRs.add(mod);
 		news2.setModMixLRs(modMixLRs);
 		// 设置新闻类型
-		news2.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
+		news2.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		this.newsServiceImpl.saveNews(news2);
 
 		session.setAttribute("newsDraft", news2);
@@ -481,7 +482,7 @@ public class AddMixNewsControllerImpl {
 	 */
 	@RequestMapping(value = "mod3SendNews", method = RequestMethod.POST)
 	public String mod3SendNews(@RequestParam("mod3title") String mod2title, @RequestParam("file1") MultipartFile file1,
-			@RequestParam("textarea1") String textarea1, @RequestParam("selectmod3") String selectmod2,
+			@RequestParam("textarea1") String textarea1, @RequestParam("selectmod3") Integer selectmod2,
 			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws IOException {
 
@@ -539,7 +540,8 @@ public class AddMixNewsControllerImpl {
 		modMixSingles.add(mod);
 		news3.setModMixSingles(modMixSingles);
 		// 设置新闻类型
-		news3.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
+		
+		news3.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		this.newsServiceImpl.saveNews(news3);
 		session.setAttribute("newsmodMixLR", news3);
 
@@ -547,7 +549,7 @@ public class AddMixNewsControllerImpl {
 	}
 
 	/**
-	 * Deck 模板3 上传新闻
+	 * Deck 模板3 保存新闻
 	 * 
 	 * @actor Ray
 	 * @param file1
@@ -559,7 +561,7 @@ public class AddMixNewsControllerImpl {
 	@RequestMapping(value = "mod3saveNewsDraft", method = RequestMethod.POST)
 	public String mod3SaveNewsDraft(@RequestParam("mod3title") String mod2title,
 			@RequestParam("file1") MultipartFile file1, @RequestParam("textarea1") String textarea1,
-			@RequestParam("selectmod3") String selectmod2, @RequestParam("coverImg") MultipartFile coverImg,
+			@RequestParam("selectmod3") Integer selectmod2, @RequestParam("coverImg") MultipartFile coverImg,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
 
 		// 第一个图片
@@ -616,7 +618,7 @@ public class AddMixNewsControllerImpl {
 		modMixSingles.add(mod);
 		news3.setModMixSingles(modMixSingles);
 		// 设置新闻类型
-		news3.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
+		news3.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		this.newsServiceImpl.saveNews(news3);
 
 		session.setAttribute("newsmodMixLR", news3);

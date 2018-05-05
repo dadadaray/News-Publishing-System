@@ -134,7 +134,7 @@
                                 <div class="separator" style="height:32px;"></div>
                                 <p class="info_text">
 									<!--  <input type="submit" class="general_button" value="登 录" id="submitlogin" />-->
-									  <a  id="submitlogin">登陆</a>
+									  <a  id="submitlogin" style="background:#f54a2f;padding:5px 15px; color:#fff;font-size:14px; border-radius:5px;  text-decoration:none;cursor: pointer;">登陆</a>
 								</p>
                             </form>
                         </div>

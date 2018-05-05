@@ -95,18 +95,17 @@ public class NewsFrontControllerImpl {
 	 * @return
 	 */
 	@RequestMapping(value="frontListNewsByType",method=RequestMethod.GET)
-	public String frontListNewsByType(@RequestParam(name="newsTypeName") String newsTypeName,@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session,
+	public String frontListNewsByType(@RequestParam(name="newsTypeId") Integer newsTypeId,@RequestParam(name = "pageNum", defaultValue = "1") int pageNum, HttpSession session,
 			HttpServletRequest request) {
-		newsTypeName=EncodingTool.encodeStr(newsTypeName);
-		NewsType type=this.NewsTypeServiceImpl.getNewType(newsTypeName);
+		NewsType type=this.NewsTypeServiceImpl.getNewTypeById(newsTypeId);
 		Page<News> page;
-		page = this.newsServiceImpl.findNewsByType(pageNum, 7,new Object[]{type.getNewsTypeId()});
+		page = this.newsServiceImpl.findNewsByTypeId(pageNum, 7,new Object[]{type.getNewsTypeId()});
 		if (page == null) {
 			request.setAttribute("page", null);
 		} else {
 			request.setAttribute("page", page);
 		}
-		request.setAttribute("newsTypeNameFront", newsTypeName);
+		request.setAttribute("newsTypeNameFront", type.getTypeName());
 		return "lists";
 
 	}	

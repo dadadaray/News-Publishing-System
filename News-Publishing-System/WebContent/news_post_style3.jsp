@@ -367,10 +367,10 @@
 							<h3>添加评论</h3>
 							<!-- <p class="text">Your email address will not be published. Required fields are marked <span>*</span></p> -->
 
-							<form class="w_validation" action="#" />
+							<form class="w_validation" action="${ctx}/comment/${OneNews.newsId}" method="post">
 							<p>评论</p>
 							<div class="textarea">
-								<textarea cols="1" rows="1"></textarea>
+								<textarea cols="1" rows="1" name="content"></textarea>
 							</div>
 
 							<input type="submit" class="general_button" value="发表评论" />
@@ -392,10 +392,6 @@
 		<%@ include file="footer.jsp"%>
 
 	</div>
-
-	<!-- login -->
-	<%@ include file="login.jsp"%>
-
 </body>
 <script type="text/javascript">
 <!-- 回车登陆 -->

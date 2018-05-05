@@ -71,7 +71,7 @@ public class AddAudioNewsControllerImpl {
 	 */
 	@RequestMapping(value = "sendAudioNews", method = RequestMethod.POST)
 	private String sendAudio(@RequestParam("audioFile") MultipartFile audioFile,
-			@RequestParam("title") String title, @RequestParam("selectmod") String selectmod, 
+			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod, 
 			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile, 
 			HttpSession session) throws IOException{
 		//音频文件名称
@@ -135,7 +135,8 @@ public class AddAudioNewsControllerImpl {
 		news1.setUserInfo(u.getUserInfo());
 		
 		// 设置新闻类型
-		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
+		
+		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
 		
 		Set<ModAudio> modMixSingles = new HashSet<ModAudio>(0);
 		// 保存模板
@@ -166,7 +167,7 @@ public class AddAudioNewsControllerImpl {
 	 */
 	@RequestMapping(value = "audioSaveNewsDraft", method = RequestMethod.POST)
 	private String audioSaveNewsDraft(@RequestParam("audioFile") MultipartFile audioFile,
-			@RequestParam("title") String title, @RequestParam("selectmod") String selectmod, 
+			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod, 
 			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile, 
 			HttpSession session) throws IOException{
 		//音频文件名称
@@ -230,7 +231,7 @@ public class AddAudioNewsControllerImpl {
 		news1.setUserInfo(u.getUserInfo());
 		
 		// 设置新闻类型
-		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
+		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
 		Set<ModAudio> modMixSingles = new HashSet<ModAudio>(0);
 		// 保存模板
 		ModAudio mod = this.addNewsServiceImpl.saveModAudio(newFileName, textarea, news1);

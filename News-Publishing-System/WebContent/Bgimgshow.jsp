@@ -139,7 +139,7 @@
 			<div style="text-align:center;clear:both;margin-top:20px">
 			</div> 
 			<div class="smalltb">
-				<p style="text-align: center;"><a href="${ctx}/bigcoment.jsp"><img src="layout/images/liuyan.png"></a>
+				<p style="text-align: center;"><a href="${ctx}/bigcoment.jsp"><img src="${ctx }/layout/images/liuyan.png"></a>
 				<a href=""><img src="${ctx}/layout/images/fenxiang.png"></a>
 				<a href=""><img src="${ctx}/layout/images/xihuan.png"></a></p>
 			</div>

@@ -73,7 +73,7 @@ public class AddVideoNewsControllerImpl {
 	 */
 	@RequestMapping(value = "sendVideoNews", method = RequestMethod.POST)
 	private String sendVideo(@RequestParam("videoFile") MultipartFile videoFile, @RequestParam("title") String title,
-			@RequestParam("selectmod") String selectmod, @RequestParam("textarea") String textarea,
+			@RequestParam("selectmod") Integer selectmod, @RequestParam("textarea") String textarea,
 			@RequestParam("coverfile") MultipartFile coverfile, @RequestParam("coverViedoFile") MultipartFile coverViedoFile,
 			HttpSession session) throws IOException {
 		// 视频文件名称
@@ -148,7 +148,7 @@ public class AddVideoNewsControllerImpl {
 		news1.setUserInfo(u.getUserInfo());
 
 		// 设置新闻类型
-		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
+		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
 
 		// 保存模板
 		Set<ModVedio> modModVedios = new HashSet<ModVedio>(0);
@@ -178,7 +178,7 @@ public class AddVideoNewsControllerImpl {
 	 */
 	@RequestMapping(value = "videoSaveNewsDraft", method = RequestMethod.POST)
 	private String videoSaveNewsDraft(@RequestParam("videoFile") MultipartFile videoFile,
-			@RequestParam("title") String title, @RequestParam("selectmod") String selectmod,
+			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod,
 			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile,
 			@RequestParam("coverViedoFile") MultipartFile coverViedoFile, HttpSession session) throws IOException {
 		// 视频文件名称
@@ -253,7 +253,7 @@ public class AddVideoNewsControllerImpl {
 		news1.setUserInfo(u.getUserInfo());
 
 		// 设置新闻类型
-		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
+		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
 		Set<ModVedio> modModVedios = new HashSet<ModVedio>(0);
 		// 保存模板
 		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea,newcoverVedioImg, news1);

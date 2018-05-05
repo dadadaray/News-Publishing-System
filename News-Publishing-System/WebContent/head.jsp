@@ -91,14 +91,14 @@
 				<nav class="main_menu">
 					<ul>
 						<li class="current_page_item"><a href="${ctx}/index.jsp">首页</a></li>
-						<li data-content="business"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='财经'">财经</a></li>
-						<li data-content="technology"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='财经'">科技</a></li>
-						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='教育'">教育</a></li>
-						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='体育'">体育</a></li>
-						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='娱乐'">娱乐</a></li>
-						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='军事'">军事</a></li>
-						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='旅游'">旅游</a></li>
-						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeName='政务'">政务</a></li>
+						<li data-content="business"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeId=1">财经</a></li>
+						<li data-content="technology"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeId=2">科技</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeId=3">教育</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeId=4">体育</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeId=5">娱乐</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeId=6">军事</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeId=7">旅游</a></li>
+						<li data-content="education"><a href="${ctx}/newsFront/frontListNewsByType?newsTypeId=8">政务</a></li>
 
 						<li><a href="#">企业相关</a>
 							<ul>
