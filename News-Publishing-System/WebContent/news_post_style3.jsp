@@ -97,7 +97,7 @@
 							</div>
 
 							<ul>
-								<li><a href="index.jsp">首页</a></li>
+								<li><a href="${ctx }/index.jsp">首页</a></li>
 								<li><a href="business.jsp">${OneNews.newsType.typeName}</a></li>
 							</ul>
 						</div>
@@ -125,11 +125,9 @@
 								<c:forEach items="${OneNews.modMixSingles}" var="mods" varStatus="status">
 									<div class="f_pic">
 										<a href="#"><img src="${ctx}/newsImgUp/${mods.mMixSingleImgOne}" alt="" /></a>
-									</div>								
-									<p class="text_p">
-										${mods.mMixSingleContentOne}
-									</p>
-									
+									</div>
+									<p class="text_p">${mods.mMixSingleContentOne}</p>
+
 								</c:forEach>
 							</div>
 						</article>
@@ -144,7 +142,7 @@
 
 						<div class="block_post_social">
 							<h4>
-								<span>B</span>
+								<span></span>
 							</h4>
 
 							<section class="rating">
@@ -153,8 +151,8 @@
 								</p>
 
 								<ul>
-									<li><span>1024</span>浏览量</li>
-									<li><span>4</span>评论</li>
+									<li><span>${OneNews.views}</span>浏览量</li>
+									<li><span>${OneNews.commentNum}</span>评论</li>
 								</ul>
 							</section>
 
@@ -367,13 +365,13 @@
 							<h3>添加评论</h3>
 							<!-- <p class="text">Your email address will not be published. Required fields are marked <span>*</span></p> -->
 
-							<form class="w_validation" action="${ctx}/comment/${OneNews.newsId}" method="post">
-							<p>评论</p>
-							<div class="textarea">
-								<textarea cols="1" rows="1" name="content"></textarea>
-							</div>
+							<form id="formSendComment3" class="w_validation" action="${ctx}/comment/${OneNews.newsId}">
+								<p>评论</p>
+								<div class="textarea">
+									<textarea cols="1" rows="1" id="commentContent3" name="content"></textarea>
+								</div>
 
-							<input type="submit" class="general_button" value="发表评论" />
+								<input id="sendComment3" type="submit" class="general_button" value="发表评论" />
 							</form>
 						</div>
 
@@ -394,7 +392,27 @@
 	</div>
 </body>
 <script type="text/javascript">
-<!-- 回车登陆 -->
+
+  // 判断评论前是否登录   评论是否为空
+	  $("#sendComment3").click(function(){
+		  var user="<%=session.getAttribute("loginUser")%>"; 
+	         if(user.length==4){
+	        	 alert("请登录！");
+	        	 widows.location.href="login.jsp";
+	         } else{
+	        	 var a= $("#commentContent3");
+	   	         if(a==null){
+	   	    	   alert("评论内容不能为空！");
+	   	         }
+	         }
+	  })
+
+
+       
+         
+
+
+//发表评论进行登陆
 	$(document).keyup(function(e) {
 		if (e.keyCode == 13) {
 			$("#submit1").click()

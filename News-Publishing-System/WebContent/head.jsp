@@ -28,7 +28,7 @@
 							<c:if test="${loginUser!=null}">
 								<li></li>
 								<li style="color: #fff; font-size: 14px;">${loginUser.loginName},您好！</li>
-								<li><a href="#">退出</a></li>
+								<li><a href="${ctx}/loginUser/logOut">退出</a></li>
 							</c:if>
 						</ul>
 					</div>
@@ -36,8 +36,8 @@
 						<ul>
 							<li>
 								<div>
-									<a href="${ctx}/self.jsp"> <img src="${ctx}/images/default.jpg" width="20px" height="20px" class="img-circle" /> <b class="caret"></b>
-									</a>
+									 <img src="${ctx}/images/default.jpg" width="20px" height="20px" class="img-circle" /> 
+									
 								</div>
 							</li>
 						</ul>

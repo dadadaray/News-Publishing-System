@@ -33,9 +33,7 @@ public class CommentControllerImpl {
 
 	@Resource
 	private CommentServiceImpl commentServiceImpl;
-
-	@Resource
-	private BackUserInfoServiceImpl backUserInfoServiceImpl;
+	
 
 	/**
 	 * @dec 添加父级评论和二级评论
@@ -47,20 +45,13 @@ public class CommentControllerImpl {
 	 * @param session
 	 * @return
 	 */
-	@RequestMapping(value = "{newsId}", method = RequestMethod.POST)
+	@RequestMapping(value = "{newsId}", method = RequestMethod.GET)
 	public String submitComment(@PathVariable("newsId") Integer newsId, @RequestParam(name = "content") String content,
 			@RequestParam(name = "commentId", required = false) Integer commentId, HttpServletRequest request,
 			HttpSession session) {
 		LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
 		if (loginUser == null) {
-			// 没有登录
-			session.setAttribute("news_detailed_bell", "请登录");
-			return "redirect:findoneNews?newsId=" + newsId;
-		}
-		if (content == null || content.trim().length() == 0) {
-			// 内容为空
-			session.setAttribute("news_detailed_bell", "请输入内容");
-			return "redirect:findoneNews?newsId=" + newsId;
+			return "login";
 		}
 		// code转换
 		content = EncodingTool.encodeStr(content);
@@ -86,8 +77,8 @@ public class CommentControllerImpl {
 		}
 		// 评论量加一
 		news.setCommentNum(news.getCommentNum() + 1);
-		this.backUserInfoServiceImpl.updateUserInfo(loginUser.getUserInfo());
-		return "redirect:findoneNews?newsId=" + newsId;
+	    this.newsServiceImpl.updateNews(news);
+		return "redirect:/newsFront/findoneNews?newsId=" + newsId;
 	}
 
 }
