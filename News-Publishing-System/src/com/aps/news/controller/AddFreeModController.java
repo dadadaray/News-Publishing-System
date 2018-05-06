@@ -46,10 +46,11 @@ public class AddFreeModController {
 
 	@RequestMapping(value = "freeModSave", method = RequestMethod.POST)
 	public String addModFree(@RequestParam(value = "freetitle") String freetitle,
-			@RequestParam(value = "selectfree", required = false) Integer selectfree,
-			@RequestParam(value = "coverImg", required = false) MultipartFile coverImg, HttpServletRequest request,
+			@RequestParam(value = "selectfree") Integer selectfree,
+			@RequestParam(value = "coverImg", required = false) MultipartFile coverImg,@RequestParam(value = "allContent") String contentfree, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) throws IOException {
-		// 获取用户信息
+		//获取用户信息
+		//System.out.print(freetitle+selectfree+contentfree);
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		// 封面图片
 		String coverImgname = coverImg.getOriginalFilename();
@@ -83,16 +84,17 @@ public class AddFreeModController {
 		// 设置新闻编辑人
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
 		// 设置发送人发送文章的数量
+		if(u.getUserInfo().getSendpassNum()==null){
+			u.getUserInfo().setSendpassNum(0);
+		}
 		u.getUserInfo().setSendpassNum(u.getUserInfo().getSendpassNum() + 1);
 		news3.setUserInfo(u.getUserInfo());
 		// 设置模板
 		Set<ModFree> modFree = new HashSet<ModFree>(0);
-		// ModFree mod = this.addNewsServiceImpl.saveModMixSingle(newFileName1,
-		// textarea1, news3);
-		// modFree.add(mod);
-		// news3.setModFrees(modFree);
-		// 设置新闻类型
-
+		 ModFree mod = this.addNewsServiceImpl.saveFreeMod(contentfree,news3);
+		modFree.add(mod);
+		news3.setModFrees(modFree);
+		// 设置新闻类
 		news3.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectfree));
 		this.newsServiceImpl.saveNews(news3);
 
@@ -100,12 +102,11 @@ public class AddFreeModController {
 		this.noticeServiceImpl.publish(news3.getNewsId(), loginUser);
 
 		session.setAttribute("newsmodFree", news3);
-
 		return "redirect:/backstage/news/checking/list";
 	}
 	
 	/**
-	 * @dec 富文本框中接受图片
+	 * @dec 富文本框中接受图片并显示在富文本框中
 	 * @param coverImg
 	 * @return
 	 * @throws IOException 

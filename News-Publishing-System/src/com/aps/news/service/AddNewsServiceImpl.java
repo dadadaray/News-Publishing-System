@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.aps.entity.ModAudio;
 import com.aps.entity.ModBigImg;
+import com.aps.entity.ModFree;
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
 import com.aps.entity.ModMixSingle;
@@ -15,6 +16,7 @@ import com.aps.entity.ModVedio;
 import com.aps.entity.News;
 import com.aps.modAudio.ModAudioDaoImpl;
 import com.aps.modBigImg.dao.ModBigImgDaoImpl;
+import com.aps.modFree.ModFreeDaoImpl;
 import com.aps.modMixCenter.modMixCenterDaoImpl;
 import com.aps.modMixLF.modMixLFDaoImpl;
 import com.aps.modMixSingle.modMixSingleDaoImpl;
@@ -38,6 +40,9 @@ public class AddNewsServiceImpl {
 	
 	@Resource
 	private ModAudioDaoImpl modAudioDaoImpl;
+	
+	@Resource
+	private ModFreeDaoImpl modFreeDaoImpl;
 
 	/**
 	 * @Method: makeFileName
@@ -184,6 +189,21 @@ public class AddNewsServiceImpl {
 		modAudio.setNews(news);
 		this.modAudioDaoImpl.saveModAudioDao(modAudio);
 		return modAudio;
+	}
+	
+	/**
+	 * @dec 保存自由模板
+	 * @author Ray
+	 * @param con
+	 * @param news
+	 * @return
+	 */
+	public ModFree saveFreeMod(String con,News news){
+		ModFree modFree=new ModFree();
+		modFree.setModFreeContent(con);
+		modFree.setNews(news);
+		this.modFreeDaoImpl.saveModFreeDao(modFree);
+		return modFree;
 	}
 	
 

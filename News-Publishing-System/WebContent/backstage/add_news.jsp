@@ -184,14 +184,14 @@
                                             <div class="am-form-group">
                                                 <label for="user-name" class="am-u-sm-2 am-form-label">标题</label>
                                                 <div class="am-u-sm-10">
-                                                    <input type="text" class="doc-vld-name-1" id="user-name" placeholder="输入标题（不超过50个字符）" name="freetitle"  maxlength="50"  required/>
+                                                    <input type="text" class="doc-vld-name-1" id="user_name" placeholder="输入标题（不超过50个字符）" name="freetitle"  maxlength="50"  required/>
                                                 </div>
                                             </div>
 
                                             <div class="am-form-group">
                                                 <label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
                                                 <div class="am-u-sm-10">
-                                                    <select name="selectfree" data-am-selected="{searchBox: 1}">
+                                                    <select name="selectfree" id="selectfree" data-am-selected="{searchBox: 1}">
                                                       <option value="1">财经</option>
                                                       <option value="2">科技</option>
                                                       <option value="3">教育</option>
@@ -218,10 +218,12 @@
                                                 <div class="am-u-sm-10">
                                                     <!--  图片上传显示-->
                                                     <!--input-group start-->
-                                                    <div class="upload_box"><input type="file"  name="coverImg"  class="file" onchange="imgChange(this);" style="width:260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136"/></div></div>
+                                                    <div class="upload_box"><input type="file"  name="coverImg" id="coverImg"  class="file" onchange="imgChange(this);" style="width:260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136"/></div></div>
                                                     <!--input-group end-->
                                                 </div>
                                             </div>
+                                            <!-- 隐藏域 -->
+                                            <input type="hidden" name="allContent" id="allContent" value=""/>
                                             <div class="am-u-sm-8 am-u-sm-push-2 add_button">
                                                 <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
                                                 <a href="${ctx1}/news_post_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
@@ -341,14 +343,15 @@
     });
     //富文本 end
     //发布按钮
-			$("#sendFree").click(function() {
-				var con=tinyMCE.activeEditor.getContent();
-				console.log(con);
-				//alert("点击了");
-				var url = "${ctx1}/addNewsFree/freeModSave";
-				$("#Form_free").attr("action", url);
-				$("#Form_free").submit();
-			})
+    $("#sendFree").click(function(){
+    	//alert("点击了");
+    	$("#allContent").attr("value",tinyMCE.activeEditor.getContent());
+    	alert($("#allContent").val());
+		var url = "${ctx1}/addNewsFree/freeModSave";
+		$("#Form_free").attr("action", url);
+		$("#Form_free").submit();
+    })
+			
     //图片上传 begin
     $("#fileUploadContent").initUpload({
         "uploadUrl":"#",//上传文件信息地址
