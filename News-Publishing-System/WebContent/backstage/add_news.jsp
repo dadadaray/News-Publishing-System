@@ -180,26 +180,26 @@
                             <div class="tpl-block">
                                 <div class="am-g">
                                     <div class="tpl-form-body tpl-form-line">
-                                        <form class="am-form tpl-form-line-form">
+                                        <form id="Form_free" class="am-form tpl-form-line-form" action="" method="post" enctype="multipart/form-data" target="">
                                             <div class="am-form-group">
                                                 <label for="user-name" class="am-u-sm-2 am-form-label">标题</label>
                                                 <div class="am-u-sm-10">
-                                                    <input type="text" class="doc-vld-name-1" id="user-name" placeholder="输入用户名（至少 10 个字符）" maxlength="20" minlength="10" required/>
+                                                    <input type="text" class="doc-vld-name-1" id="user-name" placeholder="输入标题（不超过50个字符）" name="freetitle"  maxlength="50"  required/>
                                                 </div>
                                             </div>
 
                                             <div class="am-form-group">
                                                 <label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
                                                 <div class="am-u-sm-10">
-                                                    <select data-am-selected="{searchBox: 1}">
-                                                      <option value="a">财经</option>
-                                                      <option value="b">科技</option>
-                                                      <option value="c">教育</option>
-                                                      <option value="d">体育</option>
-                                                      <option value="e">娱乐</option>
-                                                      <option value="f">军事</option>
-                                                      <option value="g">旅游</option>
-                                                      <option value="h">政务</option>
+                                                    <select name="selectfree" data-am-selected="{searchBox: 1}">
+                                                      <option value="1">财经</option>
+                                                      <option value="2">科技</option>
+                                                      <option value="3">教育</option>
+                                                      <option value="4">体育</option>
+                                                      <option value="5">娱乐</option>
+                                                      <option value="6">军事</option>
+                                                      <option value="7">旅游</option>
+                                                      <option value="8">政务</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@
                                             </div>
                                             <div class="am-form-group">
                                                 <div class="am-u-sm-12">
-                                                    <textarea class="" rows="10" id="user-intro" placeholder="请输入文章内容" type="hidden"></textarea>
+                                                    <textarea class="" rows="30" id="user-intro" placeholder="请输入文章内容" type="hidden"></textarea>
                                                 </div>
                                             </div>
 
@@ -218,14 +218,14 @@
                                                 <div class="am-u-sm-10">
                                                     <!--  图片上传显示-->
                                                     <!--input-group start-->
-                                                    <div class="upload_box"><input type="file" name="file"  class="file" onchange="imgChange(this);" style="width:260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136"/></div></div>
+                                                    <div class="upload_box"><input type="file"  name="coverImg"  class="file" onchange="imgChange(this);" style="width:260px" /><div class="preview" style="margin-top: 20px;"><img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="136"/></div></div>
                                                     <!--input-group end-->
                                                 </div>
                                             </div>
                                             <div class="am-u-sm-8 am-u-sm-push-2 add_button">
                                                 <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
-                                                <a href="../前台/news_post_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
-                                                <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
+                                                <a href="${ctx1}/news_post_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
+                                                <a id="sendFree" type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
                                             </div>
                                         </form>
                                     </div>
@@ -306,18 +306,6 @@
             </div>
         </div>
     </div>      
-
-        <div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
-          <div class="am-modal-dialog">
-            <div class="am-modal-hd">Modal 标题
-              <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-            </div>
-            <div class="am-modal-bd">
-              Modal 内容。
-            </div>
-          </div>
-        </div>
-
 <script src="${ctx}/assets/js/jquery.min.js"></script>
 <script src="${ctx}/assets/js/xcConfirm.js"></script>
 <script src="${ctx}/assets/js/amazeui.min.js"></script>
@@ -325,33 +313,42 @@
 <script src="${ctx}/assets/js/app.js"></script>
 <script type="text/javascript" src="${ctx}/assets/js/fileUpload.js"></script>
 <script src="${ctx}/assets/js/echarts.min.js"></script>
-<!--富文本js-->
-<script language="javascript" type="text/javascript" src="assets/js/tinymce/tinymce.js"></script>
-
+<!--富文本js 一个js 和上边内容-->
+<script language="javascript" type="text/javascript" src="${ctx}/assets/js/tinymce/tinymce.js"></script>
+<script language="javascript" type="text/javascript" src="${ctx}/assets/js/tinymce/jquery.form.js"></script>
 <script type="text/javascript">
     //富文本 begin
     tinymce.init({
         selector: "textarea",
-        upload_image_url: './upload', //配置的上传图片的路由
+        upload_image_url: '${ctx1}/addNewsFree/textImgup', //配置的上传图片的路由
         height: 400,
         language:'zh_CN',
         plugins: [
             'advlist autolink lists link  charmap print preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code fullscreen',
             'insertdatetime media nonbreaking save table contextmenu directionality',
-            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help uploadimage'
           ],
           toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-          toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+          toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help uploadimage',
           image_advtab: true,
           templates: [
             { title: 'Test template 1', content: 'Test 1' },
             { title: 'Test template 2', content: 'Test 2' }
           ],
+          language:'zh_CN',
         menubar: false
     });
     //富文本 end
-
+    //发布按钮
+			$("#sendFree").click(function() {
+				var con=tinyMCE.activeEditor.getContent();
+				console.log(con);
+				//alert("点击了");
+				var url = "${ctx1}/addNewsFree/freeModSave";
+				$("#Form_free").attr("action", url);
+				$("#Form_free").submit();
+			})
     //图片上传 begin
     $("#fileUploadContent").initUpload({
         "uploadUrl":"#",//上传文件信息地址
@@ -368,7 +365,7 @@
     }
     function onUploadFun(opt,data){
         alert(data);
-        uploadTools.uploadError(opt);//显示上传错误
+        uploadTools.uploadError(opt); //显示上传错误
         uploadTools.uploadSuccess(opt);//显示上传成功
     }
     
