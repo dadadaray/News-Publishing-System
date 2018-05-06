@@ -191,7 +191,7 @@
 													<!--  图片上传显示-->
 													<!--input-group start-->
 													<div class="upload_box">
-														<input type="file" name=coverImg class="file" onchange="imgChange(this);" style="width: 260px; outline: none;" />
+														<input type="file" name="coverImg" class="file" onchange="imgChange(this);" style="width: 260px; outline: none;" />
 														<div class="preview" style="margin-top: 20px;">
 															<img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="213" />
 														</div>
