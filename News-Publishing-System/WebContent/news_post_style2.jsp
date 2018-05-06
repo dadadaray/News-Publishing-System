@@ -129,15 +129,13 @@
 								<c:forEach items="${OneNews.modMixLRs}" var="mods" varStatus="status">
 									<div class="separator" style="height: 4px;"></div>
 									<div class="separator" style="height: 4px;"></div>
-									<a href="#" class="pic w_frame alignleft"><img src="${ctx}/newsImgUp/${mods.mMixLRImgOne}" alt="" width=350px height="234px"/></a>
-									<p class="text_p">
-										&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${mods.mMixLRContentOne}
-									</p>
+									<a href="#" class="pic w_frame alignleft"><img src="${ctx}/newsImgUp/${mods.mMixLRImgOne}" alt="" width=350px height="234px" /></a>
+									<p class="text_p">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${mods.mMixLRContentOne}</p>
 
-									<a href="#" class="pic w_frame alignright"><img src="${ctx}/newsImgUp/${mods.mMixLRImgTwo}" alt="" width=350px height="234px"/></a>
+									<a href="#" class="pic w_frame alignright"><img src="${ctx}/newsImgUp/${mods.mMixLRImgTwo}" alt="" width=350px height="234px" /></a>
 									<p class="text_p">${mods.mMixLRContentTwo}</p>
 									<div class="separator" style="height: 4px;"></div>
-									<a href="#" class="pic w_frame alignleft"><img src="${ctx}/newsImgUp/${mods.mMixLRImgThree}" alt="" width=350px height="234px"/></a>
+									<a href="#" class="pic w_frame alignleft"><img src="${ctx}/newsImgUp/${mods.mMixLRImgThree}" alt="" width=350px height="234px" /></a>
 									<p class="text_p">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${mods.mMixLRContentThree}</p>
 
 								</c:forEach>
@@ -283,107 +281,97 @@
 
 						<div class="line_2" style="margin: 5px 0px 30px;"></div>
 
+						<c:set var="comment" value="${OneNews.comments}"></c:set>
 						<div class="block_comments_type_2">
-							<h3>3 评论</h3>
+							<h3>${fn:length(comment)}评论</h3>
 							<a href="#" class="add_new">查看所有评论</a>
 
-							<div class="comment">
-								<div class="userpic">
-									<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
-								</div>
+							<!-- 查看所有评论 -->
 
-								<div class="comment_wrap">
-									<div class="name">
-										<p>
-											<a href="#">颜荣恩</a>
-										</p>
-									</div>
-									<div class="date">
-										<p>Febr 16, 2012 at 4:43 pm</p>
-									</div>
-									<div class="reply">
-										<p>
-											<a href="#">回复</a>
-										</p>
-									</div>
-									<div class="content">
-										<p>说的很好，巴拉巴拉巴拉巴巴拉巴拉巴拉巴</p>
-									</div>
-								</div>
-								<div class="clearboth"></div>
-								<div class="line_3"></div>
-								<div class="comment">
-									<div class="userpic">
-										<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
-									</div>
+							<c:forEach var="ct" items="${comment}" varStatus="status">
 
-									<div class="comment_wrap">
-										<div class="name">
-											<p>
-												<a href="#">韩晨</a>
-											</p>
+								<c:if test="${ct.parentComment == null }">
+									<div class="comment">
+										<c:set var="parentId" value="${ct.commentId }"></c:set>
+										<div class="userpic">
+											<a href="#"><img src="${ctx}/imgUp/${ct.userInfo.headUrl}" alt="" width="36px" height="36px" /></a>
 										</div>
-										<div class="date">
-											<p>Febr 16, 2012 at 4:43 pm</p>
+
+										<div class="comment_wrap">
+											<div class="name">
+												<p>
+													<a href="#">${ct.userInfo.loginUser.loginName }</a>
+												</p>
+											</div>
+											<div class="date">
+												<p>
+													<fmt:formatDate value="${ct.commentPublishTime }" pattern="yyyy-MM-dd HH:mm" />
+												</p>
+											</div>
+											<div class="reply">
+												<p>
+													<a href="javascript:focusAndChangeStatus(${ct.commentId })">回复</a>
+												</p>
+											</div>
+											<div class="content">
+												<p>${ct.commentContent }</p>
+											</div>
 										</div>
-										<div class="reply">
-											<p>
-												<a href="#">回复</a>
-											</p>
+										<div class="clearboth"></div>
+										<div class="line_3"></div>
+										<div class="comment">
+											<c:set var="comms" value="${OneNews.comments}"></c:set>
+											<c:forEach var="cts" items="${comms}">
+												<c:if test="${cts.parentComment!= null && cts.parentComment.commentId == parentId}">
+													<div class="userpic">
+
+														<a href="#"><img src="${ctx}/imgUp/${cts.userInfo.headUrl}" alt="" width="36px" height="36px" /></a>
+													</div>
+
+													<div class="comment_wrap">
+														<div class="name">
+															<p>
+																<a href="#">${cts.userInfo.loginUser.loginName }</a>
+															</p>
+														</div>
+														<div class="date">
+															<p>
+																<fmt:formatDate value="${cts.commentPublishTime }" pattern="yyyy-MM-dd HH:mm" />
+															</p>
+														</div>
+														<div class="reply">
+															<p>
+																<a href="#">回复</a>
+															</p>
+														</div>
+														<div class="content">
+															<p>${cts.commentContent}</p>
+														</div>
+													</div>
+													<div class="clearboth"></div>
+													<div class="line_3"></div>
+												</c:if>
+											</c:forEach>
 										</div>
-										<div class="content">
-											<p>巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴</p>
-										</div>
 									</div>
-									<div class="clearboth"></div>
-									<div class="line_3"></div>
-								</div>
-							</div>
+								</c:if>
 
-
-
-							<div class="comment">
-								<div class="userpic">
-									<a href="#"><img src="${ctx}/images/ava_default_1.jpg" alt="" /></a>
-								</div>
-
-								<div class="comment_wrap">
-									<div class="name">
-										<p>
-											<a href="#">黎明</a>
-										</p>
-									</div>
-									<div class="date">
-										<p>Febr 16, 2012 at 4:43 pm</p>
-									</div>
-									<div class="reply">
-										<p>
-											<a href="#">回复</a>
-										</p>
-									</div>
-									<div class="content">
-										<p>巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴巴拉巴拉巴拉巴</p>
-									</div>
-								</div>
-								<div class="clearboth"></div>
-								<div class="line_3"></div>
-							</div>
-
+							</c:forEach>
 						</div>
 
 						<div class="separator" style="height: 30px;"></div>
-
-						<div class="block_leave_reply">
+						<div class="block_leave_reply" id="commentReplyForm2">
 							<h3>添加评论</h3>
 							<!-- <p class="text">Your email address will not be published. Required fields are marked <span>*</span></p> -->
 
-							<form class="w_validation" action="#" />
-							<p>评论</p>
-							<div class="textarea">
-								<textarea cols="1" rows="1"></textarea>
-							</div>
+							<form id="formSendComment3" class="w_validation" action="${ctx}/comment/${OneNews.newsId}">
+								<p>评论</p>
+								<input type="hidden" id="commentIdInput" name="commentId" value="" />
+								<div class="textarea">
+									<textarea cols="1" rows="1" id="commentContent3" name="content"></textarea>
+								</div>
 
-							<input type="submit" class="general_button" value="发表评论" />
+								<input id="sendComment3" type="submit" class="general_button" value="发表评论" />
 							</form>
 						</div>
 
@@ -403,12 +391,22 @@
 
 	</div>
 
-	<!-- login -->
-	<%@ include file="login.jsp"%>
-
 </body>
 <script type="text/javascript">
-<!-- 回车登陆 -->
+$("#sendComment3").click(function(){
+	  var user="<%=session.getAttribute("loginUser")%>";
+
+	if (user.length == 4) {
+		alert("请登录！");
+		widows.location.href = "login.jsp";
+	} else {
+		var a = $("#commentContent3");
+		if (a == null) {
+			alert("评论内容不能为空！");
+		}
+	}
+})
+
 	$(document).keyup(function(e) {
 		if (e.keyCode == 13) {
 			$("#submit1").click()
@@ -426,5 +424,17 @@
 			$('#xihuan_change').attr('src', '${ctx}/layout/images/xihuan2.png');
 		}
 	}
+	 $("#sendComment3").click(function(){
+		  var user="<%=session.getAttribute("loginUser")%>";
+		if (user.length == 4) {
+			alert("请登录！");
+			widows.location.href = "login.jsp";
+		} else {
+			var a = $("#commentContent3");
+			if (a == null) {
+				alert("评论内容不能为空！");
+			}
+		}
+	})
 </script>
 </html>

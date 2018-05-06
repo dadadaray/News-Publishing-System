@@ -270,20 +270,20 @@
 						</div>
 
 						<div class="line_2" style="margin: 5px 0px 30px;"></div>
-
+						<c:set var="comment" value="${OneNews.comments}"></c:set>
 						<div class="block_comments_type_2">
-							<h3>3 评论</h3>
+							<h3>${fn:length(comment)}评论</h3>
 							<a href="#" class="add_new">查看所有评论</a>
 
 							<!-- 查看所有评论 -->
-							<c:set var="comment" value="${OneNews.comments}"></c:set>
+
 							<c:forEach var="ct" items="${comment}" varStatus="status">
-							
+
 								<c:if test="${ct.parentComment == null }">
 									<div class="comment">
 										<c:set var="parentId" value="${ct.commentId }"></c:set>
 										<div class="userpic">
-											<a href="#"><img src="${ctx}/imgUp/${ct.userInfo.headUrl}" alt="" width="36px" height="36px"/></a>
+											<a href="#"><img src="${ctx}/imgUp/${ct.userInfo.headUrl}" alt="" width="36px" height="36px" /></a>
 										</div>
 
 										<div class="comment_wrap">
@@ -313,8 +313,8 @@
 											<c:forEach var="cts" items="${comms}">
 												<c:if test="${cts.parentComment!= null && cts.parentComment.commentId == parentId}">
 													<div class="userpic">
-													
-														<a href="#"><img src="${ctx}/imgUp/${cts.userInfo.headUrl}" alt="" width="36px" height="36px"/></a>
+
+														<a href="#"><img src="${ctx}/imgUp/${cts.userInfo.headUrl}" alt="" width="36px" height="36px" /></a>
 													</div>
 
 													<div class="comment_wrap">
@@ -324,8 +324,9 @@
 															</p>
 														</div>
 														<div class="date">
-															<p><fmt:formatDate value="${cts.commentPublishTime }"
-														pattern="yyyy-MM-dd HH:mm" /></p>
+															<p>
+																<fmt:formatDate value="${cts.commentPublishTime }" pattern="yyyy-MM-dd HH:mm" />
+															</p>
 														</div>
 														<div class="reply">
 															<p>
@@ -381,11 +382,9 @@
 	</div>
 </body>
 <script type="text/javascript">
-
-  // 判断评论前是否登录   评论是否为空
 	  $("#sendComment3").click(function(){
 		  var user="<%=session.getAttribute("loginUser")%>";
-	
+
 		if (user.length == 4) {
 			alert("请登录！");
 			widows.location.href = "login.jsp";
@@ -419,11 +418,11 @@
 	 * 当点击回复时，修改commentId为点击回复的值
 	 同时滚动到输入框的div
 	 */
-	function focusAndChangeStatus(comentId){
-		document.getElementById("commentIdInput").value=comentId; //修改ID
-	    $('html, body').animate({  
-	        scrollTop: $("#commentReplyForm2").offset().top
-	    }, 1000);
+	function focusAndChangeStatus(comentId) {
+		document.getElementById("commentIdInput").value = comentId; //修改ID
+		$('html, body').animate({
+			scrollTop : $("#commentReplyForm2").offset().top
+		}, 1000);
 	}
 </script>
 </html>
