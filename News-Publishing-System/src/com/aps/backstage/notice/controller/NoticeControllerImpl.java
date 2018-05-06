@@ -9,6 +9,8 @@
 
 package com.aps.backstage.notice.controller;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,9 +22,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aps.entity.LoginUser;
+import com.aps.entity.News;
 import com.aps.entity.Notice;
 import com.aps.entity.UserInfo;
 import com.aps.loginUser.service.UserServiceImpl;
+import com.aps.news.service.NewsServiceImpl;
 import com.aps.notice.service.NoticeServiceImpl;
 import com.framework.Page;
 
@@ -35,6 +39,9 @@ public class NoticeControllerImpl {
 	
 	@Resource
 	private UserServiceImpl userServiceImpl;
+	
+	@Resource
+	private NewsServiceImpl newsServiceImpl;
 	
 	/**
 	 * @Title: listNotice
@@ -78,6 +85,163 @@ public class NoticeControllerImpl {
 		return delNum + "";
 	}
 	
+	/**
+	 * @Title: getNews
+	 * @Description: 后台打开审核页面
+	 * @param newsId
+	 * @param request
+	 * @return
+	 * @author HanChen 
+	 * @return String
+	 */
+	@RequestMapping(value = "findoneNews", method = RequestMethod.GET)
+	public String getNews(@RequestParam(name = "newsId") Integer newsId, HttpServletRequest request) {
+		News news = this.newsServiceImpl.getOneNews(newsId);
+		request.setAttribute("OneNews", news);
+		if (news.getModAudios().size() > 0) {
+			//return "news_post_video";
+			return "backstage/all_news_back_checking_content";
+		}
+		if (news.getModFrees().size() > 0) {
+			//return "news_free";
+			return "backstage/all_news_back_checking_content";
+		}
+		if (news.getModMixCenters().size() > 0) {
+			//return "news_post_style1";
+			return "backstage/all_news_back_checking_content";			
+		}
+		if (news.getModMixLRs().size() > 0) {
+			return "backstage/all_news_back_checking_content";			
+			//return "news_post_style2";
+		}
+		if (news.getModMixSingles().size() > 0) {
+			return "backstage/all_news_back_checking_content";
+			//return "news_post_style3";
+		}
+		if (news.getModAudios().size() > 0) {
+			//return "news_post_listen";
+			return "backstage/all_news_back_checking_content";
+		}
+		if (news.getModBigImgs().size() > 0) {
+			//return "Bgimgshow";
+			return "backstage/all_news_back_checking_content";
+		}
+		return null;
+	}
 	
+	/**
+	 * @Title: check
+	 * @Description: 新闻审核通过
+	 * @param newsId
+	 * @param session
+	 * @return
+	 * @author HanChen 
+	 * @return int
+	 */
+	@RequestMapping(value = "check", method = RequestMethod.POST)
+	@ResponseBody
+	public int check(@RequestParam(name = "newsId") Integer newsId, HttpSession session){
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		int result = 0;
+		Date currentTime = new Date();
+		
+		News news =   this.newsServiceImpl.getOneNews(newsId);
+		news.setStatues(4);
+		news.setPublishTime(currentTime);
+		this.newsServiceImpl.updateNews(news);
+		
+		Notice notice = new Notice();
+		notice.setNoticeContent("你的文章《" + news.getNewsTitle() + "》审核通过！");
+		notice.setNoticeType(1);
+		notice.setNews(news);
+		notice.setNoticeCreatTime(currentTime);
+		
+		//设置通知发送人 
+		UserInfo sendPerson = new UserInfo();
+		sendPerson = loginUser.getUserInfo();
+		notice.setUserInfo(sendPerson);
+		
+		//设置通知接收人
+		notice.setReciveId(news.getUserInfo().getUserInfoId());
+		
+		result = this.noticeServiceImpl.saveNotice(notice);
+		
+		return result;
+	}
+	
+	/**
+	 * @Title: uncheck
+	 * @Description: 审核未通过
+	 * @param newsId
+	 * @param noticeContent
+	 * @param session
+	 * @return
+	 * @author HanChen
+	 * @return int
+	 */
+	@RequestMapping(value = "uncheck", method = RequestMethod.POST)
+	@ResponseBody
+	public int uncheck(@RequestParam(name = "newsId") Integer newsId,
+			@RequestParam(name = "noticeContent") String noticeContent, HttpSession session){
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		int result = 0;
+		
+		News news =   this.newsServiceImpl.getOneNews(newsId);
+		news.setStatues(3);
+		this.newsServiceImpl.updateNews(news);
+		
+		Notice notice = new Notice();
+		notice.setNoticeContent("你的文章《" + news.getNewsTitle() + "》需要修改！<br/>修改意见：" + noticeContent.trim());
+		notice.setNoticeType(0);
+		notice.setNews(news);
+		Date currentTime = new Date();
+		notice.setNoticeCreatTime(currentTime);
+		
+		//设置通知发送人 
+		UserInfo sendPerson = new UserInfo();
+		sendPerson = loginUser.getUserInfo();
+		notice.setUserInfo(sendPerson);
+		
+		//设置通知接收人
+		notice.setReciveId(news.getUserInfo().getUserInfoId());
+		
+		result = this.noticeServiceImpl.saveNotice(notice);
+		
+		return result;		
+		
+	}	
+	
+	@RequestMapping(value = "publish", method = RequestMethod.POST)
+	@ResponseBody
+	public int publish(@RequestParam(name = "newsId") Integer newsId, HttpSession session){
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		int result = 0;
+		
+		News news =   this.newsServiceImpl.getOneNews(newsId);
+		news.setStatues(4);
+		this.newsServiceImpl.updateNews(news);
+		
+		Notice notice = new Notice();
+		notice.setNoticeContent("你的文章《" + news.getNewsTitle() + "》审核通过！");
+		notice.setNoticeType(1);
+		notice.setNews(news);
+		Date currentTime = new Date();
+		notice.setNoticeCreatTime(currentTime);
+		
+		//设置通知发送人 
+		UserInfo sendPerson = new UserInfo();
+		sendPerson = loginUser.getUserInfo();
+		notice.setUserInfo(sendPerson);
+		
+		//设置通知接收人
+		notice.setReciveId(news.getUserInfo().getUserInfoId());
+		
+		result = this.noticeServiceImpl.saveNotice(notice);
+		
+		return result;
+	}
 	
 }

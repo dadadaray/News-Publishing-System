@@ -132,13 +132,13 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 	 * @author HanChen
 	 * @return String
 	 */
-	public String saveNotice(Notice notice){
+	public int saveNotice(Notice notice){
 		try {
 			this.save(notice);
-			return "1";
+			return 1;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "0";
+			return 0;
 		}
 	}
 	
@@ -161,5 +161,6 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 		}
 		return ret;
 	}
+	
 	
 }

@@ -123,13 +123,13 @@
 			$ok.click(doOk);
 			
 			//回车键触发确认按钮事件
-			$(window).bind("keydown", function(e){
+/*			$(window).bind("keydown", function(e){
 				if(e.keyCode == 13) {
 					if($("#" + popId).length == 1){
 						doOk();
 					}
 				}
-			});
+			});*/
 			
 			//点击取消按钮
 			$cancel.click(doCancel);
@@ -160,9 +160,9 @@
 		
 		//关闭按钮事件
 		function doClose(){
-			$("#" + popId).remove();
+/*			$("#" + popId).remove();
 			config.onClose(eventType.close);
-			$(window).unbind("keydown");
+			$(window).unbind("keydown");*/
 		}
 		
 		//生成按钮组

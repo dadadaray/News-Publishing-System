@@ -263,13 +263,14 @@
 													</td>
 													<td>${status.index+1}</td>
 													<td>
-														<a href="#">《${news.newsTitle}》</a>
+														<a href="#">《${fn:substring(news.newsTitle,0,10)}<c:if test="${fn:length(news.newsTitle)>10}">...</c:if>》</a>
 													</td>
 													<td>${news.newsType.typeName}</td>
 													<td class="am-hide-sm-only">
 														<c:forEach items="${news.notices}" var="notice">
 															<c:if test="${0 eq notice.noticeType}">
-																${notice.noticeContent}
+																${fn:substring(fn:substringAfter(notice.noticeContent,">"),0,10)}
+																<c:if test="${fn:length(notice.news.newsTitle)>10}">...</c:if>
 															</c:if>
 														</c:forEach>
 													</td>

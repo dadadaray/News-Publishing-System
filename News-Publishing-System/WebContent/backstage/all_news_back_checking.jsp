@@ -212,6 +212,7 @@
 					<div class="am-g">
 						<div class="am-u-sm-12">
 							<form class="am-form">
+							
 								<table class="am-table am-table-striped am-table-hover table-main">
 									<thead>
 										<tr>
@@ -235,7 +236,7 @@
 													</td>
 													<td>${status.index+1}</td>
 													<td>
-														<a href="#">《${news.newsTitle}》</a>
+														<a href="#">《${fn:substring(news.newsTitle, 0,20)}<c:if test="${fn:length(news.newsTitle)>20}">...</c:if>》</a>
 													</td>
 		
 													<td>
@@ -247,11 +248,11 @@
 													<td>
 														<div class="am-btn-toolbar">
 															<div class="am-btn-group am-btn-group-xs">
-																<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																<button onclick="return preview(${news.newsId})" class="am-btn am-btn-default am-btn-xs am-text-secondary">
 																	<span class="am-icon-eye"> </span>
 																	查看
 																</button>
-																<input type="hidden" data-id="${news.newsId}" />
+																<input type="hidden" data-id="${news.newsId}"/>
 																<button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
 																	<span class="am-icon-trash-o"></span>
 																	删除
@@ -327,14 +328,14 @@
 					alert(msg);
 					$.ajax({
 						type:"post",
-						url:"/News-Publishing-System/backstage/news/delete",
+						url:"${ctx1}/backstage/news/delete",
 						data : {
 							newsIds : id
 						},
 						success : function(data, status) {
 							if (data != "0") {
 								alert("删除成功！");
-								window.location.href ="/News-Publishing-System/backstage/news/back/checking/list";
+								window.location.href ="${ctx1}/backstage/news/back/checking/list";
 							}else{
 								alert("删除出错！");
 							}
@@ -365,14 +366,14 @@
 			}else{
 				$.ajax({
 					type:"post",
-					url:"/News-Publishing-System/backstage/news/delete",
+					url:"${ctx1}/backstage/news/delete",
 					data : {
 						newsIds : ids
 					},
 					success : function(data, status) {
 						if (data != "0") {
 							alert("删除成功！");
-							window.location.href ="/News-Publishing-System/backstage/news/back/checking/list";
+							window.location.href ="${ctx1}/backstage/news/back/checking/list";
 						}else{
 							alert("删除出错！");
 						}
@@ -442,9 +443,10 @@
 			return false;
 		}
 
-		//编辑
-		function preview() {
-			window.open("${ctx}/all_news_back_checking_content.jsp");
+		//查看
+		function preview(newsId) {
+			window.location.href="${ctx1}/backstage/notice/findoneNews?newsId="+newsId;
+			return false;
 		}
 	</script>
 </body>

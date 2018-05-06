@@ -55,27 +55,34 @@
 				class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
 				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
 					<a class="am-dropdown-toggle tpl-header-list-link"
-					href="javascript:;"> <span class="am-icon-bell-o"></span> 新文章 <span
-						class="am-badge tpl-badge-danger am-round">2</span>
+					href="javascript:;"> <span class="am-icon-bell-o"></span>新文章
+					<c:if test="${not empty noticePage and noticePage.totalCount > 0}">
+						<span class="am-badge tpl-badge-danger am-round">${noticePage.totalCount}</span>
+					</c:if>
 				</a>
 					<ul class="am-dropdown-content tpl-dropdown-content">
+					<c:if test="${not empty noticePage and noticePage.totalCount > 0}">
 						<li class="tpl-dropdown-content-external">
 							<h3>
-								你有 <span class="tpl-color-danger">2</span> 条提醒
+								你有 <span class="tpl-color-danger">${noticePage.totalCount}</span> 条提醒
 							</h3> <a href="${ctx}/all_news_back_checking.jsp">全部</a>
 						</li>
-						<li class="tpl-dropdown-list-bdbc"><a
-							href="${ctx}/all_news_back_checking_content.jsp"
-							class="tpl-dropdown-list-fl"><span
-								class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-								发来新文章<span>《传达室》</span></a> <span class="tpl-dropdown-list-fr">3小时前</span>
-						</li>
-						<li class="tpl-dropdown-list-bdbc"><a
-							href="${ctx}/all_news_back_checking_content.jsp"
-							class="tpl-dropdown-list-fl"><span
-								class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-								发来新文章<span>《传达室》</span></a> <span class="tpl-dropdown-list-fr">3小时前</span>
-						</li>
+						<c:forEach items="${noticePage.list}" var="notice" varStatus="status">
+							<li class="tpl-dropdown-list-bdbc">
+								<a href="${ctx1}/backstage/notice/findoneNews?newsId=${notice.news.newsId}" class="tpl-dropdown-list-fl">
+									<span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
+									<span>${notice.userInfo.loginUser.loginName}</span>
+									发来新文章<span>《${notice.news.newsTitle}》</span>
+								</a> 
+								<span class="tpl-dropdown-list-fr"><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy/MM/dd hh:mm" /></span>
+							</li>
+						</c:forEach>
+					</c:if>
+                    <c:if test="${empty noticePage or noticePage.totalCount <= 0}">
+                    	<li class="tpl-dropdown-content-external">
+                    		<h3>无消息</h3>
+                    	</li>
+                    </c:if>					
 					</ul>
 				</li>
 				<li class="am-hide-sm-only"><a href="javascript:;"

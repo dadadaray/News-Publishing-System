@@ -561,6 +561,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 		Iterator<News> it = news.iterator();
 		while (it.hasNext()) {
 			news_next = it.next();
+			break;
 		}
 		return news_next;
 	}

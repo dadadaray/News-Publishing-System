@@ -28,6 +28,7 @@ import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
 import com.aps.newsType.service.NewsTypeServiceImpl;
+import com.aps.notice.service.NoticeServiceImpl;
 
 @Controller
 @RequestMapping("addnews")
@@ -40,6 +41,9 @@ public class AddMixNewsControllerImpl {
 
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
+	
+	@Resource
+	private NoticeServiceImpl noticeServiceImpl;
 
 	/**
 	 * @dec 模板2 上传新闻
@@ -484,7 +488,9 @@ public class AddMixNewsControllerImpl {
 			@RequestParam("textarea1") String textarea1, @RequestParam("selectmod3") String selectmod2,
 			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws IOException {
-
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		
 		// 第一个图片
 		String filename1 = file1.getOriginalFilename();
 		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
@@ -541,6 +547,10 @@ public class AddMixNewsControllerImpl {
 		// 设置新闻类型
 		news3.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod2));
 		this.newsServiceImpl.saveNews(news3);
+		
+		//给管理员发送通知
+		this.noticeServiceImpl.publish(news3.getNewsId(), loginUser);
+		
 		session.setAttribute("newsmodMixLR", news3);
 
 		return "redirect:/backstage/news/checking/list";

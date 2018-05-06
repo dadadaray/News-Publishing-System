@@ -59,14 +59,16 @@
 	                		<span class="am-icon-bell-o"></span> 提醒
 	                	</c:if>
 	                 </a>
+	                
                    	 <ul class="am-dropdown-content tpl-dropdown-content">
                    		<c:if test="${not empty page and page.totalCount > 0}">
                         	<li class="tpl-dropdown-content-external">
                             	<h3>你有 <span class="tpl-color-success">${page.totalCount}</span> 条消息</h3>
                             	<a href="${ctx1}/backstage/notice" class="font-green">全部</a>
                             </li>
-                           	<c:forEach items="${page.list}" var="notice">
-	                            <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
+                           	<c:forEach items="${page.list}" var="notice" varStatus="status1">
+                           		<input id="content${status1.index+1}" value="${notice.noticeContent}" type="hidden"/>
+	                            <li class="tpl-dropdown-list-bdbc" onclick="tanchuang1(${status1.index+1})">
 	                              <a href="#" class="tpl-dropdown-list-fl">
 	                              	<c:if test="${0 == notice.noticeType}"> 
 	                                	<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 
@@ -77,9 +79,18 @@
 	                                <c:if test="${2 == notice.noticeType}"> 
 	                                	<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
 	                                </c:if>
-	                                <span>《${notice.news.newsTitle}》</span>${notice.noticeContent}
+	                                <span>你的文章：《${fn:substring(notice.news.newsTitle,0,10)}<c:if test="${fn:length(notice.news.newsTitle)>10}">...</c:if>》</span>
+                           			<c:if test="${0 == notice.noticeType}"> 
+                           				<span>需要修改</span>
+									</c:if>
+									<c:if test="${1 == notice.noticeType}"> 
+										<span>成功发布</span>
+									</c:if>
+									<c:if test="${2 == notice.noticeType}"> 
+										<span>设为推荐</span>
+									</c:if>		                                
 	                              </a>
-	                                <span class="tpl-dropdown-list-fr"><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+	                                <span class="tpl-dropdown-list-fr"><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy/MM/dd hh:mm" /></span>
 	                            </li>
                             </c:forEach>
                            </c:if>
@@ -88,20 +99,6 @@
 	                       		<h3>无消息</h3>
 	                       	</li>
 	                       </c:if>
-                           <!-- <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
-                             <a href="#" class="tpl-dropdown-list-fl">
-                               <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span>
-                                <span>《从大城市的》</span>审核通过
-                           </a>
-                               <span class="tpl-dropdown-list-fr">15分钟前</span>
-                           </li>
-                           <li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)">
-                           	<a href="#" class="tpl-dropdown-list-fl">
-                           		<span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 
-                                	<span>《从大城市的》</span>成为推荐文章 
-                           	</a>
-                               <span class="tpl-dropdown-list-fr">2天前</span>
-                           </li> -->
                        </ul>
                    </li>
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
@@ -140,7 +137,7 @@
                             <i class="am-icon-bell"></i>
                             <span>通知管理</span>
                             <i class="tpl-left-nav-content tpl-badge-danger">
-                               12
+                               ${page.totalCount}
                            </i>
                         </a>
                     </li>
@@ -276,8 +273,9 @@
                     </div>
 					<c:if test="${not empty page and page.totalCount > 0}">
 	                    <ul class="tpl-task-list tpl-task-remind" id="doc-modal-list">
-	                    	<c:forEach items="${page.list}" var="notice">
-		                    	<li>
+	                    	<c:forEach items="${page.list}" var="notice" varStatus="status">
+	                    		<input id="content${status.index}" value="${notice.noticeContent}" type="hidden"/>
+		                    	<li onclick="tanchuang1(${status.index})">
 		                        	<div class="cosB">
 										<span><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>&nbsp;&nbsp; 
 			                         	<input type="hidden" data-id="${notice.noticeId}"/>
@@ -297,9 +295,17 @@
 												<span class="label label-sm label-warning">文章推荐</span> 
 											</c:if>
 		                           			<font color="82949a">
-		                            			<span>&nbsp;&nbsp;你的文章：</span>
-		                            			<span class="bold">《${notice.news.newsTitle}》</span>
-		                           				<span>${notice.noticeContent}</span>
+		                           				<span>&nbsp;&nbsp;你的文章：</span>
+		                            			<span class="bold">《${fn:substring(notice.news.newsTitle,0,40)}<c:if test="${fn:length(notice.news.newsTitle)>40}">...</c:if>》</span>
+			                           			<c:if test="${0 == notice.noticeType}"> 
+			                           				<span>&nbsp;&nbsp;需要修改</span>
+												</c:if>
+												<c:if test="${1 == notice.noticeType}"> 
+													<span>&nbsp;&nbsp;成功发布</span>
+												</c:if>
+												<c:if test="${2 == notice.noticeType}"> 
+													<span>&nbsp;&nbsp;设为推荐</span>
+												</c:if>		        		                         
 		                           			</font>
 		                         		</a>
 		                       		</div>
@@ -355,7 +361,11 @@
 <script src="${ctx}/assets/js/iscroll.js"></script>
 <script src="${ctx}/assets/js/app.js"></script>
 <script type="text/javascript">
-
+	// 弹窗
+	function tanchuang1(status) {
+		var content = $("#content"+status).val();
+		window.wxc.xcConfirm(content);
+	}
     //删除
     $('#doc-modal-list').find('.btn-close').on('click', function() {
         $('#my-confirm').modal({
@@ -367,14 +377,14 @@
             alert(msg);
 			$.ajax({
 				type:"post",
-				url:"/News-Publishing-System/backstage/notice/deleteNotice",
+				url:"{ctx1}/backstage/notice/deleteNotice",
 				data : {
 					noticeIds : id,
 				},
 				success : function(data, status) {
 					if (data != "0") {
 						alert("删除成功！");
-						window.location.href ="/News-Publishing-System/backstage/indexs";
+						window.location.href ="{ctx1}/backstage/indexs";
 					}else{
 						alert("删除出错！");
 					}
@@ -391,11 +401,6 @@
         });
     });
 
-    //弹窗
-    function sendsuc(e){
-        var txt=e.innerText;
-        window.wxc.xcConfirm(txt);
-    }
 </script>
 </body>
 

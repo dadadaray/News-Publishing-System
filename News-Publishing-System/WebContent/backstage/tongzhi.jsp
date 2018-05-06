@@ -103,7 +103,7 @@
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
 					<li class="tpl-left-nav-item">
-						<a href="${ctx1}/backstage/index" class="nav-link"> 
+						<a href="${ctx1}/backstage/indexs" class="nav-link"> 
 						<i class="am-icon-home"></i> <span>首页</span>
 						</a>
 					</li>
@@ -207,8 +207,9 @@
 					</div>
 					<c:if test="${not empty page and page.totalCount > 0}">
 						<ul class="tpl-task-list tpl-task-remind" id="doc-modal-list">
-							<c:forEach items="${page.list}" var="notice">
-								<li>
+							<c:forEach items="${page.list}" var="notice" varStatus="status">
+							<input id="content${status.index}" value="${notice.noticeContent}" type="hidden"/>
+		                    	<li onclick="tanchuang1(${status.index})">
 									<div class="cosB">
 										
 										<span><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>&nbsp;&nbsp; 
@@ -234,12 +235,17 @@
 											</c:if>
 											
 											<font color="82949a"> 
-												<span style="display: block; float: left;">&nbsp;&nbsp;你的文章：</span> 
-												<span style="display: block; float: left;" class="bold">《${notice.news.newsTitle}》</span>
-												<span class="text_overflow_1" onclick="tanchuang1(this)">
-													${notice.noticeContent}
-												</span>
-												<div style="clear: both;"></div>
+		                           				<span>&nbsp;&nbsp;你的文章：</span>
+		                            			<span class="bold">《${fn:substring(notice.news.newsTitle,0,40)}<c:if test="${fn:length(notice.news.newsTitle)>40}">...</c:if>》</span>
+			                           			<c:if test="${0 == notice.noticeType}"> 
+			                           				<span>&nbsp;&nbsp;需要修改</span>
+												</c:if>
+												<c:if test="${1 == notice.noticeType}"> 
+													<span>&nbsp;&nbsp;成功发布</span>
+												</c:if>
+												<c:if test="${2 == notice.noticeType}"> 
+													<span>&nbsp;&nbsp;设为推荐</span>
+												</c:if>	
 											</font>
 										</a>
 									</div>
@@ -299,10 +305,9 @@
 
 <script>
 	// 弹窗
-	function tanchuang1(e) {
-		var aTitle = e.previousSibling.previousSibling;
-		var txt = "你的文章：" + aTitle.innerText + e.innerText;
-		window.wxc.xcConfirm(txt);
+	function tanchuang1(status) {
+		var content = $("#content"+status).val();
+		window.wxc.xcConfirm(content);
 	}
 
 	//头部通知消息弹窗
