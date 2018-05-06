@@ -145,6 +145,26 @@ public class UserControllerImpl {
 		//System.out.print(result);
 		return result;
 	}
+	/**
+	 * @author Ray_1 用户退出
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	@RequestMapping("/logOut")
+	public String loginOut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.print("退出");
+		HttpSession session = request.getSession();// 防止创建Session
+		if (session == null) {
+			return "backstage/login";
+		}
+		session.invalidate();
+		// session.removeAttribute("loginUser");
+		return "login";
+	}
 
 
 }

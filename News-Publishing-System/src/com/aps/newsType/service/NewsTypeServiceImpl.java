@@ -18,8 +18,13 @@ public class NewsTypeServiceImpl {
 	 * @param name
 	 * @return
 	 */
-	public NewsType getNewType(String name) {
-		return this.newsTypeDaoImpl.findNewsTypeByName(name);
+//	public NewsType getNewType(String name) {
+//		return this.newsTypeDaoImpl.findNewsTypeByName(name);
+//	}
+	
+	public NewsType getNewTypeById(Integer id) {
+		return this.newsTypeDaoImpl.findNewsTypeById(id);
 	}
+	
 
 }

@@ -25,7 +25,7 @@ public class BackUserInfoServiceImpl {
 	}
 	/**
 	 * @dec  更新用户信息
-	 * @
+	 * @author Ray
 	 * @param u
 	 */
 	@Transactional(readOnly = false)

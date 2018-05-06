@@ -77,7 +77,7 @@ public class Comment {
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "commentParentId", referencedColumnName = "commentId", updatable = true)
-	public Comment getParentComment() {
+	public Comment getParentComment(){
 		return parentComment;
 	}
 

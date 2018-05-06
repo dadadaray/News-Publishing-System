@@ -86,7 +86,7 @@
 
 							<ul>
 								<li><a href="${ctx}/index.jsp">首页</a></li>
-								<li>商业</li>
+								<li><a href="#">${newsTypeNameFront}</a></li>
 							</ul>
 						</div>
 						<div class="separator" style="height: 30px;"></div>

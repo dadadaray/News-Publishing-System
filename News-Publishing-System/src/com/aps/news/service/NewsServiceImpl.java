@@ -51,7 +51,7 @@ public class NewsServiceImpl {
 	 * @param params
 	 * @return
 	 */
-	public Page<News>findNewsByType(int pageNum, int pageSize, Object[] params) {
+	public Page<News>findNewsByTypeId(int pageNum, int pageSize, Object[] params) {
 		return this.newsDaoImpl.findnewsByType(pageNum, pageSize, params);
 	}
 	

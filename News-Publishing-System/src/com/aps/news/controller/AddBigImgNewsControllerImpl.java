@@ -42,7 +42,7 @@ public class AddBigImgNewsControllerImpl {
 	@RequestMapping(value = "sendBigImgNews", method = RequestMethod.POST)
 	private String sendBigImg(@RequestParam("file") List<MultipartFile> files,
 			@RequestParam("textInfo") List<String> textInfos, @RequestParam("title") String title,
-			@RequestParam("selectmod") String selectmod, @RequestParam("textarea") String textarea,
+			@RequestParam("selectmod") Integer selectmod, @RequestParam("textarea") String textarea,
 			@RequestParam("coverfile") MultipartFile coverfile, HttpSession session) throws IOException {
 		// 将图片依次遍历存入模板中
 		byte[] bs = new byte[1024];
@@ -81,7 +81,7 @@ public class AddBigImgNewsControllerImpl {
 		news1.setUserInfo(u.getUserInfo());
 
 		// 设置新闻类型
-		news1.setNewsType(this.NewsTypeServiceImpl.getNewType(selectmod));
+		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
 		// 设置新闻简介
 		news1.setBigImgContent(textarea);
 		Set<ModBigImg> modBigImgs = new HashSet<ModBigImg>(0);

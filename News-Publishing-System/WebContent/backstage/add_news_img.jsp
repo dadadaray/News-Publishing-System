@@ -141,14 +141,14 @@
 												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
 												<div class="am-u-sm-10">
 													<select data-am-selected="{searchBox: 1}" name="selectmod">
-														<option value="财经">财经</option>
-														<option value="科技">科技</option>
-														<option value="教育">教育</option>
-														<option value="体育">体育</option>
-														<option value="娱乐">娱乐</option>
-														<option value="军事">军事</option>
-														<option value="旅游">旅游</option>
-														<option value="政务">政务</option>
+														<option value="1">财经</option>
+														<option value="2">科技</option>
+														<option value="3">教育</option>
+														<option value="4">体育</option>
+														<option value="5">娱乐</option>
+														<option value="6">军事</option>
+														<option value="7">旅游</option>
+														<option value="8">政务</option>
 													</select>
 												</div>
 											</div>
