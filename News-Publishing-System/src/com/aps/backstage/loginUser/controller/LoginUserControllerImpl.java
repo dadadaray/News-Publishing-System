@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -99,6 +100,7 @@ public class LoginUserControllerImpl {
 	@ResponseBody
 	public String login(@RequestParam(name = "loginName") String loginName,
 			@RequestParam(name = "password") String password, HttpSession session) {
+		
 		// System.out.print(loginName+password);
 		String qString = this.backUserServiceImpl.loginVerifys(loginName, password);
 		// System.out.print("这是返回值哦："+qString);

@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aps.entity.LoginUser;
-import com.aps.entity.ModBigImg;
 import com.aps.entity.ModMixCenter;
 import com.aps.entity.ModMixLR;
 import com.aps.entity.ModMixSingle;
@@ -63,7 +62,9 @@ public class AddMixNewsControllerImpl {
 			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod2") Integer selectmod2,
 			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws IOException {
-
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		
 		// 第一个图片
 		String filename1 = file1.getOriginalFilename();
 		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
@@ -142,7 +143,9 @@ public class AddMixNewsControllerImpl {
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		this.newsServiceImpl.saveNews(news1);
-
+		//给管理员发送通知
+		this.noticeServiceImpl.publish(news1.getNewsId(), loginUser);
+		
 		session.setAttribute("newsmodMixCenter", news1);
 		session.setAttribute("1", mod);
 
@@ -281,7 +284,9 @@ public class AddMixNewsControllerImpl {
 			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod1") Integer selectmod2,
 			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws IOException {
-
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		
 		// 第一个图片
 		String filename1 = file1.getOriginalFilename();
 		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
@@ -364,6 +369,9 @@ public class AddMixNewsControllerImpl {
 		news2.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		// 保存新闻模板
 		this.newsServiceImpl.saveNews(news2);
+		//给管理员发送通知
+		this.noticeServiceImpl.publish(news2.getNewsId(), loginUser);
+		
 		session.setAttribute("newsmodMixLR", news2);
 		return "redirect:/backstage/news/checking/list";
 	}

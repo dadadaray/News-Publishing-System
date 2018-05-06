@@ -222,3 +222,56 @@ border-bottom:1px solid #ddd;}
 .am-panel-bd p{
     padding:0px 50px;
 }
+/*all_news_back_checking_content2*/
+.pic_con_style_tu21{ 
+    margin-right: 12px;
+    margin-top: 5px;
+    float: left;
+    display: block;
+    border: 3px solid #f2f2f2;
+    background-color:#ffffff;
+    border:4px solid #f2f2f2;
+    
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    
+    behavior:url(js/PIE.htc);
+    
+    line-height:0px;padding:1px;
+   }
+.pic_con_style_tu22{ 
+    margin-right: 12px;
+    margin-top: 5px;
+    float: right;
+    display: block;
+    border: 3px solid #f2f2f2;
+    background-color:#ffffff;
+    border:4px solid #f2f2f2;
+    
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    
+    behavior:url(js/PIE.htc);
+    
+    line-height:0px;padding:1px;
+   }
+/*all_news_back_checking_content_video*/
+.block_video {
+    margin-left: 60px;
+    text-align: center;
+    display:inline-block;
+    position:relative;
+    
+    border:4px solid #f2f2f2;
+    
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    
+    behavior:url(js/PIE.htc);
+    
+    line-height:0px;
+}
+

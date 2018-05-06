@@ -76,7 +76,7 @@ public class IndexControllerImpl {
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 		
 		Page<News> page = new Page<News>();
-		page = this.newsServiceImpl.getHotNewsList(pageNum, 5, new Object[] { loginUser.getUserInfo().getUserInfoId()}, timeSlot);
+		page = this.newsServiceImpl.getHotNewsList(pageNum, 5, new Object[] {30}, timeSlot);
 
 		session.setAttribute("page", page);
 		
@@ -107,8 +107,8 @@ public class IndexControllerImpl {
 		if (session == null) {
 			return "backstage/login";
 		}
-		session.invalidate();
-		// session.removeAttribute("loginUser");
+		//session.invalidate();
+		session.removeAttribute("loginUser");
 		return "backstage/login";
 	}
 	

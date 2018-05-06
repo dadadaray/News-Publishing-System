@@ -98,25 +98,24 @@ public class NoticeControllerImpl {
 	public String getNews(@RequestParam(name = "newsId") Integer newsId, HttpServletRequest request) {
 		News news = this.newsServiceImpl.getOneNews(newsId);
 		request.setAttribute("OneNews", news);
-		if (news.getModAudios().size() > 0) {
+		if (news.getModVedios().size() > 0) {
 			//return "news_post_video";
-			return "backstage/all_news_back_checking_content";
+			return "backstage/check_content_video";
 		}
 		if (news.getModFrees().size() > 0) {
 			//return "news_free";
-			return "backstage/all_news_back_checking_content";
+			return "backstage/check_content_modelFree";
 		}
 		if (news.getModMixCenters().size() > 0) {
 			//return "news_post_style1";
-			return "backstage/all_news_back_checking_content";			
+			return "backstage/check_content_tuwenModel1";			
 		}
 		if (news.getModMixLRs().size() > 0) {
-			return "backstage/all_news_back_checking_content";			
+			return "backstage/check_content_tuwenModel2";			
 			//return "news_post_style2";
 		}
 		if (news.getModMixSingles().size() > 0) {
-			return "backstage/all_news_back_checking_content";
-			//return "news_post_style3";
+			return "backstage/check_content_tuwenModel3";
 		}
 		if (news.getModAudios().size() > 0) {
 			//return "news_post_listen";
@@ -212,36 +211,5 @@ public class NoticeControllerImpl {
 		return result;		
 		
 	}	
-	
-	@RequestMapping(value = "publish", method = RequestMethod.POST)
-	@ResponseBody
-	public int publish(@RequestParam(name = "newsId") Integer newsId, HttpSession session){
-		// 获取用户信息
-		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
-		int result = 0;
-		
-		News news =   this.newsServiceImpl.getOneNews(newsId);
-		news.setStatues(4);
-		this.newsServiceImpl.updateNews(news);
-		
-		Notice notice = new Notice();
-		notice.setNoticeContent("你的文章《" + news.getNewsTitle() + "》审核通过！");
-		notice.setNoticeType(1);
-		notice.setNews(news);
-		Date currentTime = new Date();
-		notice.setNoticeCreatTime(currentTime);
-		
-		//设置通知发送人 
-		UserInfo sendPerson = new UserInfo();
-		sendPerson = loginUser.getUserInfo();
-		notice.setUserInfo(sendPerson);
-		
-		//设置通知接收人
-		notice.setReciveId(news.getUserInfo().getUserInfoId());
-		
-		result = this.noticeServiceImpl.saveNotice(notice);
-		
-		return result;
-	}
 	
 }

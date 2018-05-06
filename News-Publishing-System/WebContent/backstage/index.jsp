@@ -275,7 +275,7 @@
 	                    <ul class="tpl-task-list tpl-task-remind" id="doc-modal-list">
 	                    	<c:forEach items="${page.list}" var="notice" varStatus="status">
 	                    		<input id="content${status.index}" value="${notice.noticeContent}" type="hidden"/>
-		                    	<li onclick="tanchuang1(${status.index})">
+		                    	<li>
 		                        	<div class="cosB">
 										<span><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>&nbsp;&nbsp; 
 			                         	<input type="hidden" data-id="${notice.noticeId}"/>
@@ -283,7 +283,7 @@
 			                          		<span class="am-icon-trash-o"></span> 删除
 			                        	</button>
 		                       		</div>
-		                       		<div class="cosA">
+		                       		<div class="cosA" onclick="tanchuang1(${status.index})">
 		                          		<a href="#">
 		                           			<c:if test="${0 == notice.noticeType}"> 
 												<span class="label label-sm label-success">审核意见</span> 

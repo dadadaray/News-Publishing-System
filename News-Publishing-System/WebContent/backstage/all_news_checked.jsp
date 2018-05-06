@@ -267,8 +267,12 @@
 													</td>
 													<td>${news.newsType.typeName}</td>
 													<td class="am-hide-sm-only">
-														<c:forEach items="${news.notices}" var="notice">
+														<c:forEach items="${news.notices}" var="notice" varStatus="status">
 															<c:if test="${0 eq notice.noticeType}">
+																<c:set var="createTime" value="${notice.noticeCreatTime}"/>
+																<%-- <c:if test="">
+																</c:if> --%>
+															<!-- 取出最新的一条数据 -->
 																${fn:substring(fn:substringAfter(notice.noticeContent,">"),0,10)}
 																<c:if test="${fn:length(notice.news.newsTitle)>10}">...</c:if>
 															</c:if>
