@@ -33,6 +33,7 @@ import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
 import com.aps.newsType.service.NewsTypeServiceImpl;
+import com.aps.notice.service.NoticeServiceImpl;
 
 /**
  * 
@@ -55,6 +56,9 @@ public class AddVideoNewsControllerImpl {
 
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
+	
+	@Resource
+	private NoticeServiceImpl noticeServiceImpl;
 
 	/**
 	 * @Title: sendVideo
@@ -76,6 +80,9 @@ public class AddVideoNewsControllerImpl {
 			@RequestParam("selectmod") Integer selectmod, @RequestParam("textarea") String textarea,
 			@RequestParam("coverfile") MultipartFile coverfile, @RequestParam("coverViedoFile") MultipartFile coverViedoFile,
 			HttpSession session) throws IOException {
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		
 		// 视频文件名称
 		String filename = videoFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
@@ -157,6 +164,9 @@ public class AddVideoNewsControllerImpl {
 		news1.setModVedios(modModVedios);
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
+		
+		//给管理员发送通知
+		this.noticeServiceImpl.publish(news1.getNewsId(), loginUser);
 
 		return "redirect:/backstage/news/checking/list";
 	}

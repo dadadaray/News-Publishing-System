@@ -26,6 +26,7 @@ import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
 import com.aps.newsType.service.NewsTypeServiceImpl;
+import com.aps.notice.service.NoticeServiceImpl;
 
 @Controller
 @RequestMapping("addnews/bigImg")
@@ -38,12 +39,18 @@ public class AddBigImgNewsControllerImpl {
 
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
+	
+	@Resource
+	private NoticeServiceImpl noticeServiceImpl;
 
 	@RequestMapping(value = "sendBigImgNews", method = RequestMethod.POST)
 	private String sendBigImg(@RequestParam("file") List<MultipartFile> files,
 			@RequestParam("textInfo") List<String> textInfos, @RequestParam("title") String title,
 			@RequestParam("selectmod") Integer selectmod, @RequestParam("textarea") String textarea,
 			@RequestParam("coverfile") MultipartFile coverfile, HttpSession session) throws IOException {
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		
 		// 将图片依次遍历存入模板中
 		byte[] bs = new byte[1024];
 		int len;
@@ -113,6 +120,9 @@ public class AddBigImgNewsControllerImpl {
 
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
+		
+		//给管理员发送通知
+		this.noticeServiceImpl.publish(news1.getNewsId(), loginUser);
 
 		return "redirect:/backstage/news/checking/list";
 	}

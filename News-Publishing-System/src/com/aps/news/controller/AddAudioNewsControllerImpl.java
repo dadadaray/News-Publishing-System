@@ -33,6 +33,7 @@ import com.aps.entity.News;
 import com.aps.news.service.AddNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
 import com.aps.newsType.service.NewsTypeServiceImpl;
+import com.aps.notice.service.NoticeServiceImpl;
 
 /**
  * 
@@ -54,6 +55,9 @@ public class AddAudioNewsControllerImpl {
 	
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
+	
+	@Resource
+	private NoticeServiceImpl noticeServiceImpl;
 
 	/**
 	 * @Title: sendAudio
@@ -74,6 +78,9 @@ public class AddAudioNewsControllerImpl {
 			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod, 
 			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile, 
 			HttpSession session) throws IOException{
+		// 获取用户信息
+		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
+		
 		//音频文件名称
 		String filename = audioFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
@@ -146,6 +153,8 @@ public class AddAudioNewsControllerImpl {
 		
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
+		//给管理员发送通知
+		this.noticeServiceImpl.publish(news1.getNewsId(), loginUser);
 		
 		return "redirect:/backstage/news/checking/list";		
 		
