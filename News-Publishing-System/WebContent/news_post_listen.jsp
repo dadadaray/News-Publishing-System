@@ -397,8 +397,8 @@
 </body>
 <script type="text/javascript">
 $("#sendComment3").click(function(){
-	  var user="<%=session.getAttribute("loginUser")%>
-	";
+	  var user="<%=session.getAttribute("loginUser")%>";
+	
 
 		if (user.length == 4) {
 			alert("请登录！");

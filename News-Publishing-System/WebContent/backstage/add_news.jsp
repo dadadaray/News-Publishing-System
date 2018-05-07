@@ -225,8 +225,7 @@
                                             <!-- 隐藏域 -->
                                             <input type="hidden" name="allContent" id="allContent" value=""/>
                                             <div class="am-u-sm-8 am-u-sm-push-2 add_button">
-                                                <a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
-                                                <a href="${ctx1}/news_post_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预  览</a>
+                                                <a id="saveDraft" class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a>
                                                 <a id="sendFree" type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发  布</a>
                                             </div>
                                         </form>
@@ -346,14 +345,14 @@
     $("#sendFree").click(function(){
     	//alert("点击了");
     	$("#allContent").attr("value",tinyMCE.activeEditor.getContent());
-    	alert($("#allContent").val());
+    	//alert($("#allContent").val());
 		var url = "${ctx1}/addNewsFree/freeModSave";
 		$("#Form_free").attr("action", url);
 		$("#Form_free").submit();
     })
     
     //存草稿按钮
-			$("#sendFree").click(function() {
+			$("#saveDraft").click(function() {
 				//alert("点击了");
 				var url = "${ctx1}/addNewsFree/saveModFreeDraft";
 				$("#Form_free").attr("action", url);
