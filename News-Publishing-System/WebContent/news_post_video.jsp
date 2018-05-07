@@ -98,49 +98,43 @@
 
 							<ul>
 								<li><a href="index.jsp">首页</a></li>
-								<li><a href="business.jsp">商业</a></li>
-								<li>股票</li>
+								<li><a href="business.jsp">${OneNews.newsType.typeName}</a></li>
 							</ul>
 						</div>
 						<div class="separator" style="height: 30px;"></div>
 
 						<article class="block_single_news">
 							<p class="title">
-							<h1>中国工厂太魔幻：未来每2分钟下线一辆汽车</h1>
+							<h1>${OneNews.newsTitle }</h1>
 							</p>
 
 							<div class="info">
 								<div class="date">
-									<p>15 July, 2012</p>
+									<p><fmt:formatDate value="${OneNews.publishTime}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
 								</div>
 								<div class="author">
 									<p>
-										作者: <a href="#">王敏</a>
+										作者: <a href="#">${OneNews.userInfo.loginUser.loginName}</a>
 									</p>
 								</div>
 
 								<div class="r_part">
-									<a href="#" class="views">220</a> <a href="#" class="comments">25</a>
+									<a href="#" class="views">${OneNews.views}</a>
+									 <a href="#" class="comments">${OneNews.commentNum}</a>
 								</div>
 							</div>
 
 							<div class="content">
-								<h5>YouTube</h5>
-
+								<h5>视频播放</h5>
+                                <c:forEach items="${OneNews.modVedios}" var="mods" varStatus="status">
 								<div class="block_video">
-									<iframe width="612" height="344" src="http://www.youtube.com/embed/ySIvism2af8" frameborder="0" allowfullscreen=""></iframe>
+									<iframe width="612" height="344" src="${ctx}/newsAudioUp/${mods.mvideoUrl}" frameborder="0" allowfullscreen=""></iframe>
 								</div>
-								<p class="text_p">世界，正处在新科技革命和产业变革的交汇点上。信息化、工业化不断融合，以机器人技术为代表的智能装备产业蓬勃兴起。2017年，中国继续成为全球第一大工业机器人市场，销量突破12万台，约占全球总产量的三分之一。与此同时，中国连续第九年成为全球高端数控机床第一消费大国，全球50%的数控机床装在了中国的生产线上。这一年，中国的人工智能企业总数接近600家，跃升世界第二,小编在这为您梳理中国智造“英雄谱”，相信你看完一定会被它们惊艳↓↓↓</p>
-								<h3>重器：智能制造核心-数字化仿真智能工厂</h3>
+							
 								<p class="text_p">
-									<b>最牛实力：</b>这间数字化仿真工厂，冲压环节的零件加工合格率达到100%，焊装环节的焊点定位合格率达到99.8%，总装环节的装配合格率更是达到100%。工程师们通过在仿真系统中的模拟演练，可以减少人为失误风险，大幅节约制造成本，缩短研发周期。.
+									${mods.modVedioContent}<a href="#" class="lnk_blue text_a"></a>
 								</p>
-
-								<p class="text_p">
-									智能制造时代来临，中国正在涌现一个又一个“智造先锋”，涵盖石化、钢铁、航空、汽车等82个行业。两年来，平均生产效率提高30%，能源利用率提升10%。<a href="#" class="lnk_blue text_a"><b>智能制造时代</b></a>查看恢弘气势
-								</p>
-								<blockquote class="full">引言样式</blockquote>
-
+                              </c:forEach>
 							</div>
 						</article>
 
@@ -148,13 +142,13 @@
 
 						<div class="block_post_tags">
 							<p>
-								标签: <a href="#">商业,</a><a href="#">股票</a>
+								标签: <a href="#">${OneNews.newsType.typeName}</a>
 							</p>
 						</div>
 
 						<div class="block_post_social">
 							<h4>
-								<span>B</span>
+								<span></span>
 							</h4>
 
 							<section class="rating">
@@ -163,8 +157,8 @@
 								</p>
 
 								<ul>
-									<li><span>1024</span>浏览量</li>
-									<li><span>4</span>评论</li>
+									<li><span>${OneNews.views}</span>浏览量</li>
+									<li><span>${OneNews.commentNum}</span>评论</li>
 								</ul>
 							</section>
 
