@@ -9,7 +9,7 @@
 <title>新闻天下</title>
 
 <meta name="keywords" content="" />
-<meta name="description" content="" />
+<meta name="description" content=""/>
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
@@ -74,7 +74,11 @@
 	<%
 		if (session.getAttribute("listNewsIndex1") == null || session.getAttribute("listNewsIndex2") == null
 				|| request.getAttribute("YesterdayPage") == null
-				|| session.getAttribute("listNewsIndex3") == null) {
+				|| session.getAttribute("listNewsIndex3") == null
+				||session.getAttribute("findNewsBigTop") == null
+				||session.getAttribute("hotpoint") == null
+				||session.getAttribute("findNewsBigTop") == null
+				) {
 			request.getRequestDispatcher("index").forward(request, response);
 		}
 	%>
@@ -92,9 +96,12 @@
 								<p>最新热点新闻</p>
 							</div>
 							<div class="title">
+							<c:set var="newsHonorList" value="${sessionScope.listNewsIndex1}"></c:set>
+							<c:forEach items="${hotpoint}" var="news">
 								<p>
-									<a href="#">中国冬奥会拉开帷幕，迅速准备中。</a>
+									<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}">${news.newsTitle }</a>
 								</p>
+							</c:forEach>
 							</div>
 						</div>
 						<div class="separator" style="height: 17px;"></div>
@@ -102,45 +109,23 @@
 						<div class="block_home_slider">
 							<div id="home_slider" class="flexslider">
 								<ul class="slides">
+								<c:set var="newsHonorList" value="${sessionScope.listNewsIndex1}"></c:set>
+							      <c:forEach items="${findNewsBigTop}" var="news">
 									<li>
 										<div class="slide">
-											<img src="${ctx}/images/pic_home_slider_1.jpg" alt="" />
+											<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}"><img src="${ctx}/newsImgUp/${news.coverImgUrl}" alt="" width="610px" height="292px"/></a>
 											<div class="caption">
-												<p class="title">更多希望工程正在开发当中。</p>
-												<p>每一次的成就都是不断积累的付出而换类来的，唯有不断积累才能换来成就。</p>
+												<p class="title">${fn:substring(news.newsTitle, 0,25)} <c:if test="${fn:length(news.newsTitle)>25}">...</c:if></p>
+											
 											</div>
 										</div>
 									</li>
+								</c:forEach>
 
-									<li>
-										<div class="slide">
-											<img src="${ctx}/images/pic_home_slider_2.jpg" alt="" />
-											<div class="caption">
-												<p class="title">Many desktop publishing packages.</p>
-												<p>There are many variations of passages of available, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
-											</div>
-										</div>
-									</li>
+									
+									
 
-									<li>
-										<div class="slide">
-											<img src="${ctx}/images/pic_home_slider_3.jpg" alt="" />
-											<div class="caption">
-												<p class="title">Many desktop publishing packages and web page.</p>
-												<p>There are many variations of passages of available, but the majority.</p>
-											</div>
-										</div>
-									</li>
-
-									<li>
-										<div class="slide">
-											<img src="${ctx}/images/pic_home_slider_4.jpg" alt="" />
-											<div class="caption">
-												<p class="title">Many desktop publishing packages and web page.</p>
-												<p>There are many variations of passages of available, but the majority have suffered alteration in some form, by injected humour, or randomised, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
-											</div>
-										</div>
-									</li>
+								
 								</ul>
 							</div>
 

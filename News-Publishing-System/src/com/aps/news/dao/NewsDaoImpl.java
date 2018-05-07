@@ -24,6 +24,28 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	private SessionFactory sessionFactory;
 
 	/**
+	 * @dec 按时间排序获取 首页推荐文章
+	 * @author Ray
+	 * @return
+	 */
+	public List<News> findNewsBigTop() {
+		Session session = super.getSession();
+		// 按照赞的数量排序
+		Query query = session.createQuery("from News where statues=4 and topShow=1 order by publishTime DESC,views DESC");
+		return query.list();
+	}
+	/**
+	 * @dec 按浏览量排序获取 首页推荐视频
+	 * @author Ray
+	 * @return
+	 */
+	public List<News> leftVedio() {
+		Session session = super.getSession();
+		// 按照赞的数量排序
+		Query query = session.createQuery("from News n where n.statues=4  and n.modVedios.length>0 order by n.views DESC");
+		return query.list();
+	}
+	/**
 	 * @dec 查询所有已发表文章
 	 * @param pageNum
 	 * @param pageSize
@@ -57,7 +79,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	public Page<News> findnewsByType(int pageNum, int pageSize, Object[] params) {
 		String hql;
 
-		hql = "from News n where n.newsType.newsTypeId = ? and n.statues=4";
+		hql = "from News n where n.newsType.newsTypeId = ? and n.statues=4 order by n.publishTime desc";
 		params[0] = params[0];
 		try {
 			Page<News> page = new Page<News>();

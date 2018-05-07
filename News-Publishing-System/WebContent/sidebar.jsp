@@ -89,10 +89,10 @@
 			<div class="media">
 				<!--<a href="http://www.youtube.com/watch?v=ySIvism2af8" class="general_pic_hover play no_fx" data-rel="prettyPhoto" title="Popular Video"><img src="${ctx}/images/pic_pop_video.jpg" alt="85-" /></a>-->
 				<video width="240" height="138" poster="${ctx}/images/pic_pop_video.jpg" controls="controls">
-					<source src="${ctx}/vedio/vtest.mp4" type="video/ogg">
-					<source src="${ctx}/vedio/vtest.mp4" type="video/mp4">
-					<source src="${ctx}/vedio/vtest.mp4" type="video/webm">
-					<object data="${ctx}/vedio/vtest.mp4" width="240" height="138"> </object>
+					<source src="${ctx}/vedio/news2.mp4" type="video/ogg">
+					<source src="${ctx}/vedio/news2.mp4" type="video/mp4">
+					<source src="${ctx}/vedio/news2.mp4" type="video/webm">
+					<object data="${ctx}/vedio/news2.mp4" width="240" height="138"> </object>
 				</video>
 
 				<!--<video width="250" height="200" class="general_pic_hover play no_fx" src="vedio/vtest.mp4" poster="images/pic_pop_video.jpg" autoplay="autoplay"></video>-->
