@@ -117,8 +117,7 @@ public class NoticeControllerImpl {
 			return "check_content_audio";
 		}
 		if (news.getModBigImgs().size() > 0) {
-			//return "Bgimgshow";
-			return "backstage/all_news_back_checking_content";
+			return "check_content_bigImg";
 		}
 		return null;
 	}
