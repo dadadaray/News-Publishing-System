@@ -445,7 +445,7 @@
 
 		//查看
 		function preview(newsId) {
-			window.location.href="${ctx1}/backstage/notice/findoneNews?newsId="+newsId;
+			window.location.href="${ctx1}/backstage/notice/findoneNews?tag=0&newsId="+newsId;
 			return false;
 		}
 	</script>

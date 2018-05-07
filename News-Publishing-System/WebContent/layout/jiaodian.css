@@ -221,6 +221,33 @@ div.center h1#author a:hover {
 .news_list a{
   text-decoration: none;
 }
+ /*check_content_bigImg*/
+  .check_end{ 
+    text-align: center;
+}
+.btn_success{
+	margin-bottom: 10px;
+ 
+background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    }
+.am_danger{ 
+	margin-bottom: 10px;
+background-color: #f44336; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    }
 
 /*.news_list{
   border-bottom: 1px dashed #ddd;

@@ -87,17 +87,20 @@ public class NoticeControllerImpl {
 	
 	/**
 	 * @Title: getNews
-	 * @Description: 后台打开审核页面
+	 * @Description: 后台打开文章详情和审核页面
 	 * @param newsId
+	 * @param tag 0 查看文章详情  1审核页面
 	 * @param request
 	 * @return
 	 * @author HanChen 
 	 * @return String
 	 */
 	@RequestMapping(value = "findoneNews", method = RequestMethod.GET)
-	public String getNews(@RequestParam(name = "newsId") Integer newsId, HttpServletRequest request) {
+	public String getNews(@RequestParam(name = "newsId") Integer newsId, 
+			@RequestParam(name = "tag", defaultValue = "1") int tag, HttpServletRequest request) {
 		News news = this.newsServiceImpl.getOneNews(newsId);
 		request.setAttribute("OneNews", news);
+		request.setAttribute("tag", tag);
 		if (news.getModVedios().size() > 0) {
 			return "backstage/check_content_video";
 		}
@@ -117,8 +120,7 @@ public class NoticeControllerImpl {
 			return "check_content_audio";
 		}
 		if (news.getModBigImgs().size() > 0) {
-			//return "Bgimgshow";
-			return "backstage/all_news_back_checking_content";
+			return "check_content_bigImg";
 		}
 		return null;
 	}
