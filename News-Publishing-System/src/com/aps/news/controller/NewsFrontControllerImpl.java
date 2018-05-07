@@ -40,7 +40,7 @@ public class NewsFrontControllerImpl {
 		news.setViews(news.getViews() + 1);
 		this.newsServiceImpl.updateNews(news);
 		request.setAttribute("OneNews", news);
-		if (news.getModAudios().size() > 0) {
+		if (news.getModVedios().size() > 0) {
 			return "news_post_video";
 		}
 		if (news.getModFrees().size() > 0) {
