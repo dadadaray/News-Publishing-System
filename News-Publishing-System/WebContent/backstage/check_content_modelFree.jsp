@@ -203,7 +203,7 @@
 												<div class="content">
 												<c:if test="${not empty OneNews.modFrees}">
                                						<c:forEach items="${OneNews.modFrees}" var="modFree">													
-													<p class="text_p"></p>
+													<p class="text_p">${modFree.modFreeContent}</p>
 													</c:forEach>
 												</c:if>
 												</div>

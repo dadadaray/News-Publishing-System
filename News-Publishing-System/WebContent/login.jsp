@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<c:set var="ctx1" value="${pageContext.request.contextPath}/backstage"></c:set>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html>
@@ -135,6 +135,7 @@
                                 <p class="info_text">
 									<!--  <input type="submit" class="general_button" value="登 录" id="submitlogin" />-->
 									  <a  id="submitlogin" style="background:#f54a2f;padding:5px 15px; color:#fff;font-size:14px; border-radius:5px;  text-decoration:none;cursor: pointer;">登陆</a>
+									  <a  href="${ctx1}/login.jsp" style="padding:5px 15px; font-size:14px; border-radius:5px;  text-decoration:none;cursor: pointer;">记者登陆</a>
 								</p>
                             </form>
                         </div>
