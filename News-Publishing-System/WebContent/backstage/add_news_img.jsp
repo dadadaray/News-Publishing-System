@@ -174,7 +174,9 @@
 												</div>
 											</div>
 											<div class="am-u-sm-8 am-u-sm-push-2 add_button">
-												<a class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> <a href="${ctx1 }/Bgimgshow_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> <a id="bigImgSend" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
+												<a id="saveBigImgDraft" class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
+												<a href="${ctx1 }/Bgimgshow_eye.jsp" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a> 
+												<a id="bigImgSend" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
 											</div>
 
 										</div>
@@ -228,6 +230,12 @@
 		//发布按钮
 		$("#bigImgSend").click(function() {
 			var url = "${ctx1}/addnews/bigImg/sendBigImgNews";
+			$("#bigImgForm").attr("action", url);
+			$("#bigImgForm").submit();
+		})
+		//存草稿
+		$("#saveBigImgDraft").click(function() {
+			var url= "${ctx1}/addnews/bigImg/saveBigImgNewsDraft";
 			$("#bigImgForm").attr("action", url);
 			$("#bigImgForm").submit();
 		})

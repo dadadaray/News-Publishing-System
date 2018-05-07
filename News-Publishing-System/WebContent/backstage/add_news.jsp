@@ -236,7 +236,7 @@
                     </div>
                 </div>
             </div>
-            <div class="am-u-md-2 am-u-sm-4 row-mb">
+            <!--  <div class="am-u-md-2 am-u-sm-4 row-mb">
                 <div class="tpl-portlet">
                     <div class="portlet-title">
                         <div class="caption font-green bold">
@@ -305,7 +305,7 @@
 
 
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>      
 <script src="${ctx}/assets/js/jquery.min.js"></script>
@@ -351,46 +351,43 @@
 		$("#Form_free").attr("action", url);
 		$("#Form_free").submit();
     })
+    
+    //存草稿按钮
+			$("#sendFree").click(function() {
+				//alert("点击了");
+				var url = "${ctx1}/addNewsFree/saveModFreeDraft";
+				$("#Form_free").attr("action", url);
+				$("#Form_free").submit();
+			})
+			
 			
     //图片上传 begin
-    $("#fileUploadContent").initUpload({
-        "uploadUrl":"#",//上传文件信息地址
+    //$("#fileUploadContent").initUpload({
+        //"uploadUrl":"${ctx1}/addNewsFree/text",//上传文件信息地址
         //"size":350,//文件大小限制，单位kb,默认不限制
         //"maxFileNumber":3,//文件个数限制，为整数
-        "filelSavePath":"D://images",//文件上传地址，后台设置的根目录
-        "beforeUpload":beforeUploadFun,//在上传前执行的函数
+        // "filelSavePath":"D://images",//文件上传地址，后台设置的根目录
+      //  "beforeUpload":beforeUploadFun,//在上传前执行的函数
         //"onUpload":onUploadFun，//在上传后执行的函数
-        //autoCommit:true,//文件是否自动上传
-        "fileType":['png','jpg','docx','doc','gif']//文件类型限制，默认不限制，注意写的是文件后缀
-    });
-    function beforeUploadFun(opt){
-        opt.otherData =[{"name":"name","value":"zxm"}];
-    }
-    function onUploadFun(opt,data){
-        alert(data);
-        uploadTools.uploadError(opt); //显示上传错误
-        uploadTools.uploadSuccess(opt);//显示上传成功
-    }
+       // //autoCommit:true,//文件是否自动上传
+       //  "fileType":['png','jpg','docx','doc','gif']//文件类型限制，默认不限制，注意写的是文件后缀
+   // });
+   // function beforeUploadFun(opt){
+    //    opt.otherData =[{"name":"name","value":"zxm"}];
+  //  }
+    //function onUploadFun(opt,data){
+      //  alert(data);
+      //  uploadTools.uploadError(opt); //显示上传错误
+      //  uploadTools.uploadSuccess(opt);//显示上传成功
+   // }
     
-    function testUpload(){
-        var opt = uploadTools.getOpt("fileUploadContent");
-        uploadEvent.uploadFileEvent(opt);
-    }
+    //function testUpload(){
+      //  var opt = uploadTools.getOpt("fileUploadContent");
+        //uploadEvent.uploadFileEvent(opt);
+  //  }
     //图片上传 end
 
-    //视频上传
-    //图片上传 begin
-    $("#fileUploadContent1").initUpload({
-        "uploadUrl":"#",//上传文件信息地址
-        //"size":350,//文件大小限制，单位kb,默认不限制
-        //"maxFileNumber":3,//文件个数限制，为整数
-        //"filelSavePath":"D://images",//文件上传地址，后台设置的根目录
-        "beforeUpload":beforeUploadFun,//在上传前执行的函数
-        //"onUpload":onUploadFun，//在上传后执行的函数
-        //autoCommit:true,//文件是否自动上传
-        "fileType":['avi','wmv','mp4','mpeg','flv','rm','rmvb','vob']//文件类型限制，默认不限制，注意写的是文件后缀
-    });
-
+ 
     // 页面上图片上传并显示start
     function imgChange (e) {
         var file=e;

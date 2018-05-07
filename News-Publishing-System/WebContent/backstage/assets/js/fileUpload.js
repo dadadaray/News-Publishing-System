@@ -38,7 +38,7 @@ var uploadTools = {
         //url test测试需要更改
         var initOption={
             "uploadId":uploadId,
-            "uploadUrl":"#",//必须，上传地址
+            "uploadUrl":"${ctx1}/addNewsFree/text",//必须，上传地址
             "selfUploadBtId":"",//自定义文件上传按钮id
             "scheduleStandard":false,//模拟进度的模式
             "autoCommit":false,//是否自动上传

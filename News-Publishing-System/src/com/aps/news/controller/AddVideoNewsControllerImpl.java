@@ -56,7 +56,7 @@ public class AddVideoNewsControllerImpl {
 
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
-	
+
 	@Resource
 	private NoticeServiceImpl noticeServiceImpl;
 
@@ -78,11 +78,11 @@ public class AddVideoNewsControllerImpl {
 	@RequestMapping(value = "sendVideoNews", method = RequestMethod.POST)
 	private String sendVideo(@RequestParam("videoFile") MultipartFile videoFile, @RequestParam("title") String title,
 			@RequestParam("selectmod") Integer selectmod, @RequestParam("textarea") String textarea,
-			@RequestParam("coverfile") MultipartFile coverfile, @RequestParam("coverViedoFile") MultipartFile coverViedoFile,
-			HttpSession session) throws IOException {
+			@RequestParam("coverfile") MultipartFile coverfile,
+			@RequestParam("coverViedoFile") MultipartFile coverViedoFile, HttpSession session) throws IOException {
 		// 获取用户信息
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
-		
+
 		// 视频文件名称
 		String filename = videoFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
@@ -116,7 +116,7 @@ public class AddVideoNewsControllerImpl {
 		}
 		os1.close();
 		is1.close();
-		
+
 		// 封面图片
 		String realpath1 = System.getProperty("b2cweb.root") + "newsImgUp";
 		File saveFile1 = new File(realpath1);
@@ -143,6 +143,11 @@ public class AddVideoNewsControllerImpl {
 		news1.setCreateTime(currentTime);
 		news1.setStatues(1);
 		news1.setTopShow(0);
+		// 设置发表数量
+		if (loginUser.getUserInfo().getSendpassNum() == null) {
+			loginUser.getUserInfo().setSendpassNum(0);
+		}
+		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
 		// 设置默认值
 		news1.setCommentNum(0);
 		news1.setViews(0);
@@ -151,21 +156,20 @@ public class AddVideoNewsControllerImpl {
 		// 设置审核人id
 		news1.setAuditorId(30);
 		// 设置新闻编辑人
-		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
-		news1.setUserInfo(u.getUserInfo());
+		news1.setUserInfo(loginUser.getUserInfo());
 
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
 
 		// 保存模板
 		Set<ModVedio> modModVedios = new HashSet<ModVedio>(0);
-		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea,newcoverVedioImg, news1);
+		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea, newcoverVedioImg, news1);
 		modModVedios.add(mod);
 		news1.setModVedios(modModVedios);
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
-		
-		//给管理员发送通知
+
+		// 给管理员发送通知
 		this.noticeServiceImpl.publish(news1.getNewsId(), loginUser);
 
 		return "redirect:/backstage/news/checking/list";
@@ -179,7 +183,7 @@ public class AddVideoNewsControllerImpl {
 	 * @param selectmod
 	 * @param textarea
 	 * @param coverfile
-	 * @param coverViedoFile 
+	 * @param coverViedoFile
 	 * @param session
 	 * @return
 	 * @throws IOException
@@ -266,7 +270,7 @@ public class AddVideoNewsControllerImpl {
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
 		Set<ModVedio> modModVedios = new HashSet<ModVedio>(0);
 		// 保存模板
-		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea,newcoverVedioImg, news1);
+		ModVedio mod = this.addNewsServiceImpl.saveModVedio(newFileName, textarea, newcoverVedioImg, news1);
 		modModVedios.add(mod);
 		news1.setModVedios(modModVedios);
 		// 保存新闻
@@ -293,8 +297,8 @@ public class AddVideoNewsControllerImpl {
 	@RequestMapping(value = "previewVideo", method = RequestMethod.POST)
 	private String previewVideo(@RequestParam("videoFile") MultipartFile videoFile, @RequestParam("title") String title,
 			@RequestParam("selectmod") String selectmod, @RequestParam("textarea") String textarea,
-			@RequestParam("coverfile") MultipartFile coverfile,@RequestParam("coverViedoFile") MultipartFile coverViedoFile,
-			HttpSession session) throws IOException {
+			@RequestParam("coverfile") MultipartFile coverfile,
+			@RequestParam("coverViedoFile") MultipartFile coverViedoFile, HttpSession session) throws IOException {
 
 		// 新闻预览不保存，只设置session
 		session.setAttribute("title", title);
@@ -325,7 +329,7 @@ public class AddVideoNewsControllerImpl {
 		os.close();
 		is.close();
 		session.setAttribute("preVideoF1", newFileName);
-		
+
 		// 视频封面图
 		String coverVedioImg = coverViedoFile.getOriginalFilename();
 		String newcoverVedioImg = addNewsServiceImpl.makeFileName(coverVedioImg);

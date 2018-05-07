@@ -40,7 +40,7 @@ public class AddMixNewsControllerImpl {
 
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
-	
+
 	@Resource
 	private NoticeServiceImpl noticeServiceImpl;
 
@@ -64,7 +64,7 @@ public class AddMixNewsControllerImpl {
 			HttpSession session) throws IOException {
 		// 获取用户信息
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
-		
+
 		// 第一个图片
 		String filename1 = file1.getOriginalFilename();
 		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
@@ -130,6 +130,11 @@ public class AddMixNewsControllerImpl {
 		news1.setStatues(1);
 		news1.setTopShow(0);
 		// 设置审核人id
+		if (loginUser.getUserInfo().getSendpassNum() == null) {
+			loginUser.getUserInfo().setSendpassNum(0);
+		}
+		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
+
 		news1.setAuditorId(30);
 		// 设置新闻编辑人
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
@@ -143,9 +148,9 @@ public class AddMixNewsControllerImpl {
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		this.newsServiceImpl.saveNews(news1);
-		//给管理员发送通知
+		// 给管理员发送通知
 		this.noticeServiceImpl.publish(news1.getNewsId(), loginUser);
-		
+
 		session.setAttribute("newsmodMixCenter", news1);
 		session.setAttribute("1", mod);
 
@@ -286,7 +291,7 @@ public class AddMixNewsControllerImpl {
 			HttpSession session) throws IOException {
 		// 获取用户信息
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
-		
+
 		// 第一个图片
 		String filename1 = file1.getOriginalFilename();
 		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
@@ -351,6 +356,11 @@ public class AddMixNewsControllerImpl {
 		news2.setCreateTime(currentTime);
 		news2.setTopShow(0);
 		news2.setStatues(1);
+		// 设置发表数量
+		if (loginUser.getUserInfo().getSendpassNum() == null) {
+			loginUser.getUserInfo().setSendpassNum(0);
+		}
+		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
 		// 设置审核人id
 		news2.setAuditorId(30);
 		// 设置新闻编辑人
@@ -369,9 +379,9 @@ public class AddMixNewsControllerImpl {
 		news2.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		// 保存新闻模板
 		this.newsServiceImpl.saveNews(news2);
-		//给管理员发送通知
+		// 给管理员发送通知
 		this.noticeServiceImpl.publish(news2.getNewsId(), loginUser);
-		
+
 		session.setAttribute("newsmodMixLR", news2);
 		return "redirect:/backstage/news/checking/list";
 	}
@@ -392,7 +402,7 @@ public class AddMixNewsControllerImpl {
 			@RequestParam("file1") MultipartFile file1, @RequestParam("textarea1") String textarea1,
 			@RequestParam("file2") MultipartFile file2, @RequestParam("textarea2") String textarea2,
 			@RequestParam("file3") MultipartFile file3, @RequestParam("textarea3") String textarea3,
-			@RequestParam("selectmod1") Integer  selectmod2, @RequestParam("coverImg") MultipartFile coverImg,
+			@RequestParam("selectmod1") Integer selectmod2, @RequestParam("coverImg") MultipartFile coverImg,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
 
 		// 第一个图片
@@ -498,7 +508,7 @@ public class AddMixNewsControllerImpl {
 			HttpSession session) throws IOException {
 		// 获取用户信息
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
-		
+
 		// 第一个图片
 		String filename1 = file1.getOriginalFilename();
 		String newFileName1 = addNewsServiceImpl.makeFileName(filename1);
@@ -539,6 +549,11 @@ public class AddMixNewsControllerImpl {
 		// 获取当前时间
 		Date currentTime = new Date();
 		news3.setCreateTime(currentTime);
+		// 设置发表数量
+		if (loginUser.getUserInfo().getSendpassNum() == null) {
+			loginUser.getUserInfo().setSendpassNum(0);
+		}
+		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
 		news3.setStatues(1);
 		news3.setTopShow(0);
 		// 设置审核人id
@@ -553,13 +568,13 @@ public class AddMixNewsControllerImpl {
 		modMixSingles.add(mod);
 		news3.setModMixSingles(modMixSingles);
 		// 设置新闻类型
-		
+
 		news3.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod2));
 		this.newsServiceImpl.saveNews(news3);
-		
-		//给管理员发送通知
+
+		// 给管理员发送通知
 		this.noticeServiceImpl.publish(news3.getNewsId(), loginUser);
-		
+
 		session.setAttribute("newsmodMixLR", news3);
 
 		return "redirect:/backstage/news/checking/list";

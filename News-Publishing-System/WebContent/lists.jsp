@@ -94,7 +94,7 @@
 						<c:if test="${not empty page and page.totalCount > 0}">
 							<c:forEach items="${page.list}" var="news" varStatus="status">
 								<div class="news_list">
-									<a href="#" style="text-decoration: none; out-line: none;">
+									<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}" style="text-decoration: none; out-line: none;">
 										<h2 class="list_top_p">${fn:substring(news.newsTitle, 0,50)}<c:if test="${fn:length(news.newsTitle)>50}">...</c:if></h2> 
 										<p class="list_con_p" style="font-size:15px;line-height:30px;">
 										<c:if test="${not empty news.modFrees}">
