@@ -121,7 +121,8 @@
 								</div>
 
 								<div class="r_part">
-									<a href="#" class="views">${OneNews.views}</a> <a href="#" class="comments">${OneNews.commentNum}</a>
+									<a href="#" class="views">${OneNews.views}</a> 
+									<a href="#" class="comments">${OneNews.commentNum}</a>
 								</div>
 							</div>
 
