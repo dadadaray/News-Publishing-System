@@ -87,7 +87,7 @@ public class NoticeControllerImpl {
 	
 	/**
 	 * @Title: getNews
-	 * @Description: 后台打开文章详情和审核页面
+	 * @Description: 后台打开文章详情或审核页面
 	 * @param newsId
 	 * @param tag 0 查看文章详情  1审核页面
 	 * @param request

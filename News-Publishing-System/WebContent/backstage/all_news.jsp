@@ -465,6 +465,7 @@
         var txt=e.innerText;
         window.wxc.xcConfirm(txt);
     }
+    
 
 </script>
 

@@ -95,7 +95,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="${ctx1}/backstage/logOutp" class="tpl-header-list-link">
+					<a href="${ctx1}/backstage/logOut" class="tpl-header-list-link">
 						<span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
 					</a>
 				</li>
@@ -248,7 +248,7 @@
 													<td>
 														<div class="am-btn-toolbar">
 															<div class="am-btn-group am-btn-group-xs">
-																<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																<button onclick="return preview(${news.newsId})" class="am-btn am-btn-default am-btn-xs am-text-secondary">
 																	<span class="am-icon-eye"> </span>
 																	查看
 																</button>
@@ -444,8 +444,9 @@
 		}
 
 		//查看
-		function preview() {
-			window.open("all_news_back_checking_content.jsp");
+		function preview(newsId) {
+			window.location.href="${ctx1}/backstage/notice/findoneNews?tag=0&newsId="+newsId;
+			return false;
 		}
 	</script>
 </body>

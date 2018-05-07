@@ -81,7 +81,7 @@
 					<li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link tpl-left-nav-link-list active"> <i class="am-icon-file-text"></i> <span>文章管理</span> <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
 					</a>
 						<ul class="tpl-left-nav-sub-menu" style="display: block;">
-							<li><a href="${ctx1}/backstage/news/publish/list"> <i class="am-icon-angle-right"></i> <span>发表文章</span>
+							<li><a href="${ctx1}/backstage/news/publish/list"> <i class="am-icon-angle-right"></i> <span>已发表文章</span>
 							</a> <a href="${ctx1}/backstage/news/checking/list" class="active"> <i class="am-icon-angle-right"></i> <span>审核中列表</span>
 							</a> <a href="${ctx1}/backstage/news/unchecked/list"> <i class="am-icon-angle-right"></i> <span>未通过列表</span>
 							</a></li>
@@ -163,7 +163,7 @@
 													<td>
 														<div class="am-btn-toolbar">
 															<div class="am-btn-group am-btn-group-xs">
-																<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																<button onclick="return preview(${news.newsId})" class="am-btn am-btn-default am-btn-xs am-text-secondary">
 																	<span class="am-icon-eye"> </span> 查看
 																</button>
 															</div>
@@ -216,10 +216,11 @@
 	<script src="${ctx}/assets/js/iscroll.js"></script>
 	<script src="${ctx}/assets/js/app.js"></script>
 	<script type="text/javascript">
-		//查看
-		function preview() {
-			window.open("all_news_back_checking_content.jsp");
-		}
+	//查看
+	function preview(newsId) {
+		window.location.href="${ctx1}/backstage/notice/findoneNews?tag=1&newsId="+newsId;
+		return false;
+	}
 
 		//弹窗
 		function sendsuc(e) {

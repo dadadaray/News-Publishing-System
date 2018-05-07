@@ -204,4 +204,32 @@ public class NewsControllerImpl {
 		return results;
 	}
 	
+	@RequestMapping(value = "openEdit", method = RequestMethod.GET)
+	public String openEdit(@RequestParam(name = "newsId") Integer newsId, HttpServletRequest request) {
+		News news = this.newsServiceImpl.getOneNews(newsId);
+		request.setAttribute("OneNews", news);
+		if (news.getModVedios().size() > 0) {
+			return "backstage/add_news_video";
+		}
+		if (news.getModFrees().size() > 0) {
+			return "backstage/add_news";
+		}
+		if (news.getModMixCenters().size() > 0) {
+			return "backstage/add_news_tuwenModel1";			
+		}
+		if (news.getModMixLRs().size() > 0) {
+			return "backstage/check_content_tuwenModel2";			
+		}
+		if (news.getModMixSingles().size() > 0) {
+			return "backstage/check_content_tuwenModel3";
+		}
+		if (news.getModAudios().size() > 0) {
+			return "check_content_audio";
+		}
+		if (news.getModBigImgs().size() > 0) {
+			return "check_content_bigImg";
+		}
+		return null;
+	}	
+	
 }
