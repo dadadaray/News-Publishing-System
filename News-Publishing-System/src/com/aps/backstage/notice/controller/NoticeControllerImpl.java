@@ -99,27 +99,22 @@ public class NoticeControllerImpl {
 		News news = this.newsServiceImpl.getOneNews(newsId);
 		request.setAttribute("OneNews", news);
 		if (news.getModVedios().size() > 0) {
-			//return "news_post_video";
 			return "backstage/check_content_video";
 		}
 		if (news.getModFrees().size() > 0) {
-			//return "news_free";
 			return "backstage/check_content_modelFree";
 		}
 		if (news.getModMixCenters().size() > 0) {
-			//return "news_post_style1";
 			return "backstage/check_content_tuwenModel1";			
 		}
 		if (news.getModMixLRs().size() > 0) {
 			return "backstage/check_content_tuwenModel2";			
-			//return "news_post_style2";
 		}
 		if (news.getModMixSingles().size() > 0) {
 			return "backstage/check_content_tuwenModel3";
 		}
 		if (news.getModAudios().size() > 0) {
-			//return "news_post_listen";
-			return "backstage/all_news_back_checking_content";
+			return "check_content_audio";
 		}
 		if (news.getModBigImgs().size() > 0) {
 			//return "Bgimgshow";
