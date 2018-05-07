@@ -128,7 +128,7 @@
 								<h5>视频播放</h5>
                                 <c:forEach items="${OneNews.modVedios}" var="mods" varStatus="status">
 								<div class="block_video">
-									<iframe width="612" height="344" src="${ctx}/newsAudioUp/${mods.mvideoUrl}" frameborder="0" allowfullscreen=""></iframe>
+									 <iframe width="612" height="344" src="${ctx}/newsVideoUp/${mods.mvideoUrl}" frameborder="0" allowfullscreen=""></iframe> 
 								</div>
 							
 								<p class="text_p">
