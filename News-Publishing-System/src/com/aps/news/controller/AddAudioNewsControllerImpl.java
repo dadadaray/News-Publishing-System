@@ -39,23 +39,23 @@ import com.aps.notice.service.NoticeServiceImpl;
  * 
  * @ClassName AddAudioNewsControllerImpl
  * @Description 添加音频
- * @author HanChen 
+ * @author HanChen
  * @version
  *
  */
 @Controller
 @RequestMapping("addnews/audio")
 public class AddAudioNewsControllerImpl {
-	
+
 	@Resource
 	private AddNewsServiceImpl addNewsServiceImpl;
-	
+
 	@Resource
 	private NewsTypeServiceImpl NewsTypeServiceImpl;
-	
+
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
-	
+
 	@Resource
 	private NoticeServiceImpl noticeServiceImpl;
 
@@ -74,21 +74,20 @@ public class AddAudioNewsControllerImpl {
 	 * @return String
 	 */
 	@RequestMapping(value = "sendAudioNews", method = RequestMethod.POST)
-	private String sendAudio(@RequestParam("audioFile") MultipartFile audioFile,
-			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod, 
-			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile, 
-			HttpSession session) throws IOException{
+	private String sendAudio(@RequestParam("audioFile") MultipartFile audioFile, @RequestParam("title") String title,
+			@RequestParam("selectmod") Integer selectmod, @RequestParam("textarea") String textarea,
+			@RequestParam("coverfile") MultipartFile coverfile, HttpSession session) throws IOException {
 		// 获取用户信息
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
-		
-		//音频文件名称
+
+		// 音频文件名称
 		String filename = audioFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
-		
+
 		// 写入本地磁盘
 		InputStream is = audioFile.getInputStream();
-				
-		//上传音频
+
+		// 上传音频
 		byte[] bs = new byte[1024];
 		int len;
 		// 保存路径
@@ -103,24 +102,24 @@ public class AddAudioNewsControllerImpl {
 		}
 		os.close();
 		is.close();
-		
+
 		// 封面图片
 		String realpath1 = System.getProperty("b2cweb.root") + "newsImgUp";
 		File saveFile1 = new File(realpath1);
 		if (!saveFile1.exists()) {
 			saveFile1.mkdirs();
 		}
-		
+
 		String coverImgname = coverfile.getOriginalFilename();
 		String newcoverImgname = addNewsServiceImpl.makeFileName(coverImgname);
 		InputStream is1 = coverfile.getInputStream();
 		OutputStream os1 = new FileOutputStream(realpath1 + "\\" + newcoverImgname);
-		while ((len = is1.read(bs))!= -1) {
+		while ((len = is1.read(bs)) != -1) {
 			os1.write(bs, 0, len);
 		}
 		os1.close();
 		is1.close();
-		
+
 		// 存入新闻
 		News news1 = new News();
 		news1.setNewsTitle(title);
@@ -130,7 +129,12 @@ public class AddAudioNewsControllerImpl {
 		news1.setCreateTime(currentTime);
 		news1.setStatues(1);
 		news1.setTopShow(0);
-		//设置默认值
+		// 设置默认值
+		// 设置发表数量
+		if (loginUser.getUserInfo().getSendpassNum() == null) {
+			loginUser.getUserInfo().setSendpassNum(0);
+		}
+		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
 		news1.setCommentNum(0);
 		news1.setViews(0);
 		news1.setShare(0);
@@ -138,28 +142,27 @@ public class AddAudioNewsControllerImpl {
 		// 设置审核人id
 		news1.setAuditorId(30);
 		// 设置新闻编辑人
-		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
-		news1.setUserInfo(u.getUserInfo());
-		
+		news1.setUserInfo(loginUser.getUserInfo());
+
 		// 设置新闻类型
-		
+
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
-		
+
 		Set<ModAudio> modMixSingles = new HashSet<ModAudio>(0);
 		// 保存模板
 		ModAudio mod = this.addNewsServiceImpl.saveModAudio(newFileName, textarea, news1);
 		modMixSingles.add(mod);
 		news1.setModAudios(modMixSingles);
-		
+
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
-		//给管理员发送通知
+		// 给管理员发送通知
 		this.noticeServiceImpl.publish(news1.getNewsId(), loginUser);
-		
-		return "redirect:/backstage/news/checking/list";		
-		
+
+		return "redirect:/backstage/news/checking/list";
+
 	}
-	
+
 	/**
 	 * @Title: audioSaveNewsDraft
 	 * @Description: 音频模板存草稿
@@ -171,22 +174,22 @@ public class AddAudioNewsControllerImpl {
 	 * @param session
 	 * @return
 	 * @throws IOException
-	 * @author HanChen 
+	 * @author HanChen
 	 * @return String
 	 */
 	@RequestMapping(value = "audioSaveNewsDraft", method = RequestMethod.POST)
 	private String audioSaveNewsDraft(@RequestParam("audioFile") MultipartFile audioFile,
-			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod, 
-			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile, 
-			HttpSession session) throws IOException{
-		//音频文件名称
+			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod,
+			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile,
+			HttpSession session) throws IOException {
+		// 音频文件名称
 		String filename = audioFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
-		
+
 		// 写入本地磁盘
 		InputStream is = audioFile.getInputStream();
-				
-		//上传音频
+
+		// 上传音频
 		byte[] bs = new byte[1024];
 		int len;
 		// 保存路径
@@ -201,24 +204,24 @@ public class AddAudioNewsControllerImpl {
 		}
 		os.close();
 		is.close();
-		
+
 		// 封面图片
 		String realpath1 = System.getProperty("b2cweb.root") + "newsImgUp";
 		File saveFile1 = new File(realpath1);
 		if (!saveFile1.exists()) {
 			saveFile1.mkdirs();
 		}
-		
+
 		String coverImgname = coverfile.getOriginalFilename();
 		String newcoverImgname = addNewsServiceImpl.makeFileName(coverImgname);
 		InputStream is1 = coverfile.getInputStream();
 		OutputStream os1 = new FileOutputStream(realpath1 + "\\" + newcoverImgname);
-		while ((len = is1.read(bs))!= -1) {
+		while ((len = is1.read(bs)) != -1) {
 			os1.write(bs, 0, len);
 		}
 		os1.close();
 		is1.close();
-		
+
 		// 存入新闻
 		News news1 = new News();
 		news1.setNewsTitle(title);
@@ -228,7 +231,7 @@ public class AddAudioNewsControllerImpl {
 		news1.setCreateTime(currentTime);
 		news1.setStatues(0);
 		news1.setTopShow(0);
-		//设置默认值
+		// 设置默认值
 		news1.setCommentNum(0);
 		news1.setViews(0);
 		news1.setShare(0);
@@ -238,7 +241,7 @@ public class AddAudioNewsControllerImpl {
 		// 设置新闻编辑人
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
 		news1.setUserInfo(u.getUserInfo());
-		
+
 		// 设置新闻类型
 		news1.setNewsType(this.NewsTypeServiceImpl.getNewTypeById(selectmod));
 		Set<ModAudio> modMixSingles = new HashSet<ModAudio>(0);
@@ -248,10 +251,10 @@ public class AddAudioNewsControllerImpl {
 		news1.setModAudios(modMixSingles);
 		// 保存新闻
 		this.newsServiceImpl.saveNews(news1);
-		
+
 		return "redirect:/backstage/draft/list";
-	}	
-	
+	}
+
 	/**
 	 * @Title: previewAudio
 	 * @Description: 音频预览
@@ -262,20 +265,20 @@ public class AddAudioNewsControllerImpl {
 	 * @param session
 	 * @return
 	 * @throws IOException
-	 * @author HanChen 
+	 * @author HanChen
 	 * @return String
 	 */
 	@RequestMapping(value = "previewAudio", method = RequestMethod.POST)
-	private String previewAudio(@RequestParam("audioFile") MultipartFile audioFile,
-			@RequestParam("title") String title, @RequestParam("selectmod") String selectmod, 
-			@RequestParam("textarea") String textarea, HttpSession session) throws IOException{
+	private String previewAudio(@RequestParam("audioFile") MultipartFile audioFile, @RequestParam("title") String title,
+			@RequestParam("selectmod") String selectmod, @RequestParam("textarea") String textarea, HttpSession session)
+			throws IOException {
 		// 新闻预览不保存，只设置session
 		session.setAttribute("title", title);
 		session.setAttribute("textarea", textarea);
 		session.setAttribute("selectmod", selectmod);
 		Date currentTime = new Date();
 		session.setAttribute("videoViewCurrentTime", currentTime);
-		
+
 		// 保存视频
 		String filename = audioFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
@@ -297,8 +300,8 @@ public class AddAudioNewsControllerImpl {
 		}
 		os.close();
 		is.close();
-		session.setAttribute("preAudioF1", newFileName);		
-		
+		session.setAttribute("preAudioF1", newFileName);
+
 		return "news_post_listen_eye";
 	}
 }

@@ -34,15 +34,14 @@
 	
 			<ul class="adaptive-slider"> 
 			  <!-- Slider Item -->
-			  
-			  <c:forEach items="" var="bigImgs">
+			  <c:forEach items="${OneNews.modBigImgs}" var="mods" varStatus="status">
 			  <li>
 			    <figure>
-			      <img src="${ctx}/images/1.png">
+			      <img src="${ctx}/newsImgUp/${mods.modBigImgUrl}" width="980px" height="500px">
 			      <figcaption>
-			        <h1>Hover me!</h1>
+			        <h1>${fn:substring(mods.modBigImgContent, 0,3)}</h1>
 			        <p>
-			          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			         ${mods.modBigImgContent}
 			        </p>
 			      </figcaption>
 			    </figure>
@@ -120,18 +119,8 @@
 			  <li>
 			    <figure style="height: 490px;color:#fff;background-color: #fff">     
 			          <span style="overflow-y: scroll; margin-right: 60px;padding-left: 20px;margin-top:10px;margin-left:60px;padding:20px;text-align: justify;line-height: 140%;font-size: 120%;color: #000;display: block;height: 390px;">
-			          	<h2>标题</h2>
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			             also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			          	<h2>${OneNews.newsTitle }</h2>
+			             ${OneNews.bigImgContent }
 			          </span>
 			    </figure>
 			</li>
