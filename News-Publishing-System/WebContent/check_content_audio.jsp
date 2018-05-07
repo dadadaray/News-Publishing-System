@@ -152,10 +152,12 @@
                             <p>标签: <a href="#">${OneNews.newsType.typeName}</a></p>
                         </div>
                         <!-- 审核结果 -->
-                        <div class="check_end"> 
-                        	<button type="button" class="btn_success" id="tzsucc" onclick="sendsuc(this)">通过并发表</button>
-                        	<button id="failsend" type="button" class="am_danger">未通过并回复</button>
-                        </div>
+                        <c:if test="${not empty tag and 0 eq tag}">
+	                        <div class="check_end"> 
+	                        	<button type="button" class="btn_success" id="tzsucc" onclick="sendsuc(this)">通过并发表</button>
+	                        	<button id="failsend" type="button" class="am_danger">未通过并回复</button>
+	                        </div>
+	                     </c:if>
                         <!-- 审核结束 -->                        
                     </div>
                 </div>

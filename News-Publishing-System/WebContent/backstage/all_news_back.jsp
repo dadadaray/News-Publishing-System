@@ -274,7 +274,7 @@
 													</td>
 													<td>${status.index+1}</td>
 													<td>
-														<a href="#">《${news.newsTitle}》</a>
+														<a href="#">《${fn:substring(news.newsTitle, 0,2)}<c:if test="${fn:length(news.newsTitle)>2}">...</c:if>》</a>
 													</td>
 		
 													<td>
@@ -291,7 +291,7 @@
 													<td>
 														<div class="am-btn-toolbar">
 															<div class="am-btn-group am-btn-group-xs">
-																<button onclick="preview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																<button onclick="return preview(${news.newsId})" class="am-btn am-btn-default am-btn-xs am-text-secondary">
 																	<span class="am-icon-eye"> </span>
 																	查看
 																</button>
@@ -510,8 +510,9 @@
 		}
 
 		//查看
-		function preview() {
-			window.open("${ctx}/all_news_back_checking_content.jsp");
+		function preview(newsId) {
+			window.location.href="${ctx1}/backstage/notice/findoneNews?tag=1&newsId="+newsId;
+			return false;
 		}
 	</script>
 </body>
