@@ -96,7 +96,6 @@
 								<p>最新热点新闻</p>
 							</div>
 							<div class="title">
-							<c:set var="newsHonorList" value="${sessionScope.listNewsIndex1}"></c:set>
 							<c:forEach items="${hotpoint}" var="news">
 								<p>
 									<a href="${ctx}/newsFront/findoneNews?newsId=${news.newsId}">${news.newsTitle }</a>

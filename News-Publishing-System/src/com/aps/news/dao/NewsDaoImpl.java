@@ -215,7 +215,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	 * @return Page<News>
 	 */
 	public Page<News> getHotNewsList(int pageNum, int pageSize, Object[] params, int timeSlot) {
-		String hql = "from News n where n.publishTime!= null and n.auditorId = ? and n.statues = 4 ";
+		String hql = "from News n where n.auditorId = ? and n.statues = 4 ";
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String startDate = "", endDate = "", date = "";
