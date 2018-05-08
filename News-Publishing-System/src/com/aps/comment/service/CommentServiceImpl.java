@@ -13,6 +13,16 @@ public class CommentServiceImpl {
 	
 	@Resource
 	private CommentDaoImpl commentDaoImpl;
+	
+	/**
+	 * @dec 批量删除用户的所有评论
+	 * @param userInfoIds
+	 * @return
+	 */
+	@Transactional(readOnly = false)
+	public int deleteComments(String userInfoIds) {
+		return this.commentDaoImpl.deleteComments(userInfoIds);	
+	}
 
 	/**
 	 * @dec 保存评论
