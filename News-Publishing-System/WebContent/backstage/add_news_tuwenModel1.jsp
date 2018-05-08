@@ -116,129 +116,129 @@
 											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="mod1title" value="${empty OneNews.newsTitle ? 这是题目 : OneNews.newsTitle }">
 											<c:choose>
 												<c:when test="${not empty OneNews.modMixLRs}">
-													<c:forEach items="${OneNews.modMixLRs}" var="modMixLR">	
-																																			
-											<div style="overflow: hidden; margin-top: 20px;">
-												<div class="am-u-md-3" style="float: left;">
-													<!--  图片上传显示  位置禁止移动-->
-													<!--input-group start-->
-													<div class="upload_box">
-														<input type="file" name="file1" class="file" onchange="imgChange(this);" style="width: 170px; outline: none;" />
-														<div class="preview">
-															<img class="imghead" src="${ctx1}/newsImgUp/${modMixLR.mMixLRImgOne}" width="194" height="129" />
+													<c:forEach items="${OneNews.modMixLRs}" var="modMixLR">
+
+														<div style="overflow: hidden; margin-top: 20px;">
+															<div class="am-u-md-3" style="float: left;">
+																<!--  图片上传显示  位置禁止移动-->
+																<!--input-group start-->
+																<div class="upload_box">
+																	<input type="file" name="file1" class="file" onchange="imgChange(this);" style="width: 170px; outline: none;" />
+																	<div class="preview">
+																		<img class="imghead" src="${ctx1}/newsImgUp/${modMixLR.mMixLRImgOne}" width="194" height="129" />
+																	</div>
+																</div>
+																<!--input-group end-->
+															</div>
+															<!--文本域 -->
+															<div class="am-u-md-9" style="float: left;">
+																<textarea name="textarea1" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容">${modMixLR.mMixLRContentOne}</textarea>
+															</div>
 														</div>
-													</div>
-													<!--input-group end-->
-												</div>
-												<!--文本域 -->
-												<div class="am-u-md-9" style="float: left;">
-													<textarea name="textarea1" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容">${modMixLR.mMixLRContentOne}</textarea>
-												</div>
-											</div>
-											<div style="overflow: hidden; margin-top: 20px;">
-												<!--  图片上传显示-->
-												<!--input-group start-->
-												<div class="am-u-md-3" style="float: right; padding: 0px;">
-													<!--  图片上传显示-->
-													<!--input-group start-->
-													<div class="upload_box">
-														<input type="file" name="file2" class="file" onchange="imgChange(this);" style="width: 170px; outline: none;" />
-														<div class="preview">
-															<img class="imghead" src="${ctx1}/newsImgUp/${modMixLR.mMixLRImgTwo}" width="194" height="129" />
+														<div style="overflow: hidden; margin-top: 20px;">
+															<!--  图片上传显示-->
+															<!--input-group start-->
+															<div class="am-u-md-3" style="float: right; padding: 0px;">
+																<!--  图片上传显示-->
+																<!--input-group start-->
+																<div class="upload_box">
+																	<input type="file" name="file2" class="file" onchange="imgChange(this);" style="width: 170px; outline: none;" />
+																	<div class="preview">
+																		<img class="imghead" src="${ctx1}/newsImgUp/${modMixLR.mMixLRImgTwo}" width="194" height="129" />
+																	</div>
+																</div>
+																<!--input-group end-->
+															</div>
+															<!--input-group end-->
+															<!--文本域 -->
+															<div class="am-u-md-9" style="float: right;">
+																<textarea name="textarea2" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容">${modMixLR.mMixLRContentTwo}</textarea>
+															</div>
 														</div>
-													</div>
-													<!--input-group end-->
-												</div>
-												<!--input-group end-->
-												<!--文本域 -->
-												<div class="am-u-md-9" style="float: right;">
-													<textarea name="textarea2" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容">${modMixLR.mMixLRContentTwo}</textarea>
-												</div>
-											</div>
-											<div style="overflow: hidden; margin-top: 20px;">
-												<!--  图片上传显示-->
-												<!--input-group start-->
-												<div class="am-u-md-3" style="float: left;">
-													<!--  图片上传显示-->
-													<!--input-group start-->
-													<div class="upload_box">
-														<input type="file" name="file3" class="file" onchange="imgChange(this);" style="width: 170px; outline: none" />
-														<div class="preview">
-															<img class="imghead" src="${ctx1}/newsImgUp/${modMixLR.mMixLRImgThree}" width="194" height="129" />
+														<div style="overflow: hidden; margin-top: 20px;">
+															<!--  图片上传显示-->
+															<!--input-group start-->
+															<div class="am-u-md-3" style="float: left;">
+																<!--  图片上传显示-->
+																<!--input-group start-->
+																<div class="upload_box">
+																	<input type="file" name="file3" class="file" onchange="imgChange(this);" style="width: 170px; outline: none" />
+																	<div class="preview">
+																		<img class="imghead" src="${ctx1}/newsImgUp/${modMixLR.mMixLRImgThree}" width="194" height="129" />
+																	</div>
+																</div>
+																<!--input-group end-->
+															</div>
+															<!--input-group end-->
+															<!--文本域 -->
+															<div class="am-u-md-9" style="float: left;">
+																<textarea name="textarea3" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容">${modMixLR.mMixLRContentThree}</textarea>
+															</div>
 														</div>
-													</div>
-													<!--input-group end-->
-												</div>
-												<!--input-group end-->
-												<!--文本域 -->
-												<div class="am-u-md-9" style="float: left;">
-													<textarea name="textarea3" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容">${modMixLR.mMixLRContentThree}</textarea>
-												</div>
-											</div>
-											
+
 													</c:forEach>
 												</c:when>
-											<c:otherwise>
-											<div style="overflow: hidden; margin-top: 20px;">
-												<div class="am-u-md-3" style="float: left;">
-													<!--  图片上传显示  位置禁止移动-->
-													<!--input-group start-->
-													<div class="upload_box">
-														<input type="file" name="file1" class="file" onchange="imgChange(this);" style="width: 170px; outline: none;" />
-														<div class="preview">
-															<img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="194" height="129" />
+												<c:otherwise>
+													<div style="overflow: hidden; margin-top: 20px;">
+														<div class="am-u-md-3" style="float: left;">
+															<!--  图片上传显示  位置禁止移动-->
+															<!--input-group start-->
+															<div class="upload_box">
+																<input type="file" name="file1" class="file" onchange="imgChange(this);" style="width: 170px; outline: none;" />
+																<div class="preview">
+																	<img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="194" height="129" />
+																</div>
+															</div>
+															<!--input-group end-->
+														</div>
+														<!--文本域 -->
+														<div class="am-u-md-9" style="float: left;">
+															<textarea name="textarea1" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容"></textarea>
 														</div>
 													</div>
-													<!--input-group end-->
-												</div>
-												<!--文本域 -->
-												<div class="am-u-md-9" style="float: left;">
-													<textarea name="textarea1" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容"></textarea>
-												</div>
-											</div>
-											<div style="overflow: hidden; margin-top: 20px;">
-												<!--  图片上传显示-->
-												<!--input-group start-->
-												<div class="am-u-md-3" style="float: right; padding: 0px;">
-													<!--  图片上传显示-->
-													<!--input-group start-->
-													<div class="upload_box">
-														<input type="file" name="file2" class="file" onchange="imgChange(this);" style="width: 170px; outline: none;" />
-														<div class="preview">
-															<img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="194" height="129" />
+													<div style="overflow: hidden; margin-top: 20px;">
+														<!--  图片上传显示-->
+														<!--input-group start-->
+														<div class="am-u-md-3" style="float: right; padding: 0px;">
+															<!--  图片上传显示-->
+															<!--input-group start-->
+															<div class="upload_box">
+																<input type="file" name="file2" class="file" onchange="imgChange(this);" style="width: 170px; outline: none;" />
+																<div class="preview">
+																	<img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="194" height="129" />
+																</div>
+															</div>
+															<!--input-group end-->
+														</div>
+														<!--input-group end-->
+														<!--文本域 -->
+														<div class="am-u-md-9" style="float: right;">
+															<textarea name="textarea2" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容"></textarea>
 														</div>
 													</div>
-													<!--input-group end-->
-												</div>
-												<!--input-group end-->
-												<!--文本域 -->
-												<div class="am-u-md-9" style="float: right;">
-													<textarea name="textarea2" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容"></textarea>
-												</div>
-											</div>
-											<div style="overflow: hidden; margin-top: 20px;">
-												<!--  图片上传显示-->
-												<!--input-group start-->
-												<div class="am-u-md-3" style="float: left;">
-													<!--  图片上传显示-->
-													<!--input-group start-->
-													<div class="upload_box">
-														<input type="file" name="file3" class="file" onchange="imgChange(this);" style="width: 170px; outline: none" />
-														<div class="preview">
-															<img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="194" height="129" />
+													<div style="overflow: hidden; margin-top: 20px;">
+														<!--  图片上传显示-->
+														<!--input-group start-->
+														<div class="am-u-md-3" style="float: left;">
+															<!--  图片上传显示-->
+															<!--input-group start-->
+															<div class="upload_box">
+																<input type="file" name="file3" class="file" onchange="imgChange(this);" style="width: 170px; outline: none" />
+																<div class="preview">
+																	<img class="imghead" src="${ctx}/assets/img/photo_icon.png" width="194" height="129" />
+																</div>
+															</div>
+															<!--input-group end-->
+														</div>
+														<!--input-group end-->
+														<!--文本域 -->
+														<div class="am-u-md-9" style="float: left;">
+															<textarea name="textarea3" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容"></textarea>
 														</div>
 													</div>
-													<!--input-group end-->
-												</div>
-												<!--input-group end-->
-												<!--文本域 -->
-												<div class="am-u-md-9" style="float: left;">
-													<textarea name="textarea3" rows="8" id="doc-ta-1" style="width: 100%; font-size: 16px; line-height: 28px; border: 1px solid #c2cad8;" maxlength="200" placeholder="请输入不超过200字内容"></textarea>
-												</div>
-											</div>
-											</c:otherwise>
-											</c:choose>											
-											
+												</c:otherwise>
+											</c:choose>
+
 											<div class="am-form-group" style="margin-top: 20px;">
 												<label for="user-weibo" class="am-u-sm-2 am-form-label">添加分类</label>
 												<div class="am-u-sm-10">

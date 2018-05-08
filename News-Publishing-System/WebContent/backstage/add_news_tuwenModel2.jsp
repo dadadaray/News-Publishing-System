@@ -113,7 +113,8 @@
 								<div class="am-g">
 									<div class="tpl-form-body tpl-form-line">
 										<form id="Form_model2" class="am-form tpl-form-line-form" target="" action="" method="post" enctype="multipart/form-data">
-											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="mod2title" value="这是题目">
+										    <input id="newsId" value="${OneNews.newsId}" type="hidden"/>
+											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="mod2title" value="${empty OneNews.newsTitle ? 这是题目 : OneNews.newsTitle }">
 
 											<div>
 												<div style="padding: 10px; text-align: center;">
