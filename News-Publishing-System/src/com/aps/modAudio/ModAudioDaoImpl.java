@@ -11,11 +11,13 @@ package com.aps.modAudio;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.aps.entity.ModAudio;
 import com.framework.BaseDao;
+import com.framework.SqlUtils;
 
 /**
  * 
@@ -37,4 +39,16 @@ public class ModAudioDaoImpl extends BaseDao<ModAudio, String> {
 			e.printStackTrace();
 		}
 	}
+	
+	public int deleteModAudio(String newsIds) {
+		int ret = 0;
+		try {
+			Query query = this.sessionFactory.getCurrentSession()
+					.createQuery("delete from ModAudio m where m.news.newsId in" + SqlUtils.toLikeSqlForStr(newsIds, ","));
+			ret = query.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}	
 }

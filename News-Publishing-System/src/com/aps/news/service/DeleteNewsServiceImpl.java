@@ -33,7 +33,7 @@ import com.aps.modVideo.ModVedioDaoImpl;
 @Service
 public class DeleteNewsServiceImpl {
 	@Resource
-	private modMixCenterDaoImpl addNewsDaoImpl;
+	private modMixCenterDaoImpl modMixCenterDaoImpl;
 	@Resource
 	private modMixLFDaoImpl modMixLFDaoImpl;
 	@Resource
@@ -52,6 +52,19 @@ public class DeleteNewsServiceImpl {
 	private ModFreeDaoImpl modFreeDaoImpl;
 	
 	/**
+	 * @Title: deleteMixCenter
+	 * @Description: 图文混合模板一删除
+	 * @param newsIds
+	 * @return
+	 * @author HanChen
+	 * @return int
+	 */
+	@Transactional(readOnly = false)
+	public int deleteMixCenter(String newsIds) {
+		return this.modMixCenterDaoImpl.deleteModMixCenter(newsIds);	
+	}
+	
+	/**
 	 * @Title: deleteMixLF
 	 * @Description: 图文混合模板二删除
 	 * @param newsIds
@@ -62,5 +75,70 @@ public class DeleteNewsServiceImpl {
 	@Transactional(readOnly = false)
 	public int deleteMixLF(String newsIds) {
 		return this.modMixLFDaoImpl.deleteModMixLR(newsIds);	
+	}
+	
+	/**
+	 * @Title: deleteModMixSingle
+	 * @Description: 图文混合模板三删除
+	 * @param newsIds
+	 * @return
+	 * @author HanChen 
+	 * @return int
+	 */
+	@Transactional(readOnly = false)
+	public int deleteModMixSingle(String newsIds) {
+		return this.modMixSingleDaoImpl.deleteModMixSingle(newsIds);	
+	}
+	
+	/**
+	 * @Title: deleteModBigImg
+	 * @Description: 大图轮播删除
+	 * @param newsIds
+	 * @return
+	 * @author HanChen 
+	 * @return int
+	 */
+	@Transactional(readOnly = false)
+	public int deleteModBigImg(String newsIds) {
+		return this.modBigImgDaoImpl.deleteModBigImg(newsIds);	
+	}	
+	
+	/**
+	 * @Title: deleteModFree
+	 * @Description: 自由排版删除
+	 * @param newsIds
+	 * @return
+	 * @author HanChen  
+	 * @return int
+	 */
+	@Transactional(readOnly = false)
+	public int deleteModFree(String newsIds) {
+		return this.modFreeDaoImpl.deleteModFree(newsIds);	
+	}
+	
+	/**
+	 * @Title: deleteModVedio
+	 * @Description: 视频删除
+	 * @param newsIds
+	 * @return
+	 * @author HanChen  
+	 * @return int
+	 */
+	@Transactional(readOnly = false)
+	public int deleteModVedio(String newsIds) {
+		return this.modModVedioDaoImpl.deleteModVedio(newsIds);	
+	}
+	
+	/**
+	 * @Title: deleteModAudio
+	 * @Description: 音频删除
+	 * @param newsIds
+	 * @return
+	 * @author HanChen  
+	 * @return int
+	 */
+	@Transactional(readOnly = false)
+	public int deleteModAudio(String newsIds) {
+		return this.modAudioDaoImpl.deleteModAudio(newsIds);	
 	}
 }

@@ -20,6 +20,7 @@ import com.aps.entity.Role;
 import com.aps.entity.UserInfo;
 import com.aps.news.service.DeleteNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
+import com.aps.comment.service.CommentServiceImpl;
 import com.aps.notice.service.NoticeServiceImpl;
 import com.aps.role.service.RoleServiceImpl;
 import com.framework.EncodingTool;
@@ -43,6 +44,9 @@ public class LoginUserControllerImpl {
 	
 	@Resource
 	private DeleteNewsServiceImpl deleteNewsServiceImpl;
+	
+	@Resource
+	private CommentServiceImpl CommentServiceImpl;
 
 	/**
 	 * 功能： 实现注册功能
@@ -163,23 +167,29 @@ public class LoginUserControllerImpl {
 			delNotice = this.noticeServiceImpl.deleteNotice(noticeIds);
 		}
 		
-		//2、删除新闻
+		//2、删除评论
+		delComments = this.CommentServiceImpl.deleteComments(userIds);
+		
+		//3、删除新闻
 		String newsIds = this.newsServiceImpl.getNewsIdByUserId(userIds);
 		//删除新闻涉及的所有模板
+		this.deleteNewsServiceImpl.deleteModFree(newsIds);
+		this.deleteNewsServiceImpl.deleteMixCenter(newsIds);
 		this.deleteNewsServiceImpl.deleteMixLF(newsIds);
+		this.deleteNewsServiceImpl.deleteModMixSingle(newsIds);
+		this.deleteNewsServiceImpl.deleteModBigImg(newsIds);
+		this.deleteNewsServiceImpl.deleteModVedio(newsIds);
+		this.deleteNewsServiceImpl.deleteModAudio(newsIds);
 		//删除新闻基础实体
 		if (!StringUtils.isBlank(newsIds)) {
 			delNews = this.newsServiceImpl.deleteNews(newsIds);
 		}
 		
-		//3、删除评论
-		
-		
 		//4、删除用户
 		delUsers = this.backUserServiceImpl.deleteUser(userIds);
 
 		if (0 != delUsers) {
-			results = delNotice + delNews + delUsers;
+			results = delNotice + delNews + delComments + delUsers;
 		}
 
 		return results;
