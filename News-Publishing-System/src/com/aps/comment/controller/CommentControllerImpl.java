@@ -8,11 +8,13 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aps.backstage.userinfo.service.BackUserInfoServiceImpl;
 import com.aps.comment.service.CommentServiceImpl;
@@ -33,7 +35,19 @@ public class CommentControllerImpl {
 
 	@Resource
 	private CommentServiceImpl commentServiceImpl;
-	
+
+	/**
+	 * @dec 删除用户的所有评论
+	 * @author Ray
+	 * @param noticeIdsIds
+	 * @return
+	 */
+	@RequestMapping(value = "delectAllComment", method = RequestMethod.GET)
+	@ResponseBody
+	public int deleteComments(@RequestParam(name = "userInfoId") String noticeIdsIds){
+		int  delNews =  this.commentServiceImpl.deleteComments(noticeIdsIds);
+		return delNews;
+	}
 
 	/**
 	 * @dec 添加父级评论和二级评论
