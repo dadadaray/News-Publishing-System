@@ -3,6 +3,7 @@ package com.aps.backstage.loginUser.controller;
 import java.util.Date;
 
 import javax.annotation.Resource;
+import javax.jms.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -46,7 +47,7 @@ public class LoginUserControllerImpl {
 	private DeleteNewsServiceImpl deleteNewsServiceImpl;
 	
 	@Resource
-	private CommentServiceImpl CommentServiceImpl;
+	private CommentServiceImpl commentServiceImpl;
 
 	/**
 	 * 功能： 实现注册功能
@@ -158,20 +159,18 @@ public class LoginUserControllerImpl {
 	 */
 	@RequestMapping(value = "user/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public int deleteUsers(@RequestParam(name = "userIds") String userIds) {
-		int delNotice = 0, delNews = 0, delComments = 0, delUsers = 0, results = 0;
+	public int deleteUsers(@RequestParam(name = "userIds") String userInfoIds,HttpSession session) {
+		// 0 删除失败      
+		//LoginUser user=(LoginUser) session.getAttribute("bloginUser");
+		this.commentServiceImpl.deleteComments(userInfoIds);
 		
-		//1、删除通知
-		String noticeIds = this.noticeServiceImpl.getNoticeByUserId(userIds);
+		//删除通知
+		String noticeIds = this.noticeServiceImpl.getNoticeByUserId(userInfoIds);
 		if (!StringUtils.isBlank(noticeIds)) {// 需要删除用户相关的通知
-			delNotice = this.noticeServiceImpl.deleteNotice(noticeIds);
+			this.noticeServiceImpl.deleteNotice(noticeIds);
 		}
-		
-		//2、删除评论
-		delComments = this.CommentServiceImpl.deleteComments(userIds);
-		
 		//3、删除新闻
-		String newsIds = this.newsServiceImpl.getNewsIdByUserId(userIds);
+		String newsIds = this.newsServiceImpl.getNewsIdByUserId(userInfoIds);
 		//删除新闻涉及的所有模板
 		this.deleteNewsServiceImpl.deleteModFree(newsIds);
 		this.deleteNewsServiceImpl.deleteMixCenter(newsIds);
@@ -182,17 +181,11 @@ public class LoginUserControllerImpl {
 		this.deleteNewsServiceImpl.deleteModAudio(newsIds);
 		//删除新闻基础实体
 		if (!StringUtils.isBlank(newsIds)) {
-			delNews = this.newsServiceImpl.deleteNews(newsIds);
+			this.newsServiceImpl.deleteNews(newsIds);
 		}
-		
-		//4、删除用户
-		delUsers = this.backUserServiceImpl.deleteUser(userIds);
-
-		if (0 != delUsers) {
-			results = delNotice + delNews + delComments + delUsers;
-		}
-
-		return results;
+		//删除用户
+		this.backUserServiceImpl.deleteUser(userInfoIds);
+		return 1 ;
 	}
 
 }

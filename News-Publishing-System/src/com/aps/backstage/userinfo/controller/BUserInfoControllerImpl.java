@@ -46,5 +46,7 @@ public class BUserInfoControllerImpl {
         
 		return "backstage/userinfo";
 	}
+	
+	
 
 }

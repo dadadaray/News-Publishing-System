@@ -167,6 +167,9 @@
 												<a id="mod3saveNewsDraft"class="am-btn am-btn-primary tpl-btn-bg-color-success add_draft">存草稿</a> 
 												<a id="previewMod3" class="am-btn am-btn-primary tpl-btn-bg-color-success add_eye">预 览</a>
 												<a id="sendMod3" class="am-btn am-btn-primary tpl-btn-bg-color-success add_fa">发 布</a>
+												<br/>
+												<br/>
+												<br/>
 											</div>
 										</form>
 									</div>
