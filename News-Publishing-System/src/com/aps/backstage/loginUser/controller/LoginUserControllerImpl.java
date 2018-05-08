@@ -18,7 +18,9 @@ import com.aps.backstage.loginUser.service.BackUserServiceImpl;
 import com.aps.entity.LoginUser;
 import com.aps.entity.Role;
 import com.aps.entity.UserInfo;
+import com.aps.news.service.DeleteNewsServiceImpl;
 import com.aps.news.service.NewsServiceImpl;
+import com.aps.comment.service.CommentServiceImpl;
 import com.aps.notice.service.NoticeServiceImpl;
 import com.aps.role.service.RoleServiceImpl;
 import com.framework.EncodingTool;
@@ -39,6 +41,12 @@ public class LoginUserControllerImpl {
 
 	@Resource
 	private NewsServiceImpl newsServiceImpl;
+	
+	@Resource
+	private DeleteNewsServiceImpl deleteNewsServiceImpl;
+	
+	@Resource
+	private CommentServiceImpl CommentServiceImpl;
 
 	/**
 	 * 功能： 实现注册功能
@@ -151,25 +159,37 @@ public class LoginUserControllerImpl {
 	@RequestMapping(value = "user/delete", method = RequestMethod.POST)
 	@ResponseBody
 	public int deleteUsers(@RequestParam(name = "userIds") String userIds) {
-		int delNotice = 0, delNews = 0, delUsers = 0, results = 0;
+		int delNotice = 0, delNews = 0, delComments = 0, delUsers = 0, results = 0;
+		
+		//1、删除通知
 		String noticeIds = this.noticeServiceImpl.getNoticeByUserId(userIds);
 		if (!StringUtils.isBlank(noticeIds)) {// 需要删除用户相关的通知
 			delNotice = this.noticeServiceImpl.deleteNotice(noticeIds);
 		}
-
+		
+		//2、删除评论
+		delComments = this.CommentServiceImpl.deleteComments(userIds);
+		
+		//3、删除新闻
 		String newsIds = this.newsServiceImpl.getNewsIdByUserId(userIds);
-		if (!StringUtils.isBlank(newsIds)) {// 需要删除用户相关的新闻
+		//删除新闻涉及的所有模板
+		this.deleteNewsServiceImpl.deleteModFree(newsIds);
+		this.deleteNewsServiceImpl.deleteMixCenter(newsIds);
+		this.deleteNewsServiceImpl.deleteMixLF(newsIds);
+		this.deleteNewsServiceImpl.deleteModMixSingle(newsIds);
+		this.deleteNewsServiceImpl.deleteModBigImg(newsIds);
+		this.deleteNewsServiceImpl.deleteModVedio(newsIds);
+		this.deleteNewsServiceImpl.deleteModAudio(newsIds);
+		//删除新闻基础实体
+		if (!StringUtils.isBlank(newsIds)) {
 			delNews = this.newsServiceImpl.deleteNews(newsIds);
-			if (0 != delNews) {
-				// 需要删除所有模板的文章详情
-
-			}
 		}
-
+		
+		//4、删除用户
 		delUsers = this.backUserServiceImpl.deleteUser(userIds);
 
 		if (0 != delUsers) {
-			results = delNotice + delNews + delUsers;
+			results = delNotice + delNews + delComments + delUsers;
 		}
 
 		return results;

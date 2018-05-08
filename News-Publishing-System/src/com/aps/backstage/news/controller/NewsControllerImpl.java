@@ -198,8 +198,13 @@ public class NewsControllerImpl {
 			delNotice =  this.noticeServiceImpl.deleteNotice(noticeIds);
 		}
 		//删除新闻涉及的所有模板
+		this.deleteNewsServiceImpl.deleteModFree(newsIds);
+		this.deleteNewsServiceImpl.deleteMixCenter(newsIds);
 		this.deleteNewsServiceImpl.deleteMixLF(newsIds);
-		
+		this.deleteNewsServiceImpl.deleteModMixSingle(newsIds);
+		this.deleteNewsServiceImpl.deleteModBigImg(newsIds);
+		this.deleteNewsServiceImpl.deleteModVedio(newsIds);
+		this.deleteNewsServiceImpl.deleteModAudio(newsIds);
 		
 		delNews =  this.newsServiceImpl.deleteNews(newsIds);
 		if( 0 != delNews){

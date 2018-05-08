@@ -30,7 +30,7 @@ public class CommentDaoImpl extends BaseDao<Comment, String>{
 		int ret = 0;
 		try {
 			Query query = this.sessionFactory.getCurrentSession()
-					.createQuery("delete from Comment n where n.commentAuthorID in" + SqlUtils.toLikeSqlForStr(userInfoIds, ","));
+					.createQuery("delete from Comment n where n.userInfo.userInfoId in" + SqlUtils.toLikeSqlForStr(userInfoIds, ","));
 			ret = query.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
