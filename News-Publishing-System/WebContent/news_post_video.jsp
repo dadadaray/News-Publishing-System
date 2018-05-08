@@ -124,7 +124,7 @@
 								</div>
 							</div>
 
-							<div class="content">
+							<div class="content text_p">
 								<h5>视频播放</h5>
                                 <c:forEach items="${OneNews.modVedios}" var="mods" varStatus="status">
 								<div class="block_video">

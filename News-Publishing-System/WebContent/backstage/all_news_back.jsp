@@ -299,7 +299,7 @@
 																	<span class="am-icon-level-up"> </span>
 																	推荐
 																</button>
-																<input type="hidden" data-id="1" />
+																<input type="hidden" data-id="${news.newsId}" />
 																<button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
 																	<span class="am-icon-trash-o"></span>
 																	删除

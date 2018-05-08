@@ -117,13 +117,13 @@
                         <div class="content">
                            <div class="separator" style="height:4px;"></div>
                                 <div class="separator" style="height:4px;"></div>
-                                <a href="#" class="pic w_frame alignleft"><img src="${ctx}/preViewImgUp/${premod1F1}" alt=""/></a>
+                                <a href="#" class="pic w_frame alignleft"><img src="${ctx}/preViewImgUp/${premod1F1}" alt="" width="310px" height="130px"/></a>
                                 <p class="text_p">   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${mod1textarea1}</p>
                                 
-                            <a href="#" class="pic w_frame alignright"><img src="${ctx}/preViewImgUp/${premod1F2}" alt="" /></a>
+                            <a href="#" class="pic w_frame alignright"><img src="${ctx}/preViewImgUp/${premod1F2}" alt="" width="310px" height="130px"/></a>
                             <p class="text_p">　${mod1textarea2}</p>
                             <div class="separator" style="height:4px;"></div>
-                                <a href="#" class="pic w_frame alignleft"><img src="${ctx}/preViewImgUp/${premod1F3}" alt=""/></a>
+                                <a href="#" class="pic w_frame alignleft"><img src="${ctx}/preViewImgUp/${premod1F3}" alt="" width="310px" height="130px"/></a>
                                 <p class="text_p">   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${mod1textarea3}</p>
 
 

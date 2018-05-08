@@ -289,6 +289,7 @@ public class AddMixNewsControllerImpl {
 			@RequestParam("textarea3") String textarea3, @RequestParam("selectmod1") Integer selectmod2,
 			@RequestParam("coverImg") MultipartFile coverImg, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws IOException {
+		
 		// 获取用户信息
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
 

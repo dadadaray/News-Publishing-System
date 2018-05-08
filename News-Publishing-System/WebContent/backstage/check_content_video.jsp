@@ -200,7 +200,7 @@
 													</div>
 												</div>
 
-												<div class="content">
+												<div class="content text_p">
 												<c:if test="${not empty OneNews.modVedios}">
                                						<c:forEach items="${OneNews.modVedios}" var="modVedio">	
 						                            <div class="block_video">

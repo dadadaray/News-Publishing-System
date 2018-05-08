@@ -9,7 +9,6 @@
 
 package com.aps.backstage.news.controller;
 
-import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +23,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aps.entity.LoginUser;
 import com.aps.entity.News;
-import com.aps.entity.Notice;
-import com.aps.entity.UserInfo;
 import com.aps.news.service.NewsServiceImpl;
 import com.aps.notice.service.NoticeServiceImpl;
+import com.aps.news.service.DeleteNewsServiceImpl;
 import com.framework.Page;
 
 /**
@@ -47,6 +45,9 @@ public class NewsControllerImpl {
 	
 	@Resource
 	private NoticeServiceImpl noticeServiceImpl;
+	
+	@Resource
+	private DeleteNewsServiceImpl deleteNewsServiceImpl;
 	
 	/**
 	 * @Title: publishNewsList
@@ -196,6 +197,10 @@ public class NewsControllerImpl {
 		if(!StringUtils.isBlank(noticeIds)){//需要删除文章相关的通知
 			delNotice =  this.noticeServiceImpl.deleteNotice(noticeIds);
 		}
+		//删除新闻涉及的所有模板
+		this.deleteNewsServiceImpl.deleteMixLF(newsIds);
+		
+		
 		delNews =  this.newsServiceImpl.deleteNews(newsIds);
 		if( 0 != delNews){
 			results = delNotice + delNews;
@@ -204,6 +209,15 @@ public class NewsControllerImpl {
 		return results;
 	}
 	
+	/**
+	 * @Title: openEdit
+	 * @Description: 打开编辑页面
+	 * @param newsId
+	 * @param request
+	 * @return
+	 * @author HanChen
+	 * @return String
+	 */
 	@RequestMapping(value = "openEdit", method = RequestMethod.GET)
 	public String openEdit(@RequestParam(name = "newsId") Integer newsId, HttpServletRequest request) {
 		News news = this.newsServiceImpl.getOneNews(newsId);
@@ -215,19 +229,20 @@ public class NewsControllerImpl {
 			return "backstage/add_news";
 		}
 		if (news.getModMixCenters().size() > 0) {
-			return "backstage/add_news_tuwenModel1";			
+			return 	"backstage/add_news_tuwenModel2";		
 		}
 		if (news.getModMixLRs().size() > 0) {
-			return "backstage/check_content_tuwenModel2";			
+			return "backstage/add_news_tuwenModel1";
+			
 		}
 		if (news.getModMixSingles().size() > 0) {
-			return "backstage/check_content_tuwenModel3";
+			return "backstage/add_news_tuwenModel3";
 		}
 		if (news.getModAudios().size() > 0) {
-			return "check_content_audio";
+			return "backstage/add_news_audio";
 		}
 		if (news.getModBigImgs().size() > 0) {
-			return "check_content_bigImg";
+			return "backstage/add_news_img";
 		}
 		return null;
 	}	

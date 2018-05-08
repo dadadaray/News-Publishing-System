@@ -126,7 +126,7 @@
 								</div>
 							</div>
 
-							<div class="content">
+							<div class="content text_p">
 
 								<h5>音频播放器</h5>
 								<c:forEach items="${OneNews.modAudios}" var="mods" varStatus="status">

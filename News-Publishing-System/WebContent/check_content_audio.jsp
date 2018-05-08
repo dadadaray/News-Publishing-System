@@ -136,7 +136,7 @@
                                 </div>
                             </div>
 
-                            <div class="content">
+                            <div class="content text_p">
                             <c:if test="${not empty OneNews.modAudios}">
                            		<c:forEach items="${OneNews.modAudios}" var="modAudio">                            
 		                            <div class="block_audio">

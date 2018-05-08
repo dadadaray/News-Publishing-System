@@ -157,7 +157,7 @@
                             <li>
                                 <a href="${ctx1}/backstage/news/publish/list">
                                    <i class="am-icon-angle-right"></i>
-                                    <span>发表文章</span>
+                                    <span>已发表文章</span>
                                 </a>
                                 <a href="${ctx1}/backstage/news/checking/list">
                                    <i class="am-icon-angle-right"></i>

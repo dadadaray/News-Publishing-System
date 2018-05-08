@@ -456,7 +456,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	public void updateNews(News news) {
 		try {
 			super.update(news);
-			System.out.print("已更新");
+			System.out.print("已更新news基础实体");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -260,7 +260,7 @@
 		                                            <td>
 		                                                <div class="am-btn-toolbar">
 		                                                    <div class="am-btn-group am-btn-group-xs">
-		                                                        <button onclick="edit()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+		                                                        <button onclick="edit(${news.newsId})" class="am-btn am-btn-default am-btn-xs am-text-secondary">
 		                                                            <span class="am-icon-pencil-square-o">
 		                                                            </span> 编辑
 		                                                        </button>
@@ -456,8 +456,8 @@
     } 
 
     //查看
-    function edit(){
-        window.open("${ctx}/add_news.jsp");
+    function edit(newsId){
+        window.open("${ctx1}/backstage/news/openEdit?newsId=" + newsId);
     }
 
     //弹窗
