@@ -32,6 +32,23 @@ import com.framework.Page;
 public class NewsServiceImpl {
 	@Resource
 	private NewsDaoImpl newsDaoImpl;
+	
+	/**
+	 * @dec 按时间排序获取 首页推荐文章
+	 * @author Ray
+	 * @return
+	 */
+	public List<News> findNewsBigTop() {
+		return newsDaoImpl.findNewsBigTop();
+	}
+	/**
+	 * @dec 按时间排序获取 首页推荐文章
+	 * @author Ray
+	 * @return
+	 */
+	public List<News> leftVedio() {
+		return newsDaoImpl.leftVedio();
+	}
 	/**
 	 * @前台获取所有新闻
 	 * @author Ray

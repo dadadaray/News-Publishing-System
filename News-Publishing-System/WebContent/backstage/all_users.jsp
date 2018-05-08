@@ -205,10 +205,7 @@
 		                                            <td>
 		                                                <div class="am-btn-toolbar">
 		                                                    <div class="am-btn-group am-btn-group-xs">
-		                                                        <button onclick="userPreview()" class="am-btn am-btn-default am-btn-xs am-text-secondary">
-		                                                            <span class="am-icon-eye">
-		                                                            </span> 查看
-		                                                        </button>
+		                                                        
 		                                                        <input type="hidden" data-id="${user.userInfo.userInfoId}"/>
 		                                                        <button type="button" class="btn-close am-btn am-btn-default am-btn-xs am-text-danger ">
 		                                                            <span class="am-icon-trash-o"></span> 删除

@@ -67,26 +67,25 @@ public class IndexControllerImpl {
 	 * @author HanChen  
 	 * @return String
 	 */
-	@RequestMapping(value = "indexBack")
+	@RequestMapping(value="indexBack")
 	public String indexBack(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,
 			@RequestParam(name = "timeSlot", defaultValue = "0") int timeSlot,
 			 HttpServletRequest request, HttpSession session) {
 		
 		// 获取用户信息
 		LoginUser loginUser = (LoginUser) session.getAttribute("bloginUser");
-		
 		Page<News> page = new Page<News>();
 		page = this.newsServiceImpl.getHotNewsList(pageNum, 5, new Object[] {30}, timeSlot);
 
-		session.setAttribute("page", page);
+		session.setAttribute("page",page);
 		
 		News theMostHot = new News();
 		theMostHot = this.newsServiceImpl.getMostHotNews(timeSlot);
-		session.setAttribute("theMostHot", theMostHot);
+		session.setAttribute("theMostHot",theMostHot);
 		
 		Page<Notice> noticePage = new Page<Notice>();
 		noticePage = this.noticeServiceImpl.listNotice(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
-		session.setAttribute("noticePage", noticePage);
+		session.setAttribute("noticePage",noticePage);
 		
 		return "backstage/index_back";
 	}

@@ -1,13 +1,10 @@
 package com.aps.userinfo.controller;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.aps.entity.News;
 import com.aps.news.service.NewsServiceImpl;
 import com.framework.Page;
-import com.sun.jndi.toolkit.url.UrlUtil;
 
 @Controller
 public class UserInfoControllerImpl {
@@ -34,6 +30,8 @@ public class UserInfoControllerImpl {
 	@RequestMapping("index")
 	public String index(@RequestParam(name = "pageNum", defaultValue = "1") int pageNum,HttpSession session,HttpServletRequest request) {
 		// 查询首页3条新闻
+		List<News> hotpoint = newsServiceImpl.findHonor().subList(0, 1);
+		session.setAttribute("hotpoint", hotpoint);
 		List<News> listNewsIndex1 = newsServiceImpl.findHonor().subList(0, 3);
 		session.setAttribute("listNewsIndex1", listNewsIndex1);
 		List<News> listNewsIndex2 = newsServiceImpl.findHonor().subList(3, 6);
@@ -42,7 +40,9 @@ public class UserInfoControllerImpl {
 		session.setAttribute("listNewsIndex3", listNewsIndex3);
 		List<News> listNewsIndex4 = newsServiceImpl.findHonor().subList(9, 12);
 		session.setAttribute("listNewsIndex4", listNewsIndex4);
-		
+		List<News> findNewsBigTop = newsServiceImpl.findNewsBigTop().subList(0, 4);
+		session.setAttribute("findNewsBigTop", findNewsBigTop);
+	
 		//获取昨日新闻
 		Page<News> page;
 		page = this.newsServiceImpl.findANewsFrontToday(pageNum, 4);

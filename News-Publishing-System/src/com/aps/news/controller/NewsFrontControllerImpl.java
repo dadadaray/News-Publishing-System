@@ -23,7 +23,7 @@ public class NewsFrontControllerImpl {
 	
 	@Resource
 	private NewsTypeServiceImpl NewsTypeServiceImpl;
-
+	
 	/**
 	 * @dec 显示一条新闻
 	 * @author Ray
@@ -65,7 +65,7 @@ public class NewsFrontControllerImpl {
 	}
 
 	/**
-	 * @dec 前台分页获取所有新闻 每页七条
+	 * @dec 前台分页获取所有新闻 每页七条 按时间排序
 	 * @author Ray
 	 * @param pageNum
 	 * @param session

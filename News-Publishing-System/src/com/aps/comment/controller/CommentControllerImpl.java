@@ -76,6 +76,9 @@ public class CommentControllerImpl {
 			this.commentServiceImpl.saveComment(comment);
 		}
 		// 评论量加一
+		if(news.getCommentNum()==null){
+			news.setCommentNum(0);
+		}
 		news.setCommentNum(news.getCommentNum() + 1);
 	    this.newsServiceImpl.updateNews(news);
 		return "redirect:/newsFront/findoneNews?newsId=" + newsId;
