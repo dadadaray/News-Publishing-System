@@ -109,7 +109,7 @@
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="add_news.jsp" class="nav-link  tpl-left-nav-link-list">
+                        <a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-pencil-square"></i>
                             <span>添加新文章</span>
                         </a>
