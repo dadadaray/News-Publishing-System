@@ -100,6 +100,10 @@ public class AddFreeModController {
 			u.getUserInfo().setSendpassNum(0);
 		}
 		u.getUserInfo().setSendpassNum(u.getUserInfo().getSendpassNum() + 1);
+		news3.setCommentNum(0);
+		news3.setViews(0);
+		news3.setShare(0);
+		news3.setLikes(0);
 		news3.setUserInfo(u.getUserInfo());
 		// 设置模板
 		Set<ModFree> modFree = new HashSet<ModFree>(0);

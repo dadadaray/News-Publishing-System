@@ -49,34 +49,23 @@
 			<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
 		</button>
 
-		<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+               
+                <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
-			<ul
-				class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-					<a class="am-dropdown-toggle tpl-header-list-link"
-					href="javascript:;"> <span class="am-icon-bell-o"></span> 新文章 <span
-						class="am-badge tpl-badge-danger am-round">2</span>
-				</a>
-					
-				</li>
-				<li class="am-hide-sm-only"><a href="javascript:;"
-					id="admin-fullscreen" class="tpl-header-list-link"><span
-						class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a>
-				</li>
-
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-					<a href="${ctx}/userinfo.jsp"> <span
-						class="tpl-header-list-user-nick">管理员身份</span><span
-						class="tpl-header-list-user-ico"> <img
-							src="${ctx}/assets/img/user01.png"></span>
-				</a>
-				</li>
-				<li><a href="${ctx1}/backstage/logOut"
-					class="tpl-header-list-link"><span
-						class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
-			</ul>
-		</div>
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a href="userinfo.jsp">
+                        <span class="tpl-header-list-user-nick">${bloginUser.loginName}</span><span class="tpl-header-list-user-ico"> <img src="${ctx1}/imgUp/${bloginUser.userInfo.headUrl}"></span>
+                    </a>
+                </li>
+                <li>
+                  <a href="${ctx1}/backstage/logOut" class="tpl-header-list-link">
+                    <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
+                  </a>
+                </li>
+            </ul>
+        </div>
 	</header>
 	<div class="tpl-page-container tpl-page-header-fixed">
 
@@ -85,7 +74,7 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="${ctx1}/backstage/index" class="nav-link active">
+                        <a href="${ctx1}/backstage/indexs" class="nav-link active">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>

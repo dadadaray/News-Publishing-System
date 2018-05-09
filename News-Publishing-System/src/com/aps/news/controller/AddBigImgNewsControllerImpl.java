@@ -99,6 +99,10 @@ public class AddBigImgNewsControllerImpl {
 		if (loginUser.getUserInfo().getSendpassNum() == null) {
 			loginUser.getUserInfo().setSendpassNum(0);
 		}
+		news1.setCommentNum(0);
+		news1.setViews(0);
+		news1.setShare(0);
+		news1.setLikes(0);
 		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
 		// 设置新闻编辑人
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");

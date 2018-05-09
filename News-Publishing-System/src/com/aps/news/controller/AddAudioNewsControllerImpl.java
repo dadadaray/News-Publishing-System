@@ -134,6 +134,7 @@ public class AddAudioNewsControllerImpl {
 		if (loginUser.getUserInfo().getSendpassNum() == null) {
 			loginUser.getUserInfo().setSendpassNum(0);
 		}
+		
 		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
 		news1.setCommentNum(0);
 		news1.setViews(0);

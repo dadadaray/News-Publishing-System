@@ -99,7 +99,8 @@ public class NoticeControllerImpl {
 	 * @return String
 	 */
 	@RequestMapping(value = "findoneNews", method = RequestMethod.GET)
-	public String getNews(@RequestParam(name = "newsId") Integer newsId,@RequestParam(name = "noticeId") String noticeId,
+	public String getNews(@RequestParam(name = "newsId") Integer newsId,
+			@RequestParam(name = "noticeId", required = false) String noticeId,
 			@RequestParam(name = "tag", defaultValue = "1") int tag, HttpServletRequest request, HttpSession session) {
 		News news = this.newsServiceImpl.getOneNews(newsId);
 		LoginUser user = (LoginUser) session.getAttribute("bloginUser");

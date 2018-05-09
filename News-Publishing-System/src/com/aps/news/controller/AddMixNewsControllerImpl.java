@@ -133,8 +133,12 @@ public class AddMixNewsControllerImpl {
 		if (loginUser.getUserInfo().getSendpassNum() == null) {
 			loginUser.getUserInfo().setSendpassNum(0);
 		}
+		
 		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
-
+		news1.setCommentNum(0);
+		news1.setViews(0);
+		news1.setShare(0);
+		news1.setLikes(0);
 		news1.setAuditorId(30);
 		// 设置新闻编辑人
 		LoginUser u = (LoginUser) session.getAttribute("bloginUser");
@@ -362,6 +366,10 @@ public class AddMixNewsControllerImpl {
 			loginUser.getUserInfo().setSendpassNum(0);
 		}
 		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
+		news2.setCommentNum(0);
+		news2.setViews(0);
+		news2.setShare(0);
+		news2.setLikes(0);
 		// 设置审核人id
 		news2.setAuditorId(30);
 		// 设置新闻编辑人
@@ -559,6 +567,10 @@ public class AddMixNewsControllerImpl {
 			loginUser.getUserInfo().setSendpassNum(0);
 		}
 		loginUser.getUserInfo().setSendpassNum(loginUser.getUserInfo().getSendpassNum() + 1);
+		news3.setCommentNum(0);
+		news3.setViews(0);
+		news3.setShare(0);
+		news3.setLikes(0);
 		news3.setStatues(1);
 		news3.setTopShow(0);
 		// 设置审核人id
@@ -771,7 +783,7 @@ public class AddMixNewsControllerImpl {
 	 * @throws IOException
 	 */
 	// 模板二预览新闻
-	@RequestMapping("previewMixMod1")
+	@RequestMapping("")
 	public String viewNewsMod1(@RequestParam("mod1title") String mod2title, @RequestParam("file1") MultipartFile file1,
 			@RequestParam("textarea1") String textarea1, @RequestParam("file2") MultipartFile file2,
 			@RequestParam("textarea2") String textarea2, @RequestParam("file3") MultipartFile file3,
