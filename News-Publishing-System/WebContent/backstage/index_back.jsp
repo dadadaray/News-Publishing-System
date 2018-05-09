@@ -84,7 +84,7 @@
 		<div class="tpl-left-nav tpl-left-nav-hover">
 			<div class="tpl-left-nav-list">
 				<ul class="tpl-left-nav-menu">
-					<li class="tpl-left-nav-item"><a href="${ctx}/index_back.jsp" class="nav-link active"> <i class="am-icon-home"></i> <span>首页</span>
+					<li class="tpl-left-nav-item"><a href="${ctx1}/backstage/indexBack" class="nav-link active"> <i class="am-icon-home"></i> <span>首页</span>
 					</a></li>
 					<li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link tpl-left-nav-link-list"> <i class="am-icon-file-text"></i> <span>文章管理</span> <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
 					</a>

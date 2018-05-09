@@ -46,39 +46,7 @@
 		<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
 			<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-					<a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-						<span class="am-icon-bell-o"></span>
-						新文章
-						<span class="am-badge tpl-badge-danger am-round">2</span>
-					</a>
-					<ul class="am-dropdown-content tpl-dropdown-content">
-						<li class="tpl-dropdown-content-external">
-							<h3>
-								你有
-								<span class="tpl-color-danger">2</span>
-								条提醒
-							</h3>
-							<a href="${ctx}/all_news_back_checking.jsp">全部</a>
-						</li>
-						<li class="tpl-dropdown-list-bdbc">
-							<a href="${ctx}/all_news_back_checking_content.jsp" class="tpl-dropdown-list-fl">
-								<span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-								发来新文章
-								<span>《传达室》</span>
-							</a>
-							<span class="tpl-dropdown-list-fr">3小时前</span>
-						</li>
-						<li class="tpl-dropdown-list-bdbc">
-							<a href="${ctx}/all_news_back_checking_content.jsp" class="tpl-dropdown-list-fl">
-								<span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span>
-								发来新文章
-								<span>《传达室》</span>
-							</a>
-							<span class="tpl-dropdown-list-fr">3小时前</span>
-						</li>
-					</ul>
-				</li>
+			
 				<li class="am-hide-sm-only">
 					<a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link">
 						<span class="am-icon-arrows-alt"></span>
