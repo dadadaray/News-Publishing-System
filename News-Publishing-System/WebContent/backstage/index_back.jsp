@@ -115,7 +115,7 @@
 							<i class="am-icon-comments-o"></i>
 						</div>
 						<div class="details">
-							<div class="number">112012</div>
+							<div class="number">5203</div>
 							<div class="desc">网站浏览量</div>
 						</div>
 						<a class="more" href=""> 详情查看 <i class="m-icon-swapright m-icon-white"></i>
@@ -128,7 +128,7 @@
 							<i class="am-icon-bar-chart-o"></i>
 						</div>
 						<div class="details">
-							<div class="number">210</div>
+							<div class="number">10</div>
 							<div class="desc">新注册用户</div>
 						</div>
 						<a class="more" href="#"> 详情查看 <i class="m-icon-swapright m-icon-white"></i>
@@ -141,7 +141,7 @@
 							<i class="am-icon-apple"></i>
 						</div>
 						<div class="details">
-							<div class="number"><c:if test="${not empty noticePage and noticePage.totalCount > 0}"></c:if></div>
+							<div class="number">${noticePage.totalCount}</div>
 							<div class="desc">待审核文章</div>
 						</div>
 						<a class="more" href="#"> 查看更多 <i class="m-icon-swapright m-icon-white"></i>
@@ -184,7 +184,7 @@
 									<div class="stat-number am-fl am-u-md-6">
 										<div class="title am-text-right">最热文章</div>
 										
-										<div class="text_wen am-text-right am-text-warning">《${theMostHot.newsTitle}》</div>
+										<div class="text_wen am-text-right am-text-warning">《${fn:substring(theMostHot.newsTitle, 0,20)}<c:if test="${fn:length(theMostHot.newsTitle)>20}">...</c:if>》</div>
 									</div>
 									<div class="stat-number am-fr am-u-md-6">
 										<div class="title">浏览量</div>
