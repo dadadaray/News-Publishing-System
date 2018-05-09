@@ -11,7 +11,7 @@ package com.aps.news.service;
 
 import javax.annotation.Resource;
 
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import com.aps.entity.ModMixLR;
 import com.aps.entity.News;
@@ -32,7 +32,7 @@ import com.aps.modVideo.ModVedioDaoImpl;
  * @version
  *
  */
-
+@Service
 public class UpdateNewsServiceImpl {
 	@Resource
 	private modMixCenterDaoImpl addNewsDaoImpl;

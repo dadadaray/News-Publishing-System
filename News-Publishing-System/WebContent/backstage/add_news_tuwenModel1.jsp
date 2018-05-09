@@ -112,7 +112,7 @@
 									<div class="tpl-form-body tpl-form-line">
 										<form id="Form_model1" class="am-form tpl-form-line-form" action="" method="post" enctype="multipart/form-data" target="">
 											
-											<input id="newsId" value="${OneNews.newsId}" type="hidden"/>
+											<input id="newsId" name="newsId" value="${OneNews.newsId}" type="hidden"/>
 											<input style="font-size: 30px; padding: 10px; font-weight: bold; text-align: center; border: 1px solid #c2cad8;" type="text" name="mod1title" value="${empty OneNews.newsTitle ? 这是题目 : OneNews.newsTitle }">
 											<c:choose>
 												<c:when test="${not empty OneNews.modMixLRs}">
@@ -264,13 +264,13 @@
 														<input type="file" name="coverImg" class="file" onchange="imgChange(this);" style="width: 260px; outline: none;" />
 														<div class="preview" style="margin-top: 20px;">
 														<c:choose>
-															<c:when test="${not empty oneNews.coverImgUrl}">
-																<img class="imghead" src="${ctx1}/newsImgUp/${oneNews.coverImgUrl}" width="320" height="213" />
+															<c:when test="${empty OneNews.coverImgUrl}">
+																<img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="213" />
 															</c:when>
 															<c:otherwise>
-																<img class="imghead" src="${ctx}/assets/img/add.png" width="320" height="213" />
+																<img class="imghead" src="${ctx1}/newsImgUp/${OneNews.coverImgUrl}" width="320" height="213" />
 															</c:otherwise>
-														</c:choose>
+														</c:choose> 
 														</div>
 													</div>
 													<!--input-group end-->
@@ -322,7 +322,11 @@
 			//发布按钮
 			$("#sendMod1").click(function() {
 				//alert("点击了");
+				var newsId = $("#newsId").val();
 				var url = "${ctx1}/addnews/mod1SendNews";
+				if( null != newsId){
+					url = "${ctx1}/updatenews/mod1SendNews";
+				}
 				$("#Form_model1").attr("action", url);
 				$("#Form_model1").submit();
 			})
@@ -338,7 +342,11 @@
 			//存草稿按钮
 			$("#mod1SaveDraftNews").click(function() {
 				//alert("点击了");
-				var url = "${ctx1 }/addnews/mod1SaveNewsdraft";
+				var newsId = $("#newsId").val();
+				var url = "${ctx1}/addnews/mod1SaveNewsdraft";
+				if( null != newsId){
+					url = "${ctx1}/updatenews/mod1SaveNewsdraft";
+				}				
 				$("#Form_model1").attr("action", url);
 				$("#Form_model1").submit();
 			})

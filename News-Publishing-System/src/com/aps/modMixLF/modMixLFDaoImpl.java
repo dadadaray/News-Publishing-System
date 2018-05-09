@@ -54,7 +54,7 @@ public class modMixLFDaoImpl extends BaseDao<ModMixLR, String> {
 	 */
 	public ModMixLR getOneModMixLR(int modMixLRId){
 		try {
-			ModMixLR modMixLR = this.getOneModMixLR(modMixLRId);
+			ModMixLR modMixLR = this.get(modMixLRId);
 			return modMixLR;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
