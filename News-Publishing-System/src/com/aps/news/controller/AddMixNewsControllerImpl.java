@@ -469,7 +469,7 @@ public class AddMixNewsControllerImpl {
 		Date currentTime = new Date();
 		news2.setCreateTime(currentTime);
 		news2.setTopShow(0);
-		news2.setStatues(1);
+		news2.setStatues(0);
 		// 设置审核人id
 		news2.setAuditorId(30);
 		// 设置新闻编辑人
@@ -637,7 +637,7 @@ public class AddMixNewsControllerImpl {
 		// 获取当前时间
 		Date currentTime = new Date();
 		news3.setCreateTime(currentTime);
-		news3.setStatues(1);
+		news3.setStatues(0);
 		news3.setTopShow(0);
 		// 设置审核人id
 		news3.setAuditorId(30);

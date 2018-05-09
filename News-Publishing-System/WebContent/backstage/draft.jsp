@@ -223,7 +223,7 @@
 		                                    </ul>
 		                                </div>
 		                                <div class="row">
-		                                    <a href="${ctx}/add_news.jsp" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</a>
+		                                    <button onclick="edit(${news.newsId})" class="am-u-xs-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-xs am-btn-secondary"><span class="am-icon-edit"></span> 编辑</button>
 		                                    <input type="hidden" data-id="${news.newsId}"/>
 		                                    <button type="button" class="am-u-lg-6 am-u-md-6 am-u-sm-6 am-btn am-btn-default am-btn-danger am-btn-xs btn-close"><span class="am-icon-trash-o"></span> 删除</button>
 		                                </div>
@@ -324,6 +324,11 @@
     function sendsuc(e){
         var txt=e.innerText;
         window.wxc.xcConfirm(txt);
+    }
+    
+    //查看
+    function edit(newsId){
+        window.open("${ctx1}/backstage/news/openEdit?newsId=" + newsId);
     }
 </script>
 </body>

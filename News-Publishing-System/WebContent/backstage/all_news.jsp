@@ -218,7 +218,7 @@
 		                                        <tr>
 		                                            <td><input class="checkOne" type="checkbox" name="box" onclick="checkonebox()" value="${news.newsId}"></td>
 		                                            <td>${status.index+1}</td>
-		                                            <td><a href="#">《${news.newsTitle}》</a></td>
+		                                            <td><a href="#">《${fn:substring(news.newsTitle, 0,10)}<c:if test="${fn:length(news.newsTitle)>10}">...</c:if>》</a></td>
 		                                            <td>${news.newsType.typeName}</td>
 		                                            <td class="am-hide-sm-only">${news.views}</td>
 		                                            <td class="am-hide-sm-only">${news.share}</td>
@@ -227,6 +227,9 @@
 		                                            <td>
 		                                                <div class="am-btn-toolbar">
 		                                                    <div class="am-btn-group am-btn-group-xs">
+																<button onclick="return preview(${news.newsId})" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+																	<span class="am-icon-eye"> </span> 查看
+																</button>		                                                    
 		                                                        <button onclick="edit(${news.newsId})" class="am-btn am-btn-default am-btn-xs am-text-secondary">
 		                                                            <span class="am-icon-pencil-square-o">
 		                                                            </span> 编辑
@@ -291,6 +294,12 @@
 <script src="${ctx}/assets/js/app.js"></script>
 </body>
 <script type="text/javascript">
+
+	//查看
+	function preview(newsId) {
+		window.location.href="${ctx1}/backstage/notice/findoneNews?tag=1&newsId="+newsId;
+		return false;
+	}
 
 	//新闻排序方式
 	function newsSort(orderBy){
