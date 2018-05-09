@@ -124,7 +124,7 @@
 							<div class="content">
 								<c:forEach items="${OneNews.modMixSingles}" var="mods" varStatus="status">
 									<div class="f_pic">
-										<a href="#"><img src="${ctx}/newsImgUp/${mods.mMixSingleImgOne}" alt="" /></a>
+										<a href="#"><img src="${ctx}/newsImgUp/${mods.mMixSingleImgOne}" alt="" height="267px" width="400px"/></a>
 									</div>
 									<p class="text_p">${mods.mMixSingleContentOne}</p>
 
