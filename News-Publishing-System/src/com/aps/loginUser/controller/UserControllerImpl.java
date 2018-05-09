@@ -62,6 +62,7 @@ public class UserControllerImpl {
 			loginUser.setRole(role);
 			userInfo.setUserRegistTime(time);
 			userInfo.setLoginUser(loginUser);
+			userInfo.setHeadUrl("default.png");
 			loginUser.setUserInfo(userInfo);
 			String result = this.userServiceImpl.register(loginUser,
 					request.getServerName() + ":" + request.getServerPort());

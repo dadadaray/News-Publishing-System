@@ -141,7 +141,7 @@
 							<i class="am-icon-apple"></i>
 						</div>
 						<div class="details">
-							<div class="number">35</div>
+							<div class="number"><c:if test="${not empty noticePage and noticePage.totalCount > 0}"></c:if></div>
 							<div class="desc">待审核文章</div>
 						</div>
 						<a class="more" href="#"> 查看更多 <i class="m-icon-swapright m-icon-white"></i>
@@ -154,8 +154,8 @@
 							<i class="am-icon-android"></i>
 						</div>
 						<div class="details">
-							<div class="number">3</div>
-							<div class="desc">今日发布文章</div>
+							<div class="number">30</div>
+							<div class="desc">昨日发布文章</div>
 						</div>
 						<a class="more" href="#"> 查看更多 <i class="m-icon-swapright m-icon-white"></i>
 						</a>

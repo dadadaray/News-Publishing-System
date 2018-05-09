@@ -36,8 +36,12 @@
 						<ul>
 							<li>
 								<div>
-									 <img src="${ctx}/images/default.jpg" width="20px" height="20px" class="img-circle" /> 
-									
+								<c:if test="${loginUser!=null}">
+									 <img src="${ctx}/imgUp/${loginUser.userInfo.headUrl}" width="20px" height="20px" class="img-circle" /> 
+								</c:if>
+								<c:if test="${loginUser==null}">
+								     <img src="${ctx}/imgUp/default.png" width="20px" height="20px" class="img-circle" /> 
+								</c:if>
 								</div>
 							</li>
 						</ul>
