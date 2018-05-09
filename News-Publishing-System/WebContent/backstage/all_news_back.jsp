@@ -30,7 +30,11 @@
 
 <body data-type="index">
 
-
+<%
+		if (session.getAttribute("page") == null) {
+			request.getRequestDispatcher("backstage/news/back/publish/list").forward(request, response);
+		}
+	%>
 	<header class="am-topbar am-topbar-inverse admin-header">
 		<div class="am-topbar-brand">
 			<a href="javascript:;" class="tpl-logo">
@@ -262,7 +266,7 @@
 																	<span class="am-icon-eye"> </span>
 																	查看
 																</button>
-																<button type="button" class="am-btn am-btn-default am-btn-xs am-text-warning am-hide-sm-only" onclick="topNews(this)">
+																<button type="button" class="am-btn am-btn-default am-btn-xs am-text-warning am-hide-sm-only" onclick="topNews(${news.newsId})">
 																	<span class="am-icon-level-up"> </span>
 																	推荐
 																</button>
@@ -345,7 +349,6 @@
 				onConfirm : function(options) {
 					var $link = $(this.relatedTarget).prev('input');
 					var id = $link.data('id');
-					var msg = '你要删除的链接 ID 为 ' + $link.data('id');
 					$.ajax({
 						type:"post",
 						url:"/News-Publishing-System/backstage/news/delete",
@@ -368,7 +371,7 @@
 				},
 				// closeOnConfirm: false,
 				onCancel : function() {
-					alert('算求，不弄了');
+					//alert('算求，不弄了');
 				}
 			});
 		});
@@ -408,12 +411,12 @@
 		
 		//新闻排序方式
 		function newsSort(orderBy){
-			debugger;
 			window.location.href ="/News-Publishing-System/backstage/news/back/publish/list?orderBy=" + orderBy;
 		}
 		
 		//推荐弹框
-		function topNews() {
+		function topNews(newsId) {
+			window.location.href ="/News-Publishing-System/backstage/news/topSelect?newsId=" + newsId;
 			window.wxc.xcConfirm("已成功推荐该文章！");
 		}
 

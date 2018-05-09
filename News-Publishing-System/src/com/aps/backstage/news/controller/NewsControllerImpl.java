@@ -27,6 +27,7 @@ import com.aps.news.service.NewsServiceImpl;
 import com.aps.notice.service.NoticeServiceImpl;
 import com.aps.news.service.DeleteNewsServiceImpl;
 import com.framework.Page;
+import com.sun.org.glassfish.gmbal.ParameterNames;
 
 /**
  * 
@@ -48,6 +49,18 @@ public class NewsControllerImpl {
 	
 	@Resource
 	private DeleteNewsServiceImpl deleteNewsServiceImpl;
+	
+	/**
+	 * @dec 推荐位
+	 * @author Ray
+	 * @param newsId
+	 * @return
+	 */
+	@RequestMapping(value="topSelect",method=RequestMethod.GET)
+	public String topselect(@RequestParam(name="newsId") Integer newsId){
+		this.newsServiceImpl.topSelect(newsId);
+		return "backstage/all_news_back";
+	}
 	
 	/**
 	 * @Title: publishNewsList
@@ -178,6 +191,7 @@ public class NewsControllerImpl {
 		page = this.newsServiceImpl.backUncheckedNewsList(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
 
 		session.setAttribute("page", page);
+		
 		return "backstage/all_news_back_checked";		
 	}
 	
