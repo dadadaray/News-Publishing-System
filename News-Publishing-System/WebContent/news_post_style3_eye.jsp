@@ -117,7 +117,7 @@
 
 							<div class="content">
 								<div class="f_pic">
-									<a href="#"><img src="${ctx}/preViewImgUp/${premod3F1}" alt="" /></a>
+									<p style="text-align:center"><a href="#"><img src="${ctx}/preViewImgUp/${premod3F1}" alt="" width="400px" height="267px"/></a></p>
 								</div>
 								<p class="text_p">
 									${mod3textarea1}
