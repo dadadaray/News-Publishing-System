@@ -84,7 +84,7 @@ public class IndexControllerImpl {
 		session.setAttribute("theMostHot",theMostHot);
 		
 		Page<Notice> noticePage = new Page<Notice>();
-		noticePage = this.noticeServiceImpl.listNotice(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
+		noticePage = this.noticeServiceImpl.listNotice1(pageNum, 8, new Object[] { loginUser.getUserInfo().getUserInfoId()});
 		session.setAttribute("noticePage",noticePage);
 		
 		return "backstage/index_back";

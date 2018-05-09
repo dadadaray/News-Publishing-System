@@ -60,7 +60,7 @@
 								</h3> <a href="${ctx}/all_news_back_checking.jsp">全部</a>
 							</li>
 							<c:forEach items="${noticePage.list}" var="notice" varStatus="status">
-								<li class="tpl-dropdown-list-bdbc"><a href="${ctx1}/backstage/notice/findoneNews?tag=0&newsId=${notice.news.newsId}" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> <span>${notice.userInfo.loginUser.loginName}</span> 发来新文章<span>《${notice.news.newsTitle}》</span>
+								<li class="tpl-dropdown-list-bdbc"><a href="${ctx1}/backstage/notice/findoneNews?tag=0&noticeId=${notice.noticeId}&newsId=${notice.news.newsId}" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-danger"></span> <span>${notice.userInfo.loginUser.loginName}</span> 发来新文章<span>《${notice.news.newsTitle}》</span>
 								</a> <span class="tpl-dropdown-list-fr"><fmt:formatDate value="${notice.noticeCreatTime}" pattern="yyyy/MM/dd hh:mm" /></span></li>
 							</c:forEach>
 						</c:if>
@@ -253,6 +253,27 @@
 		function timeSort(timeSlot) {
 			window.location.href = "/News-Publishing-System/backstage/indexBack?timeSlot="
 					+ timeSlot;
+		}
+		
+		function deleteNotice(noticeId){
+			$.ajax({
+				type:"post",
+				url:"/News-Publishing-System/backstage/news/delete",
+				data : {
+					noticeIds : ids
+				},
+				success : function(data, status) {
+					if (data != "0") {
+						alert("删除成功！");
+						window.location.href ="/News-Publishing-System/backstage/news/publish/list";
+					}else{
+						alert("删除出错！");
+					}
+				},
+				error :function(){
+					alert("删除出错！");
+				}
+			});			
 		}
 	</script>
 </body>

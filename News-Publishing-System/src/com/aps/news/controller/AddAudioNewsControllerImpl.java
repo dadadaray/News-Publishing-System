@@ -178,9 +178,11 @@ public class AddAudioNewsControllerImpl {
 	 * @return String
 	 */
 	@RequestMapping(value = "audioSaveNewsDraft", method = RequestMethod.POST)
-	private String audioSaveNewsDraft(@RequestParam("audioFile") MultipartFile audioFile,
-			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod,
-			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile,
+	private String audioSaveNewsDraft(@RequestParam(value = "audioFile", required = false) MultipartFile audioFile,
+			@RequestParam(value = "title", required = false) String title, 
+			@RequestParam(value = "selectmod", required = false) Integer selectmod,
+			@RequestParam(value = "textarea", required = false) String textarea, 
+			@RequestParam(value = "coverfile", required = false) MultipartFile coverfile,
 			HttpSession session) throws IOException {
 		// 音频文件名称
 		String filename = audioFile.getOriginalFilename();

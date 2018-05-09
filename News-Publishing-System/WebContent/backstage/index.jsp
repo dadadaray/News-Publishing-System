@@ -298,7 +298,7 @@
 											</c:if>
 		                           			<font color="82949a">
 		                           				<span>&nbsp;&nbsp;你的文章：</span>
-		                            			<span class="bold">《${fn:substring(notice.news.newsTitle,0,40)}<c:if test="${fn:length(notice.news.newsTitle)>40}">...</c:if>》</span>
+		                            			<span class="bold">《${fn:substring(notice.news.newsTitle,0,30)}<c:if test="${fn:length(notice.news.newsTitle)>30}">...</c:if>》</span>
 			                           			<c:if test="${0 == notice.noticeType}"> 
 			                           				<span>&nbsp;&nbsp;需要修改</span>
 												</c:if>

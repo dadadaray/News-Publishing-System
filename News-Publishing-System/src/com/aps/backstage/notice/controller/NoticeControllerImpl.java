@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -98,7 +99,7 @@ public class NoticeControllerImpl {
 	 * @return String
 	 */
 	@RequestMapping(value = "findoneNews", method = RequestMethod.GET)
-	public String getNews(@RequestParam(name = "newsId") Integer newsId,
+	public String getNews(@RequestParam(name = "newsId") Integer newsId,@RequestParam(name = "noticeId") String noticeId,
 			@RequestParam(name = "tag", defaultValue = "1") int tag, HttpServletRequest request, HttpSession session) {
 		News news = this.newsServiceImpl.getOneNews(newsId);
 		LoginUser user = (LoginUser) session.getAttribute("bloginUser");
@@ -107,6 +108,9 @@ public class NoticeControllerImpl {
 		request.setAttribute("tag", tag);
 		//管理员
 		if (user.getRole().getRoleId() == 3) {
+			if(StringUtils.isNotEmpty(noticeId)){
+				this.noticeServiceImpl.deleteNotice(noticeId);
+			}
 
 			if (news.getModVedios().size() > 0) {
 				return "backstage/check_content_video";

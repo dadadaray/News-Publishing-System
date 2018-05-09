@@ -24,7 +24,7 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 	
 	/**
 	 * @Title: findAllNotice
-	 * @Description: 获取所有的通知   分页
+	 * @Description: 记者获取所有的通知   分页
 	 * @param pageNum
 	 * @param pageSize
 	 * @param params
@@ -55,6 +55,41 @@ public class NoticeDaoImpl extends BaseDao<Notice, String> {
 			return null;
 		}
 	}
+	
+	/**
+	 * @Title: findAllNotice1
+	 * @Description: 记者获取所有的通知   分页
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 * @author HanChen 
+	 * @return Page<Notice>
+	 */
+	public Page<Notice> findAllNotice1(int pageNum, int pageSize, Object[] params) {
+		
+		String hql;
+		/*if(params!=null && params.length>0){
+			hql="from Notice n where n.noticeContent like ? and n.noticeType != 3 order by n.noticeCreatTime desc";
+			params[0]="%"+params[0]+"%";
+		}else{
+			hql="from Notice n where n.noticeType != 3 order by n.noticeCreatTime desc";
+		}*/
+		hql="from Notice n where n.reciveId = ? and n.noticeType = 3 order by n.noticeCreatTime desc";
+		params[0]=params[0];
+		
+		try{
+			Page<Notice> page = new Page<Notice>();
+			page.setCurrentPageNum(pageNum);
+			page.setPageSize(pageSize);
+			page = this.findByPage(pageNum, pageSize, hql, params);
+			return page;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	/**
 	 * @Title: getNoticeById
 	 * @Description: 根据noticeId 查询Notice

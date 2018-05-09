@@ -56,6 +56,20 @@ public class NoticeServiceImpl {
 	}
 	
 	/**
+	 * @Title: listNotice1
+	 * @Description: 分页查询管理员收到的所有通知
+	 * @param pageNum
+	 * @param pageSize
+	 * @param params
+	 * @return
+	 * @author HanChen 
+	 * @return Page<Notice>
+	 */
+	public Page<Notice> listNotice1(int pageNum, int pageSize, Object[] params) {
+		return this.noticeDaoImpl.findAllNotice1(pageNum, pageSize, params);
+	}
+	
+	/**
 	 * @Title: deleteNotice
 	 * @Description: 删除通知
 	 * @param noticeIds
@@ -133,7 +147,7 @@ public class NoticeServiceImpl {
 		
 		Notice notice = new Notice();
 		notice.setNoticeContent(loginUser.getLoginName()+"发来新文章《" + news.getNewsTitle() + "》");
-		notice.setNoticeType(1);
+		notice.setNoticeType(3);
 		notice.setNews(news);
 		Date currentTime = new Date();
 		notice.setNoticeCreatTime(currentTime);

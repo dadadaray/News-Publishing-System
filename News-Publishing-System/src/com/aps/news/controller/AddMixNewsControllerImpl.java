@@ -400,10 +400,14 @@ public class AddMixNewsControllerImpl {
 	 */
 	@RequestMapping(value = "mod1SaveNewsdraft", method = RequestMethod.POST)
 	public String mod1SaveNewsDraft(@RequestParam("mod1title") String mod2title,
-			@RequestParam("file1") MultipartFile file1, @RequestParam("textarea1") String textarea1,
-			@RequestParam("file2") MultipartFile file2, @RequestParam("textarea2") String textarea2,
-			@RequestParam("file3") MultipartFile file3, @RequestParam("textarea3") String textarea3,
-			@RequestParam("selectmod1") Integer selectmod2, @RequestParam("coverImg") MultipartFile coverImg,
+			@RequestParam(value = "file1", required = false) MultipartFile file1, 
+			@RequestParam(value = "textarea1", required = false) String textarea1,
+			@RequestParam(value = "file2", required = false) MultipartFile file2, 
+			@RequestParam(value = "textarea2", required = false) String textarea2,
+			@RequestParam(value = "file3", required = false) MultipartFile file3, 
+			@RequestParam(value = "textarea3", required = false) String textarea3,
+			@RequestParam(value = "selectmod1", required = false) Integer selectmod2, 
+			@RequestParam(value = "coverImg", required = false) MultipartFile coverImg,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
 
 		// 第一个图片
@@ -592,9 +596,11 @@ public class AddMixNewsControllerImpl {
 	 * @throws IOException
 	 */
 	@RequestMapping(value = "mod3saveNewsDraft", method = RequestMethod.POST)
-	public String mod3SaveNewsDraft(@RequestParam("mod3title") String mod2title,
-			@RequestParam("file1") MultipartFile file1, @RequestParam("textarea1") String textarea1,
-			@RequestParam("selectmod3") Integer selectmod2, @RequestParam("coverImg") MultipartFile coverImg,
+	public String mod3SaveNewsDraft(@RequestParam(value = "mod3title") String mod2title,
+			@RequestParam(value = "file1", required = false) MultipartFile file1, 
+			@RequestParam(value = "textarea1", required = false) String textarea1,
+			@RequestParam(value = "selectmod3", required = false) Integer selectmod2, 
+			@RequestParam(value = "coverImg", required = false) MultipartFile coverImg,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
 
 		// 第一个图片

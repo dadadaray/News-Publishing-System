@@ -191,10 +191,12 @@ public class AddVideoNewsControllerImpl {
 	 * @return String
 	 */
 	@RequestMapping(value = "videoSaveNewsDraft", method = RequestMethod.POST)
-	private String videoSaveNewsDraft(@RequestParam("videoFile") MultipartFile videoFile,
-			@RequestParam("title") String title, @RequestParam("selectmod") Integer selectmod,
-			@RequestParam("textarea") String textarea, @RequestParam("coverfile") MultipartFile coverfile,
-			@RequestParam("coverViedoFile") MultipartFile coverViedoFile, HttpSession session) throws IOException {
+	private String videoSaveNewsDraft(@RequestParam(value = "videoFile", required = false) MultipartFile videoFile,
+			@RequestParam(value = "title", required = false) String title, 
+			@RequestParam(value = "selectmod", required = false) Integer selectmod,
+			@RequestParam(value = "textarea", required = false) String textarea, 
+			@RequestParam(value = "coverfile", required = false) MultipartFile coverfile,
+			@RequestParam(value = "coverViedoFile", required = false) MultipartFile coverViedoFile, HttpSession session) throws IOException {
 		// 视频文件名称
 		String filename = videoFile.getOriginalFilename();
 		String newFileName = addNewsServiceImpl.makeFileName(filename);
