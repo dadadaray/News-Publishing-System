@@ -125,6 +125,7 @@ public class NewsServiceImpl {
 			e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * @Title: publishNewsList
 	 * @Description: 得到新闻发布列表

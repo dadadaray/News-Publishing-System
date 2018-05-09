@@ -42,18 +42,7 @@
 		<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
 			<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-				<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle><a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;"> <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">3</span> </span>
-				</a>
-					<ul class="am-dropdown-content tpl-dropdown-content">
-						<li class="tpl-dropdown-content-external">
-							<h3>
-								你有 <span class="tpl-color-success">3</span> 条消息
-							</h3> <a href="${ctx}/tongzhi.jsp" class="font-green">全部</a>
-						</li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-success"></span> <span> 《从大城市的》 <span>需要修改 </a> <span class="tpl-dropdown-list-fr">3小时前</span></li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-danger"></span> <span> 《从大城市的》 <span>审核通过 </a> <span class="tpl-dropdown-list-fr">15分钟前</span></li>
-						<li class="tpl-dropdown-list-bdbc" onclick="sendsuc(this)"><a href="#" class="tpl-dropdown-list-fl"> <span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> <span> 《从大城市的》 <span>成为推荐文章 </a> <span class="tpl-dropdown-list-fr">2天前</span></li>
-					</ul></li>
+				
 				<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"> <span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span>
 				</a></li>
 
