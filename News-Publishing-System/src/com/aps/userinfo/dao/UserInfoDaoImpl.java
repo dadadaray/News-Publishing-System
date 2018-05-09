@@ -42,7 +42,7 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo, String> {
 	 */
 	public void updateImgUrl(int id, String url) {
 		UserInfo u = findById(id);
-		System.out.println("url:" + url);
+		//System.out.println("url:" + url);
 		u.setHeadUrl(url);
 		updateUserInfo(u);
 	}

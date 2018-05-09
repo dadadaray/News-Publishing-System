@@ -22,7 +22,23 @@ import com.framework.SqlUtils;;
 public class NewsDaoImpl extends BaseDao<News, String> {
 	@Resource
 	private SessionFactory sessionFactory;
-
+	
+	/**
+	 * @dec 新闻推荐实现
+	 * @author Ray
+	 * @param newsId
+	 */
+	public void topSelect(int newsId){
+	    try {
+			News news=this.get(newsId);
+			news.setTopShow(1);
+			this.updateNews(news);
+			System.out.print(news.getTopShow());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * @dec 按时间排序获取 首页推荐文章
 	 * @author Ray
@@ -478,7 +494,7 @@ public class NewsDaoImpl extends BaseDao<News, String> {
 	public void updateNews(News news) {
 		try {
 			super.update(news);
-			System.out.print("已更新news基础实体");
+			//System.out.print("已更新news基础实体");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -34,7 +34,7 @@ public class News {
 	private Integer topShow; // 推荐文章 0：不推 1：推荐
 	private Integer views; // 文章浏览量
 	private Integer likes; // 文章点赞数
-	private Integer share; // 文章分享数量
+	private Integer share; //文章分享数量
 	private Integer commentNum; // 文章评论数量
 
 	private Integer auditorId; // 审核人id

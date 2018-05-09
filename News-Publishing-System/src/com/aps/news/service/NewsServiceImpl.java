@@ -34,6 +34,17 @@ public class NewsServiceImpl {
 	private NewsDaoImpl newsDaoImpl;
 	
 	/**
+	 * @dec 文章推荐
+	 * @author Ray
+	 * @param newsId
+	 */
+	@Transactional(readOnly = false)
+	public void topSelect(Integer newsId) {
+		this.newsDaoImpl.topSelect(newsId);
+	}
+	
+	
+	/**
 	 * @dec 按时间排序获取 首页推荐文章
 	 * @author Ray
 	 * @return
