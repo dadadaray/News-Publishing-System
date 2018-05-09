@@ -49,7 +49,7 @@
 							<label>类型</label> <input type="text" id="filetype" name="filetype" /> <label>长</label> <input type="text" id="w" name="w" /> <label>高</label> <input type="text" id="h" name="h" />
 						</div>
 
-						<input type="submit" value="上传" />
+						<input id="headSubmit" type="submit" value="上传" />
 					</div>
 				</form>
 			</div>
@@ -63,4 +63,9 @@
 <script src="${ctx}/assets/js/jquery-1.8.3.min.js"></script>
 <script src="${ctx}/assets/js/jquery.Jcrop.min.js"></script>
 <script src="${ctx}/assets/js/script.js"></script>
+<script type="text/javascript">
+	$("#headSubmit").click(function(){
+		//window.close();
+	});
+</script>
 </html>

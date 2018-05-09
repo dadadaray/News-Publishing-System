@@ -64,7 +64,7 @@
 					</a></li>
 					<li class="tpl-left-nav-item"><a href="${ctx}/add_news.jsp" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-pencil-square"></i> <span>添加新文章</span>
 					</a></li>
-					<li class="tpl-left-nav-item"><a href="${ctx1}/backstage/notice" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-bell"></i> <span>通知管理</span> <i class="tpl-left-nav-content tpl-badge-danger"> 12 </i>
+					<li class="tpl-left-nav-item"><a href="${ctx1}/backstage/notice" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-bell"></i> <span>通知管理</span> 
 					</a></li>
 					<li class="tpl-left-nav-item"><a href="${ctx1}/backstage/draft/list" class="nav-link  tpl-left-nav-link-list"> <i class="am-icon-inbox"></i> <span>草稿箱</span>
 					</a></li>

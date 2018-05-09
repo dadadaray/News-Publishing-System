@@ -346,7 +346,6 @@
 					var $link = $(this.relatedTarget).prev('input');
 					var id = $link.data('id');
 					var msg = '你要删除的链接 ID 为 ' + $link.data('id');
-					alert(msg);
 					$.ajax({
 						type:"post",
 						url:"/News-Publishing-System/backstage/news/delete",

@@ -89,7 +89,6 @@
 						<a href="${ctx1}/backstage/notice" class="nav-link  tpl-left-nav-link-list">
 							<i class="am-icon-bell"></i>
 							<span>通知管理</span>
-							<i class="tpl-left-nav-content tpl-badge-danger"> 12 </i>
 						</a>
 					</li>
 					<li class="tpl-left-nav-item">
@@ -326,7 +325,6 @@
 					var $link = $(this.relatedTarget).prev('input');
 					var id = $link.data('id');
 					var msg = '你要删除的链接 ID 为 ' + $link.data('id');
-					alert(msg);
 					$.ajax({
 						type:"post",
 						url:"/News-Publishing-System/backstage/news/delete",

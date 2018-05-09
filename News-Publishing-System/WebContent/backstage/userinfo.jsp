@@ -82,9 +82,6 @@
                         <a href="${ctx1}/backstage/notice" class="nav-link  tpl-left-nav-link-list">
                             <i class="am-icon-bell"></i>
                             <span>通知管理</span>
-                            <i class="tpl-left-nav-content tpl-badge-danger">
-                               12
-                           </i>
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
